@@ -18,7 +18,7 @@ CREATE TABLE "posts" (
   "comment" text,
   "build_by" text,
   "time_read" text,
-  "created_at" TIMESTAMPTZ NOT NULL,
+  "created_at" TIMESTAMPTZ NOT NULL
 );
 
 CREATE TABLE "bookmarks" (
