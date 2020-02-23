@@ -3,9 +3,17 @@ package main
 import (
 	"backend-viblo-trending/db"
 	"backend-viblo-trending/handler"
+	"os"
+
+	log "backend-viblo-trending/log"
 
 	"github.com/labstack/echo"
 )
+
+func init() {
+	os.Setenv("APP_NAME", "github")
+	log.InitLogger(false)
+}
 
 func main() {
 
@@ -18,6 +26,8 @@ func main() {
 	}
 	sql.Connect()
 	defer sql.Close()
+
+	log.Error("Co loi xay ra")
 
 	e := echo.New()
 	e.GET("/", handler.Welcome)
