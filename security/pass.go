@@ -6,7 +6,7 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-// https://medium.com/@jcox250/password-hash-salt-using-golang-b041dc94cb72
+// ref > https://medium.com/@jcox250/password-hash-salt-using-golang-b041dc94cb72
 
 func HashAndSalt(pwd []byte) string {
 

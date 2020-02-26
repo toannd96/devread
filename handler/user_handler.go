@@ -4,6 +4,7 @@ import (
 	"backend-viblo-trending/log"
 	"backend-viblo-trending/model"
 	"backend-viblo-trending/model/requests"
+	"backend-viblo-trending/repository"
 	security "backend-viblo-trending/security"
 	"net/http"
 
@@ -13,6 +14,7 @@ import (
 )
 
 type UserHandler struct {
+	UserRepo repository.UserRepo
 }
 
 func (u *UserHandler) HandleSignUp(c echo.Context) error {
@@ -50,15 +52,30 @@ func (u *UserHandler) HandleSignUp(c echo.Context) error {
 		})
 	}
 
-	type User struct {
-		Email    string
-		FullName string
+	user := model.User{
+		UserId:   userId.String(),
+		FullName: req.FullName,
+		Email:    req.Email,
+		Password: hash,
+		Role:     role,
+		Token:    "",
 	}
-	user := User{
-		Email:    "toan@gmail.com",
-		FullName: "Toan",
+
+	user, err = u.UserRepo.SaveUser(c.Request().Context(), user)
+	if err != nil {
+		return c.JSON(http.StatusConflict, model.Response{
+			StatusCode: http.StatusConflict,
+			Message:    err.Error(),
+			Data:       nil,
+		})
 	}
-	return c.JSON(http.StatusOK, user)
+
+	user.Password = ""
+	return c.JSON(http.StatusOK, model.Response{
+		StatusCode: http.StatusOK,
+		Message:    "Đăng ký thành công",
+		Data:       user,
+	})
 }
 
 func (u *UserHandler) HandleSignIn(c echo.Context) error {

@@ -10,5 +10,5 @@ const (
 )
 
 func (r Role) String() string {
-	return []string{"MEMBER", "ADMIN",}{r}
+	return []string{"MEMBER", "ADMIN"}[r]
 }

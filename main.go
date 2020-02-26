@@ -2,6 +2,9 @@ package main
 
 import (
 	"backend-viblo-trending/db"
+	"backend-viblo-trending/handler"
+	"backend-viblo-trending/repository/repo_impl"
+	"backend-viblo-trending/router"
 	"os"
 
 	log "backend-viblo-trending/log"
@@ -27,6 +30,16 @@ func main() {
 	defer sql.Close()
 
 	e := echo.New()
+
+	userHandler := handler.UserHandler{
+		UserRepo: repo_impl.NewUserRepo(sql),
+	}
+	api := router.API{
+		Echo:        e,
+		UserHandler: userHandler,
+	}
+
+	api.SetupRouter()
 
 	e.Logger.Fatal(e.Start(":3000"))
 }

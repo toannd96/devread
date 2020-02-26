@@ -16,6 +16,8 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
+// ref > https://github.com/neko-neko/echo-logrus/blob/master/log/log.go
+
 // Log global
 var Log *logrus.Logger
 var singletonLogger = &MyLogger{}
