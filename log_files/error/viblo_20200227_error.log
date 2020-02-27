@@ -1,0 +1,2 @@
+time="2020-02-27T12:45:22.379372144+07:00" level=error msg="pq: duplicate key value violates unique constraint \"users_email_key\"" file=/home/dactoan/backend-viblo-trending/repository/repo_impl/user_repo_impl.go line=36
+time="2020-02-27T14:19:32.116507563+07:00" level=error msg="pq: syntax error at or near \"vana\"" file=/home/dactoan/backend-viblo-trending/repository/repo_impl/user_repo_impl.go line=58

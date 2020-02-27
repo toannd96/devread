@@ -19,7 +19,7 @@ type UserHandler struct {
 
 func (u *UserHandler) HandleSignUp(c echo.Context) error {
 
-	req := requests.ReqSignUp{}
+	req := requests.RequestSignUp{}
 	if err := c.Bind(&req); err != nil {
 		log.Error(err.Error())
 		return c.JSON(http.StatusBadRequest, model.Response{
@@ -79,9 +79,49 @@ func (u *UserHandler) HandleSignUp(c echo.Context) error {
 }
 
 func (u *UserHandler) HandleSignIn(c echo.Context) error {
+	req := requests.RequestSignIn{}
 
-	return c.JSON(http.StatusOK, echo.Map{
-		"user":  "Toan",
-		"email": "toan@gmail.com",
+	if err := c.Bind(&req); err != nil {
+		log.Error(err.Error())
+		return c.JSON(http.StatusBadRequest, model.Response{
+			StatusCode: http.StatusBadRequest,
+			Message:    err.Error(),
+			Data:       nil,
+		})
+	}
+
+	validate := validator.New()
+	if err := validate.Struct(req); err != nil {
+		log.Error(err.Error())
+		return c.JSON(http.StatusBadRequest, model.Response{
+			StatusCode: http.StatusBadRequest,
+			Message:    err.Error(),
+			Data:       nil,
+		})
+	}
+
+	user, err := u.UserRepo.CheckLogin(c.Request().Context(), req)
+	if err != nil {
+		return c.JSON(http.StatusUnauthorized, model.Response{
+			StatusCode: http.StatusUnauthorized,
+			Message:    err.Error(),
+			Data:       nil,
+		})
+	}
+
+	// check password
+	isTheSame := security.ComparePasswords(user.Password, []byte(req.Password))
+	if !isTheSame {
+		return c.JSON(http.StatusUnauthorized, model.Response{
+			StatusCode: http.StatusUnauthorized,
+			Message:    "Đăng nhập thất bại",
+			Data:       nil,
+		})
+	}
+
+	return c.JSON(http.StatusOK, model.Response{
+		StatusCode: http.StatusOK,
+		Message:    "Đăng nhập thành công",
+		Data:       user,
 	})
 }
