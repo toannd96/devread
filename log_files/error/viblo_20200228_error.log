@@ -1,0 +1,2 @@
+time="2020-02-28T20:33:06.046308538+07:00" level=error msg="pq: duplicate key value violates unique constraint \"users_email_key\"" file=/home/dactoan/backend-viblo-trending/repository/repo_impl/user_repo_impl.go line=38
+time="2020-02-28T23:11:06.608055245+07:00" level=error msg="key is of invalid type" file=/home/dactoan/backend-viblo-trending/handler/user_handler.go line=136

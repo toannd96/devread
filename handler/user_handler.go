@@ -70,7 +70,18 @@ func (u *UserHandler) HandleSignUp(c echo.Context) error {
 		})
 	}
 
-	user.Password = ""
+	// gen token
+	token, err := security.GenToken(user)
+	if err != nil {
+		log.Error(err)
+		return c.JSON(http.StatusInternalServerError, model.Response{
+			StatusCode: http.StatusInternalServerError,
+			Message:    err.Error(),
+			Data:       nil,
+		})
+	}
+	user.Token = token
+
 	return c.JSON(http.StatusOK, model.Response{
 		StatusCode: http.StatusOK,
 		Message:    "Đăng ký thành công",
@@ -80,7 +91,6 @@ func (u *UserHandler) HandleSignUp(c echo.Context) error {
 
 func (u *UserHandler) HandleSignIn(c echo.Context) error {
 	req := requests.RequestSignIn{}
-
 	if err := c.Bind(&req); err != nil {
 		log.Error(err.Error())
 		return c.JSON(http.StatusBadRequest, model.Response{
@@ -119,10 +129,25 @@ func (u *UserHandler) HandleSignIn(c echo.Context) error {
 		})
 	}
 
-	user.Password = ""
+	// gen token
+	token, err := security.GenToken(user)
+	if err != nil {
+		log.Error(err)
+		return c.JSON(http.StatusInternalServerError, model.Response{
+			StatusCode: http.StatusInternalServerError,
+			Message:    err.Error(),
+			Data:       nil,
+		})
+	}
+	user.Token = token
+
 	return c.JSON(http.StatusOK, model.Response{
 		StatusCode: http.StatusOK,
 		Message:    "Đăng nhập thành công",
 		Data:       user,
 	})
+}
+
+func (u *UserHandler) HandleProfile(c echo.Context) error {
+	return nil
 }
