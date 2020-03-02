@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"backend-viblo-trending/custom_error"
 	"backend-viblo-trending/log"
 	"backend-viblo-trending/model"
 	"backend-viblo-trending/model/requests"
@@ -8,6 +9,7 @@ import (
 	security "backend-viblo-trending/security"
 	"net/http"
 
+	"github.com/dgrijalva/jwt-go"
 	uuid "github.com/google/uuid"
 	"github.com/labstack/echo"
 )
@@ -146,5 +148,29 @@ func (u *UserHandler) HandleSignIn(c echo.Context) error {
 }
 
 func (u *UserHandler) HandleProfile(c echo.Context) error {
-	return nil
+	tokenData := c.Get("user").(*jwt.Token)
+	claims := tokenData.Claims.(*model.JwtCustomClaims)
+
+	user, err := u.UserRepo.SelectUserById(c.Request().Context(), claims.UserId)
+	if err != nil {
+		if err == custom_error.UserNotFound {
+			return c.JSON(http.StatusNotFound, model.Response{
+				StatusCode: http.StatusNotFound,
+				Message:    err.Error(),
+				Data:       nil,
+			})
+		}
+
+		return c.JSON(http.StatusInternalServerError, model.Response{
+			StatusCode: http.StatusInternalServerError,
+			Message:    err.Error(),
+			Data:       nil,
+		})
+	}
+
+	return c.JSON(http.StatusOK, model.Response{
+		StatusCode: http.StatusOK,
+		Message:    "Xử lý thành công",
+		Data:       user,
+	})
 }

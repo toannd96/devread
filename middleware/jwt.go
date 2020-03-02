@@ -11,7 +11,7 @@ import (
 func JwtMiddleware() echo.MiddlewareFunc {
 	config := middleware.JWTConfig{
 		Claims:     &model.JwtCustomClaims{},
-		SigningKey: security.SECRET_KEY,
+		SigningKey: []byte(security.SECRET_KEY),
 	}
 
 	return middleware.JWTWithConfig(config)

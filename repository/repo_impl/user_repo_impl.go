@@ -60,3 +60,16 @@ func (u *UserRepoImpl) CheckLogin(context context.Context, loginReq requests.Req
 	}
 	return user, nil
 }
+
+func (u *UserRepoImpl) SelectUserById(context context.Context, userId string) (model.User, error) {
+	var user model.User
+	err := u.sql.Db.GetContext(context, &user, "SELECT * FROM users WHERE user_id=$1", userId)
+	if err != nil {
+		if err == sql.ErrNoRows {
+			return user, custom_error.UserNotFound
+		}
+		log.Error(err.Error())
+		return user, err
+	}
+	return user, nil
+}
