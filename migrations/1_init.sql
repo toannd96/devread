@@ -5,8 +5,8 @@ CREATE TABLE "users" (
   "email" text UNIQUE,
   "password" text,
   "role" text,
-  "created_at" TIMESTAMPTZ NOT NULL,
-  "updated_at" TIMESTAMPTZ NOT NULL
+  "create_at" TIMESTAMPTZ NOT NULL,
+  "update_at" TIMESTAMPTZ NOT NULL
 );
 
 CREATE TABLE "posts" (
@@ -18,15 +18,16 @@ CREATE TABLE "posts" (
   "comment" text,
   "build_by" text,
   "time_read" text,
-  "created_at" TIMESTAMPTZ NOT NULL
+  "create_at" TIMESTAMPTZ NOT NULL,
+  "update_at" TIMESTAMPTZ NOT NULL
 );
 
 CREATE TABLE "bookmarks" (
   "bid" text PRIMARY KEY,
   "user_id" text,
   "post_name" text,
-  "created_at" TIMESTAMPTZ NOT NULL,
-  "updated_at" TIMESTAMPTZ NOT NULL,
+  "create_at" TIMESTAMPTZ NOT NULL,
+  "update_at" TIMESTAMPTZ NOT NULL,
   unique (user_id, post_name)
 );
 

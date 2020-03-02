@@ -18,8 +18,7 @@ type UserHandler struct {
 	UserRepo repository.UserRepo
 }
 
-func (u *UserHandler) HandleSignUp(c echo.Context) error {
-
+func (u *UserHandler) SignUp(c echo.Context) error {
 	req := requests.RequestSignUp{}
 	if err := c.Bind(&req); err != nil {
 		log.Error(err.Error())
@@ -89,7 +88,7 @@ func (u *UserHandler) HandleSignUp(c echo.Context) error {
 	})
 }
 
-func (u *UserHandler) HandleSignIn(c echo.Context) error {
+func (u *UserHandler) SignIn(c echo.Context) error {
 	req := requests.RequestSignIn{}
 	if err := c.Bind(&req); err != nil {
 		log.Error(err.Error())
@@ -147,7 +146,7 @@ func (u *UserHandler) HandleSignIn(c echo.Context) error {
 	})
 }
 
-func (u *UserHandler) HandleProfile(c echo.Context) error {
+func (u *UserHandler) Profile(c echo.Context) error {
 	tokenData := c.Get("user").(*jwt.Token)
 	claims := tokenData.Claims.(*model.JwtCustomClaims)
 
@@ -173,4 +172,46 @@ func (u *UserHandler) HandleProfile(c echo.Context) error {
 		Message:    "Xử lý thành công",
 		Data:       user,
 	})
+}
+
+func (u *UserHandler) UpdateProfile(c echo.Context) error {
+	req := requests.RequestUpdateUser{}
+	if err := c.Bind(&req); err != nil {
+		return err
+	}
+
+	// validate thông tin gửi lên
+	err := c.Validate(req)
+	if err != nil {
+		return c.JSON(http.StatusBadRequest, model.Response{
+			StatusCode: http.StatusBadRequest,
+			Message:    err.Error(),
+		})
+	}
+
+	hash := security.HashAndSalt([]byte(req.Password))
+
+	token := c.Get("user").(*jwt.Token)
+	claims := token.Claims.(*model.JwtCustomClaims)
+	user := model.User{
+		UserId:   claims.UserId,
+		FullName: req.FullName,
+		Email:    req.Email,
+		Password: hash,
+	}
+
+	user, err = u.UserRepo.UpdateUser(c.Request().Context(), user)
+	if err != nil {
+		return c.JSON(http.StatusUnprocessableEntity, model.Response{
+			StatusCode: http.StatusUnprocessableEntity,
+			Message:    err.Error(),
+		})
+	}
+
+	return c.JSON(http.StatusCreated, model.Response{
+		StatusCode: http.StatusCreated,
+		Message:    "Xử lý thành công",
+		Data:       user,
+	})
+
 }
