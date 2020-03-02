@@ -1,0 +1,2 @@
+time="2020-03-02T17:16:23.178967565+07:00" level=error msg="Mật khẩu tối thiểu 8 ký tự" file=/home/dactoan/backend-viblo-trending/handler/user_handler.go line=32
+time="2020-03-02T17:16:41.035457843+07:00" level=error msg="Mật khẩu tối thiểu 8 ký tự" file=/home/dactoan/backend-viblo-trending/handler/user_handler.go line=32

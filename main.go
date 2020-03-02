@@ -3,6 +3,7 @@ package main
 import (
 	"backend-viblo-trending/db"
 	"backend-viblo-trending/handler"
+	"backend-viblo-trending/helper"
 	"backend-viblo-trending/repository/repo_impl"
 	"backend-viblo-trending/router"
 	"os"
@@ -30,6 +31,11 @@ func main() {
 	defer sql.Close()
 
 	e := echo.New()
+
+	customValidator := helper.NewCustomValidator()
+	customValidator.RegisterValidate()
+
+	e.Validator = customValidator
 
 	userHandler := handler.UserHandler{
 		UserRepo: repo_impl.NewUserRepo(sql),
