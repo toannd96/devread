@@ -7,6 +7,8 @@ import (
 	"backend-viblo-trending/model/requests"
 	"backend-viblo-trending/repository"
 	security "backend-viblo-trending/security"
+	"errors"
+	"fmt"
 	"net/http"
 
 	"github.com/dgrijalva/jwt-go"
@@ -57,7 +59,6 @@ func (u *UserHandler) SignUp(c echo.Context) error {
 		Email:    req.Email,
 		Password: hash,
 		Role:     role,
-		Token:    "",
 	}
 
 	user, err = u.UserRepo.SaveUser(c.Request().Context(), user)
@@ -68,18 +69,6 @@ func (u *UserHandler) SignUp(c echo.Context) error {
 			Data:       nil,
 		})
 	}
-
-	// gen token
-	token, err := security.GenToken(user)
-	if err != nil {
-		log.Error(err)
-		return c.JSON(http.StatusInternalServerError, model.Response{
-			StatusCode: http.StatusInternalServerError,
-			Message:    err.Error(),
-			Data:       nil,
-		})
-	}
-	user.Token = token
 
 	return c.JSON(http.StatusOK, model.Response{
 		StatusCode: http.StatusOK,
@@ -127,8 +116,8 @@ func (u *UserHandler) SignIn(c echo.Context) error {
 		})
 	}
 
-	// gen token
-	token, err := security.GenToken(user)
+	// gen access token
+	accessToken, err := security.GenAccessToken(user)
 	if err != nil {
 		log.Error(err)
 		return c.JSON(http.StatusInternalServerError, model.Response{
@@ -137,7 +126,19 @@ func (u *UserHandler) SignIn(c echo.Context) error {
 			Data:       nil,
 		})
 	}
-	user.Token = token
+	user.AccessToken = accessToken
+
+	// gen refresh token
+	refreshToken, err := security.GenFreshToken(user)
+	if err != nil {
+		log.Error(err)
+		return c.JSON(http.StatusInternalServerError, model.Response{
+			StatusCode: http.StatusInternalServerError,
+			Message:    err.Error(),
+			Data:       nil,
+		})
+	}
+	user.RefreshToken = refreshToken
 
 	return c.JSON(http.StatusOK, model.Response{
 		StatusCode: http.StatusOK,
@@ -160,8 +161,8 @@ func (u *UserHandler) Profile(c echo.Context) error {
 			})
 		}
 
-		return c.JSON(http.StatusInternalServerError, model.Response{
-			StatusCode: http.StatusInternalServerError,
+		return c.JSON(http.StatusUnauthorized, model.Response{
+			StatusCode: http.StatusUnauthorized,
 			Message:    err.Error(),
 			Data:       nil,
 		})
@@ -212,6 +213,83 @@ func (u *UserHandler) UpdateProfile(c echo.Context) error {
 		StatusCode: http.StatusCreated,
 		Message:    "Xử lý thành công",
 		Data:       user,
+	})
+
+}
+
+func (u *UserHandler) Token(c echo.Context) error {
+	tokenReq := requests.RequestToken{}
+	if err := c.Bind(&tokenReq); err != nil {
+		return err
+	}
+
+	token, err := jwt.Parse(tokenReq.RefreshToken, func(token *jwt.Token) (interface{}, error) {
+		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
+			return nil, errors.New("Phương thức ký bất thường")
+		}
+		return []byte(security.SECRET_KEY), nil
+	})
+
+	if claims, ok := token.Claims.(jwt.MapClaims); ok && token.Valid {
+		strClaims := fmt.Sprintf("%v", claims["UserId"])
+		user, err := u.UserRepo.SelectUserById(c.Request().Context(), strClaims)
+		if err != nil {
+			log.Error(err)
+			if err == custom_error.UserNotFound {
+				return c.JSON(http.StatusNotFound, model.Response{
+					StatusCode: http.StatusNotFound,
+					Message:    err.Error(),
+					Data:       nil,
+				})
+			}
+
+			return c.JSON(http.StatusInternalServerError, model.Response{
+				StatusCode: http.StatusInternalServerError,
+				Message:    err.Error(),
+				Data:       nil,
+			})
+		}
+
+		if claims["UserId"] == strClaims {
+			newAccessToken, err := security.GenAccessToken(user)
+			if err != nil {
+				log.Error(err)
+				return c.JSON(http.StatusInternalServerError, model.Response{
+					StatusCode: http.StatusInternalServerError,
+					Message:    err.Error(),
+					Data:       nil,
+				})
+			}
+			user.AccessToken = newAccessToken
+
+			newRefreshToken, err := security.GenFreshToken(user)
+			if err != nil {
+				log.Error(err)
+				return c.JSON(http.StatusInternalServerError, model.Response{
+					StatusCode: http.StatusInternalServerError,
+					Message:    err.Error(),
+					Data:       nil,
+				})
+			}
+			user.RefreshToken = newRefreshToken
+
+			return c.JSON(http.StatusOK, model.Response{
+				StatusCode: http.StatusOK,
+				Message:    "Xử lý thành công",
+				Data:       user,
+			})
+
+		}
+
+		return c.JSON(http.StatusUnauthorized, model.Response{
+			StatusCode: http.StatusUnauthorized,
+			Message:    err.Error(),
+		})
+	}
+
+	return c.JSON(http.StatusUnauthorized, model.Response{
+		StatusCode: http.StatusUnauthorized,
+		Message:    err.Error(),
 	})
 
 }
