@@ -250,7 +250,7 @@ func (u *UserHandler) Token(c echo.Context) error {
 			})
 		}
 
-		if claims["UserId"] == strClaims {
+		if strClaims == user.UserId {
 			newAccessToken, err := security.GenAccessToken(user)
 			if err != nil {
 				log.Error(err)
