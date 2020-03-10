@@ -1,5 +1,0 @@
-time="2020-03-09T22:10:44.690285451+07:00" level=error msg="code=400, message=binding element must be a struct" file=/home/dactoan/backend-viblo-trending/handler/user_handler.go line=245
-time="2020-03-09T22:29:55.434341065+07:00" level=error msg="code=400, message=binding element must be a struct" file=/home/dactoan/backend-viblo-trending/handler/user_handler.go line=245
-time="2020-03-09T23:41:31.164514333+07:00" level=error msg="Người dùng không tồn tại" file=/home/dactoan/backend-viblo-trending/handler/user_handler.go line=259
-time="2020-03-09T23:42:06.777535269+07:00" level=error msg="Người dùng không tồn tại" file=/home/dactoan/backend-viblo-trending/handler/user_handler.go line=259
-time="2020-03-09T23:43:55.612242157+07:00" level=error msg="Người dùng không tồn tại" file=/home/dactoan/backend-viblo-trending/handler/user_handler.go line=259

@@ -1,2 +1,0 @@
-time="2020-03-10T10:27:34.761361055+07:00" level=error msg="Người dùng không tồn tại" file=/home/dactoan/backend-viblo-trending/handler/user_handler.go line=261
-time="2020-03-10T16:10:57.254285172+07:00" level=error msg="pq: duplicate key value violates unique constraint \"users_email_key\"" file=/home/dactoan/backend-viblo-trending/repository/repo_impl/user_repo_impl.go line=91

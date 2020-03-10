@@ -1,3 +1,0 @@
-time="2020-03-05T17:26:03.85271604+07:00" level=error msg="pq: duplicate key value violates unique constraint \"users_email_key\"" file=/home/dactoan/backend-viblo-trending/repository/repo_impl/user_repo_impl.go line=91
-time="2020-03-05T23:07:04.533575099+07:00" level=error msg="pq: duplicate key value violates unique constraint \"users_email_key\"" file=/home/dactoan/backend-viblo-trending/repository/repo_impl/user_repo_impl.go line=38
-time="2020-03-06T00:29:19.116396909+07:00" level=error msg="Người dùng không tồn tại" file=/home/dactoan/backend-viblo-trending/handler/user_handler.go line=239

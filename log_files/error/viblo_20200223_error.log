@@ -1,3 +1,0 @@
-time="2020-02-24T00:48:53.073180181+07:00" level=error msg="Co loi xay ra" file=/home/dactoan/backend-viblo-trending/main.go line=30
-time="2020-02-24T01:04:17.484894694+07:00" level=error msg="Co loi xay ra" file=/home/dactoan/backend-viblo-trending/main.go line=37
-time="2020-02-24T01:10:35.823015175+07:00" level=error msg="sql: no rows in result set" file=/home/dactoan/backend-viblo-trending/main.go line=34

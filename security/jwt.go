@@ -9,7 +9,7 @@ import (
 
 const SECRET_KEY = "d@ct0@n96"
 
-func CreateAccessToken(user model.User) (string, error) {
+func CreateToken(user model.User) (map[string]string, error) {
 	accessClaims := &model.JwtCustomClaims{
 		UserId: user.UserId,
 		Role:   user.Role,
@@ -22,13 +22,9 @@ func CreateAccessToken(user model.User) (string, error) {
 	accessToken := jwt.NewWithClaims(jwt.SigningMethodHS256, accessClaims)
 	t, err := accessToken.SignedString([]byte(SECRET_KEY))
 	if err != nil {
-		return "", err
+		return nil, err
 	}
 
-	return t, nil
-}
-
-func CreateRefeshToken(user model.User) (string, error) {
 	refreshClaims := &model.JwtCustomClaims{
 		UserId: user.UserId,
 		Role:   user.Role,
@@ -41,8 +37,11 @@ func CreateRefeshToken(user model.User) (string, error) {
 	refreshToken := jwt.NewWithClaims(jwt.SigningMethodHS256, refreshClaims)
 	rt, err := refreshToken.SignedString([]byte(SECRET_KEY))
 	if err != nil {
-		return "", err
+		return nil, err
 	}
 
-	return rt, nil
+	return map[string]string{
+		"access_token":  t,
+		"refresh_token": rt,
+	}, nil
 }

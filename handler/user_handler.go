@@ -117,8 +117,8 @@ func (u *UserHandler) SignIn(c echo.Context) error {
 		})
 	}
 
-	// gen access token
-	accessToken, err := security.CreateAccessToken(user)
+	// create token
+	token, err := security.CreateToken(user)
 	if err != nil {
 		log.Error(err)
 		return c.JSON(http.StatusInternalServerError, model.Response{
@@ -127,43 +127,25 @@ func (u *UserHandler) SignIn(c echo.Context) error {
 			Data:       nil,
 		})
 	}
-	user.AccessToken = accessToken
+	user.AccessToken = token["access_token"]
+	user.RefreshToken = token["refresh_token"]
 
-	// create the access cookie for client(browser)
+	// create cookie for client(browser)
 	accessTokenCookie := &http.Cookie{
 		Name:     "AccessToken",
-		Value:    accessToken,
+		Value:    token["access_token"],
 		Expires:  time.Now().Add(10 * time.Minute),
 		HttpOnly: true,
 	}
 	c.SetCookie(accessTokenCookie)
 
-	// gen refresh token
-	refreshToken, err := security.CreateRefeshToken(user)
-	if err != nil {
-		log.Error(err)
-		return c.JSON(http.StatusInternalServerError, model.Response{
-			StatusCode: http.StatusInternalServerError,
-			Message:    err.Error(),
-			Data:       nil,
-		})
-	}
-	user.RefreshToken = refreshToken
-
-	// create the refresh cookie for client(browser)
 	refreshTokenCookie := &http.Cookie{
 		Name:     "RefreshToken",
-		Value:    refreshToken,
+		Value:    token["refresh_token"],
 		Expires:  time.Now().Add(24 * time.Hour),
 		HttpOnly: true,
 	}
 	c.SetCookie(refreshTokenCookie)
-
-	// After the cookie is created, the client(browser) will send in the cookie
-	// for every request. Our server side program will unpack the tokenString inside the cookie's Value
-	// for authentication before serving...
-	// This is one big advantage of JWT over session. The burden has been shifted to client instead of taking memory space
-	// on the server side. This helps a lot with the scaling process.
 
 	return c.JSON(http.StatusOK, model.Response{
 		StatusCode: http.StatusOK,
@@ -300,7 +282,8 @@ func (u *UserHandler) RefeshToken(c echo.Context) error {
 		}
 
 		if strClaims == user.UserId {
-			newAccessToken, err := security.CreateAccessToken(user)
+			// create token
+			newToken, err := security.CreateToken(user)
 			if err != nil {
 				log.Error(err)
 				return c.JSON(http.StatusInternalServerError, model.Response{
@@ -309,32 +292,21 @@ func (u *UserHandler) RefeshToken(c echo.Context) error {
 					Data:       nil,
 				})
 			}
-			user.AccessToken = newAccessToken
+			user.AccessToken = newToken["access_token"]
+			user.RefreshToken = newToken["refresh_token"]
 
-			// create the access cookie for client(browser)
+			// create cookie for client(browser)
 			newATCookie := &http.Cookie{
 				Name:     "AccessToken",
-				Value:    newAccessToken,
+				Value:    newToken["access_token"],
 				Expires:  time.Now().Add(10 * time.Minute),
 				HttpOnly: true,
 			}
 			c.SetCookie(newATCookie)
 
-			newRefreshToken, err := security.CreateRefeshToken(user)
-			if err != nil {
-				log.Error(err)
-				return c.JSON(http.StatusInternalServerError, model.Response{
-					StatusCode: http.StatusInternalServerError,
-					Message:    err.Error(),
-					Data:       nil,
-				})
-			}
-			user.RefreshToken = newRefreshToken
-
-			// create the refresh cookie for client(browser)
 			newRTCookie := &http.Cookie{
 				Name:     "RefreshToken",
-				Value:    newRefreshToken,
+				Value:    newToken["refresh_token"],
 				Expires:  time.Now().Add(24 * time.Hour),
 				HttpOnly: true,
 			}
