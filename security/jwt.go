@@ -9,12 +9,13 @@ import (
 
 const SECRET_KEY = "d@ct0@n96"
 
-func GenAccessToken(user model.User) (string, error) {
+func CreateAccessToken(user model.User) (string, error) {
 	accessClaims := &model.JwtCustomClaims{
 		UserId: user.UserId,
 		Role:   user.Role,
 		StandardClaims: jwt.StandardClaims{
-			ExpiresAt: time.Now().Add(time.Minute * 5).Unix(),
+			IssuedAt:  time.Now().Unix(),
+			ExpiresAt: time.Now().Add(time.Minute * 10).Unix(),
 		},
 	}
 
@@ -27,10 +28,12 @@ func GenAccessToken(user model.User) (string, error) {
 	return t, nil
 }
 
-func GenFreshToken(user model.User) (string, error) {
+func CreateRefeshToken(user model.User) (string, error) {
 	refreshClaims := &model.JwtCustomClaims{
 		UserId: user.UserId,
+		Role:   user.Role,
 		StandardClaims: jwt.StandardClaims{
+			IssuedAt:  time.Now().Unix(),
 			ExpiresAt: time.Now().Add(time.Hour * 24).Unix(),
 		},
 	}

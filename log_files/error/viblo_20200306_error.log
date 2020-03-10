@@ -1,0 +1,5 @@
+time="2020-03-06T15:00:49.186854257+07:00" level=error msg="FullName là bắt buộc \n Email là bắt buộc \n Mật khẩu tối thiểu 8 ký tự" file=/home/dactoan/backend-viblo-trending/handler/user_handler.go line=35
+time="2020-03-06T15:02:32.465043945+07:00" level=error msg="FullName là bắt buộc \n Email là bắt buộc \n Mật khẩu tối thiểu 8 ký tự" file=/home/dactoan/backend-viblo-trending/handler/user_handler.go line=35
+time="2020-03-06T15:04:04.371088521+07:00" level=error msg="FullName là bắt buộc \n Email là bắt buộc \n Mật khẩu tối thiểu 8 ký tự" file=/home/dactoan/backend-viblo-trending/handler/user_handler.go line=35
+time="2020-03-06T15:04:37.165508391+07:00" level=error msg="FullName là bắt buộc \n Email là bắt buộc \n Mật khẩu tối thiểu 8 ký tự" file=/home/dactoan/backend-viblo-trending/handler/user_handler.go line=35
+time="2020-03-06T15:06:18.035601211+07:00" level=error msg="FullName là bắt buộc \n Email là bắt buộc \n Mật khẩu tối thiểu 8 ký tự" file=/home/dactoan/backend-viblo-trending/handler/user_handler.go line=35

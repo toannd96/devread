@@ -11,7 +11,6 @@ import (
 func IsAdmin() echo.MiddlewareFunc {
 	return func(next echo.HandlerFunc) echo.HandlerFunc {
 		return func(c echo.Context) error {
-			// handle logic
 			req := requests.RequestSignIn{}
 			if err := c.Bind(&req); err != nil {
 				return c.JSON(http.StatusBadRequest, model.Response{

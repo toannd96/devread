@@ -10,6 +10,7 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
+	"time"
 
 	"github.com/dgrijalva/jwt-go"
 	uuid "github.com/google/uuid"
@@ -117,7 +118,7 @@ func (u *UserHandler) SignIn(c echo.Context) error {
 	}
 
 	// gen access token
-	accessToken, err := security.GenAccessToken(user)
+	accessToken, err := security.CreateAccessToken(user)
 	if err != nil {
 		log.Error(err)
 		return c.JSON(http.StatusInternalServerError, model.Response{
@@ -128,8 +129,17 @@ func (u *UserHandler) SignIn(c echo.Context) error {
 	}
 	user.AccessToken = accessToken
 
+	// create the access cookie for client(browser)
+	accessTokenCookie := &http.Cookie{
+		Name:     "AccessToken",
+		Value:    accessToken,
+		Expires:  time.Now().Add(10 * time.Minute),
+		HttpOnly: true,
+	}
+	c.SetCookie(accessTokenCookie)
+
 	// gen refresh token
-	refreshToken, err := security.GenFreshToken(user)
+	refreshToken, err := security.CreateRefeshToken(user)
 	if err != nil {
 		log.Error(err)
 		return c.JSON(http.StatusInternalServerError, model.Response{
@@ -140,6 +150,21 @@ func (u *UserHandler) SignIn(c echo.Context) error {
 	}
 	user.RefreshToken = refreshToken
 
+	// create the refresh cookie for client(browser)
+	refreshTokenCookie := &http.Cookie{
+		Name:     "RefreshToken",
+		Value:    refreshToken,
+		Expires:  time.Now().Add(24 * time.Hour),
+		HttpOnly: true,
+	}
+	c.SetCookie(refreshTokenCookie)
+
+	// After the cookie is created, the client(browser) will send in the cookie
+	// for every request. Our server side program will unpack the tokenString inside the cookie's Value
+	// for authentication before serving...
+	// This is one big advantage of JWT over session. The burden has been shifted to client instead of taking memory space
+	// on the server side. This helps a lot with the scaling process.
+
 	return c.JSON(http.StatusOK, model.Response{
 		StatusCode: http.StatusOK,
 		Message:    "Đăng nhập thành công",
@@ -147,11 +172,33 @@ func (u *UserHandler) SignIn(c echo.Context) error {
 	})
 }
 
+func (u *UserHandler) SignOut(c echo.Context) error {
+	tcookie := http.Cookie{
+		Name:     "AccessToken",
+		MaxAge:   -1,
+		HttpOnly: true,
+	}
+	c.SetCookie(&tcookie)
+
+	rtcookie := http.Cookie{
+		Name:     "RefreshToken",
+		MaxAge:   -1,
+		HttpOnly: true,
+	}
+	c.SetCookie(&rtcookie)
+
+	return c.JSON(http.StatusOK, model.Response{
+		StatusCode: http.StatusOK,
+		Message:    "Đăng xuất thành công",
+	})
+
+}
+
 func (u *UserHandler) Profile(c echo.Context) error {
 	tokenData := c.Get("user").(*jwt.Token)
 	claims := tokenData.Claims.(*model.JwtCustomClaims)
-
 	user, err := u.UserRepo.SelectUserById(c.Request().Context(), claims.UserId)
+
 	if err != nil {
 		if err == custom_error.UserNotFound {
 			return c.JSON(http.StatusNotFound, model.Response{
@@ -181,7 +228,7 @@ func (u *UserHandler) UpdateProfile(c echo.Context) error {
 		return err
 	}
 
-	// validate thông tin gửi lên
+	// validate requests
 	err := c.Validate(req)
 	if err != nil {
 		return c.JSON(http.StatusBadRequest, model.Response{
@@ -217,13 +264,15 @@ func (u *UserHandler) UpdateProfile(c echo.Context) error {
 
 }
 
-func (u *UserHandler) Token(c echo.Context) error {
-	tokenReq := requests.RequestToken{}
-	if err := c.Bind(&tokenReq); err != nil {
+func (u *UserHandler) RefeshToken(c echo.Context) error {
+	cookie, err := c.Cookie("RefreshToken")
+	if err != nil {
 		return err
 	}
 
-	token, err := jwt.Parse(tokenReq.RefreshToken, func(token *jwt.Token) (interface{}, error) {
+	refreshCookie := cookie.Value
+
+	token, err := jwt.Parse(refreshCookie, func(token *jwt.Token) (interface{}, error) {
 		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
 			return nil, errors.New("Phương thức ký bất thường")
 		}
@@ -251,7 +300,7 @@ func (u *UserHandler) Token(c echo.Context) error {
 		}
 
 		if strClaims == user.UserId {
-			newAccessToken, err := security.GenAccessToken(user)
+			newAccessToken, err := security.CreateAccessToken(user)
 			if err != nil {
 				log.Error(err)
 				return c.JSON(http.StatusInternalServerError, model.Response{
@@ -262,7 +311,16 @@ func (u *UserHandler) Token(c echo.Context) error {
 			}
 			user.AccessToken = newAccessToken
 
-			newRefreshToken, err := security.GenFreshToken(user)
+			// create the access cookie for client(browser)
+			newATCookie := &http.Cookie{
+				Name:     "AccessToken",
+				Value:    newAccessToken,
+				Expires:  time.Now().Add(10 * time.Minute),
+				HttpOnly: true,
+			}
+			c.SetCookie(newATCookie)
+
+			newRefreshToken, err := security.CreateRefeshToken(user)
 			if err != nil {
 				log.Error(err)
 				return c.JSON(http.StatusInternalServerError, model.Response{
@@ -273,6 +331,15 @@ func (u *UserHandler) Token(c echo.Context) error {
 			}
 			user.RefreshToken = newRefreshToken
 
+			// create the refresh cookie for client(browser)
+			newRTCookie := &http.Cookie{
+				Name:     "RefreshToken",
+				Value:    newRefreshToken,
+				Expires:  time.Now().Add(24 * time.Hour),
+				HttpOnly: true,
+			}
+			c.SetCookie(newRTCookie)
+
 			return c.JSON(http.StatusOK, model.Response{
 				StatusCode: http.StatusOK,
 				Message:    "Xử lý thành công",
@@ -281,8 +348,8 @@ func (u *UserHandler) Token(c echo.Context) error {
 
 		}
 
-		return c.JSON(http.StatusUnauthorized, model.Response{
-			StatusCode: http.StatusUnauthorized,
+		return c.JSON(http.StatusNotFound, model.Response{
+			StatusCode: http.StatusNotFound,
 			Message:    err.Error(),
 		})
 	}
