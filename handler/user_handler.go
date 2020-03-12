@@ -134,7 +134,7 @@ func (u *UserHandler) SignIn(c echo.Context) error {
 	accessTokenCookie := &http.Cookie{
 		Name:     "AccessToken",
 		Value:    token["access_token"],
-		Expires:  time.Now().Add(10 * time.Minute),
+		Expires:  time.Now().Add(1 * time.Minute),
 		HttpOnly: true,
 	}
 	c.SetCookie(accessTokenCookie)
@@ -154,34 +154,46 @@ func (u *UserHandler) SignIn(c echo.Context) error {
 	})
 }
 
-func (u *UserHandler) SignOut(c echo.Context) error {
-	tcookie := http.Cookie{
-		Name:     "AccessToken",
-		MaxAge:   -1,
-		HttpOnly: true,
-	}
-	c.SetCookie(&tcookie)
+// func (u *UserHandler) SignOut(c echo.Context) error {
+// 	tcookie := http.Cookie{
+// 		Name:     "AccessToken",
+// 		MaxAge:   -1,
+// 		HttpOnly: true,
+// 	}
+// 	c.SetCookie(&tcookie)
 
-	rtcookie := http.Cookie{
-		Name:     "RefreshToken",
-		MaxAge:   -1,
-		HttpOnly: true,
-	}
-	c.SetCookie(&rtcookie)
+// 	rtcookie := http.Cookie{
+// 		Name:     "RefreshToken",
+// 		MaxAge:   -1,
+// 		HttpOnly: true,
+// 	}
+// 	c.SetCookie(&rtcookie)
 
-	return c.JSON(http.StatusOK, model.Response{
-		StatusCode: http.StatusOK,
-		Message:    "Đăng xuất thành công",
-	})
+// 	return c.JSON(http.StatusOK, model.Response{
+// 		StatusCode: http.StatusOK,
+// 		Message:    "Đăng xuất thành công",
+// 	})
 
-}
+// }
 
 func (u *UserHandler) Profile(c echo.Context) error {
-	tokenData := c.Get("user").(*jwt.Token)
-	claims := tokenData.Claims.(*model.JwtCustomClaims)
-	user, err := u.UserRepo.SelectUserById(c.Request().Context(), claims.UserId)
+	cookie, err := c.Cookie("AccessToken")
+	if err != nil {
+		return err
+	}
+
+	accessCookie := cookie.Value
+
+	token, err := jwt.Parse(accessCookie, func(token *jwt.Token) (interface{}, error) {
+		return []byte(security.SECRET_KEY), nil
+	})
+
+	claims := token.Claims.(jwt.MapClaims)
+	strClaims := fmt.Sprintf("%v", claims["UserId"])
+	user, err := u.UserRepo.SelectUserById(c.Request().Context(), strClaims)
 
 	if err != nil {
+		log.Error(err)
 		if err == custom_error.UserNotFound {
 			return c.JSON(http.StatusNotFound, model.Response{
 				StatusCode: http.StatusNotFound,
@@ -190,8 +202,8 @@ func (u *UserHandler) Profile(c echo.Context) error {
 			})
 		}
 
-		return c.JSON(http.StatusUnauthorized, model.Response{
-			StatusCode: http.StatusUnauthorized,
+		return c.JSON(http.StatusInternalServerError, model.Response{
+			StatusCode: http.StatusInternalServerError,
 			Message:    err.Error(),
 			Data:       nil,
 		})
@@ -221,10 +233,22 @@ func (u *UserHandler) UpdateProfile(c echo.Context) error {
 
 	hash := security.HashAndSalt([]byte(req.Password))
 
-	token := c.Get("user").(*jwt.Token)
-	claims := token.Claims.(*model.JwtCustomClaims)
+	cookie, err := c.Cookie("AccessToken")
+	if err != nil {
+		return err
+	}
+
+	accessCookie := cookie.Value
+
+	token, err := jwt.Parse(accessCookie, func(token *jwt.Token) (interface{}, error) {
+		return []byte(security.SECRET_KEY), nil
+	})
+
+	claims := token.Claims.(jwt.MapClaims)
+	strClaims := fmt.Sprintf("%v", claims["UserId"])
+
 	user := model.User{
-		UserId:   claims.UserId,
+		UserId:   strClaims,
 		FullName: req.FullName,
 		Email:    req.Email,
 		Password: hash,
@@ -299,7 +323,7 @@ func (u *UserHandler) RefeshToken(c echo.Context) error {
 			newATCookie := &http.Cookie{
 				Name:     "AccessToken",
 				Value:    newToken["access_token"],
-				Expires:  time.Now().Add(10 * time.Minute),
+				Expires:  time.Now().Add(1 * time.Minute),
 				HttpOnly: true,
 			}
 			c.SetCookie(newATCookie)

@@ -15,7 +15,7 @@ func CreateToken(user model.User) (map[string]string, error) {
 		Role:   user.Role,
 		StandardClaims: jwt.StandardClaims{
 			IssuedAt:  time.Now().Unix(),
-			ExpiresAt: time.Now().Add(time.Minute * 10).Unix(),
+			ExpiresAt: time.Now().Add(time.Minute * 1).Unix(),
 		},
 	}
 

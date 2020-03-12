@@ -8,22 +8,35 @@ import (
 	"github.com/labstack/echo/middleware"
 )
 
-func JwtAccessToken() echo.MiddlewareFunc {
+func IsLoggedIn() echo.MiddlewareFunc {
 	config := middleware.JWTConfig{
 		Claims:      &model.JwtCustomClaims{},
 		SigningKey:  []byte(security.SECRET_KEY),
 		TokenLookup: "cookie:AccessToken",
+		BeforeFunc: func(c echo.Context) {
+			accessToken, _ := c.Cookie("AccessToken")
+			if accessToken == nil {
+				refreshToken, _ := c.Cookie("RefreshToken")
+				if refreshToken == nil {
+					return
+				}
+			}
+		},
 	}
-
 	return middleware.JWTWithConfig(config)
 }
 
-func JwtRefreshToken() echo.MiddlewareFunc {
+func RenewToken() echo.MiddlewareFunc {
 	config := middleware.JWTConfig{
 		Claims:      &model.JwtCustomClaims{},
 		SigningKey:  []byte(security.SECRET_KEY),
 		TokenLookup: "cookie:RefreshToken",
+		BeforeFunc: func(c echo.Context) {
+			refreshToken, _ := c.Cookie("RefreshToken")
+			if refreshToken == nil {
+				return
+			}
+		},
 	}
-
 	return middleware.JWTWithConfig(config)
 }
