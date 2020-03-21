@@ -1,4 +1,3 @@
-# viblo_trending
 Xây dựng ứng dụng web thu thập thông tin bài viết được quan tâm nhiều nhất trên **viblo.asia/trending** sử dụng Echo Framework (Golang)
 
 ## Xác thực
