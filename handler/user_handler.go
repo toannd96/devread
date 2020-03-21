@@ -2,29 +2,26 @@ package handler
 
 import (
 	"backend-viblo-trending/custom_error"
-	"backend-viblo-trending/log"
 	"backend-viblo-trending/model"
-	"backend-viblo-trending/model/requests"
+	"backend-viblo-trending/model/req"
 	"backend-viblo-trending/repository"
 	security "backend-viblo-trending/security"
-	"errors"
-	"fmt"
+	"log"
 	"net/http"
 	"time"
 
-	"github.com/dgrijalva/jwt-go"
 	uuid "github.com/google/uuid"
 	"github.com/labstack/echo"
 )
 
 type UserHandler struct {
 	UserRepo repository.UserRepo
+	AuthRepo repository.AuthRepo
 }
 
 func (u *UserHandler) SignUp(c echo.Context) error {
-	req := requests.RequestSignUp{}
-	if err := c.Bind(&req); err != nil {
-		log.Error(err.Error())
+	request := req.ReqtSignUp{}
+	if err := c.Bind(&request); err != nil {
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
 			Message:    err.Error(),
@@ -32,8 +29,7 @@ func (u *UserHandler) SignUp(c echo.Context) error {
 		})
 	}
 
-	if err := c.Validate(req); err != nil {
-		log.Error(err.Error())
+	if err := c.Validate(request); err != nil {
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
 			Message:    err.Error(),
@@ -41,12 +37,11 @@ func (u *UserHandler) SignUp(c echo.Context) error {
 		})
 	}
 
-	hash := security.HashAndSalt([]byte(req.Password))
+	hash := security.HashAndSalt([]byte(request.Password))
 	role := model.MEMBER.String()
 
-	userId, err := uuid.NewUUID()
+	userID, err := uuid.NewUUID()
 	if err != nil {
-		log.Error(err.Error())
 		return c.JSON(http.StatusForbidden, model.Response{
 			StatusCode: http.StatusForbidden,
 			Message:    err.Error(),
@@ -55,9 +50,9 @@ func (u *UserHandler) SignUp(c echo.Context) error {
 	}
 
 	user := model.User{
-		UserId:   userId.String(),
-		FullName: req.FullName,
-		Email:    req.Email,
+		UserID:   userID.String(),
+		FullName: request.FullName,
+		Email:    request.Email,
 		Password: hash,
 		Role:     role,
 	}
@@ -79,9 +74,8 @@ func (u *UserHandler) SignUp(c echo.Context) error {
 }
 
 func (u *UserHandler) SignIn(c echo.Context) error {
-	req := requests.RequestSignIn{}
-	if err := c.Bind(&req); err != nil {
-		log.Error(err.Error())
+	request := req.ReqSignIn{}
+	if err := c.Bind(&request); err != nil {
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
 			Message:    err.Error(),
@@ -89,8 +83,7 @@ func (u *UserHandler) SignIn(c echo.Context) error {
 		})
 	}
 
-	if err := c.Validate(req); err != nil {
-		log.Error(err.Error())
+	if err := c.Validate(request); err != nil {
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
 			Message:    err.Error(),
@@ -98,7 +91,7 @@ func (u *UserHandler) SignIn(c echo.Context) error {
 		})
 	}
 
-	user, err := u.UserRepo.CheckLogin(c.Request().Context(), req)
+	user, err := u.UserRepo.CheckSignIn(c.Request().Context(), request)
 	if err != nil {
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
@@ -108,44 +101,55 @@ func (u *UserHandler) SignIn(c echo.Context) error {
 	}
 
 	// check password
-	isTheSame := security.ComparePasswords(user.Password, []byte(req.Password))
+	isTheSame := security.ComparePasswords(user.Password, []byte(request.Password))
 	if !isTheSame {
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
-			Message:    "Đăng nhập thất bại",
+			Message:    "Mật khẩu không đúng",
 			Data:       nil,
 		})
 	}
 
 	// create token
-	token, err := security.CreateToken(user)
+	token, err := security.CreateToken(user.UserID)
 	if err != nil {
-		log.Error(err)
-		return c.JSON(http.StatusInternalServerError, model.Response{
-			StatusCode: http.StatusInternalServerError,
+		return c.JSON(http.StatusForbidden, model.Response{
+			StatusCode: http.StatusForbidden,
 			Message:    err.Error(),
 			Data:       nil,
 		})
 	}
-	user.AccessToken = token["access_token"]
-	user.RefreshToken = token["refresh_token"]
+
+	saveErr := u.AuthRepo.CreateAuth(user.UserID, token)
+	if saveErr != nil {
+		return c.JSON(http.StatusForbidden, model.Response{
+			StatusCode: http.StatusForbidden,
+			Message:    saveErr.Error(),
+			Data:       nil,
+		})
+	}
+
+	user.AccessToken = token.AccessToken
+	user.RefreshToken = token.RefreshToken
 
 	// create cookie for client(browser)
-	accessTokenCookie := &http.Cookie{
-		Name:     "AccessToken",
-		Value:    token["access_token"],
-		Expires:  time.Now().Add(1 * time.Minute),
+	atCookie := &http.Cookie{
+		Name:     "access_token",
+		Value:    token.AccessToken,
 		HttpOnly: true,
+		SameSite: 2,
+		Expires:  time.Now().Add(time.Minute * 15),
 	}
-	c.SetCookie(accessTokenCookie)
+	c.SetCookie(atCookie)
 
-	refreshTokenCookie := &http.Cookie{
-		Name:     "RefreshToken",
-		Value:    token["refresh_token"],
-		Expires:  time.Now().Add(24 * time.Hour),
+	rtCookie := &http.Cookie{
+		Name:     "refresh_token",
+		Value:    token.RefreshToken,
+		SameSite: 2,
 		HttpOnly: true,
+		Expires:  time.Now().Add(time.Hour * 24),
 	}
-	c.SetCookie(refreshTokenCookie)
+	c.SetCookie(rtCookie)
 
 	return c.JSON(http.StatusOK, model.Response{
 		StatusCode: http.StatusOK,
@@ -154,46 +158,30 @@ func (u *UserHandler) SignIn(c echo.Context) error {
 	})
 }
 
-// func (u *UserHandler) SignOut(c echo.Context) error {
-// 	tcookie := http.Cookie{
-// 		Name:     "AccessToken",
-// 		MaxAge:   -1,
-// 		HttpOnly: true,
-// 	}
-// 	c.SetCookie(&tcookie)
-
-// 	rtcookie := http.Cookie{
-// 		Name:     "RefreshToken",
-// 		MaxAge:   -1,
-// 		HttpOnly: true,
-// 	}
-// 	c.SetCookie(&rtcookie)
-
-// 	return c.JSON(http.StatusOK, model.Response{
-// 		StatusCode: http.StatusOK,
-// 		Message:    "Đăng xuất thành công",
-// 	})
-
-// }
-
 func (u *UserHandler) Profile(c echo.Context) error {
-	cookie, err := c.Cookie("AccessToken")
+	tokenAuth, err := security.ExtractAccessTokenMetadata(c.Request())
 	if err != nil {
-		return err
+		log.Println(err)
+		return c.JSON(http.StatusUnauthorized, model.Response{
+			StatusCode: http.StatusUnauthorized,
+			Message:    err.Error(),
+			Data:       nil,
+		})
 	}
 
-	accessCookie := cookie.Value
-
-	token, err := jwt.Parse(accessCookie, func(token *jwt.Token) (interface{}, error) {
-		return []byte(security.SECRET_KEY), nil
-	})
-
-	claims := token.Claims.(jwt.MapClaims)
-	strClaims := fmt.Sprintf("%v", claims["UserId"])
-	user, err := u.UserRepo.SelectUserById(c.Request().Context(), strClaims)
-
+	userID, err := u.AuthRepo.FetchAuth(tokenAuth.AccessUUID)
 	if err != nil {
-		log.Error(err)
+		log.Println(err)
+		return c.JSON(http.StatusUnauthorized, model.Response{
+			StatusCode: http.StatusUnauthorized,
+			Message:    err.Error(),
+			Data:       nil,
+		})
+	}
+
+	user, err := u.UserRepo.SelectUserByID(c.Request().Context(), userID)
+	if err != nil {
+		log.Println(err)
 		if err == custom_error.UserNotFound {
 			return c.JSON(http.StatusNotFound, model.Response{
 				StatusCode: http.StatusNotFound,
@@ -202,8 +190,8 @@ func (u *UserHandler) Profile(c echo.Context) error {
 			})
 		}
 
-		return c.JSON(http.StatusInternalServerError, model.Response{
-			StatusCode: http.StatusInternalServerError,
+		return c.JSON(http.StatusForbidden, model.Response{
+			StatusCode: http.StatusForbidden,
 			Message:    err.Error(),
 			Data:       nil,
 		})
@@ -217,40 +205,49 @@ func (u *UserHandler) Profile(c echo.Context) error {
 }
 
 func (u *UserHandler) UpdateProfile(c echo.Context) error {
-	req := requests.RequestUpdateUser{}
-	if err := c.Bind(&req); err != nil {
-		return err
-	}
-
-	// validate requests
-	err := c.Validate(req)
-	if err != nil {
+	request := req.ReqUpdateUser{}
+	if err := c.Bind(&request); err != nil {
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
 			Message:    err.Error(),
+			Data:       nil,
 		})
 	}
 
-	hash := security.HashAndSalt([]byte(req.Password))
-
-	cookie, err := c.Cookie("AccessToken")
-	if err != nil {
-		return err
+	if err := c.Validate(request); err != nil {
+		return c.JSON(http.StatusBadRequest, model.Response{
+			StatusCode: http.StatusBadRequest,
+			Message:    err.Error(),
+			Data:       nil,
+		})
 	}
 
-	accessCookie := cookie.Value
+	tokenAuth, err := security.ExtractAccessTokenMetadata(c.Request())
+	if err != nil {
+		log.Println(err)
+		return c.JSON(http.StatusUnauthorized, model.Response{
+			StatusCode: http.StatusUnauthorized,
+			Message:    err.Error(),
+			Data:       nil,
+		})
+	}
 
-	token, err := jwt.Parse(accessCookie, func(token *jwt.Token) (interface{}, error) {
-		return []byte(security.SECRET_KEY), nil
-	})
+	userID, err := u.AuthRepo.FetchAuth(tokenAuth.AccessUUID)
+	if err != nil {
+		log.Println(err)
+		return c.JSON(http.StatusUnauthorized, model.Response{
+			StatusCode: http.StatusUnauthorized,
+			Message:    err.Error(),
+			Data:       nil,
+		})
+	}
 
-	claims := token.Claims.(jwt.MapClaims)
-	strClaims := fmt.Sprintf("%v", claims["UserId"])
+	hash := security.HashAndSalt([]byte(request.Password))
 
 	user := model.User{
-		UserId:   strClaims,
-		FullName: req.FullName,
-		Email:    req.Email,
+		UserID:   userID,
+		Email:    request.Email,
+		FullName: request.FullName,
 		Password: hash,
 	}
 
@@ -259,100 +256,147 @@ func (u *UserHandler) UpdateProfile(c echo.Context) error {
 		return c.JSON(http.StatusUnprocessableEntity, model.Response{
 			StatusCode: http.StatusUnprocessableEntity,
 			Message:    err.Error(),
+			Data:       nil,
 		})
 	}
 
 	return c.JSON(http.StatusCreated, model.Response{
 		StatusCode: http.StatusCreated,
-		Message:    "Xử lý thành công",
+		Message:    "Cập nhật thông tin thành công",
 		Data:       user,
 	})
-
 }
 
-func (u *UserHandler) RefeshToken(c echo.Context) error {
-	cookie, err := c.Cookie("RefreshToken")
+func (u *UserHandler) SignOut(c echo.Context) error {
+	extractAt, err := security.ExtractAccessTokenMetadata(c.Request())
 	if err != nil {
-		return err
+		log.Println(err)
+		return c.JSON(http.StatusUnauthorized, model.Response{
+			StatusCode: http.StatusUnauthorized,
+			Message:    err.Error(),
+			Data:       nil,
+		})
 	}
 
-	refreshCookie := cookie.Value
+	deleteAtErr := u.AuthRepo.DeleteAccessToken(extractAt.AccessUUID)
+	if deleteAtErr != nil {
+		log.Println(deleteAtErr)
+		return c.JSON(http.StatusUnauthorized, model.Response{
+			StatusCode: http.StatusUnauthorized,
+			Message:    deleteAtErr.Error(),
+			Data:       nil,
+		})
+	}
 
-	token, err := jwt.Parse(refreshCookie, func(token *jwt.Token) (interface{}, error) {
-		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
-			return nil, errors.New("Phương thức ký bất thường")
-		}
-		return []byte(security.SECRET_KEY), nil
+	extractRt, err := security.ExtractRefreshTokenMetadata(c.Request())
+	if err != nil {
+		log.Println(err)
+		return c.JSON(http.StatusUnauthorized, model.Response{
+			StatusCode: http.StatusUnauthorized,
+			Message:    err.Error(),
+			Data:       nil,
+		})
+	}
+
+	deleteRtErr := u.AuthRepo.DeleteRefreshToken(extractRt.RefreshUUID)
+	if deleteRtErr != nil {
+		log.Println(deleteRtErr)
+		return c.JSON(http.StatusUnauthorized, model.Response{
+			StatusCode: http.StatusUnauthorized,
+			Message:    deleteRtErr.Error(),
+			Data:       nil,
+		})
+	}
+
+	atCookie := &http.Cookie{
+		Name:   "access_token",
+		MaxAge: -1,
+	}
+	c.SetCookie(atCookie)
+
+	rtCookie := &http.Cookie{
+		Name:   "refresh_token",
+		MaxAge: -1,
+	}
+	c.SetCookie(rtCookie)
+
+	return c.JSON(http.StatusOK, model.Response{
+		StatusCode: http.StatusOK,
+		Message:    "Đăng xuất thành công",
 	})
+}
 
-	if claims, ok := token.Claims.(jwt.MapClaims); ok && token.Valid {
-		strClaims := fmt.Sprintf("%v", claims["UserId"])
-		user, err := u.UserRepo.SelectUserById(c.Request().Context(), strClaims)
+func (u *UserHandler) Refresh(c echo.Context) error {
+	_, err := c.Cookie("access_token")
+	if err != nil {
+		extractRt, err := security.ExtractRefreshTokenMetadata(c.Request())
 		if err != nil {
-			log.Error(err)
-			if err == custom_error.UserNotFound {
-				return c.JSON(http.StatusNotFound, model.Response{
-					StatusCode: http.StatusNotFound,
-					Message:    err.Error(),
-					Data:       nil,
-				})
-			}
+			return c.JSON(http.StatusUnauthorized, model.Response{
+				StatusCode: http.StatusUnauthorized,
+				Message:    "Bạn cần phải đăng nhập",
+			})
+		}
 
-			return c.JSON(http.StatusInternalServerError, model.Response{
-				StatusCode: http.StatusInternalServerError,
-				Message:    err.Error(),
+		deleteErr := u.AuthRepo.DeleteRefreshToken(extractRt.RefreshUUID)
+		if deleteErr != nil {
+			log.Println(deleteErr)
+			return c.JSON(http.StatusUnauthorized, model.Response{
+				StatusCode: http.StatusUnauthorized,
+				Message:    deleteErr.Error(),
 				Data:       nil,
 			})
 		}
 
-		if strClaims == user.UserId {
-			// create token
-			newToken, err := security.CreateToken(user)
-			if err != nil {
-				log.Error(err)
-				return c.JSON(http.StatusInternalServerError, model.Response{
-					StatusCode: http.StatusInternalServerError,
-					Message:    err.Error(),
-					Data:       nil,
-				})
-			}
-			user.AccessToken = newToken["access_token"]
-			user.RefreshToken = newToken["refresh_token"]
-
-			// create cookie for client(browser)
-			newATCookie := &http.Cookie{
-				Name:     "AccessToken",
-				Value:    newToken["access_token"],
-				Expires:  time.Now().Add(1 * time.Minute),
-				HttpOnly: true,
-			}
-			c.SetCookie(newATCookie)
-
-			newRTCookie := &http.Cookie{
-				Name:     "RefreshToken",
-				Value:    newToken["refresh_token"],
-				Expires:  time.Now().Add(24 * time.Hour),
-				HttpOnly: true,
-			}
-			c.SetCookie(newRTCookie)
-
-			return c.JSON(http.StatusOK, model.Response{
-				StatusCode: http.StatusOK,
-				Message:    "Xử lý thành công",
-				Data:       user,
+		token, createErr := security.CreateToken(extractRt.UserID)
+		if createErr != nil {
+			return c.JSON(http.StatusForbidden, model.Response{
+				StatusCode: http.StatusForbidden,
+				Message:    createErr.Error(),
+				Data:       nil,
 			})
-
 		}
 
-		return c.JSON(http.StatusNotFound, model.Response{
-			StatusCode: http.StatusNotFound,
-			Message:    err.Error(),
+		saveErr := u.AuthRepo.CreateAuth(extractRt.UserID, token)
+		if saveErr != nil {
+			return c.JSON(http.StatusForbidden, model.Response{
+				StatusCode: http.StatusForbidden,
+				Message:    saveErr.Error(),
+				Data:       nil,
+			})
+		}
+
+		tokens := map[string]string{
+			"access_token":  token.AccessToken,
+			"refresh_token": token.RefreshToken,
+		}
+
+		atCookie := &http.Cookie{
+			Name:     "access_token",
+			Value:    token.AccessToken,
+			HttpOnly: true,
+			SameSite: 2,
+			Expires:  time.Now().Add(time.Minute * 15),
+		}
+		c.SetCookie(atCookie)
+
+		rtCookie := &http.Cookie{
+			Name:     "refresh_token",
+			Value:    token.RefreshToken,
+			SameSite: 2,
+			HttpOnly: true,
+			Expires:  time.Now().Add(time.Hour * 24),
+		}
+		c.SetCookie(rtCookie)
+
+		return c.JSON(http.StatusCreated, model.Response{
+			StatusCode: http.StatusCreated,
+			Message:    "Xử lý thành công",
+			Data:       tokens,
 		})
 	}
 
 	return c.JSON(http.StatusUnauthorized, model.Response{
 		StatusCode: http.StatusUnauthorized,
-		Message:    err.Error(),
+		Message:    "Access token chưa hết hạn",
 	})
-
 }

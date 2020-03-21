@@ -2,31 +2,31 @@ package db
 
 import (
 	"fmt"
+	"log"
+	"os"
 
 	"github.com/jmoiron/sqlx"
-	"github.com/labstack/gommon/log"
 	_ "github.com/lib/pq"
 )
 
 type Sql struct {
 	Db       *sqlx.DB
 	Host     string
-	Port     int
+	Port     string
 	UserName string
 	Password string
 	DbName   string
 }
 
 func (s *Sql) Connect() {
-	dataSource := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
+	dataSource := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
 		s.Host, s.Port, s.UserName, s.Password, s.DbName)
 
-	s.Db = sqlx.MustConnect("postgres", dataSource)
+	s.Db = sqlx.MustConnect(os.Getenv("DB_DRIVER"), dataSource)
 	if err := s.Db.Ping(); err != nil {
-		log.Error(err.Error())
 		return
 	}
-	fmt.Println("Connect db ok")
+	log.Println("Connect postgres db ok")
 }
 
 func (s *Sql) Close() {

@@ -1,8 +1,6 @@
 package helper
 
 import (
-	"backend-viblo-trending/log"
-
 	"strings"
 
 	"github.com/go-playground/locales/en"
@@ -34,7 +32,6 @@ func NewCustomValidator() *CustomValidator {
 
 func (cv *CustomValidator) RegisterValidate() {
 	if err := en_translations.RegisterDefaultTranslations(cv.Validator, cv.Trans); err != nil {
-		log.Error(err.Error())
 	}
 
 	cv.Validator.RegisterValidation("pwd", func(fl validator.FieldLevel) bool {
