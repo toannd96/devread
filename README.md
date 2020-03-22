@@ -1,4 +1,4 @@
-Xây dựng ứng dụng web thu thập thông tin bài viết được quan tâm nhiều nhất trên [blog viblo mtrending](https://viblo.asia/trending) sử dụng Echo Framework (Golang)
+Xây dựng ứng dụng web thu thập thông tin bài viết được quan tâm nhiều nhất trên [blog viblo mục trending](https://viblo.asia/trending) sử dụng Echo Framework (Golang)
 
 ## Mô tả
 - Ứng dụng (web) sẽ tự động crawl các thông tin về bài viết nằm trong top trending về và cập nhật hàng ngày.
