@@ -6,7 +6,7 @@ Xây dựng ứng dụng web thu thập thông tin bài viết trên [blog viblo
 - Khi người dùng muốn đánh dấu các bài viết mình đã xem (vì bài viết đó hay, để lần sau vào đỡ mất công tìm lại) thì người dùng cần đăng ký tài khoản trên ứng dụng để sử dụng.
   - Ứng dụng sẽ có 2 hình thức đăng ký tài khoản là **đăng ký thông thường** và **đăng ký thông qua ứng dụng khác như facebook**
   - Vì việc đăng ký chỉ để sử dụng chức năng cơ bản nhất định nên thông tin đăng ký sẽ bao gồm **tên tài khoản**, **mật khẩu**.
-- Sau khi có đăng ký xong tiến hành đăng nhập vào ứng dụng để sử dụng, người dùng có thể xem thông tin tài khoản của mình, cập nhật thông tin tài khoản, mỗi người dùng sẽ có 1 kho lưu trữ để quản lý các bài viết mình quan tâm, khi người dùng thích bài viết nào thì đánh dấu bài viết đấy vào kho lưu trữ, khi không cần nữa có thể xóa bài viết khỏi kho lưu trữ đi.
+- Sau khi đăng ký xong tiến hành đăng nhập vào ứng dụng để sử dụng, người dùng có thể xem thông tin tài khoản của mình, cập nhật thông tin tài khoản, mỗi người dùng sẽ có 1 kho lưu trữ để quản lý các bài viết mình quan tâm, khi người dùng thích bài viết nào thì đánh dấu bài viết đấy vào kho lưu trữ, khi không cần nữa có thể xóa bài viết khỏi kho lưu trữ đi.
 - Về vấn đề xác thực người dùng, ứng dụng sử dụng JWT để xác thực như mô tả phía dưới.
 
 ## Xác thực
