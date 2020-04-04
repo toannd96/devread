@@ -1,7 +1,7 @@
 package req
 
 type ReqUpdateUser struct {
-	FullName string `json:"fullName,omitempty" validate:"required"`
 	Email    string `json:"email,omitempty" validate:"required"`
+	FullName string `json:"full_name,omitempty" validate:"required"`
 	Password string `json:"password,omitempty" validate:"pwd"`
 }

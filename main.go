@@ -14,7 +14,7 @@ import (
 )
 
 func init() {
-	if err := godotenv.Load(); err != nil {
+	if err := godotenv.Load(".env"); err != nil {
 		log.Println("không nhận được biến môi trường")
 	}
 }
@@ -22,8 +22,8 @@ func init() {
 func main() {
 
 	// redis details
-	redis_host := os.Getenv("REDIS_HOST")
-	redis_port := os.Getenv("REDIS_PORT")
+	redisHost := os.Getenv("REDIS_HOST")
+	redisPort := os.Getenv("REDIS_PORT")
 
 	// postgres details
 	host := os.Getenv("DB_HOST")
@@ -34,8 +34,8 @@ func main() {
 
 	// connect redis
 	client := &db.RedisDB{
-		Host: redis_host,
-		Port: redis_port,
+		Host: redisHost,
+		Port: redisPort,
 	}
 	client.NewRedisDB()
 
@@ -61,9 +61,13 @@ func main() {
 		UserRepo: repo_impl.NewUserRepo(sql),
 		AuthRepo: repo_impl.NewAuthRepo(client),
 	}
+
+	oauthGithub := handler.OauthGithub{}
+
 	api := router.API{
 		Echo:        e,
 		UserHandler: userHandler,
+		OauthGithub: oauthGithub,
 	}
 
 	api.SetupRouter()
