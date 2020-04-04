@@ -20,5 +20,5 @@ Sử dụng JWT để xác thực:
 - Khi người dùng thực hiện yêu cầu đăng xuất, dữ liệu của JWT được cung cấp sẽ bị xóa khỏi redis.
 - Bản chất của mã thông báo làm mới là khi mã thông báo truy cập của người dùng hết hạn, mã thông báo làm mới sẽ được gửi trong yêu cầu tạo bộ mã thông báo truy cập mới và mã thông báo làm mới.
 
-Thiết lập API rate limiting
-Sử dụng Oauth2 với Github (đang phát triển)
+- Thiết lập API rate limiting
+- Sử dụng Oauth2 với Github (đang phát triển)
