@@ -4,7 +4,7 @@ Xây dựng ứng dụng web thu thập thông tin bài viết trên [blog viblo
 - Ứng dụng (web) sẽ tự động crawl các thông tin về bài viết nằm trong top trending về và cập nhật hàng ngày.
 - Người dùng là khách ghé qua ứng dụng có thể xem thông tin, đọc các bài viết (chuyển tiếp link tới bài viết gốc).
 - Khi người dùng muốn đánh dấu các bài viết mình đã xem (vì bài viết đó hay, để lần sau vào đỡ mất công tìm lại) thì người dùng cần đăng ký tài khoản trên ứng dụng để sử dụng.
-  - Ứng dụng sẽ có 2 hình thức đăng ký tài khoản là **đăng ký thông thường** và **đăng ký thông qua ứng dụng khác như facebook**
+  - Ứng dụng sẽ có 2 hình thức đăng ký tài khoản là **đăng ký thông thường** và **đăng ký thông qua ứng dụng khác như Github**
   - Vì việc đăng ký chỉ để sử dụng chức năng cơ bản nhất định nên thông tin đăng ký sẽ bao gồm **tên tài khoản**, **mật khẩu**.
 - Sau khi đăng ký xong tiến hành đăng nhập vào ứng dụng để sử dụng, người dùng có thể xem thông tin tài khoản của mình, cập nhật thông tin tài khoản, mỗi người dùng sẽ có 1 kho lưu trữ để quản lý các bài viết mình quan tâm, khi người dùng thích bài viết nào thì đánh dấu bài viết đấy vào kho lưu trữ, khi không cần nữa có thể xóa bài viết khỏi kho lưu trữ đi.
 - Về vấn đề xác thực người dùng, ứng dụng sử dụng JWT để xác thực như mô tả phía dưới.
@@ -21,4 +21,4 @@ Sử dụng JWT để xác thực:
 - Bản chất của mã thông báo làm mới là khi mã thông báo truy cập của người dùng hết hạn, mã thông báo làm mới sẽ được gửi trong yêu cầu tạo bộ mã thông báo truy cập mới và mã thông báo làm mới.
 
 - API rate limiting
-- Oauth2 với Github
+- Oauth2 với Github (đang phát triển)
