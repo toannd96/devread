@@ -26,7 +26,7 @@ func (s *Sql) Connect() {
 	if err := s.Db.Ping(); err != nil {
 		return
 	}
-	log.Println("Connect postgres db ok")
+	log.Println("Kết nối thành công tới postgres")
 }
 
 func (s *Sql) Close() {

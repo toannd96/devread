@@ -16,7 +16,7 @@ func LimitMiddleware(lmt *limiter.Limiter) echo.MiddlewareFunc {
 			if httpErr != nil {
 				return c.JSON(http.StatusTooManyRequests, model.Response{
 					StatusCode: http.StatusTooManyRequests,
-					Message:    "You have reached maximum request limit",
+					Message:    "Bạn đã đạt đến giới hạn yêu cầu tối đa",
 					Data:       nil,
 				})
 			}

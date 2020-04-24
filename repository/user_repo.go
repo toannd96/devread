@@ -7,8 +7,12 @@ import (
 )
 
 type UserRepo interface {
-	CheckSignIn(context context.Context, SignInReq req.ReqSignIn) (model.User, error)
+	CheckSignIn(context context.Context, signinReq req.ReqSignIn) (model.User, error)
+	CheckEmailSignUp(context context.Context, emailReq req.ReqtSignUp) (model.User, error)
+	CheckEmail(context context.Context, emailReq req.ReqEmail) (model.User, error)
+	UpdateUser(context context.Context, user model.User) (model.User, error)
+	UpdatePassword(context context.Context, user model.User) (model.User, error)
+	UpdateVerify(context context.Context, user model.User) (model.User, error)
 	SaveUser(context context.Context, user model.User) (model.User, error)
 	SelectUserByID(context context.Context, userID string) (model.User, error)
-	UpdateUser(context context.Context, user model.User) (model.User, error)
 }

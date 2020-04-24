@@ -62,12 +62,9 @@ func main() {
 		AuthRepo: repo_impl.NewAuthRepo(client),
 	}
 
-	oauthGithub := handler.OauthGithub{}
-
 	api := router.API{
 		Echo:        e,
 		UserHandler: userHandler,
-		OauthGithub: oauthGithub,
 	}
 
 	api.SetupRouter()

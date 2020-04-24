@@ -15,7 +15,7 @@ func TokenAuthMiddleware() echo.MiddlewareFunc {
 			if err != nil {
 				return c.JSON(http.StatusUnauthorized, model.Response{
 					StatusCode: http.StatusUnauthorized,
-					Message:    err.Error(),
+					Message:    "Truy cập không được phép",
 					Data:       nil,
 				})
 			}

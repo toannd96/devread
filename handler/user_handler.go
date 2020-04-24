@@ -8,11 +8,23 @@ import (
 	security "backend-viblo-trending/security"
 	"log"
 	"net/http"
+	"net/smtp"
+	"os"
 	"time"
 
 	uuid "github.com/google/uuid"
 	"github.com/labstack/echo"
 )
+
+type smtpServer struct {
+	host string
+	port string
+}
+
+// Address URI to smtp server.
+func (s *smtpServer) Address() string {
+	return s.host + ":" + s.port
+}
 
 type UserHandler struct {
 	UserRepo repository.UserRepo
@@ -38,7 +50,6 @@ func (u *UserHandler) SignUp(c echo.Context) error {
 	}
 
 	hash := security.HashAndSalt([]byte(request.Password))
-	role := model.MEMBER.String()
 
 	userID, err := uuid.NewUUID()
 	if err != nil {
@@ -54,7 +65,7 @@ func (u *UserHandler) SignUp(c echo.Context) error {
 		FullName: request.FullName,
 		Email:    request.Email,
 		Password: hash,
-		Role:     role,
+		Verify:   false,
 	}
 
 	user, err = u.UserRepo.SaveUser(c.Request().Context(), user)
@@ -66,10 +77,278 @@ func (u *UserHandler) SignUp(c echo.Context) error {
 		})
 	}
 
+	// verify email
+	token := security.CreateTokenHash(user.Email)
+
+	// save token to redis
+	saveErr := u.AuthRepo.CreateAuthMail(token, user.UserID)
+	if saveErr != nil {
+		return c.JSON(http.StatusForbidden, model.Response{
+			StatusCode: http.StatusForbidden,
+			Message:    saveErr.Error(),
+			Data:       nil,
+		})
+	}
+
+	link := "http://127.0.0.1:3000" + "/user/verify?token=" + token
+
+	from := os.Getenv("FROM")
+	password := os.Getenv("PASSWORD")
+	to := []string{user.Email}
+
+	smtpsv := smtpServer{
+		host: os.Getenv("SMTP_HOST"),
+		port: os.Getenv("SMTP_PORT"),
+	}
+
+	subject := "Xác thực tài khoản\r\n"
+	mime := "MIME-version: 1.0;\nContent-Type: text/html; charset=\"UTF-8\";\n\n"
+	body := "Để xác thực tài khoản nhấp vào liên kết <a href='" + link + "'>ở đây</a>."
+	message := []byte("Subject:" + subject + mime + "\r\n" + body)
+
+	auth := smtp.PlainAuth("", from, password, smtpsv.host)
+	errSendMail := smtp.SendMail(smtpsv.Address(), auth, from, to, message)
+	if errSendMail != nil {
+		return errSendMail
+	}
+
 	return c.JSON(http.StatusOK, model.Response{
 		StatusCode: http.StatusOK,
-		Message:    "Đăng ký thành công",
-		Data:       user,
+		Message:    "Tin nhắn xác thực tài khoản được gửi đến email được cung cấp. Vui lòng kiểm tra thư mục thư rác",
+	})
+}
+
+func (u *UserHandler) ForgotPassword(c echo.Context) error {
+	request := req.ReqEmail{}
+	if err := c.Bind(&request); err != nil {
+		return c.JSON(http.StatusBadRequest, model.Response{
+			StatusCode: http.StatusBadRequest,
+			Message:    err.Error(),
+			Data:       nil,
+		})
+	}
+
+	if err := c.Validate(request); err != nil {
+		return c.JSON(http.StatusBadRequest, model.Response{
+			StatusCode: http.StatusBadRequest,
+			Message:    err.Error(),
+			Data:       nil,
+		})
+	}
+
+	user, err := u.UserRepo.CheckEmail(c.Request().Context(), request)
+	if err != nil {
+		return c.JSON(http.StatusUnauthorized, model.Response{
+			StatusCode: http.StatusUnauthorized,
+			Message:    err.Error(),
+			Data:       nil,
+		})
+	}
+
+	token := security.CreateTokenHash(user.Email)
+
+	// save token to redis
+	saveErr := u.AuthRepo.CreateAuthMail(token, user.UserID)
+	if saveErr != nil {
+		return c.JSON(http.StatusForbidden, model.Response{
+			StatusCode: http.StatusForbidden,
+			Message:    saveErr.Error(),
+			Data:       nil,
+		})
+	}
+
+	insertErr := u.AuthRepo.InsertAuthMail(token)
+	if insertErr != nil {
+		return c.JSON(http.StatusForbidden, model.Response{
+			StatusCode: http.StatusForbidden,
+			Message:    insertErr.Error(),
+			Data:       nil,
+		})
+	}
+
+	link := "http://127.0.0.1:3000" + "/user/password/reset?token=" + token
+
+	from := os.Getenv("FROM")
+	password := os.Getenv("PASSWORD")
+	to := []string{user.Email}
+
+	smtpsv := smtpServer{
+		host: os.Getenv("SMTP_HOST"),
+		port: os.Getenv("SMTP_PORT"),
+	}
+
+	subject := "Đặt lại mật khẩu\r\n"
+	mime := "MIME-version: 1.0;\nContent-Type: text/html; charset=\"UTF-8\";\n\n"
+	body := "Để đặt lại mật khẩu nhấp vào liên kết <a href='" + link + "'>ở đây</a>."
+	message := []byte("Subject:" + subject + mime + "\r\n" + body)
+
+	auth := smtp.PlainAuth("", from, password, smtpsv.host)
+	errSendMail := smtp.SendMail(smtpsv.Address(), auth, from, to, message)
+	if errSendMail != nil {
+		return errSendMail
+	}
+
+	return c.JSON(http.StatusOK, model.Response{
+		StatusCode: http.StatusOK,
+		Message:    "Tin nhắn được gửi đến email được cung cấp. Vui lòng kiểm tra thư mục thư rác",
+	})
+}
+
+func (u *UserHandler) VerifyAccount(c echo.Context) error {
+	request := req.PasswordSubmit{}
+	if err := c.Bind(&request); err != nil {
+		return c.JSON(http.StatusBadRequest, model.Response{
+			StatusCode: http.StatusBadRequest,
+			Message:    err.Error(),
+			Data:       nil,
+		})
+	}
+
+	if err := c.Validate(request); err != nil {
+		return c.JSON(http.StatusBadRequest, model.Response{
+			StatusCode: http.StatusBadRequest,
+			Message:    err.Error(),
+			Data:       nil,
+		})
+	}
+
+	token := security.ExtractTokenMail(c.Request())
+
+	userID, err := u.AuthRepo.FetchAuthMail(token)
+	if err != nil {
+		log.Println(err)
+		return c.JSON(http.StatusUnauthorized, model.Response{
+			StatusCode: http.StatusUnauthorized,
+			Message:    "Truy cập không được phép",
+			Data:       nil,
+		})
+	}
+
+	user, err := u.UserRepo.SelectUserByID(c.Request().Context(), userID)
+	if err != nil {
+		return c.JSON(http.StatusUnauthorized, model.Response{
+			StatusCode: http.StatusUnauthorized,
+			Message:    err.Error(),
+			Data:       nil,
+		})
+	}
+
+	if request.Password != request.Confirm {
+		return c.JSON(http.StatusUnauthorized, model.Response{
+			StatusCode: http.StatusUnauthorized,
+			Message:    "Xác nhận mật khẩu không khớp",
+			Data:       nil,
+		})
+	}
+
+	// check password
+	isTheSame := security.ComparePasswords(user.Password, []byte(request.Password))
+	if !isTheSame {
+		return c.JSON(http.StatusUnauthorized, model.Response{
+			StatusCode: http.StatusUnauthorized,
+			Message:    "Mật khẩu không đúng",
+			Data:       nil,
+		})
+	}
+
+	user = model.User{
+		UserID: userID,
+		Verify: true,
+	}
+
+	user, err = u.UserRepo.UpdateVerify(c.Request().Context(), user)
+	if err != nil {
+		return c.JSON(http.StatusUnprocessableEntity, model.Response{
+			StatusCode: http.StatusUnprocessableEntity,
+			Message:    err.Error(),
+			Data:       nil,
+		})
+	}
+
+	deleteAtErr := u.AuthRepo.DeleteTokenMail(token)
+	if deleteAtErr != nil {
+		log.Println(deleteAtErr)
+		return c.JSON(http.StatusUnauthorized, model.Response{
+			StatusCode: http.StatusUnauthorized,
+			Message:    deleteAtErr.Error(),
+			Data:       nil,
+		})
+	}
+
+	return c.JSON(http.StatusOK, model.Response{
+		StatusCode: http.StatusOK,
+		Message:    "Xác thực tài khoản thành công",
+	})
+
+}
+
+func (u *UserHandler) ResetPassword(c echo.Context) error {
+	request := req.PasswordSubmit{}
+	if err := c.Bind(&request); err != nil {
+		return c.JSON(http.StatusBadRequest, model.Response{
+			StatusCode: http.StatusBadRequest,
+			Message:    err.Error(),
+			Data:       nil,
+		})
+	}
+
+	if err := c.Validate(request); err != nil {
+		return c.JSON(http.StatusBadRequest, model.Response{
+			StatusCode: http.StatusBadRequest,
+			Message:    err.Error(),
+			Data:       nil,
+		})
+	}
+
+	token := security.ExtractTokenMail(c.Request())
+
+	userID, err := u.AuthRepo.FetchAuthMail(token)
+	if err != nil {
+		log.Println(err)
+		return c.JSON(http.StatusUnauthorized, model.Response{
+			StatusCode: http.StatusUnauthorized,
+			Message:    "Truy cập không được phép, cần gửi lại email",
+			Data:       nil,
+		})
+	}
+
+	if request.Password != request.Confirm {
+		return c.JSON(http.StatusUnauthorized, model.Response{
+			StatusCode: http.StatusUnauthorized,
+			Message:    "Xác nhận mật khẩu không khớp",
+			Data:       nil,
+		})
+	}
+
+	hash := security.HashAndSalt([]byte(request.Password))
+
+	user := model.User{
+		UserID:   userID,
+		Password: hash,
+	}
+
+	user, err = u.UserRepo.UpdatePassword(c.Request().Context(), user)
+	if err != nil {
+		return c.JSON(http.StatusUnprocessableEntity, model.Response{
+			StatusCode: http.StatusUnprocessableEntity,
+			Message:    err.Error(),
+			Data:       nil,
+		})
+	}
+
+	deleteAtErr := u.AuthRepo.DeleteTokenMail(token)
+	if deleteAtErr != nil {
+		log.Println(deleteAtErr)
+		return c.JSON(http.StatusUnauthorized, model.Response{
+			StatusCode: http.StatusUnauthorized,
+			Message:    deleteAtErr.Error(),
+			Data:       nil,
+		})
+	}
+
+	return c.JSON(http.StatusCreated, model.Response{
+		StatusCode: http.StatusCreated,
+		Message:    "Cập nhật mật khẩu thành công",
 	})
 }
 
@@ -96,6 +375,14 @@ func (u *UserHandler) SignIn(c echo.Context) error {
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    err.Error(),
+			Data:       nil,
+		})
+	}
+
+	if user.Verify != true {
+		return c.JSON(http.StatusUnauthorized, model.Response{
+			StatusCode: http.StatusUnauthorized,
+			Message:    "Tài khoản chưa được xác thực",
 			Data:       nil,
 		})
 	}
@@ -174,7 +461,7 @@ func (u *UserHandler) Profile(c echo.Context) error {
 		log.Println(err)
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
-			Message:    err.Error(),
+			Message:    "Truy cập không được phép",
 			Data:       nil,
 		})
 	}
@@ -237,16 +524,62 @@ func (u *UserHandler) UpdateProfile(c echo.Context) error {
 		log.Println(err)
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
-			Message:    err.Error(),
+			Message:    "Truy cập không được phép",
+			Data:       nil,
+		})
+	}
+
+	if request.Password != request.Confirm {
+		return c.JSON(http.StatusUnauthorized, model.Response{
+			StatusCode: http.StatusUnauthorized,
+			Message:    "Xác nhận mật khẩu không khớp",
 			Data:       nil,
 		})
 	}
 
 	hash := security.HashAndSalt([]byte(request.Password))
 
+	if request.FullName == "" {
+		if len(request.Password) < 8 {
+			return c.JSON(http.StatusBadRequest, model.Response{
+				StatusCode: http.StatusBadRequest,
+				Message:    "Mật khẩu tối thiểu 8 ký tự",
+				Data:       nil,
+			})
+		}
+		user := model.User{
+			UserID:   userID,
+			Password: hash,
+		}
+
+		user, err = u.UserRepo.UpdateUser(c.Request().Context(), user)
+		if err != nil {
+			return c.JSON(http.StatusUnprocessableEntity, model.Response{
+				StatusCode: http.StatusUnprocessableEntity,
+				Message:    err.Error(),
+				Data:       nil,
+			})
+		}
+	}
+
+	if request.Password == "" {
+		user := model.User{
+			UserID:   userID,
+			FullName: request.FullName,
+		}
+
+		user, err = u.UserRepo.UpdateUser(c.Request().Context(), user)
+		if err != nil {
+			return c.JSON(http.StatusUnprocessableEntity, model.Response{
+				StatusCode: http.StatusUnprocessableEntity,
+				Message:    err.Error(),
+				Data:       nil,
+			})
+		}
+	}
+
 	user := model.User{
 		UserID:   userID,
-		Email:    request.Email,
 		FullName: request.FullName,
 		Password: hash,
 	}
@@ -263,7 +596,6 @@ func (u *UserHandler) UpdateProfile(c echo.Context) error {
 	return c.JSON(http.StatusCreated, model.Response{
 		StatusCode: http.StatusCreated,
 		Message:    "Cập nhật thông tin thành công",
-		Data:       user,
 	})
 }
 

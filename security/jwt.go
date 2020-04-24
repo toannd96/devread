@@ -21,7 +21,6 @@ func CreateToken(userID string) (*model.TokenDetails, error) {
 
 	// creating access token
 	atClaims := jwt.MapClaims{
-		"authorized":  true,
 		"access_uuid": td.AccessUUID,
 		"user_id":     userID,
 		"exp":         td.AtExpires,

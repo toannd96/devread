@@ -20,5 +20,5 @@ func (rd *RedisDB) NewRedisDB() {
 	if err != nil {
 		log.Println(err)
 	}
-	log.Println("Connect redis db ok")
+	log.Println("Kết nối thành công tới redis")
 }

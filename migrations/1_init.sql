@@ -4,7 +4,7 @@ CREATE TABLE "users" (
   "full_name" text,
   "email" text UNIQUE,
   "password" text,
-  "role" text,
+  "verify" boolean,
   "create_at" TIMESTAMPTZ NOT NULL,
   "update_at" TIMESTAMPTZ NOT NULL
 );

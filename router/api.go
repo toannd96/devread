@@ -11,7 +11,6 @@ import (
 type API struct {
 	Echo        *echo.Echo
 	UserHandler handler.UserHandler
-	OauthGithub handler.OauthGithub
 }
 
 func (api *API) SetupRouter() {
@@ -23,8 +22,9 @@ func (api *API) SetupRouter() {
 	user.POST("/sign-in", api.UserHandler.SignIn)
 	user.POST("/sign-up", api.UserHandler.SignUp)
 	user.POST("/refresh", api.UserHandler.Refresh)
-	user.GET("/github/sign-in", api.OauthGithub.GithubSignIn)
-	user.GET("/github/callback", api.OauthGithub.GithubCallback)
+	user.POST("/verify", api.UserHandler.VerifyAccount)
+	user.POST("/password/forgot", api.UserHandler.ForgotPassword)
+	user.PUT("/password/reset", api.UserHandler.ResetPassword)
 
 	// user profile
 	user_profile := api.Echo.Group("/user", middleware.CORSMiddleware(), middleware.TokenAuthMiddleware(), middleware.LimitMiddleware(limit))
