@@ -2,11 +2,10 @@ package security
 
 import (
 	"backend-viblo-trending/model"
-	"os"
-	"time"
-
 	"github.com/dgrijalva/jwt-go"
 	"github.com/google/uuid"
+	"os"
+	"time"
 )
 
 func CreateToken(userID string) (*model.TokenDetails, error) {

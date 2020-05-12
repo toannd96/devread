@@ -3,7 +3,6 @@ package security
 import (
 	"crypto/md5"
 	"encoding/hex"
-
 	"github.com/google/uuid"
 )
 

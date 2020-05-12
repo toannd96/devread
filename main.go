@@ -6,11 +6,12 @@ import (
 	"backend-viblo-trending/helper"
 	"backend-viblo-trending/repository/repo_impl"
 	"backend-viblo-trending/router"
-	"log"
-	"os"
-
+	"fmt"
 	"github.com/joho/godotenv"
 	"github.com/labstack/echo"
+	"log"
+	"os"
+	"time"
 )
 
 func init() {
@@ -62,12 +63,33 @@ func main() {
 		AuthRepo: repo_impl.NewAuthRepo(client),
 	}
 
+	repoHandler := handler.RepoHandler{
+		GithubRepo: repo_impl.NewGithubRepo(sql),
+		AuthRepo: repo_impl.NewAuthRepo(client),
+	}
+
 	api := router.API{
 		Echo:        e,
 		UserHandler: userHandler,
+		RepoHandler: repoHandler,
 	}
 
 	api.SetupRouter()
 
-	e.Logger.Fatal(e.Start(":3000"))
+	go scheduleUpdateTrending(360*time.Second, repoHandler)
+
+	e.Logger.Fatal(e.Start(":4000"))
+}
+
+func scheduleUpdateTrending(timeSchedule time.Duration, handler handler.RepoHandler) {
+	ticker := time.NewTicker(timeSchedule)
+	go func() {
+		for {
+			select {
+			case <-ticker.C:
+				fmt.Println("Checking from github...")
+				helper.CrawlRepo(handler.GithubRepo)
+			}
+		}
+	}()
 }

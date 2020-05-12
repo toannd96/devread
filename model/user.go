@@ -1,8 +1,6 @@
 package model
 
-import (
-	"time"
-)
+import "time"
 
 type User struct {
 	UserID       string    `json:"-" db:"user_id, omitempty"`

@@ -1,9 +1,8 @@
 package db
 
 import (
-	"log"
-
 	"github.com/go-redis/redis"
+	"log"
 )
 
 type RedisDB struct {

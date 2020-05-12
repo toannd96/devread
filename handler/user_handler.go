@@ -5,15 +5,14 @@ import (
 	"backend-viblo-trending/model"
 	"backend-viblo-trending/model/req"
 	"backend-viblo-trending/repository"
-	security "backend-viblo-trending/security"
+	"backend-viblo-trending/security"
+	"github.com/google/uuid"
+	"github.com/labstack/echo"
 	"log"
 	"net/http"
 	"net/smtp"
 	"os"
 	"time"
-
-	uuid "github.com/google/uuid"
-	"github.com/labstack/echo"
 )
 
 type smtpServer struct {
@@ -90,7 +89,7 @@ func (u *UserHandler) SignUp(c echo.Context) error {
 		})
 	}
 
-	link := "http://127.0.0.1:3000" + "/user/verify?token=" + token
+	link := "http://127.0.0.1:4000" + "/user/verify?token=" + token
 
 	from := os.Getenv("FROM")
 	password := os.Getenv("PASSWORD")
@@ -166,7 +165,7 @@ func (u *UserHandler) ForgotPassword(c echo.Context) error {
 		})
 	}
 
-	link := "http://127.0.0.1:3000" + "/user/password/reset?token=" + token
+	link := "http://127.0.0.1:4000" + "/user/password/reset?token=" + token
 
 	from := os.Getenv("FROM")
 	password := os.Getenv("PASSWORD")

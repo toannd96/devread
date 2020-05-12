@@ -2,11 +2,10 @@ package middleware
 
 import (
 	"backend-viblo-trending/model"
-	"net/http"
-
 	"github.com/didip/tollbooth"
 	"github.com/didip/tollbooth/limiter"
 	"github.com/labstack/echo"
+	"net/http"
 )
 
 func LimitMiddleware(lmt *limiter.Limiter) echo.MiddlewareFunc {

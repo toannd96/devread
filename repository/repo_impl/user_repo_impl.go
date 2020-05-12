@@ -8,9 +8,8 @@ import (
 	"backend-viblo-trending/repository"
 	"context"
 	"database/sql"
-	"time"
-
 	"github.com/lib/pq"
+	"time"
 )
 
 type UserRepoImpl struct {

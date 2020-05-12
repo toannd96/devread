@@ -1,13 +1,12 @@
 package helper
 
 import (
-	"strings"
-
 	"github.com/go-playground/locales/en"
 	ut "github.com/go-playground/universal-translator"
-	validator "github.com/go-playground/validator/v10"
+	"github.com/go-playground/validator/v10"
 	en_translations "github.com/go-playground/validator/v10/translations/en"
 	"github.com/pkg/errors"
+	"strings"
 )
 
 // ref > https://medium.com/@apzuk3/input-validation-in-golang-bc24cdec1835

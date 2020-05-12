@@ -3,10 +3,9 @@ package security
 import (
 	"backend-viblo-trending/model"
 	"fmt"
+	"github.com/dgrijalva/jwt-go"
 	"net/http"
 	"os"
-
-	"github.com/dgrijalva/jwt-go"
 )
 
 func ExtractRefreshToken(r *http.Request) string {

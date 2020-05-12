@@ -1,8 +1,6 @@
 package repository
 
-import (
-	"backend-viblo-trending/model"
-)
+import "backend-viblo-trending/model"
 
 type AuthRepo interface {
 	CreateAuth(userID string, tokenDetails *model.TokenDetails) error

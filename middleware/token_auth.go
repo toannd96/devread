@@ -3,9 +3,8 @@ package middleware
 import (
 	"backend-viblo-trending/model"
 	"backend-viblo-trending/security"
-	"net/http"
-
 	"github.com/labstack/echo"
+	"net/http"
 )
 
 func TokenAuthMiddleware() echo.MiddlewareFunc {

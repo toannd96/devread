@@ -128,14 +128,3 @@ func (au *AuthRepoImpl) DeleteRefreshToken(refresUUID string) error {
 	}
 	return nil
 }
-
-// func (au *AuthRepoImpl) InsertToken(token1 string, token2 string) error {
-// 	totalToken, err := au.client.Client.DbSize().Result()
-// 	if err != nil {
-// 		return err
-// 	}
-// 	if totalToken == 1 {
-// 		return
-// 	}
-
-// }
