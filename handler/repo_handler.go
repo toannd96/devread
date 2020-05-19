@@ -5,18 +5,27 @@ import (
 	"backend-viblo-trending/model/req"
 	"backend-viblo-trending/repository"
 	"backend-viblo-trending/security"
-	"github.com/google/uuid"
-	"github.com/labstack/echo"
 	"log"
 	"net/http"
 	"strings"
+
+	"github.com/google/uuid"
+	"github.com/labstack/echo/v4"
 )
 
 type RepoHandler struct {
 	GithubRepo repository.GithubRepo
-	AuthRepo repository.AuthRepo
+	AuthRepo   repository.AuthRepo
 }
 
+// RepoTrending godoc
+// @Summary Get repository github trending by user
+// @Tags repository-service
+// @Accept  json
+// @Produce  json
+// @Success 200 {object} model.Response
+// @Failure 401 {object} model.Response
+// @Router /user/github/trending [get]
 func (r *RepoHandler) RepoTrending(c echo.Context) error {
 	tokenAuth, err := security.ExtractAccessTokenMetadata(c.Request())
 	if err != nil {
@@ -50,6 +59,14 @@ func (r *RepoHandler) RepoTrending(c echo.Context) error {
 	})
 }
 
+// SelectBookmarks godoc
+// @Summary Get list bookmark
+// @Tags bookmark-service
+// @Accept  json
+// @Produce  json
+// @Success 200 {object} model.Response
+// @Failure 401 {object} model.Response
+// @Router /user/bookmark/list [get]
 func (r *RepoHandler) SelectBookmarks(c echo.Context) error {
 	tokenAuth, err := security.ExtractAccessTokenMetadata(c.Request())
 	if err != nil {
@@ -86,6 +103,18 @@ func (r *RepoHandler) SelectBookmarks(c echo.Context) error {
 	})
 }
 
+// Bookmark godoc
+// @Summary Add bookmark
+// @Tags bookmark-service
+// @Accept  json
+// @Produce  json
+// @Param data body req.ReqBookmark true "user"
+// @Success 200 {object} model.Response
+// @Failure 400 {object} model.Response
+// @Failure 401 {object} model.Response
+// @Failure 403 {object} model.Response
+// @Failure 500 {object} model.Response
+// @Router /user/bookmark/add [post]
 func (r *RepoHandler) Bookmark(c echo.Context) error {
 	req := req.ReqBookmark{}
 	if err := c.Bind(&req); err != nil {
@@ -152,6 +181,17 @@ func (r *RepoHandler) Bookmark(c echo.Context) error {
 	})
 }
 
+// DelBookmark godoc
+// @Summary Delete bookmark
+// @Tags bookmark-service
+// @Accept  json
+// @Produce  json
+// @Param data body req.ReqBookmark true "user"
+// @Success 200 {object} model.Response
+// @Failure 400 {object} model.Response
+// @Failure 401 {object} model.Response
+// @Failure 500 {object} model.Response
+// @Router /user/bookmark/delete [delete]
 func (r *RepoHandler) DelBookmark(c echo.Context) error {
 	req := req.ReqBookmark{}
 	if err := c.Bind(&req); err != nil {

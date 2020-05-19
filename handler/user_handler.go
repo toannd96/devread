@@ -6,13 +6,14 @@ import (
 	"backend-viblo-trending/model/req"
 	"backend-viblo-trending/repository"
 	"backend-viblo-trending/security"
-	"github.com/google/uuid"
-	"github.com/labstack/echo"
 	"log"
 	"net/http"
 	"net/smtp"
 	"os"
 	"time"
+
+	"github.com/google/uuid"
+	"github.com/labstack/echo/v4"
 )
 
 type smtpServer struct {
@@ -30,8 +31,21 @@ type UserHandler struct {
 	AuthRepo repository.AuthRepo
 }
 
+// SignUp godoc
+// @Summary Create new account
+// @Tags user-service
+// @Accept  json
+// @Produce  json
+// @Param data body req.ReqSignUp true "user"
+// @Success 200 {object} model.Response
+// @Failure 400 {object} model.Response
+// @Failure 403 {object} model.Response
+// @Failure 404 {object} model.Response
+// @Failure 409 {object} model.Response
+// @Failure 500 {object} model.Response
+// @Router /user/sign-up [post]
 func (u *UserHandler) SignUp(c echo.Context) error {
-	request := req.ReqtSignUp{}
+	request := req.ReqSignUp{}
 	if err := c.Bind(&request); err != nil {
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
@@ -117,6 +131,17 @@ func (u *UserHandler) SignUp(c echo.Context) error {
 	})
 }
 
+// ForgotPassword godoc
+// @Summary Forgot password
+// @Tags user-service
+// @Accept  json
+// @Produce  json
+// @Param data body req.ReqEmail true "user"
+// @Success 200 {object} model.Response
+// @Failure 400 {object} model.Response
+// @Failure 401 {object} model.Response
+// @Failure 403 {object} model.Response
+// @Router /user/password/forgot [post]
 func (u *UserHandler) ForgotPassword(c echo.Context) error {
 	request := req.ReqEmail{}
 	if err := c.Bind(&request); err != nil {
@@ -193,6 +218,18 @@ func (u *UserHandler) ForgotPassword(c echo.Context) error {
 	})
 }
 
+// VerifyAccount ... godoc
+// @Summary Verify email
+// @Tags user-service
+// @Accept  json
+// @Produce  json
+// @Param data body req.PasswordSubmit true "user"
+// @Security token-verify-account
+// @Success 200 {object} model.Response
+// @Failure 400 {object} model.Response
+// @Failure 401 {object} model.Response
+// @Failure 403 {object} model.Response
+// @Router /user/verify [post]
 func (u *UserHandler) VerifyAccount(c echo.Context) error {
 	request := req.PasswordSubmit{}
 	if err := c.Bind(&request); err != nil {
@@ -257,8 +294,8 @@ func (u *UserHandler) VerifyAccount(c echo.Context) error {
 
 	user, err = u.UserRepo.UpdateVerify(c.Request().Context(), user)
 	if err != nil {
-		return c.JSON(http.StatusUnprocessableEntity, model.Response{
-			StatusCode: http.StatusUnprocessableEntity,
+		return c.JSON(http.StatusForbidden, model.Response{
+			StatusCode: http.StatusForbidden,
 			Message:    err.Error(),
 			Data:       nil,
 		})
@@ -281,6 +318,18 @@ func (u *UserHandler) VerifyAccount(c echo.Context) error {
 
 }
 
+// ResetPassword godoc
+// @Summary Reset password
+// @Tags user-service
+// @Accept  json
+// @Produce  json
+// @Param data body req.PasswordSubmit true "user"
+// @Security token-reset-password
+// @Success 201 {object} model.Response
+// @Failure 400 {object} model.Response
+// @Failure 401 {object} model.Response
+// @Failure 403 {object} model.Response
+// @Router /user/password/reset [put]
 func (u *UserHandler) ResetPassword(c echo.Context) error {
 	request := req.PasswordSubmit{}
 	if err := c.Bind(&request); err != nil {
@@ -328,8 +377,8 @@ func (u *UserHandler) ResetPassword(c echo.Context) error {
 
 	user, err = u.UserRepo.UpdatePassword(c.Request().Context(), user)
 	if err != nil {
-		return c.JSON(http.StatusUnprocessableEntity, model.Response{
-			StatusCode: http.StatusUnprocessableEntity,
+		return c.JSON(http.StatusForbidden, model.Response{
+			StatusCode: http.StatusForbidden,
 			Message:    err.Error(),
 			Data:       nil,
 		})
@@ -351,6 +400,18 @@ func (u *UserHandler) ResetPassword(c echo.Context) error {
 	})
 }
 
+// SignIn godoc
+// @Summary Sign in to access your account
+// @Tags user-service
+// @Accept  json
+// @Produce  json
+// @Param data body req.ReqSignIn true "user"
+// @Success 200 {object} model.Response
+// @Failure 400 {object} model.Response
+// @Failure 401 {object} model.Response
+// @Failure 403 {object} model.Response
+// @Failure 500 {object} model.Response
+// @Router /user/sign-in [post]
 func (u *UserHandler) SignIn(c echo.Context) error {
 	request := req.ReqSignIn{}
 	if err := c.Bind(&request); err != nil {
@@ -444,6 +505,17 @@ func (u *UserHandler) SignIn(c echo.Context) error {
 	})
 }
 
+// Profile godoc
+// @Summary Get user profile
+// @Tags profile-service
+// @Accept  json
+// @Produce  json
+// @Success 200 {object} model.Response
+// @Failure 401 {object} model.Response
+// @Failure 403 {object} model.Response
+// @Failure 404 {object} model.Response
+// @Failure 500 {object} model.Response
+// @Router /user/profile [get]
 func (u *UserHandler) Profile(c echo.Context) error {
 	tokenAuth, err := security.ExtractAccessTokenMetadata(c.Request())
 	if err != nil {
@@ -490,6 +562,17 @@ func (u *UserHandler) Profile(c echo.Context) error {
 	})
 }
 
+// UpdateProfile godoc
+// @Summary Update user profile
+// @Tags profile-service
+// @Accept  json
+// @Produce  json
+// @Param data body req.ReqUpdateUser true "user"
+// @Success 201 {object} model.Response
+// @Failure 400 {object} model.Response
+// @Failure 401 {object} model.Response
+// @Failure 422 {object} model.Response
+// @Router /user/profile/update [put]
 func (u *UserHandler) UpdateProfile(c echo.Context) error {
 	request := req.ReqUpdateUser{}
 	if err := c.Bind(&request); err != nil {
@@ -598,6 +681,14 @@ func (u *UserHandler) UpdateProfile(c echo.Context) error {
 	})
 }
 
+// SignOut godoc
+// @Summary Sign out user profile
+// @Tags profile-service
+// @Accept  json
+// @Produce  json
+// @Success 200 {object} model.Response
+// @Failure 401 {object} model.Response
+// @Router /user/sign-out [post]
 func (u *UserHandler) SignOut(c echo.Context) error {
 	extractAt, err := security.ExtractAccessTokenMetadata(c.Request())
 	if err != nil {
@@ -657,6 +748,15 @@ func (u *UserHandler) SignOut(c echo.Context) error {
 	})
 }
 
+// Refresh godoc
+// @Summary Refresh token
+// @Tags user-service
+// @Accept  json
+// @Produce  json
+// @Success 201 {object} model.Response
+// @Failure 401 {object} model.Response
+// @Failure 403 {object} model.Response
+// @Router /user/refresh [post]
 func (u *UserHandler) Refresh(c echo.Context) error {
 	_, err := c.Cookie("access_token")
 	if err != nil {

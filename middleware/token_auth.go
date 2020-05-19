@@ -3,7 +3,7 @@ package middleware
 import (
 	"backend-viblo-trending/model"
 	"backend-viblo-trending/security"
-	"github.com/labstack/echo"
+	"github.com/labstack/echo/v4"
 	"net/http"
 )
 

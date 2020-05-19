@@ -8,8 +8,9 @@ import (
 	"backend-viblo-trending/repository"
 	"context"
 	"database/sql"
-	"github.com/lib/pq"
 	"time"
+
+	"github.com/lib/pq"
 )
 
 type UserRepoImpl struct {
@@ -29,7 +30,6 @@ func (u *UserRepoImpl) SaveUser(context context.Context, user model.User) (model
 	`
 	user.CreateAt = time.Now()
 	user.UpdateAt = time.Now()
-
 	_, err := u.sql.Db.NamedExecContext(context, statement, user)
 	if err != nil {
 		if err, ok := err.(*pq.Error); ok {
@@ -39,7 +39,6 @@ func (u *UserRepoImpl) SaveUser(context context.Context, user model.User) (model
 		}
 		return user, custom_error.SignUpFail
 	}
-
 	return user, nil
 
 }
@@ -68,7 +67,7 @@ func (u *UserRepoImpl) CheckEmail(context context.Context, emailReq req.ReqEmail
 	return user, nil
 }
 
-func (u *UserRepoImpl) CheckEmailSignUp(context context.Context, emailReq req.ReqtSignUp) (model.User, error) {
+func (u *UserRepoImpl) CheckEmailSignUp(context context.Context, emailReq req.ReqSignUp) (model.User, error) {
 	var user = model.User{}
 	err := u.sql.Db.GetContext(context, &user, "SELECT * FROM users WHERE email=$1", emailReq.Email)
 	if err != nil {
@@ -126,7 +125,6 @@ func (u *UserRepoImpl) UpdatePassword(context context.Context, user model.User) 
 	WHERE user_id = :user_id
 	`
 	user.UpdateAt = time.Now()
-
 	result, err := u.sql.Db.NamedExecContext(context, statement, user)
 	if err != nil {
 		return user, err
@@ -150,7 +148,6 @@ func (u *UserRepoImpl) UpdateVerify(context context.Context, user model.User) (m
 	WHERE user_id = :user_id
 	`
 	user.UpdateAt = time.Now()
-
 	result, err := u.sql.Db.NamedExecContext(context, statement, user)
 	if err != nil {
 		return user, err

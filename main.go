@@ -2,16 +2,19 @@ package main
 
 import (
 	"backend-viblo-trending/db"
+	_ "backend-viblo-trending/docs"
 	"backend-viblo-trending/handler"
 	"backend-viblo-trending/helper"
 	"backend-viblo-trending/repository/repo_impl"
 	"backend-viblo-trending/router"
 	"fmt"
-	"github.com/joho/godotenv"
-	"github.com/labstack/echo"
 	"log"
 	"os"
 	"time"
+
+	"github.com/joho/godotenv"
+	"github.com/labstack/echo/v4"
+	echoSwagger "github.com/swaggo/echo-swagger"
 )
 
 func init() {
@@ -19,6 +22,37 @@ func init() {
 		log.Println("không nhận được biến môi trường")
 	}
 }
+
+// @title Github Trending API
+// @version 1.0
+// @description Secure REST API
+// @termsOfService http://swagger.io/terms/
+
+// @contact.name API Support
+// @contact.url http://www.swagger.io/support
+// @contact.email support@swagger.io
+
+// @license.name Apache 2.0
+// @license.url http://www.apache.org/licenses/LICENSE-2.0.html
+
+// @securityDefinitions.apikey access_token
+// @in cookies
+// @name access_token
+
+// @securityDefinitions.apikey refresh_token
+// @in cookies
+// @name refresh_token
+
+// @securityDefinitions.apikey token-verify-account
+// @in query
+// @name token
+
+// @securityDefinitions.apikey token-reset-password
+// @in query
+// @name token
+
+// @host localhost:4000
+// @BasePath /
 
 func main() {
 
@@ -52,6 +86,7 @@ func main() {
 	defer sql.Close()
 
 	e := echo.New()
+	e.GET("/swagger/*", echoSwagger.WrapHandler)
 
 	customValidator := helper.NewCustomValidator()
 	customValidator.RegisterValidate()
@@ -65,7 +100,7 @@ func main() {
 
 	repoHandler := handler.RepoHandler{
 		GithubRepo: repo_impl.NewGithubRepo(sql),
-		AuthRepo: repo_impl.NewAuthRepo(client),
+		AuthRepo:   repo_impl.NewAuthRepo(client),
 	}
 
 	api := router.API{
