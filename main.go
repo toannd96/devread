@@ -2,13 +2,13 @@ package main
 
 import (
 	"backend-viblo-trending/db"
+	"backend-viblo-trending/log"
 	_ "backend-viblo-trending/docs"
 	"backend-viblo-trending/handler"
 	"backend-viblo-trending/helper"
 	"backend-viblo-trending/repository/repo_impl"
 	"backend-viblo-trending/router"
 	"fmt"
-	"log"
 	"os"
 	"time"
 
@@ -18,8 +18,12 @@ import (
 )
 
 func init() {
+	fmt.Println("PRODUCTION ENVIROMENT")
+	os.Setenv("APP_NAME", "post-trending")
+	log.InitLogger(false)
+
 	if err := godotenv.Load(".env"); err != nil {
-		log.Println("không nhận được biến môi trường")
+		fmt.Println("không nhận được biến môi trường")
 	}
 }
 
@@ -35,14 +39,6 @@ func init() {
 // @license.name Apache 2.0
 // @license.url http://www.apache.org/licenses/LICENSE-2.0.html
 
-// @securityDefinitions.apikey access_token
-// @in cookies
-// @name access_token
-
-// @securityDefinitions.apikey refresh_token
-// @in cookies
-// @name refresh_token
-
 // @securityDefinitions.apikey token-verify-account
 // @in query
 // @name token
@@ -51,21 +47,21 @@ func init() {
 // @in query
 // @name token
 
-// @host localhost:4000
+// @host localhost:3000
 // @BasePath /
 
 func main() {
 
 	// redis details
-	redisHost := os.Getenv("REDIS_HOST")
+	redisHost     := "host.docker.internal"
 	redisPort := os.Getenv("REDIS_PORT")
 
 	// postgres details
-	host := os.Getenv("DB_HOST")
-	port := os.Getenv("DB_PORT")
+	host     := "host.docker.internal"
+	port     := os.Getenv("DB_PORT")
 	password := os.Getenv("DB_PASSWORD")
 	username := os.Getenv("DB_USERNAME")
-	dbname := os.Getenv("DB_NAME")
+	dbname   := os.Getenv("DB_NAME")
 
 	// connect redis
 	client := &db.RedisDB{
@@ -111,9 +107,9 @@ func main() {
 
 	api.SetupRouter()
 
-	go scheduleUpdateTrending(360*time.Second, repoHandler)
+	go scheduleUpdateTrending(60*time.Second, repoHandler)
 
-	e.Logger.Fatal(e.Start(":4000"))
+	e.Logger.Fatal(e.Start(":3000"))
 }
 
 func scheduleUpdateTrending(timeSchedule time.Duration, handler handler.RepoHandler) {

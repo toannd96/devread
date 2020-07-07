@@ -1,0 +1,2 @@
+pro:
+	docker-compose up

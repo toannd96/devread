@@ -6,6 +6,7 @@ import (
 	"backend-viblo-trending/model/req"
 	"backend-viblo-trending/repository"
 	"backend-viblo-trending/security"
+	"fmt"
 	"log"
 	"net/http"
 	"net/smtp"
@@ -143,6 +144,7 @@ func (u *UserHandler) SignUp(c echo.Context) error {
 // @Failure 403 {object} model.Response
 // @Router /user/password/forgot [post]
 func (u *UserHandler) ForgotPassword(c echo.Context) error {
+	fmt.Println("call forgot password...")
 	request := req.ReqEmail{}
 	if err := c.Bind(&request); err != nil {
 		return c.JSON(http.StatusBadRequest, model.Response{

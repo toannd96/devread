@@ -727,16 +727,6 @@
         }
     },
     "securityDefinitions": {
-        "access_token": {
-            "type": "apiKey",
-            "name": "access_token",
-            "in": "cookies"
-        },
-        "refresh_token": {
-            "type": "apiKey",
-            "name": "refresh_token",
-            "in": "cookies"
-        },
         "token-reset-password": {
             "type": "apiKey",
             "name": "token",

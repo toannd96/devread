@@ -470,14 +470,6 @@ paths:
       tags:
       - user-service
 securityDefinitions:
-  access_token:
-    in: cookies
-    name: access_token
-    type: apiKey
-  refresh_token:
-    in: cookies
-    name: refresh_token
-    type: apiKey
   token-reset-password:
     in: query
     name: token
