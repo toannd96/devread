@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"backend-viblo-trending/model"
+	"tech_posts_trending/model"
 	"context"
 )
 

@@ -1,8 +1,8 @@
 package middleware
 
 import (
-	"backend-viblo-trending/model"
-	"backend-viblo-trending/security"
+	"tech_posts_trending/model"
+	"tech_posts_trending/security"
 	"github.com/labstack/echo/v4"
 	"net/http"
 )
@@ -15,7 +15,6 @@ func TokenAuthMiddleware() echo.MiddlewareFunc {
 				return c.JSON(http.StatusUnauthorized, model.Response{
 					StatusCode: http.StatusUnauthorized,
 					Message:    "Truy cập không được phép",
-					Data:       nil,
 				})
 			}
 			return next(c)

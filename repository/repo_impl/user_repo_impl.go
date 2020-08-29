@@ -1,11 +1,11 @@
 package repo_impl
 
 import (
-	"backend-viblo-trending/custom_error"
-	"backend-viblo-trending/db"
-	"backend-viblo-trending/model"
-	"backend-viblo-trending/model/req"
-	"backend-viblo-trending/repository"
+	"tech_posts_trending/custom_error"
+	"tech_posts_trending/db"
+	"tech_posts_trending/model"
+	"tech_posts_trending/model/req"
+	"tech_posts_trending/repository"
 	"context"
 	"database/sql"
 	"time"

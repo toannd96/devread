@@ -1,7 +1,7 @@
 package security
 
 import (
-	"backend-viblo-trending/model"
+	"tech_posts_trending/model"
 	"fmt"
 	"github.com/dgrijalva/jwt-go"
 	"net/http"

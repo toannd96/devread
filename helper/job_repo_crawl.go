@@ -1,9 +1,9 @@
 package helper
 
 import (
-	"backend-viblo-trending/custom_error"
-	"backend-viblo-trending/model"
-	"backend-viblo-trending/repository"
+	"tech_posts_trending/custom_error"
+	"tech_posts_trending/model"
+	"tech_posts_trending/repository"
 	"context"
 	"fmt"
 	"github.com/gocolly/colly/v2"
@@ -12,7 +12,7 @@ import (
 	"runtime"
 	"strings"
 	"time"
-)
+)github
 
 func CrawlRepo(githubRepo repository.GithubRepo) {
 	c := colly.NewCollector()
@@ -92,7 +92,7 @@ func (rp *RepoProcess) Process() {
 	cacheRepo, err := rp.githubRepo.SelectRepoByName(context.Background(), rp.repo.Name)
 	if err == custom_error.RepoNotFound {
 		// khong tim thay repo - insert repo to database
-		fmt.Println("Add: ", rp.repo.Name)
+		//fmt.Println("Add: ", rp.repo.Name)
 		_, err = rp.githubRepo.SaveRepo(context.Background(), rp.repo)
 		if err != nil {
 			log.Error(err)
@@ -104,7 +104,7 @@ func (rp *RepoProcess) Process() {
 	if rp.repo.Stars != cacheRepo.Stars ||
 		rp.repo.StarsToday != cacheRepo.StarsToday ||
 		rp.repo.Fork != cacheRepo.Fork {
-		fmt.Println("Updated: ", rp.repo.Name)
+		//fmt.Println("Updated: ", rp.repo.Name)
 		rp.repo.UpdatedAt = time.Now()
 		_, err = rp.githubRepo.UpdateRepo(context.Background(), rp.repo)
 		if err != nil {

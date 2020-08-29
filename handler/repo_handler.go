@@ -1,11 +1,11 @@
 package handler
 
 import (
-	"backend-viblo-trending/model"
-	"backend-viblo-trending/model/req"
-	"backend-viblo-trending/repository"
-	"backend-viblo-trending/security"
-	"log"
+	"tech_posts_trending/model"
+	"tech_posts_trending/model/req"
+	"tech_posts_trending/log"
+	"tech_posts_trending/repository"
+	"tech_posts_trending/security"
 	"net/http"
 	"strings"
 
@@ -29,21 +29,19 @@ type RepoHandler struct {
 func (r *RepoHandler) RepoTrending(c echo.Context) error {
 	tokenAuth, err := security.ExtractAccessTokenMetadata(c.Request())
 	if err != nil {
-		log.Println(err)
+		log.Error(err.Error())
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    err.Error(),
-			Data:       nil,
 		})
 	}
 
 	userID, err := r.AuthRepo.FetchAuth(tokenAuth.AccessUUID)
 	if err != nil {
-		log.Println(err)
+		log.Error(err.Error())
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    "Truy cập không được phép",
-			Data:       nil,
 		})
 	}
 
@@ -70,21 +68,19 @@ func (r *RepoHandler) RepoTrending(c echo.Context) error {
 func (r *RepoHandler) SelectBookmarks(c echo.Context) error {
 	tokenAuth, err := security.ExtractAccessTokenMetadata(c.Request())
 	if err != nil {
-		log.Println(err)
+		log.Error(err.Error())
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    err.Error(),
-			Data:       nil,
 		})
 	}
 
 	userID, err := r.AuthRepo.FetchAuth(tokenAuth.AccessUUID)
 	if err != nil {
-		log.Println(err)
+		log.Error(err.Error())
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    "Truy cập không được phép",
-			Data:       nil,
 		})
 	}
 
@@ -113,50 +109,51 @@ func (r *RepoHandler) SelectBookmarks(c echo.Context) error {
 // @Failure 400 {object} model.Response
 // @Failure 401 {object} model.Response
 // @Failure 403 {object} model.Response
-// @Failure 500 {object} model.Response
+// @Failure 409 {object} model.Response
 // @Router /user/bookmark/add [post]
 func (r *RepoHandler) Bookmark(c echo.Context) error {
 	req := req.ReqBookmark{}
 	if err := c.Bind(&req); err != nil {
-		return err
+		return c.JSON(http.StatusBadRequest, model.Response{
+			StatusCode: http.StatusBadRequest,
+			Message:    "Lỗi cú pháp",
+		})
 	}
 
 	// validate thông tin gửi lên
 	err := c.Validate(req)
 	if err != nil {
+		log.Error(err.Error())
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
-			Message:    err.Error(),
+			Message:    "Lỗi cú pháp",
 		})
 	}
 
 	tokenAuth, err := security.ExtractAccessTokenMetadata(c.Request())
 	if err != nil {
-		log.Println(err)
+		log.Error(err.Error())
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    err.Error(),
-			Data:       nil,
 		})
 	}
 
 	userID, err := r.AuthRepo.FetchAuth(tokenAuth.AccessUUID)
 	if err != nil {
-		log.Println(err)
+		log.Error(err.Error())
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    "Truy cập không được phép",
-			Data:       nil,
 		})
 	}
 
 	bId, err := uuid.NewUUID()
 	if err != nil {
-		log.Println(err.Error())
+		log.Error(err.Error())
 		return c.JSON(http.StatusForbidden, model.Response{
 			StatusCode: http.StatusForbidden,
 			Message:    err.Error(),
-			Data:       nil,
 		})
 	}
 
@@ -167,17 +164,16 @@ func (r *RepoHandler) Bookmark(c echo.Context) error {
 		userID)
 
 	if err != nil {
-		return c.JSON(http.StatusInternalServerError, model.Response{
-			StatusCode: http.StatusInternalServerError,
-			Message:    err.Error(),
-			Data:       nil,
+		log.Error(err.Error())
+		return c.JSON(http.StatusConflict, model.Response{
+			StatusCode: http.StatusConflict,
+			Message:    "Bookmark thất bại",
 		})
 	}
 
 	return c.JSON(http.StatusOK, model.Response{
 		StatusCode: http.StatusOK,
 		Message:    "Bookmark thành công",
-		Data:       nil,
 	})
 }
 
@@ -190,40 +186,42 @@ func (r *RepoHandler) Bookmark(c echo.Context) error {
 // @Success 200 {object} model.Response
 // @Failure 400 {object} model.Response
 // @Failure 401 {object} model.Response
-// @Failure 500 {object} model.Response
+// @Failure 409 {object} model.Response
 // @Router /user/bookmark/delete [delete]
 func (r *RepoHandler) DelBookmark(c echo.Context) error {
 	req := req.ReqBookmark{}
 	if err := c.Bind(&req); err != nil {
-		return err
+		return c.JSON(http.StatusBadRequest, model.Response{
+			StatusCode: http.StatusBadRequest,
+			Message:    "Lỗi cú pháp",
+		})
 	}
 
 	// validate thông tin gửi lên
 	err := c.Validate(req)
 	if err != nil {
+		log.Error(err.Error())
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
-			Message:    err.Error(),
+			Message:    "Lỗi cú pháp",
 		})
 	}
 
 	tokenAuth, err := security.ExtractAccessTokenMetadata(c.Request())
 	if err != nil {
-		log.Println(err)
+		log.Error(err.Error())
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    err.Error(),
-			Data:       nil,
 		})
 	}
 
 	userID, err := r.AuthRepo.FetchAuth(tokenAuth.AccessUUID)
 	if err != nil {
-		log.Println(err)
+		log.Error(err.Error())
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    "Truy cập không được phép",
-			Data:       nil,
 		})
 	}
 
@@ -232,16 +230,15 @@ func (r *RepoHandler) DelBookmark(c echo.Context) error {
 		req.RepoName, userID)
 
 	if err != nil {
-		return c.JSON(http.StatusInternalServerError, model.Response{
-			StatusCode: http.StatusInternalServerError,
-			Message:    err.Error(),
-			Data:       nil,
+		log.Error(err.Error())
+		return c.JSON(http.StatusConflict, model.Response{
+			StatusCode: http.StatusConflict,
+			Message:    "Bookmark không tồn tại",
 		})
 	}
 
 	return c.JSON(http.StatusOK, model.Response{
 		StatusCode: http.StatusOK,
 		Message:    "Xoá bookmark thành công",
-		Data:       nil,
 	})
 }

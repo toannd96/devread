@@ -1,7 +1,7 @@
 package security
 
 import (
-	"backend-viblo-trending/model"
+	"tech_posts_trending/model"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/google/uuid"
 	"os"

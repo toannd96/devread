@@ -65,7 +65,7 @@ definitions:
       password:
         type: string
     type: object
-host: localhost:4000
+host: test-demo.local
 info:
   contact:
     email: support@swagger.io
@@ -109,8 +109,8 @@ paths:
           description: Forbidden
           schema:
             $ref: '#/definitions/model.Response'
-        "500":
-          description: Internal Server Error
+        "409":
+          description: Conflict
           schema:
             $ref: '#/definitions/model.Response'
       summary: Add bookmark
@@ -142,8 +142,8 @@ paths:
           description: Unauthorized
           schema:
             $ref: '#/definitions/model.Response'
-        "500":
-          description: Internal Server Error
+        "409":
+          description: Conflict
           schema:
             $ref: '#/definitions/model.Response'
       summary: Delete bookmark

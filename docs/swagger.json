@@ -15,7 +15,7 @@
         },
         "version": "1.0"
     },
-    "host": "localhost:4000",
+    "host": "test-demo.local",
     "basePath": "/",
     "paths": {
         "/user/bookmark/add": {
@@ -66,8 +66,8 @@
                             "$ref": "#/definitions/model.Response"
                         }
                     },
-                    "500": {
-                        "description": "Internal Server Error",
+                    "409": {
+                        "description": "Conflict",
                         "schema": {
                             "$ref": "#/definitions/model.Response"
                         }
@@ -117,8 +117,8 @@
                             "$ref": "#/definitions/model.Response"
                         }
                     },
-                    "500": {
-                        "description": "Internal Server Error",
+                    "409": {
+                        "description": "Conflict",
                         "schema": {
                             "$ref": "#/definitions/model.Response"
                         }

@@ -1,9 +1,9 @@
 package repo_impl
 
 import (
-	"backend-viblo-trending/db"
-	"backend-viblo-trending/model"
-	"backend-viblo-trending/repository"
+	"tech_posts_trending/db"
+	"tech_posts_trending/model"
+	"tech_posts_trending/repository"
 	"time"
 )
 
@@ -35,8 +35,9 @@ func (au *AuthRepoImpl) CreateAuth(userID string, tokenDetails *model.TokenDetai
 
 func (au *AuthRepoImpl) CreateAuthMail(token string, userID string) error {
 
-	// 5 minute
-	errAccess := au.client.Client.Set(token, userID, 300000000000).Err()
+	// 5 minute = 300000000000
+	// 1 day
+	errAccess := au.client.Client.Set(token, userID, 86400000000000).Err()
 	if errAccess != nil {
 		return errAccess
 	}

@@ -1,13 +1,12 @@
 package handler
 
 import (
-	"backend-viblo-trending/custom_error"
-	"backend-viblo-trending/model"
-	"backend-viblo-trending/model/req"
-	"backend-viblo-trending/repository"
-	"backend-viblo-trending/security"
-	"fmt"
-	"log"
+	"tech_posts_trending/custom_error"
+	"tech_posts_trending/model"
+	"tech_posts_trending/log"
+	"tech_posts_trending/model/req"
+	"tech_posts_trending/repository"
+	"tech_posts_trending/security"
 	"net/http"
 	"net/smtp"
 	"os"
@@ -48,18 +47,18 @@ type UserHandler struct {
 func (u *UserHandler) SignUp(c echo.Context) error {
 	request := req.ReqSignUp{}
 	if err := c.Bind(&request); err != nil {
+		log.Error(err.Error())
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
-			Message:    err.Error(),
-			Data:       nil,
+			Message:    "Lỗi cú pháp",
 		})
 	}
 
 	if err := c.Validate(request); err != nil {
+		log.Error(err.Error())
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
-			Message:    err.Error(),
-			Data:       nil,
+			Message:    "Lỗi cú pháp",
 		})
 	}
 
@@ -67,10 +66,10 @@ func (u *UserHandler) SignUp(c echo.Context) error {
 
 	userID, err := uuid.NewUUID()
 	if err != nil {
+		log.Error(err.Error())
 		return c.JSON(http.StatusForbidden, model.Response{
 			StatusCode: http.StatusForbidden,
 			Message:    err.Error(),
-			Data:       nil,
 		})
 	}
 
@@ -84,10 +83,10 @@ func (u *UserHandler) SignUp(c echo.Context) error {
 
 	user, err = u.UserRepo.SaveUser(c.Request().Context(), user)
 	if err != nil {
+		log.Error(err.Error())
 		return c.JSON(http.StatusConflict, model.Response{
 			StatusCode: http.StatusConflict,
 			Message:    err.Error(),
-			Data:       nil,
 		})
 	}
 
@@ -100,11 +99,10 @@ func (u *UserHandler) SignUp(c echo.Context) error {
 		return c.JSON(http.StatusForbidden, model.Response{
 			StatusCode: http.StatusForbidden,
 			Message:    saveErr.Error(),
-			Data:       nil,
 		})
 	}
 
-	link := "http://127.0.0.1:4000" + "/user/verify?token=" + token
+	link := "https://test-demo.local" + "/user/verify?token=" + token
 
 	from := os.Getenv("FROM")
 	password := os.Getenv("PASSWORD")
@@ -144,30 +142,29 @@ func (u *UserHandler) SignUp(c echo.Context) error {
 // @Failure 403 {object} model.Response
 // @Router /user/password/forgot [post]
 func (u *UserHandler) ForgotPassword(c echo.Context) error {
-	fmt.Println("call forgot password...")
 	request := req.ReqEmail{}
 	if err := c.Bind(&request); err != nil {
+		log.Error(err.Error())
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
-			Message:    err.Error(),
-			Data:       nil,
+			Message:    "Lỗi cú pháp",
 		})
 	}
 
 	if err := c.Validate(request); err != nil {
+		log.Error(err.Error())
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
-			Message:    err.Error(),
-			Data:       nil,
+			Message:    "Lỗi cú pháp",
 		})
 	}
 
 	user, err := u.UserRepo.CheckEmail(c.Request().Context(), request)
 	if err != nil {
+		log.Error(err.Error())
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    err.Error(),
-			Data:       nil,
 		})
 	}
 
@@ -179,7 +176,6 @@ func (u *UserHandler) ForgotPassword(c echo.Context) error {
 		return c.JSON(http.StatusForbidden, model.Response{
 			StatusCode: http.StatusForbidden,
 			Message:    saveErr.Error(),
-			Data:       nil,
 		})
 	}
 
@@ -188,11 +184,10 @@ func (u *UserHandler) ForgotPassword(c echo.Context) error {
 		return c.JSON(http.StatusForbidden, model.Response{
 			StatusCode: http.StatusForbidden,
 			Message:    insertErr.Error(),
-			Data:       nil,
 		})
 	}
 
-	link := "http://127.0.0.1:4000" + "/user/password/reset?token=" + token
+	link := "https://test-demo.local" + "/user/password/reset?token=" + token
 
 	from := os.Getenv("FROM")
 	password := os.Getenv("PASSWORD")
@@ -235,18 +230,18 @@ func (u *UserHandler) ForgotPassword(c echo.Context) error {
 func (u *UserHandler) VerifyAccount(c echo.Context) error {
 	request := req.PasswordSubmit{}
 	if err := c.Bind(&request); err != nil {
+		log.Error(err.Error())
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
-			Message:    err.Error(),
-			Data:       nil,
+			Message:    "Lỗi cú pháp",
 		})
 	}
 
 	if err := c.Validate(request); err != nil {
+		log.Error(err.Error())
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
-			Message:    err.Error(),
-			Data:       nil,
+			Message:    "Lỗi cú pháp",
 		})
 	}
 
@@ -254,11 +249,9 @@ func (u *UserHandler) VerifyAccount(c echo.Context) error {
 
 	userID, err := u.AuthRepo.FetchAuthMail(token)
 	if err != nil {
-		log.Println(err)
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    "Truy cập không được phép",
-			Data:       nil,
 		})
 	}
 
@@ -267,7 +260,6 @@ func (u *UserHandler) VerifyAccount(c echo.Context) error {
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    err.Error(),
-			Data:       nil,
 		})
 	}
 
@@ -275,7 +267,6 @@ func (u *UserHandler) VerifyAccount(c echo.Context) error {
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    "Xác nhận mật khẩu không khớp",
-			Data:       nil,
 		})
 	}
 
@@ -285,7 +276,6 @@ func (u *UserHandler) VerifyAccount(c echo.Context) error {
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    "Mật khẩu không đúng",
-			Data:       nil,
 		})
 	}
 
@@ -296,20 +286,18 @@ func (u *UserHandler) VerifyAccount(c echo.Context) error {
 
 	user, err = u.UserRepo.UpdateVerify(c.Request().Context(), user)
 	if err != nil {
+		log.Error(err.Error())
 		return c.JSON(http.StatusForbidden, model.Response{
 			StatusCode: http.StatusForbidden,
 			Message:    err.Error(),
-			Data:       nil,
 		})
 	}
 
 	deleteAtErr := u.AuthRepo.DeleteTokenMail(token)
 	if deleteAtErr != nil {
-		log.Println(deleteAtErr)
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    deleteAtErr.Error(),
-			Data:       nil,
 		})
 	}
 
@@ -335,18 +323,18 @@ func (u *UserHandler) VerifyAccount(c echo.Context) error {
 func (u *UserHandler) ResetPassword(c echo.Context) error {
 	request := req.PasswordSubmit{}
 	if err := c.Bind(&request); err != nil {
+		log.Error(err.Error())
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
-			Message:    err.Error(),
-			Data:       nil,
+			Message:   "Lỗi cú pháp",
 		})
 	}
 
 	if err := c.Validate(request); err != nil {
+		log.Error(err.Error())
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
-			Message:    err.Error(),
-			Data:       nil,
+			Message:    "Lỗi cú pháp",
 		})
 	}
 
@@ -354,11 +342,9 @@ func (u *UserHandler) ResetPassword(c echo.Context) error {
 
 	userID, err := u.AuthRepo.FetchAuthMail(token)
 	if err != nil {
-		log.Println(err)
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    "Truy cập không được phép, cần gửi lại email",
-			Data:       nil,
 		})
 	}
 
@@ -366,7 +352,6 @@ func (u *UserHandler) ResetPassword(c echo.Context) error {
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    "Xác nhận mật khẩu không khớp",
-			Data:       nil,
 		})
 	}
 
@@ -379,26 +364,24 @@ func (u *UserHandler) ResetPassword(c echo.Context) error {
 
 	user, err = u.UserRepo.UpdatePassword(c.Request().Context(), user)
 	if err != nil {
+		log.Error(err.Error())
 		return c.JSON(http.StatusForbidden, model.Response{
 			StatusCode: http.StatusForbidden,
 			Message:    err.Error(),
-			Data:       nil,
 		})
 	}
 
 	deleteAtErr := u.AuthRepo.DeleteTokenMail(token)
 	if deleteAtErr != nil {
-		log.Println(deleteAtErr)
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    deleteAtErr.Error(),
-			Data:       nil,
 		})
 	}
 
 	return c.JSON(http.StatusCreated, model.Response{
 		StatusCode: http.StatusCreated,
-		Message:    "Cập nhật mật khẩu thành công",
+		Message:    "Tạo mới mật khẩu thành công",
 	})
 }
 
@@ -417,27 +400,27 @@ func (u *UserHandler) ResetPassword(c echo.Context) error {
 func (u *UserHandler) SignIn(c echo.Context) error {
 	request := req.ReqSignIn{}
 	if err := c.Bind(&request); err != nil {
+		log.Error(err.Error())
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
-			Message:    err.Error(),
-			Data:       nil,
+			Message:    "Lỗi cú pháp",
 		})
 	}
 
 	if err := c.Validate(request); err != nil {
+		log.Error(err.Error())
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
-			Message:    err.Error(),
-			Data:       nil,
+			Message:    "Lỗi cú pháp",
 		})
 	}
 
 	user, err := u.UserRepo.CheckSignIn(c.Request().Context(), request)
 	if err != nil {
+		log.Error(err.Error())
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    err.Error(),
-			Data:       nil,
 		})
 	}
 
@@ -445,7 +428,6 @@ func (u *UserHandler) SignIn(c echo.Context) error {
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    "Tài khoản chưa được xác thực",
-			Data:       nil,
 		})
 	}
 
@@ -454,18 +436,17 @@ func (u *UserHandler) SignIn(c echo.Context) error {
 	if !isTheSame {
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
-			Message:    "Mật khẩu không đúng",
-			Data:       nil,
+			Message:    "Email hoặc mật khẩu không chính xác",
 		})
 	}
 
 	// create token
 	token, err := security.CreateToken(user.UserID)
 	if err != nil {
+		log.Error(err.Error())
 		return c.JSON(http.StatusForbidden, model.Response{
 			StatusCode: http.StatusForbidden,
 			Message:    err.Error(),
-			Data:       nil,
 		})
 	}
 
@@ -474,7 +455,6 @@ func (u *UserHandler) SignIn(c echo.Context) error {
 		return c.JSON(http.StatusForbidden, model.Response{
 			StatusCode: http.StatusForbidden,
 			Message:    saveErr.Error(),
-			Data:       nil,
 		})
 	}
 
@@ -486,6 +466,7 @@ func (u *UserHandler) SignIn(c echo.Context) error {
 		Name:     "access_token",
 		Value:    token.AccessToken,
 		HttpOnly: true,
+		Secure: true,
 		SameSite: 2,
 		Expires:  time.Now().Add(time.Minute * 15),
 	}
@@ -496,6 +477,7 @@ func (u *UserHandler) SignIn(c echo.Context) error {
 		Value:    token.RefreshToken,
 		SameSite: 2,
 		HttpOnly: true,
+		Secure: true,
 		Expires:  time.Now().Add(time.Hour * 24),
 	}
 	c.SetCookie(rtCookie)
@@ -521,39 +503,34 @@ func (u *UserHandler) SignIn(c echo.Context) error {
 func (u *UserHandler) Profile(c echo.Context) error {
 	tokenAuth, err := security.ExtractAccessTokenMetadata(c.Request())
 	if err != nil {
-		log.Println(err)
+		log.Error(err.Error())
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    err.Error(),
-			Data:       nil,
 		})
 	}
 
 	userID, err := u.AuthRepo.FetchAuth(tokenAuth.AccessUUID)
 	if err != nil {
-		log.Println(err)
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    "Truy cập không được phép",
-			Data:       nil,
 		})
 	}
 
 	user, err := u.UserRepo.SelectUserByID(c.Request().Context(), userID)
 	if err != nil {
-		log.Println(err)
+		log.Error(err.Error())
 		if err == custom_error.UserNotFound {
 			return c.JSON(http.StatusNotFound, model.Response{
 				StatusCode: http.StatusNotFound,
 				Message:    err.Error(),
-				Data:       nil,
 			})
 		}
 
 		return c.JSON(http.StatusForbidden, model.Response{
 			StatusCode: http.StatusForbidden,
 			Message:    err.Error(),
-			Data:       nil,
 		})
 	}
 
@@ -578,38 +555,35 @@ func (u *UserHandler) Profile(c echo.Context) error {
 func (u *UserHandler) UpdateProfile(c echo.Context) error {
 	request := req.ReqUpdateUser{}
 	if err := c.Bind(&request); err != nil {
+		log.Error(err.Error())
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
-			Message:    err.Error(),
-			Data:       nil,
+			Message:    "Lỗi cú pháp",
 		})
 	}
 
 	if err := c.Validate(request); err != nil {
+		log.Error(err.Error())
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
-			Message:    err.Error(),
-			Data:       nil,
+			Message:    "Lỗi cú pháp",
 		})
 	}
 
 	tokenAuth, err := security.ExtractAccessTokenMetadata(c.Request())
 	if err != nil {
-		log.Println(err)
+		log.Error(err.Error())
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    err.Error(),
-			Data:       nil,
 		})
 	}
 
 	userID, err := u.AuthRepo.FetchAuth(tokenAuth.AccessUUID)
 	if err != nil {
-		log.Println(err)
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    "Truy cập không được phép",
-			Data:       nil,
 		})
 	}
 
@@ -617,7 +591,6 @@ func (u *UserHandler) UpdateProfile(c echo.Context) error {
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    "Xác nhận mật khẩu không khớp",
-			Data:       nil,
 		})
 	}
 
@@ -628,7 +601,6 @@ func (u *UserHandler) UpdateProfile(c echo.Context) error {
 			return c.JSON(http.StatusBadRequest, model.Response{
 				StatusCode: http.StatusBadRequest,
 				Message:    "Mật khẩu tối thiểu 8 ký tự",
-				Data:       nil,
 			})
 		}
 		user := model.User{
@@ -638,10 +610,10 @@ func (u *UserHandler) UpdateProfile(c echo.Context) error {
 
 		user, err = u.UserRepo.UpdateUser(c.Request().Context(), user)
 		if err != nil {
+			log.Error(err.Error())
 			return c.JSON(http.StatusUnprocessableEntity, model.Response{
 				StatusCode: http.StatusUnprocessableEntity,
 				Message:    err.Error(),
-				Data:       nil,
 			})
 		}
 	}
@@ -654,10 +626,10 @@ func (u *UserHandler) UpdateProfile(c echo.Context) error {
 
 		user, err = u.UserRepo.UpdateUser(c.Request().Context(), user)
 		if err != nil {
+			log.Error(err.Error())
 			return c.JSON(http.StatusUnprocessableEntity, model.Response{
 				StatusCode: http.StatusUnprocessableEntity,
 				Message:    err.Error(),
-				Data:       nil,
 			})
 		}
 	}
@@ -670,10 +642,10 @@ func (u *UserHandler) UpdateProfile(c echo.Context) error {
 
 	user, err = u.UserRepo.UpdateUser(c.Request().Context(), user)
 	if err != nil {
+		log.Error(err.Error())
 		return c.JSON(http.StatusUnprocessableEntity, model.Response{
 			StatusCode: http.StatusUnprocessableEntity,
 			Message:    err.Error(),
-			Data:       nil,
 		})
 	}
 
@@ -694,41 +666,35 @@ func (u *UserHandler) UpdateProfile(c echo.Context) error {
 func (u *UserHandler) SignOut(c echo.Context) error {
 	extractAt, err := security.ExtractAccessTokenMetadata(c.Request())
 	if err != nil {
-		log.Println(err)
+		log.Error(err.Error())
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    err.Error(),
-			Data:       nil,
 		})
 	}
 
 	deleteAtErr := u.AuthRepo.DeleteAccessToken(extractAt.AccessUUID)
 	if deleteAtErr != nil {
-		log.Println(deleteAtErr)
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    deleteAtErr.Error(),
-			Data:       nil,
 		})
 	}
 
 	extractRt, err := security.ExtractRefreshTokenMetadata(c.Request())
 	if err != nil {
-		log.Println(err)
+		log.Error(err.Error())
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    err.Error(),
-			Data:       nil,
 		})
 	}
 
 	deleteRtErr := u.AuthRepo.DeleteRefreshToken(extractRt.RefreshUUID)
 	if deleteRtErr != nil {
-		log.Println(deleteRtErr)
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    deleteRtErr.Error(),
-			Data:       nil,
 		})
 	}
 
@@ -772,11 +738,9 @@ func (u *UserHandler) Refresh(c echo.Context) error {
 
 		deleteErr := u.AuthRepo.DeleteRefreshToken(extractRt.RefreshUUID)
 		if deleteErr != nil {
-			log.Println(deleteErr)
 			return c.JSON(http.StatusUnauthorized, model.Response{
 				StatusCode: http.StatusUnauthorized,
 				Message:    deleteErr.Error(),
-				Data:       nil,
 			})
 		}
 
@@ -785,7 +749,6 @@ func (u *UserHandler) Refresh(c echo.Context) error {
 			return c.JSON(http.StatusForbidden, model.Response{
 				StatusCode: http.StatusForbidden,
 				Message:    createErr.Error(),
-				Data:       nil,
 			})
 		}
 
@@ -794,19 +757,14 @@ func (u *UserHandler) Refresh(c echo.Context) error {
 			return c.JSON(http.StatusForbidden, model.Response{
 				StatusCode: http.StatusForbidden,
 				Message:    saveErr.Error(),
-				Data:       nil,
 			})
-		}
-
-		tokens := map[string]string{
-			"access_token":  token.AccessToken,
-			"refresh_token": token.RefreshToken,
 		}
 
 		atCookie := &http.Cookie{
 			Name:     "access_token",
 			Value:    token.AccessToken,
 			HttpOnly: true,
+			Secure: true,
 			SameSite: 2,
 			Expires:  time.Now().Add(time.Minute * 15),
 		}
@@ -817,6 +775,7 @@ func (u *UserHandler) Refresh(c echo.Context) error {
 			Value:    token.RefreshToken,
 			SameSite: 2,
 			HttpOnly: true,
+			Secure: true,
 			Expires:  time.Now().Add(time.Hour * 24),
 		}
 		c.SetCookie(rtCookie)
@@ -824,7 +783,6 @@ func (u *UserHandler) Refresh(c echo.Context) error {
 		return c.JSON(http.StatusCreated, model.Response{
 			StatusCode: http.StatusCreated,
 			Message:    "Xử lý thành công",
-			Data:       tokens,
 		})
 	}
 

@@ -1,0 +1,27 @@
+time="2020-07-10T20:19:07.123884025+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/backend_viblo_trending/handler/repo_handler.go line=165
+time="2020-07-10T20:20:49.13856743+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/backend_viblo_trending/handler/repo_handler.go line=165
+time="2020-07-10T20:51:09.698329783+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/backend_viblo_trending/handler/repo_handler.go line=165
+time="2020-07-10T21:17:40.031668106+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/backend_viblo_trending/handler/repo_handler.go line=165
+time="2020-07-10T21:19:12.606451728+07:00" level=error msg="code=400, message=Syntax error: offset=12, error=invalid character 'T' looking for beginning of value, internal=invalid character 'T' looking for beginning of value" file=/home/dactoan/backend_viblo_trending/handler/repo_handler.go line=192
+time="2020-07-10T21:59:10.99845245+07:00" level=error msg="pq: syntax error at or near \"Tiktok\"" file=/home/dactoan/backend_viblo_trending/handler/repo_handler.go line=229
+time="2020-07-10T21:59:37.233823116+07:00" level=error msg="pq: syntax error at or near \"bitcoinbook\"" file=/home/dactoan/backend_viblo_trending/handler/repo_handler.go line=229
+time="2020-07-10T22:00:31.511786742+07:00" level=error msg="Email không hợp lệ" file=/home/dactoan/backend_viblo_trending/handler/user_handler.go line=414
+time="2020-07-10T22:00:55.408473223+07:00" level=error msg="Người dùng không tồn tại" file=/home/dactoan/backend_viblo_trending/handler/user_handler.go line=423
+time="2020-07-10T22:01:48.018033635+07:00" level=error msg="pq: syntax error at or near \"bitcoinbook\"" file=/home/dactoan/backend_viblo_trending/handler/repo_handler.go line=229
+time="2020-07-10T22:10:31.509959033+07:00" level=error msg="pq: syntax error at or near \"bitcoinbook\"" file=/home/dactoan/backend_viblo_trending/handler/repo_handler.go line=229
+time="2020-07-10T22:17:37.623491643+07:00" level=error msg="pq: syntax error at or near \"bitcoinbook\"" file=/home/dactoan/backend_viblo_trending/handler/repo_handler.go line=229
+time="2020-07-10T22:18:31.75862435+07:00" level=error msg="pq: syntax error at or near \"bitcoinbook\"" file=/home/dactoan/backend_viblo_trending/handler/repo_handler.go line=229
+time="2020-07-10T22:25:35.769323548+07:00" level=error msg="Bookmark thất bại" file=/home/dactoan/backend_viblo_trending/handler/repo_handler.go line=165
+time="2020-07-10T22:27:36.040794508+07:00" level=error msg="Bookmark không tồn tại" file=/home/dactoan/backend_viblo_trending/handler/repo_handler.go line=229
+time="2020-07-10T22:29:04.472405293+07:00" level=error msg="Bookmark không tồn tại" file=/home/dactoan/backend_viblo_trending/handler/repo_handler.go line=229
+time="2020-07-10T22:29:12.671290642+07:00" level=error msg="Bookmark không tồn tại" file=/home/dactoan/backend_viblo_trending/handler/repo_handler.go line=229
+time="2020-07-10T22:29:27.269998694+07:00" level=error msg="Bookmark không tồn tại" file=/home/dactoan/backend_viblo_trending/handler/repo_handler.go line=229
+time="2020-07-10T22:30:15.606581013+07:00" level=error msg="Bookmark thất bại" file=/home/dactoan/backend_viblo_trending/handler/repo_handler.go line=165
+time="2020-07-10T22:31:58.063093716+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/backend_viblo_trending/handler/repo_handler.go line=165
+time="2020-07-10T22:37:51.722090002+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/backend_viblo_trending/handler/repo_handler.go line=165
+time="2020-07-10T22:39:06.356517516+07:00" level=error msg="Bookmark thất bại" file=/home/dactoan/backend_viblo_trending/handler/repo_handler.go line=165
+time="2020-07-10T22:40:16.955948106+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/backend_viblo_trending/handler/repo_handler.go line=165
+time="2020-07-10T22:40:48.211123421+07:00" level=error msg="Bookmark thất bại" file=/home/dactoan/backend_viblo_trending/handler/repo_handler.go line=165
+time="2020-07-10T22:44:36.220892705+07:00" level=error msg="Email không hợp lệ" file=/home/dactoan/backend_viblo_trending/handler/user_handler.go line=411
+time="2020-07-10T22:51:01.748077608+07:00" level=error msg="code=400, message=Syntax error: offset=34, error=invalid character 'O' after object key:value pair, internal=invalid character 'O' after object key:value pair" file=/home/dactoan/backend_viblo_trending/handler/repo_handler.go line=117
+time="2020-07-10T22:51:40.096275457+07:00" level=error msg="Bookmark thất bại" file=/home/dactoan/backend_viblo_trending/handler/repo_handler.go line=165

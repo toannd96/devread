@@ -1,9 +1,8 @@
 package router
 
 import (
-	"backend-viblo-trending/handler"
-	"backend-viblo-trending/middleware"
-	"github.com/didip/tollbooth"
+	"tech_posts_trending/handler"
+	"tech_posts_trending/middleware"
 	"github.com/labstack/echo/v4"
 )
 
@@ -15,14 +14,13 @@ type API struct {
 
 func (api *API) SetupRouter() {
 
-	limit := tollbooth.NewLimiter(1, nil)
-
 	// user
 	user := api.Echo.Group("/user",
 		middleware.CORSMiddleware(),
-		middleware.LimitMiddleware(limit),
-		middleware.BodyLimitMiddleware(),
+		middleware.LimitRequest(),
 		middleware.HeadersMiddleware(),
+		middleware.HeadersAccept(),
+		middleware.GzipMiddleware(),
 		)
 	user.POST("/sign-in", api.UserHandler.SignIn)
 	user.POST("/sign-up", api.UserHandler.SignUp)
@@ -35,9 +33,10 @@ func (api *API) SetupRouter() {
 	userProfile := api.Echo.Group("/user",
 		middleware.CORSMiddleware(),
 		middleware.TokenAuthMiddleware(),
-		middleware.LimitMiddleware(limit),
-		middleware.BodyLimitMiddleware(),
+		middleware.LimitRequest(),
 		middleware.HeadersMiddleware(),
+		middleware.HeadersAccept(),
+		middleware.GzipMiddleware(),
 		)
 	userProfile.GET("/profile", api.UserHandler.Profile)
 	userProfile.PUT("/profile/update", api.UserHandler.UpdateProfile)
@@ -47,9 +46,10 @@ func (api *API) SetupRouter() {
 	github := api.Echo.Group("/user",
 		middleware.CORSMiddleware(),
 		middleware.TokenAuthMiddleware(),
-		middleware.LimitMiddleware(limit),
-		middleware.BodyLimitMiddleware(),
 		middleware.HeadersMiddleware(),
+		middleware.HeadersAccept(),
+		middleware.LimitRequest(),
+		middleware.GzipMiddleware(),
 		)
 	github.GET("/github/trending", api.RepoHandler.RepoTrending)
 
@@ -57,9 +57,10 @@ func (api *API) SetupRouter() {
 	bookmark := api.Echo.Group("/user",
 		middleware.CORSMiddleware(),
 		middleware.TokenAuthMiddleware(),
-		middleware.LimitMiddleware(limit),
-		middleware.BodyLimitMiddleware(),
+		middleware.LimitRequest(),
 		middleware.HeadersMiddleware(),
+		middleware.HeadersAccept(),
+		middleware.GzipMiddleware(),
 		)
 	bookmark.GET("/bookmark/list", api.RepoHandler.SelectBookmarks)
 	bookmark.POST("/bookmark/add", api.RepoHandler.Bookmark)

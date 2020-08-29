@@ -1,10 +1,10 @@
 package repo_impl
 
 import (
-	"backend-viblo-trending/custom_error"
-	"backend-viblo-trending/db"
-	"backend-viblo-trending/model"
-	"backend-viblo-trending/repository"
+	"tech_posts_trending/custom_error"
+	"tech_posts_trending/db"
+	"tech_posts_trending/model"
+	"tech_posts_trending/repository"
 	"context"
 	"database/sql"
 	"github.com/labstack/gommon/log"
@@ -149,7 +149,6 @@ func (g GithubRepoImpl) Bookmark(context context.Context, bid, nameRepo, userId 
 	_, err := g.sql.Db.ExecContext(
 		context, statement, bid, userId,
 		nameRepo, now, now)
-
 	if err != nil {
 		if err, ok := err.(*pq.Error); ok {
 			if err.Code.Name() == "unique_violation" {
@@ -169,7 +168,10 @@ func (g GithubRepoImpl) DelBookmark(context context.Context, nameRepo, userId st
 		"DELETE FROM bookmarks WHERE repo_name = $1 AND user_id = $2",
 		nameRepo, userId)
 
-	_, err := result.RowsAffected()
+	index, err := result.RowsAffected()
+	if index == 0 {
+		return custom_error.BookmarkNotFound
+	}
 	if err != nil {
 		log.Error(err.Error())
 		return custom_error.DelBookmarkFail

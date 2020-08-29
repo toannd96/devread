@@ -1,13 +1,13 @@
 package main
 
 import (
-	"backend-viblo-trending/db"
-	"backend-viblo-trending/log"
-	_ "backend-viblo-trending/docs"
-	"backend-viblo-trending/handler"
-	"backend-viblo-trending/helper"
-	"backend-viblo-trending/repository/repo_impl"
-	"backend-viblo-trending/router"
+	"tech_posts_trending/db"
+	_ "tech_posts_trending/docs"
+	"tech_posts_trending/handler"
+	"tech_posts_trending/helper"
+	"tech_posts_trending/log"
+	"tech_posts_trending/repository/repo_impl"
+	"tech_posts_trending/router"
 	"fmt"
 	"os"
 	"time"
@@ -18,13 +18,10 @@ import (
 )
 
 func init() {
-	fmt.Println("PRODUCTION ENVIROMENT")
-	os.Setenv("APP_NAME", "post-trending")
-	log.InitLogger(false)
-
 	if err := godotenv.Load(".env"); err != nil {
 		fmt.Println("không nhận được biến môi trường")
 	}
+	log.InitLogger(false)
 }
 
 // @title Github Trending API
@@ -47,21 +44,22 @@ func init() {
 // @in query
 // @name token
 
-// @host localhost:3000
+// @host test-demo.local
 // @BasePath /
 
 func main() {
 
 	// redis details
-	redisHost     := "host.docker.internal"
+	redisHost     := os.Getenv("REDIS_HOST")
 	redisPort := os.Getenv("REDIS_PORT")
 
 	// postgres details
-	host     := "host.docker.internal"
+	host     := os.Getenv("DB_HOST")
 	port     := os.Getenv("DB_PORT")
 	password := os.Getenv("DB_PASSWORD")
 	username := os.Getenv("DB_USERNAME")
 	dbname   := os.Getenv("DB_NAME")
+
 
 	// connect redis
 	client := &db.RedisDB{
@@ -110,6 +108,7 @@ func main() {
 	go scheduleUpdateTrending(60*time.Second, repoHandler)
 
 	e.Logger.Fatal(e.Start(":3000"))
+	//e.Logger.Fatal(e.StartTLS(":443", "test-demo.local.crt", "test-demo.local.key"))
 }
 
 func scheduleUpdateTrending(timeSchedule time.Duration, handler handler.RepoHandler) {
