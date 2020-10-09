@@ -140,7 +140,7 @@ func (post *PostHandler) Bookmark(c echo.Context) error {
 	err = post.PostRepo.Bookmark(
 		c.Request().Context(),
 		bId.String(),
-		req.RepoName,
+		req.PostName,
 		userID)
 
 	if err != nil {
@@ -207,7 +207,7 @@ func (post *PostHandler) DelBookmark(c echo.Context) error {
 
 	err = post.PostRepo.DelBookmark(
 		c.Request().Context(),
-		req.RepoName, userID)
+		req.PostName, userID)
 
 	if err != nil {
 		log.Error(err.Error())
