@@ -467,7 +467,7 @@ func (u *UserHandler) SignIn(c echo.Context) error {
 		Name:     "access_token",
 		Value:    token.AccessToken,
 		HttpOnly: true,
-		Secure: true,
+// 		Secure: true,
 		SameSite: 2,
 		Expires:  time.Now().Add(time.Minute * 15),
 	}
@@ -478,7 +478,7 @@ func (u *UserHandler) SignIn(c echo.Context) error {
 		Value:    token.RefreshToken,
 		SameSite: 2,
 		HttpOnly: true,
-		Secure: true,
+// 		Secure: true,
 		Expires:  time.Now().Add(time.Hour * 24),
 	}
 	c.SetCookie(rtCookie)
@@ -765,7 +765,7 @@ func (u *UserHandler) Refresh(c echo.Context) error {
 			Name:     "access_token",
 			Value:    token.AccessToken,
 			HttpOnly: true,
-			Secure: true,
+// 			Secure: true,
 			SameSite: 2,
 			Expires:  time.Now().Add(time.Minute * 15),
 		}
@@ -776,7 +776,7 @@ func (u *UserHandler) Refresh(c echo.Context) error {
 			Value:    token.RefreshToken,
 			SameSite: 2,
 			HttpOnly: true,
-			Secure: true,
+// 			Secure: true,
 			Expires:  time.Now().Add(time.Hour * 24),
 		}
 		c.SetCookie(rtCookie)
