@@ -103,12 +103,10 @@ func (u *UserHandler) SignUp(c echo.Context) error {
 	}
 
 	link := "http://localhost:3000" + "/user/verify?token=" + token
-	fmt.Println(link)
 
 	from := os.Getenv("FROM")
 	password := os.Getenv("PASSWORD")
 	to := []string{user.Email}
-	fmt.Println(to)
 
 	smtpsv := smtpServer{
 		host: os.Getenv("SMTP_HOST"),
