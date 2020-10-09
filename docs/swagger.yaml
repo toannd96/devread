@@ -21,10 +21,10 @@ definitions:
     type: object
   req.ReqBookmark:
     properties:
-      repo:
+      post:
         type: string
     required:
-    - repo
+    - post
     type: object
   req.ReqEmail:
     properties:

@@ -1,16 +1,15 @@
 package handler
 
 import (
-	"fmt"
-	"tech_posts_trending/custom_error"
-	"tech_posts_trending/model"
-	"tech_posts_trending/log"
-	"tech_posts_trending/model/req"
-	"tech_posts_trending/repository"
-	"tech_posts_trending/security"
 	"net/http"
 	"net/smtp"
 	"os"
+	"tech_posts_trending/custom_error"
+	"tech_posts_trending/log"
+	"tech_posts_trending/model"
+	"tech_posts_trending/model/req"
+	"tech_posts_trending/repository"
+	"tech_posts_trending/security"
 	"time"
 
 	"github.com/google/uuid"
@@ -467,7 +466,7 @@ func (u *UserHandler) SignIn(c echo.Context) error {
 		Name:     "access_token",
 		Value:    token.AccessToken,
 		HttpOnly: true,
-// 		Secure: true,
+		//Secure: true,
 		SameSite: 2,
 		Expires:  time.Now().Add(time.Minute * 15),
 	}
@@ -478,7 +477,7 @@ func (u *UserHandler) SignIn(c echo.Context) error {
 		Value:    token.RefreshToken,
 		SameSite: 2,
 		HttpOnly: true,
-// 		Secure: true,
+		//Secure: true,
 		Expires:  time.Now().Add(time.Hour * 24),
 	}
 	c.SetCookie(rtCookie)
@@ -765,7 +764,7 @@ func (u *UserHandler) Refresh(c echo.Context) error {
 			Name:     "access_token",
 			Value:    token.AccessToken,
 			HttpOnly: true,
-// 			Secure: true,
+			//Secure: true,
 			SameSite: 2,
 			Expires:  time.Now().Add(time.Minute * 15),
 		}
@@ -776,7 +775,7 @@ func (u *UserHandler) Refresh(c echo.Context) error {
 			Value:    token.RefreshToken,
 			SameSite: 2,
 			HttpOnly: true,
-// 			Secure: true,
+			//Secure: true,
 			Expires:  time.Now().Add(time.Hour * 24),
 		}
 		c.SetCookie(rtCookie)

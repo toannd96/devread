@@ -667,10 +667,10 @@ var doc = `{
         "req.ReqBookmark": {
             "type": "object",
             "required": [
-                "repo"
+                "post"
             ],
             "properties": {
-                "repo": {
+                "post": {
                     "type": "string"
                 }
             }
