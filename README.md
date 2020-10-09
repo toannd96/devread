@@ -14,4 +14,4 @@ Xây dựng ứng dụng web thu thập thông tin bài viết trên các blog c
 - Trong trường hợp người dùng quên mật khẩu đăng nhập, người dùng có thể tạo lại mật khẩu bằng cách sử dụng chức năng quên mật khẩu, điền vào thông tin email đăng ký đã xác thực, một email sẽ được gửi tới email đó (trong hộp thư rác), người dùng nhấp vào link và cập nhập lại mật khẩu của mình.
 
 ## Tham khảo
-- Ứng dụng được xây dựng dựa trên nền tảng của khóa học golang tại [code4func-golang-flutter](https://www.code4func.com/course/golang-flutter).
+- Ứng dụng được xây dựng dựa trên nền tảng của khóa học [golang-flutter](https://www.code4func.com/course/golang-flutter) tại [code4func](https://www.code4func.com/).
