@@ -59,7 +59,7 @@ func (process *PostProcess) Process() {
 	// select post by name
 	cacheRepo, err := process.postRepo.SelectPostByName(context.Background(), process.post.Name)
 	if err == custom_error.PostNotFound {
-		// insert repo to database
+		// insert post to database
 		fmt.Println("Add: ", process.post.Name)
 		_, err = process.postRepo.SavePost(context.Background(), process.post)
 		if err != nil {
