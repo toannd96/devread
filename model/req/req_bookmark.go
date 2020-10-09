@@ -1,5 +1,5 @@
 package req
 
 type ReqBookmark struct {
-	RepoName string `json:"repo,omitempty" validate:"required"`
+	PostName string `json:"post,omitempty" validate:"required"`
 }
