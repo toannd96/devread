@@ -13,7 +13,7 @@ type PostRepo interface {
 	UpdatePost(context context.Context, post model.Post) (model.Post, error)
 
 	// Bookmark
-	SelectAllBookmarks(context context.Context, userId string) ([]model.Post, error)
+	SelectAllBookmark(context context.Context, userId string) ([]model.Post, error)
 	Bookmark(context context.Context, bid, namePost, userId string) error
 	DelBookmark(context context.Context, namePost, userId string) error
 }

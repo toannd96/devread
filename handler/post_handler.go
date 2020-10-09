@@ -68,7 +68,7 @@ func (post *PostHandler) SelectBookmarks(c echo.Context) error {
 		})
 	}
 
-	repos, _ := post.PostRepo.SelectAllBookmarks(
+	repos, _ := post.PostRepo.SelectAllBookmark(
 		c.Request().Context(),
 		userID)
 

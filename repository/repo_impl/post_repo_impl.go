@@ -96,7 +96,7 @@ func (p PostRepoImpl) SelectAllPost(context context.Context) ([]model.Post, erro
 	return posts, nil
 }
 
-func (p PostRepoImpl) SelectAllBookmarks(context context.Context, userId string) ([]model.Post, error) {
+func (p PostRepoImpl) SelectAllBookmark(context context.Context, userId string) ([]model.Post, error) {
 	posts := []model.Post{}
 	err := p.sql.Db.SelectContext(context, &posts,
 		`SELECT 
@@ -115,7 +115,7 @@ func (p PostRepoImpl) SelectAllBookmarks(context context.Context, userId string)
 	return posts, nil
 }
 
-func (p PostRepoImpl) Bookmark(context context.Context, bid, nameRepo, userId string) error {
+func (p PostRepoImpl) Bookmark(context context.Context, bid, namePost, userId string) error {
 	statement := `INSERT INTO bookmarks(
 					bid, user_id, post_name, created_at, updated_at) 
           		  VALUES($1, $2, $3, $4, $5)`
@@ -123,7 +123,7 @@ func (p PostRepoImpl) Bookmark(context context.Context, bid, nameRepo, userId st
 	now := time.Now()
 	_, err := p.sql.Db.ExecContext(
 		context, statement, bid, userId,
-		nameRepo, now, now)
+		namePost, now, now)
 	if err != nil {
 		if err, ok := err.(*pq.Error); ok {
 			if err.Code.Name() == "unique_violation" {
@@ -137,11 +137,11 @@ func (p PostRepoImpl) Bookmark(context context.Context, bid, nameRepo, userId st
 	return nil
 }
 
-func (p PostRepoImpl) DelBookmark(context context.Context, nameRepo, userId string) error {
+func (p PostRepoImpl) DelBookmark(context context.Context, namePost, userId string) error {
 	result := p.sql.Db.MustExecContext(
 		context,
 		"DELETE FROM bookmarks WHERE post_name = $1 AND user_id = $2",
-		nameRepo, userId)
+		namePost, userId)
 
 	index, err := result.RowsAffected()
 	if index == 0 {
