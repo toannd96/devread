@@ -1,7 +1,10 @@
 Xây dựng ứng dụng web thu thập thông tin bài viết trên các blog công nghệ sử dụng Echo Framework (Golang)
 
+## Mở đầu
+- Cập nhập kiến thức thường xuyên trong lĩnh vực IT là việc hết sức quan trọng, hiện nay có rất nhiều các blog IT được lập nên để chia sẻ kiến thức cho mọi người. Tuy nhiên có một nhược điểm là người dùng không theo dõi được hết các blog đó hoặc người dùng không biết tìm các bài viết chất lượng ở đâu hay đọc từ blog nào thì phù hợp, vì thế dự án này được lập ra với mục tiêu là thu thập và tổng hợp các bài viết hay nhất (trending) từ các blog IT của cộng đồng công nghệ Việt Nam nhằm đem nhiều nguồn kiến thức chất lượng tới mọi người.
+
 ## Mô tả
-- Ứng dụng (web) sẽ tự động crawl các thông tin về bài viết nằm trong top trending về và cập nhật hàng ngày.
+- Ứng dụng (web) sẽ tự động crawl các thông tin về bài viết nằm trong top trending về và cập nhật hàng giờ.
 - Người dùng là khách ghé qua ứng dụng có thể xem thông tin, đọc các bài viết (chuyển tiếp link tới bài viết gốc).
 - Khi người dùng muốn đánh dấu các bài viết mình đã xem (vì bài viết đó hay, để lần sau vào đỡ mất công tìm lại) thì người dùng cần đăng ký tài khoản trên ứng dụng để sử dụng.
   - Ứng dụng sẽ có hình thức đăng ký tài khoản là **đăng ký thông thường**
