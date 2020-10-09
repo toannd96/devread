@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"fmt"
 	"tech_posts_trending/custom_error"
 	"tech_posts_trending/model"
 	"tech_posts_trending/log"
@@ -42,7 +43,6 @@ type UserHandler struct {
 // @Failure 403 {object} model.Response
 // @Failure 404 {object} model.Response
 // @Failure 409 {object} model.Response
-// @Failure 500 {object} model.Response
 // @Router /user/sign-up [post]
 func (u *UserHandler) SignUp(c echo.Context) error {
 	request := req.ReqSignUp{}
@@ -102,11 +102,13 @@ func (u *UserHandler) SignUp(c echo.Context) error {
 		})
 	}
 
-	link := "https://test-demo.local" + "/user/verify?token=" + token
+	link := "http://localhost:3000" + "/user/verify?token=" + token
+	fmt.Println(link)
 
 	from := os.Getenv("FROM")
 	password := os.Getenv("PASSWORD")
 	to := []string{user.Email}
+	fmt.Println(to)
 
 	smtpsv := smtpServer{
 		host: os.Getenv("SMTP_HOST"),
@@ -121,7 +123,8 @@ func (u *UserHandler) SignUp(c echo.Context) error {
 	auth := smtp.PlainAuth("", from, password, smtpsv.host)
 	errSendMail := smtp.SendMail(smtpsv.Address(), auth, from, to, message)
 	if errSendMail != nil {
-		return errSendMail
+		log.Error(errSendMail)
+		return(errSendMail)
 	}
 
 	return c.JSON(http.StatusOK, model.Response{
@@ -187,7 +190,7 @@ func (u *UserHandler) ForgotPassword(c echo.Context) error {
 		})
 	}
 
-	link := "https://test-demo.local" + "/user/password/reset?token=" + token
+	link := "http://localhost:3000" + "/user/password/reset?token=" + token
 
 	from := os.Getenv("FROM")
 	password := os.Getenv("PASSWORD")

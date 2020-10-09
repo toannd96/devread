@@ -24,9 +24,9 @@ func init() {
 	log.InitLogger(false)
 }
 
-// @title Github Trending API
+// @title Tech Posts Trending API
 // @version 1.0
-// @description Secure REST API
+// @description Build web applications to crawler article information on technology blogs using Echo Framework (Golang)
 // @termsOfService http://swagger.io/terms/
 
 // @contact.name API Support
@@ -44,7 +44,7 @@ func init() {
 // @in query
 // @name token
 
-// @host test-demo.local
+// @host localhost:3000
 // @BasePath /
 
 func main() {
@@ -92,33 +92,32 @@ func main() {
 		AuthRepo: repo_impl.NewAuthRepo(client),
 	}
 
-	repoHandler := handler.RepoHandler{
-		GithubRepo: repo_impl.NewGithubRepo(sql),
-		AuthRepo:   repo_impl.NewAuthRepo(client),
+	postHandler := handler.PostHandler{
+		PostRepo: repo_impl.NewPostRepo(sql),
+		AuthRepo:  repo_impl.NewAuthRepo(client),
 	}
 
 	api := router.API{
 		Echo:        e,
 		UserHandler: userHandler,
-		RepoHandler: repoHandler,
+		PostHandler: postHandler,
 	}
 
 	api.SetupRouter()
 
-	go scheduleUpdateTrending(60*time.Second, repoHandler)
+	go scheduleUpdateTrending(24*time.Second, postHandler)
 
 	e.Logger.Fatal(e.Start(":3000"))
-	//e.Logger.Fatal(e.StartTLS(":443", "test-demo.local.crt", "test-demo.local.key"))
 }
 
-func scheduleUpdateTrending(timeSchedule time.Duration, handler handler.RepoHandler) {
+func scheduleUpdateTrending(timeSchedule time.Duration, handler handler.PostHandler) {
 	ticker := time.NewTicker(timeSchedule)
 	go func() {
 		for {
 			select {
 			case <-ticker.C:
-				fmt.Println("Checking from github...")
-				helper.CrawlRepo(handler.GithubRepo)
+				fmt.Println("Quét bài viết từ viblo...")
+				helper.VibloPost(handler.PostRepo)
 			}
 		}
 	}()

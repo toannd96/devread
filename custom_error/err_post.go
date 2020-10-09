@@ -3,11 +3,11 @@ package custom_error
 import "errors"
 
 var (
-	//repo
-	RepoNotUpdated = errors.New("Cập nhật thông tin Repo thất bại")
-	RepoNotFound   = errors.New("Repo không tồn tại")
-	RepoConflict   = errors.New("Repo đã tồn tại")
-	RepoInsertFail = errors.New("Thêm Repo thất bại")
+	//post
+	PostNotUpdated = errors.New("Cập nhật thông tin bài viết thất bại")
+	PostNotFound   = errors.New("Bài viết không tồn tại")
+	PostConflict   = errors.New("Bài viết đã tồn tại")
+	PostInsertFail = errors.New("Thêm bài viết thất bại")
 
 	//bookmark
 	BookmarkNotFound = errors.New("Bookmark không tồn tại")

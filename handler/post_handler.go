@@ -1,55 +1,39 @@
 package handler
 
 import (
-	"tech_posts_trending/model"
-	"tech_posts_trending/model/req"
-	"tech_posts_trending/log"
-	"tech_posts_trending/repository"
-	"tech_posts_trending/security"
-	"net/http"
-	"strings"
-
 	"github.com/google/uuid"
 	"github.com/labstack/echo/v4"
+	"net/http"
+	"tech_posts_trending/log"
+	"tech_posts_trending/model"
+	"tech_posts_trending/model/req"
+	"tech_posts_trending/repository"
+	"tech_posts_trending/security"
 )
 
-type RepoHandler struct {
-	GithubRepo repository.GithubRepo
+type PostHandler struct {
+	PostRepo repository.PostRepo
 	AuthRepo   repository.AuthRepo
 }
 
-// RepoTrending godoc
-// @Summary Get repository github trending by user
-// @Tags repository-service
+// PostTrending godoc
+// @Summary Get all posts trending
+// @Tags post-service
 // @Accept  json
 // @Produce  json
 // @Success 200 {object} model.Response
 // @Failure 401 {object} model.Response
-// @Router /user/github/trending [get]
-func (r *RepoHandler) RepoTrending(c echo.Context) error {
-	tokenAuth, err := security.ExtractAccessTokenMetadata(c.Request())
+// @Router /posts [get]
+func (post *PostHandler) PostTrending(c echo.Context) error {
+	repos, err := post.PostRepo.SelectAllPost(c.Request().Context())
 	if err != nil {
 		log.Error(err.Error())
-		return c.JSON(http.StatusUnauthorized, model.Response{
-			StatusCode: http.StatusUnauthorized,
+		return c.JSON(http.StatusNotFound, model.Response{
+			StatusCode: http.StatusNotFound,
 			Message:    err.Error(),
 		})
-	}
 
-	userID, err := r.AuthRepo.FetchAuth(tokenAuth.AccessUUID)
-	if err != nil {
-		log.Error(err.Error())
-		return c.JSON(http.StatusUnauthorized, model.Response{
-			StatusCode: http.StatusUnauthorized,
-			Message:    "Truy cập không được phép",
-		})
 	}
-
-	repos, _ := r.GithubRepo.SelectRepos(c.Request().Context(), userID, 25)
-	for i, repo := range repos {
-		repos[i].Contributors = strings.Split(repo.BuildBy, ",")
-	}
-
 	return c.JSON(http.StatusOK, model.Response{
 		StatusCode: http.StatusOK,
 		Message:    "Xử lý thành công",
@@ -65,7 +49,7 @@ func (r *RepoHandler) RepoTrending(c echo.Context) error {
 // @Success 200 {object} model.Response
 // @Failure 401 {object} model.Response
 // @Router /user/bookmark/list [get]
-func (r *RepoHandler) SelectBookmarks(c echo.Context) error {
+func (post *PostHandler) SelectBookmarks(c echo.Context) error {
 	tokenAuth, err := security.ExtractAccessTokenMetadata(c.Request())
 	if err != nil {
 		log.Error(err.Error())
@@ -75,7 +59,7 @@ func (r *RepoHandler) SelectBookmarks(c echo.Context) error {
 		})
 	}
 
-	userID, err := r.AuthRepo.FetchAuth(tokenAuth.AccessUUID)
+	userID, err := post.AuthRepo.FetchAuth(tokenAuth.AccessUUID)
 	if err != nil {
 		log.Error(err.Error())
 		return c.JSON(http.StatusUnauthorized, model.Response{
@@ -84,13 +68,9 @@ func (r *RepoHandler) SelectBookmarks(c echo.Context) error {
 		})
 	}
 
-	repos, _ := r.GithubRepo.SelectAllBookmarks(
+	repos, _ := post.PostRepo.SelectAllBookmarks(
 		c.Request().Context(),
 		userID)
-
-	for i, repo := range repos {
-		repos[i].Contributors = strings.Split(repo.BuildBy, ",")
-	}
 
 	return c.JSON(http.StatusOK, model.Response{
 		StatusCode: http.StatusOK,
@@ -111,7 +91,7 @@ func (r *RepoHandler) SelectBookmarks(c echo.Context) error {
 // @Failure 403 {object} model.Response
 // @Failure 409 {object} model.Response
 // @Router /user/bookmark/add [post]
-func (r *RepoHandler) Bookmark(c echo.Context) error {
+func (post *PostHandler) Bookmark(c echo.Context) error {
 	req := req.ReqBookmark{}
 	if err := c.Bind(&req); err != nil {
 		return c.JSON(http.StatusBadRequest, model.Response{
@@ -139,7 +119,7 @@ func (r *RepoHandler) Bookmark(c echo.Context) error {
 		})
 	}
 
-	userID, err := r.AuthRepo.FetchAuth(tokenAuth.AccessUUID)
+	userID, err := post.AuthRepo.FetchAuth(tokenAuth.AccessUUID)
 	if err != nil {
 		log.Error(err.Error())
 		return c.JSON(http.StatusUnauthorized, model.Response{
@@ -157,7 +137,7 @@ func (r *RepoHandler) Bookmark(c echo.Context) error {
 		})
 	}
 
-	err = r.GithubRepo.Bookmark(
+	err = post.PostRepo.Bookmark(
 		c.Request().Context(),
 		bId.String(),
 		req.RepoName,
@@ -188,7 +168,7 @@ func (r *RepoHandler) Bookmark(c echo.Context) error {
 // @Failure 401 {object} model.Response
 // @Failure 409 {object} model.Response
 // @Router /user/bookmark/delete [delete]
-func (r *RepoHandler) DelBookmark(c echo.Context) error {
+func (post *PostHandler) DelBookmark(c echo.Context) error {
 	req := req.ReqBookmark{}
 	if err := c.Bind(&req); err != nil {
 		return c.JSON(http.StatusBadRequest, model.Response{
@@ -216,7 +196,7 @@ func (r *RepoHandler) DelBookmark(c echo.Context) error {
 		})
 	}
 
-	userID, err := r.AuthRepo.FetchAuth(tokenAuth.AccessUUID)
+	userID, err := post.AuthRepo.FetchAuth(tokenAuth.AccessUUID)
 	if err != nil {
 		log.Error(err.Error())
 		return c.JSON(http.StatusUnauthorized, model.Response{
@@ -225,7 +205,7 @@ func (r *RepoHandler) DelBookmark(c echo.Context) error {
 		})
 	}
 
-	err = r.GithubRepo.DelBookmark(
+	err = post.PostRepo.DelBookmark(
 		c.Request().Context(),
 		req.RepoName, userID)
 

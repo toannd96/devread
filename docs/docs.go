@@ -33,6 +33,34 @@ var doc = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/posts": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "post-service"
+                ],
+                "summary": "Get all posts trending",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/model.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/model.Response"
+                        }
+                    }
+                }
+            }
+        },
         "/user/bookmark/add": {
             "post": {
                 "consumes": [
@@ -153,34 +181,6 @@ var doc = `{
                     "bookmark-service"
                 ],
                 "summary": "Get list bookmark",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/model.Response"
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthorized",
-                        "schema": {
-                            "$ref": "#/definitions/model.Response"
-                        }
-                    }
-                }
-            }
-        },
-        "/user/github/trending": {
-            "get": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "repository-service"
-                ],
-                "summary": "Get repository github trending by user",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -573,12 +573,6 @@ var doc = `{
                         "schema": {
                             "$ref": "#/definitions/model.Response"
                         }
-                    },
-                    "500": {
-                        "description": "Internal Server Error",
-                        "schema": {
-                            "$ref": "#/definitions/model.Response"
-                        }
                     }
                 }
             }
@@ -767,11 +761,11 @@ type swaggerInfo struct {
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = swaggerInfo{
 	Version:     "1.0",
-	Host:        "test-demo.local",
+	Host:        "localhost:3000",
 	BasePath:    "/",
 	Schemes:     []string{},
-	Title:       "Github Trending API",
-	Description: "Secure REST API",
+	Title:       "Tech Posts Trending API",
+	Description: "Build web applications to crawler article information on technology blogs using Echo Framework (Golang)",
 }
 
 type s struct{}

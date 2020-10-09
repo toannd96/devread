@@ -1,5 +1,0 @@
-time="2020-07-12T15:00:10.144487669+07:00" level=error msg="Người dùng không tồn tại" file=/home/dactoan/backend_viblo_trending/handler/user_handler.go line=420
-time="2020-07-12T15:00:23.840926428+07:00" level=error msg="Người dùng không tồn tại" file=/home/dactoan/backend_viblo_trending/handler/user_handler.go line=420
-time="2020-07-12T15:00:33.906837685+07:00" level=error msg="Email không hợp lệ" file=/home/dactoan/backend_viblo_trending/handler/user_handler.go line=411
-time="2020-07-12T15:00:42.245329536+07:00" level=error msg="Người dùng không tồn tại" file=/home/dactoan/backend_viblo_trending/handler/user_handler.go line=420
-time="2020-07-12T15:01:07.931659601+07:00" level=error msg="Người dùng không tồn tại" file=/home/dactoan/backend_viblo_trending/handler/user_handler.go line=420

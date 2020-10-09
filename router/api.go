@@ -9,7 +9,7 @@ import (
 type API struct {
 	Echo        *echo.Echo
 	UserHandler handler.UserHandler
-	RepoHandler handler.RepoHandler
+	PostHandler handler.PostHandler
 }
 
 func (api *API) SetupRouter() {
@@ -42,17 +42,6 @@ func (api *API) SetupRouter() {
 	userProfile.PUT("/profile/update", api.UserHandler.UpdateProfile)
 	userProfile.POST("/sign-out", api.UserHandler.SignOut)
 
-	//github repo user
-	github := api.Echo.Group("/user",
-		middleware.CORSMiddleware(),
-		middleware.TokenAuthMiddleware(),
-		middleware.HeadersMiddleware(),
-		middleware.HeadersAccept(),
-		middleware.LimitRequest(),
-		middleware.GzipMiddleware(),
-		)
-	github.GET("/github/trending", api.RepoHandler.RepoTrending)
-
 	// bookmark user
 	bookmark := api.Echo.Group("/user",
 		middleware.CORSMiddleware(),
@@ -62,7 +51,17 @@ func (api *API) SetupRouter() {
 		middleware.HeadersAccept(),
 		middleware.GzipMiddleware(),
 		)
-	bookmark.GET("/bookmark/list", api.RepoHandler.SelectBookmarks)
-	bookmark.POST("/bookmark/add", api.RepoHandler.Bookmark)
-	bookmark.DELETE("/bookmark/delete", api.RepoHandler.DelBookmark)
+	bookmark.GET("/bookmark/list", api.PostHandler.SelectBookmarks)
+	bookmark.POST("/bookmark/add", api.PostHandler.Bookmark)
+	bookmark.DELETE("/bookmark/delete", api.PostHandler.DelBookmark)
+
+	// post
+	post := api.Echo.Group("/",
+		middleware.CORSMiddleware(),
+		middleware.LimitRequest(),
+		middleware.HeadersMiddleware(),
+		middleware.HeadersAccept(),
+		middleware.GzipMiddleware(),
+	)
+	post.GET("posts", api.PostHandler.PostTrending)
 }

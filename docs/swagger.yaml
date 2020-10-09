@@ -65,20 +65,38 @@ definitions:
       password:
         type: string
     type: object
-host: test-demo.local
+host: localhost:3000
 info:
   contact:
     email: support@swagger.io
     name: API Support
     url: http://www.swagger.io/support
-  description: Secure REST API
+  description: Build web applications to crawler article information on technology blogs using Echo Framework (Golang)
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   termsOfService: http://swagger.io/terms/
-  title: Github Trending API
+  title: Tech Posts Trending API
   version: "1.0"
 paths:
+  /posts:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/model.Response'
+      summary: Get all posts trending
+      tags:
+      - post-service
   /user/bookmark/add:
     post:
       consumes:
@@ -167,24 +185,6 @@ paths:
       summary: Get list bookmark
       tags:
       - bookmark-service
-  /user/github/trending:
-    get:
-      consumes:
-      - application/json
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/model.Response'
-        "401":
-          description: Unauthorized
-          schema:
-            $ref: '#/definitions/model.Response'
-      summary: Get repository github trending by user
-      tags:
-      - repository-service
   /user/password/forgot:
     post:
       consumes:
@@ -425,10 +425,6 @@ paths:
             $ref: '#/definitions/model.Response'
         "409":
           description: Conflict
-          schema:
-            $ref: '#/definitions/model.Response'
-        "500":
-          description: Internal Server Error
           schema:
             $ref: '#/definitions/model.Response'
       summary: Create new account
