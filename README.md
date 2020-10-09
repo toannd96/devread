@@ -10,3 +10,5 @@ Xây dựng ứng dụng web thu thập thông tin bài viết trên các blog c
 - Sau khi đăng ký xong tiến hành đăng nhập vào ứng dụng để sử dụng, người dùng có thể xem thông tin tài khoản của mình, cập nhật thông tin tài khoản, mỗi người dùng sẽ có 1 kho lưu trữ để quản lý các bài viết mình quan tâm, khi người dùng thích bài viết nào thì đánh dấu bài viết đấy vào kho lưu trữ, khi không cần nữa có thể xóa bài viết khỏi kho lưu trữ đi.
 - Trong trường hợp người dùng quên mật khẩu đăng nhập, người dùng có thể tạo lại mật khẩu bằng cách sử dụng chức năng quên mật khẩu, điền vào thông tin email đăng ký đã xác thực, một email sẽ được gửi tới email đó (trong hộp thư rác), người dùng nhấp vào link và cập nhập lại mật khẩu của mình.
 
+## Tham khảo
+- Ứng dụng được xây dựng dựa trên nền tảng của khóa học golang tại [code4func-golang-flutter](https://www.code4func.com/course/golang-flutter).
