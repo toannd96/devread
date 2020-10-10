@@ -15,7 +15,7 @@
 
 ## Người phát triển dự án
 1. Nguyễn Đắc Toàn, Email: nguyendactoankma@gmail.com
-Facebook: https://www.facebook.com/toan.nguyen.31392410/
+   Facebook: https://www.facebook.com/toan.nguyen.31392410/
 
 ## Tham khảo
 - Ứng dụng được xây dựng dựa trên nền tảng của khóa học [golang-flutter](https://www.code4func.com/course/golang-flutter) tại [code4func](https://www.code4func.com/).
