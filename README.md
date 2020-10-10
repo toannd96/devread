@@ -14,8 +14,9 @@
 - Trong trường hợp người dùng quên mật khẩu đăng nhập, người dùng có thể tạo lại mật khẩu bằng cách sử dụng chức năng quên mật khẩu, điền vào thông tin email đăng ký đã xác thực, một email sẽ được gửi tới email đó (trong hộp thư rác), người dùng nhấp vào link và cập nhập lại mật khẩu của mình.
 
 ## Người phát triển dự án
-1. Nguyễn Đắc Toàn, Email: nguyendactoankma@gmail.com
-   Facebook: https://www.facebook.com/toan.nguyen.31392410/
+1. Nguyễn Đắc Toàn
+- Email: nguyendactoankma@gmail.com
+- Facebook: https://www.facebook.com/toan.nguyen.31392410/
 
 ## Tham khảo
 - Ứng dụng được xây dựng dựa trên nền tảng của khóa học [golang-flutter](https://www.code4func.com/course/golang-flutter) tại [code4func](https://www.code4func.com/).
