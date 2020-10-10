@@ -1,5 +1,4 @@
-# ỨNG DỤNG TỔNG HỢP BÀI VIẾT KỸ THUẬT CHẤT LƯỢNG 
-#       TỪ CÁC TRANG BLOG CÔNG NGHỆ VIỆT
+# Ứng dụng tổng hợp bài viết kỹ thuật chất lượng từ các blog IT Việt
 
 ## Mở đầu
 - Cập nhập kiến thức thường xuyên trong lĩnh vực IT là việc hết sức quan trọng, hiện nay có rất nhiều các blog IT được lập nên để chia sẻ kiến thức cho mọi người. Tuy nhiên có một nhược điểm là người dùng không theo dõi được hết các blog đó hoặc người dùng không biết tìm các bài viết chất lượng ở đâu hay đọc từ blog nào thì phù hợp, vì thế dự án này được lập ra với mục tiêu là **thu thập** và **tổng hợp** các bài viết hay nhất (trending) từ các blog IT của cộng đồng công nghệ Việt Nam nhằm đem nhiều nguồn kiến thức chất lượng tới mọi người.
