@@ -116,8 +116,9 @@ func scheduleUpdateTrending(timeSchedule time.Duration, handler handler.PostHand
 		for {
 			select {
 			case <-ticker.C:
-				fmt.Println("Quét bài viết từ viblo...")
+				fmt.Println("Quét bài viết ...")
 				helper.VibloPost(handler.PostRepo)
+				helper.ToidicodedaoPost(handler.PostRepo)
 			}
 		}
 	}()

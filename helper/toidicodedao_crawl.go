@@ -11,19 +11,15 @@ import (
 	"tech_posts_trending/repository"
 )
 
-func VibloPost(postRepo repository.PostRepo) {
+func ToidicodedaoPost(postRepo repository.PostRepo) {
 	c := colly.NewCollector()
 
-	posts := make([]model.Post, 0, 25)
-	c.OnHTML(".post-feed .link", func(e *colly.HTMLElement) {
-		var vibloPost model.Post
-		vibloPost.Name = e.Text
-		vibloPost.Link = "https://viblo.asia" + e.Attr("href")
-		if vibloPost.Name == "" || vibloPost.Link == "https://viblo.asia" {
-			return
-		}
-
-		posts = append(posts, vibloPost)
+	posts := make([]model.Post, 0, 11)
+	c.OnHTML(".site-content .entry-title", func(e *colly.HTMLElement) {
+		var toidicodedaoPost model.Post
+		toidicodedaoPost.Name = e.Text
+		toidicodedaoPost.Link = e.ChildAttr("h1.entry-title > a", "href")
+		posts = append(posts, toidicodedaoPost)
 	})
 
 	c.OnScraped(func(r *colly.Response) {
@@ -32,7 +28,7 @@ func VibloPost(postRepo repository.PostRepo) {
 		defer queue.Stop()
 
 		for _, post := range posts {
-			queue.Submit(&PostProcess{
+			queue.Submit(&ToidicodedaoProcess{
 				post:       post,
 				postRepo:   postRepo,
 			})
@@ -43,19 +39,19 @@ func VibloPost(postRepo repository.PostRepo) {
 		fmt.Println("Request URL:", r.Request.URL, "failed with response:", r, "\nError:", err)
 	})
 
-	for i := 1; i < 5; i++ {
-		fullURL := fmt.Sprintf("https://viblo.asia/trending?page=%d", i)
+	for i := 1; i < 32; i++ {
+		fullURL := fmt.Sprintf("https://toidicodedao.com/category/chuyen-coding/page/%d", i)
 		c.Visit(fullURL)
 		fmt.Println(fullURL)
 	}
 }
 
-type PostProcess struct {
+type ToidicodedaoProcess struct {
 	post       model.Post
 	postRepo  repository.PostRepo
 }
 
-func (process *PostProcess) Process() {
+func (process *ToidicodedaoProcess) Process() {
 	// select post by name
 	cacheRepo, err := process.postRepo.SelectPostByName(context.Background(), process.post.Name)
 	if err == custom_error.PostNotFound {
