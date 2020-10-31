@@ -1,7 +1,9 @@
 # Ứng dụng tổng hợp bài viết kỹ thuật chất lượng từ các blog IT
 
 ## Bài toán
-- Cập nhập kiến thức thường xuyên trong lĩnh vực IT là việc hết sức quan trọng, hiện nay có rất nhiều các blog IT được lập nên để chia sẻ kiến thức cho mọi người ví dụ viblo, tôi đi code dạo, the full snack, kipalog,... (chỉ nêu tên một số). Tuy nhiên có nhược điểm là người dùng phải truy cập các trang web khác nhau để cập nhật những bài viết mới, vì thế dự án này được lập ra với ý tưởng ban đầu là gom các bài viết hay nhất từ các blog IT của cộng đồng công nghệ Việt Nam từ nhiều nguồn lại với nhau, hiển thị trên một giao diện đơn giản để theo dõi nhanh chóng hơn nhằm đem lại nhiều nguồn kiến thức chất lượng tới mọi người.
+- Cập nhập kiến thức thường xuyên trong lĩnh vực IT là việc hết sức quan trọng, hiện nay có rất nhiều các blog IT được lập nên để chia sẻ kiến thức cho mọi người ví dụ viblo, tôi đi code dạo, the full snack, kipalog,... (chỉ nêu tên một số).
+- Tuy nhiên có nhược điểm là người dùng phải truy cập các trang web khác nhau để cập nhật những bài viết mới.
+- Vì thế dự án này được lập ra với ý tưởng ban đầu là gom các bài viết hay nhất từ các blog IT của cộng đồng công nghệ Việt Nam từ nhiều nguồn lại với nhau, hiển thị trên một giao diện đơn giản để theo dõi nhanh chóng hơn nhằm đem lại nhiều nguồn kiến thức chất lượng tới mọi người.
 
 ## Mô tả ứng dụng
 - Ứng dụng web sẽ tự động thu thập các thông tin về bài viết gồm **tên bài viết**, **thể loại**, **link liên kết bài viết đến trang nguồn** nằm trong top những bài viết hay nhất về và cập nhật theo thời gian thực (đảm bảo không thu thập nội dung bài viết, vi phạm nội dung bản quyền tác giả).Tệp dữ liệu mà ứng dụng thu thập, xem tại [đây](https://github.com/dactoankmapydev/tech_posts_trending/blob/master/posts.csv)
