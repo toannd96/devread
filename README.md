@@ -28,6 +28,13 @@
 ## Công nghệ sử dụng
 - Backend: [echo go web framework](https://echo.labstack.com/), [colly scraping framework](http://go-colly.org/)
 
+## Chạy ứng dụng
+- Sử dụng [swagger](https://swagger.io/) để test API
+```
+  go run main.go
+```
+- Ứng dụng chạy trên ```http://localhost:3000/swagger/index.html```
+
 ## Người phát triển dự án
 1. Nguyễn Đắc Toàn
 - Email: nguyendactoankma@gmail.com
