@@ -6,35 +6,24 @@ import (
 	"github.com/gocolly/colly/v2"
 	"github.com/labstack/gommon/log"
 	"runtime"
+	"strings"
 	"tech_posts_trending/custom_error"
 	"tech_posts_trending/model"
 	"tech_posts_trending/repository"
-	"time"
 )
 
-func ToidicodedaoPost(postRepo repository.PostRepo) {
+func QuancamPost(postRepo repository.PostRepo) {
 	c := colly.NewCollector()
-	c.SetRequestTimeout(30 * time.Second)
 
 	posts := []model.Post{}
-	var toidicodedaoPost model.Post
-
-	c.OnHTML("footer[class=entry-meta]", func(e *colly.HTMLElement) {
-		if toidicodedaoPost.Name == "" || toidicodedaoPost.Link == "" {
-			return
-		}
-		toidicodedaoPost.Tags = e.ChildText("span.tag-links > a:last-child")
-		posts = append(posts, toidicodedaoPost)
-	})
-
-	c.OnHTML(".site-content .entry-title", func(e *colly.HTMLElement) {
-		toidicodedaoPost.Name = e.Text
-		toidicodedaoPost.Link = e.ChildAttr("h1.entry-title > a", "href")
-		c.Visit(e.Request.AbsoluteURL(toidicodedaoPost.Link))
-		if toidicodedaoPost.Name == "" || toidicodedaoPost.Link == "" {
-			return
-		}
-		posts = append(posts, toidicodedaoPost)
+	c.OnHTML("div[class=post]", func(e *colly.HTMLElement) {
+		var quancamPost model.Post
+		quancamPost.Name = e.ChildText("h3.post__title > a")
+		quancamPost.Link = "https://quan-cam.com" + e.ChildAttr("h3.post__title > a", "href")
+		quancamPost.Tags = strings.Replace(
+			strings.Replace(
+				e.ChildText("span.tagging > a"), "\n", "", -1), "#", " ", -1)
+		posts = append(posts, quancamPost)
 	})
 
 	c.OnScraped(func(r *colly.Response) {
@@ -43,7 +32,7 @@ func ToidicodedaoPost(postRepo repository.PostRepo) {
 		defer queue.Stop()
 
 		for _, post := range posts {
-			queue.Submit(&ToidicodedaoProcess{
+			queue.Submit(&QuancamProcess{
 				post:       post,
 				postRepo:   postRepo,
 			})
@@ -54,23 +43,24 @@ func ToidicodedaoPost(postRepo repository.PostRepo) {
 		log.Error("Request URL:", r.Request.URL, "failed with response:", r, "\nError:", err)
 	})
 
-	for i := 1; i < 32; i++ {
-		fullURL := fmt.Sprintf("https://toidicodedao.com/category/chuyen-coding/page/%d", i)
+	for i := 1; i < 5; i++ {
+		fullURL := fmt.Sprintf("https://quan-cam.com/posts?page=%d", i)
 		c.Visit(fullURL)
 		fmt.Println(fullURL)
 	}
 }
 
-type ToidicodedaoProcess struct {
+type QuancamProcess struct {
 	post       model.Post
-	postRepo  repository.PostRepo
+	postRepo   repository.PostRepo
 }
 
-func (process *ToidicodedaoProcess) Process() {
+func (process *QuancamProcess) Process() {
 	// select post by name
 	cacheRepo, err := process.postRepo.SelectPostByName(context.Background(), process.post.Name)
 	if err == custom_error.PostNotFound {
 		// insert post to database
+		fmt.Println("Add: ", process.post.Name)
 		_, err = process.postRepo.SavePost(context.Background(), process.post)
 		if err != nil {
 			log.Error(err)
@@ -79,8 +69,9 @@ func (process *ToidicodedaoProcess) Process() {
 	}
 
 	// update post
-	if process.post.Name != cacheRepo.Name {
-		log.Info("Updated: ", process.post.Name)
+	if process.post.Name != cacheRepo.Name ||
+		process.post.Link != cacheRepo.Link {
+		fmt.Println("Updated: ", process.post.Name)
 		_, err = process.postRepo.UpdatePost(context.Background(), process.post)
 		if err != nil {
 			log.Error(err)

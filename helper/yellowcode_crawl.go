@@ -6,35 +6,25 @@ import (
 	"github.com/gocolly/colly/v2"
 	"github.com/labstack/gommon/log"
 	"runtime"
+	"strings"
 	"tech_posts_trending/custom_error"
 	"tech_posts_trending/model"
 	"tech_posts_trending/repository"
-	"time"
 )
 
-func ToidicodedaoPost(postRepo repository.PostRepo) {
+func YellowcodePost(postRepo repository.PostRepo) {
 	c := colly.NewCollector()
-	c.SetRequestTimeout(30 * time.Second)
 
 	posts := []model.Post{}
-	var toidicodedaoPost model.Post
-
-	c.OnHTML("footer[class=entry-meta]", func(e *colly.HTMLElement) {
-		if toidicodedaoPost.Name == "" || toidicodedaoPost.Link == "" {
-			return
-		}
-		toidicodedaoPost.Tags = e.ChildText("span.tag-links > a:last-child")
-		posts = append(posts, toidicodedaoPost)
-	})
-
-	c.OnHTML(".site-content .entry-title", func(e *colly.HTMLElement) {
-		toidicodedaoPost.Name = e.Text
-		toidicodedaoPost.Link = e.ChildAttr("h1.entry-title > a", "href")
-		c.Visit(e.Request.AbsoluteURL(toidicodedaoPost.Link))
-		if toidicodedaoPost.Name == "" || toidicodedaoPost.Link == "" {
-			return
-		}
-		posts = append(posts, toidicodedaoPost)
+	var yellowcodePost model.Post
+	c.OnHTML("header[class=entry-header]", func(e *colly.HTMLElement) {
+		yellowcodePost.Name = e.ChildText("h2.entry-title > a")
+		yellowcodePost.Link = e.ChildAttr("h2.entry-title > a", "href")
+		yellowcodePost.Tags = strings.Replace(
+			strings.Replace(
+				strings.Replace(
+					e.ChildText("span.meta-category > a"), "\n", "", -1), "/", "", -1), "-", "", -1)
+		posts = append(posts, yellowcodePost)
 	})
 
 	c.OnScraped(func(r *colly.Response) {
@@ -43,7 +33,7 @@ func ToidicodedaoPost(postRepo repository.PostRepo) {
 		defer queue.Stop()
 
 		for _, post := range posts {
-			queue.Submit(&ToidicodedaoProcess{
+			queue.Submit(&YellowcodeProcess{
 				post:       post,
 				postRepo:   postRepo,
 			})
@@ -54,19 +44,28 @@ func ToidicodedaoPost(postRepo repository.PostRepo) {
 		log.Error("Request URL:", r.Request.URL, "failed with response:", r, "\nError:", err)
 	})
 
-	for i := 1; i < 32; i++ {
-		fullURL := fmt.Sprintf("https://toidicodedao.com/category/chuyen-coding/page/%d", i)
-		c.Visit(fullURL)
-		fmt.Println(fullURL)
+	listURL := []string{}
+	for numb := 1; numb < 7; numb++ {
+		trend := fmt.Sprintf("https://yellowcodebooks.com/category/lap-trinh-android/page/%d", numb)
+		listURL = append(listURL, trend)
+	}
+	for numb := 1; numb < 6; numb++ {
+		newest := fmt.Sprintf("https://yellowcodebooks.com/category/lap-trinh-java/page/%d", numb)
+		listURL = append(listURL, newest)
+	}
+
+	for _,url := range listURL {
+		c.Visit(url)
+		fmt.Println(url)
 	}
 }
 
-type ToidicodedaoProcess struct {
+type YellowcodeProcess struct {
 	post       model.Post
 	postRepo  repository.PostRepo
 }
 
-func (process *ToidicodedaoProcess) Process() {
+func (process *YellowcodeProcess) Process() {
 	// select post by name
 	cacheRepo, err := process.postRepo.SelectPostByName(context.Background(), process.post.Name)
 	if err == custom_error.PostNotFound {
@@ -87,3 +86,4 @@ func (process *ToidicodedaoProcess) Process() {
 		}
 	}
 }
+

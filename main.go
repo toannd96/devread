@@ -105,7 +105,7 @@ func main() {
 
 	api.SetupRouter()
 
-	go scheduleUpdateTrending(24*time.Second, postHandler)
+	go scheduleUpdateTrending(5*time.Second, postHandler)
 
 	e.Logger.Fatal(e.Start(":3000"))
 }
@@ -119,6 +119,10 @@ func scheduleUpdateTrending(timeSchedule time.Duration, handler handler.PostHand
 				fmt.Println("Quét bài viết ...")
 				helper.VibloPost(handler.PostRepo)
 				helper.ToidicodedaoPost(handler.PostRepo)
+				helper.ThefullsnackPost(handler.PostRepo)
+				helper.QuancamPost(handler.PostRepo)
+				helper.CodeaholicguyPost(handler.PostRepo)
+				helper.YellowcodePost(handler.PostRepo)
 			}
 		}
 	}()

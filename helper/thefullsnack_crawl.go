@@ -2,39 +2,31 @@ package helper
 
 import (
 	"context"
-	"fmt"
 	"github.com/gocolly/colly/v2"
 	"github.com/labstack/gommon/log"
+	"regexp"
 	"runtime"
+	"strings"
 	"tech_posts_trending/custom_error"
 	"tech_posts_trending/model"
 	"tech_posts_trending/repository"
-	"time"
 )
 
-func ToidicodedaoPost(postRepo repository.PostRepo) {
+func ThefullsnackPost(postRepo repository.PostRepo) {
 	c := colly.NewCollector()
-	c.SetRequestTimeout(30 * time.Second)
 
 	posts := []model.Post{}
-	var toidicodedaoPost model.Post
-
-	c.OnHTML("footer[class=entry-meta]", func(e *colly.HTMLElement) {
-		if toidicodedaoPost.Name == "" || toidicodedaoPost.Link == "" {
-			return
-		}
-		toidicodedaoPost.Tags = e.ChildText("span.tag-links > a:last-child")
-		posts = append(posts, toidicodedaoPost)
-	})
-
-	c.OnHTML(".site-content .entry-title", func(e *colly.HTMLElement) {
-		toidicodedaoPost.Name = e.Text
-		toidicodedaoPost.Link = e.ChildAttr("h1.entry-title > a", "href")
-		c.Visit(e.Request.AbsoluteURL(toidicodedaoPost.Link))
-		if toidicodedaoPost.Name == "" || toidicodedaoPost.Link == "" {
-			return
-		}
-		posts = append(posts, toidicodedaoPost)
+	c.OnHTML("div[class=home-list-item]", func(e *colly.HTMLElement) {
+		var thefullsnackPost model.Post
+		thefullsnackPost.Name = e.ChildText("div.home-list-item > a")
+		thefullsnackPost.Link = "https://thefullsnack.com" + e.ChildAttr("div.home-list-item > a", "href")
+		tags := e.Text
+		regexSplitName := regexp.MustCompile("[0-9]{2}[-]{1}[0-9]{2}[-]{1}[0-9]{4}([a-z]{1,60}[-][a-z]{1,60}|[a-z]{1,60}|)|[,]\\s([a-z]{1,60}[-][a-z]{1,60}|[a-z]{1,60}|)")
+		regexSplitTime := regexp.MustCompile("[0-9]{2}[-]{1}[0-9]{2}[-]{1}[0-9]{4}")
+		splitName := strings.Join(regexSplitName.FindAllString(tags, -1), " ")
+		splitTime := strings.Join(regexSplitTime.FindAllString(splitName, -1), " ")
+		thefullsnackPost.Tags = strings.Replace(splitName, splitTime, "", -1)
+		posts = append(posts, thefullsnackPost)
 	})
 
 	c.OnScraped(func(r *colly.Response) {
@@ -43,7 +35,7 @@ func ToidicodedaoPost(postRepo repository.PostRepo) {
 		defer queue.Stop()
 
 		for _, post := range posts {
-			queue.Submit(&ToidicodedaoProcess{
+			queue.Submit(&ThefullsnackProcess{
 				post:       post,
 				postRepo:   postRepo,
 			})
@@ -54,19 +46,15 @@ func ToidicodedaoPost(postRepo repository.PostRepo) {
 		log.Error("Request URL:", r.Request.URL, "failed with response:", r, "\nError:", err)
 	})
 
-	for i := 1; i < 32; i++ {
-		fullURL := fmt.Sprintf("https://toidicodedao.com/category/chuyen-coding/page/%d", i)
-		c.Visit(fullURL)
-		fmt.Println(fullURL)
-	}
+	c.Visit("https://thefullsnack.com/")
 }
 
-type ToidicodedaoProcess struct {
+type ThefullsnackProcess struct {
 	post       model.Post
 	postRepo  repository.PostRepo
 }
 
-func (process *ToidicodedaoProcess) Process() {
+func (process *ThefullsnackProcess) Process() {
 	// select post by name
 	cacheRepo, err := process.postRepo.SelectPostByName(context.Background(), process.post.Name)
 	if err == custom_error.PostNotFound {

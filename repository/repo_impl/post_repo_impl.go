@@ -23,9 +23,8 @@ func NewPostRepo(sql *db.Sql) repository.PostRepo {
 }
 
 func (p PostRepoImpl) SavePost(context context.Context, post model.Post) (model.Post, error) {
-	statement := `INSERT INTO posts(name, link) 
-          		  VALUES(:name,:link)`
-
+	statement := `INSERT INTO posts(name, link, tags) 
+          		  VALUES(:name,:link, :tags)`
 	_, err := p.sql.Db.NamedExecContext(context, statement, post)
 	if err != nil {
 		if err, ok := err.(*pq.Error); ok {
@@ -59,7 +58,8 @@ func (p PostRepoImpl) UpdatePost(context context.Context, post model.Post) (mode
 	sqlStatement := `
 		UPDATE posts
 		SET
-			link = :link
+			link = :link,
+			tags = :tags
 		WHERE name = :name
 	`
 
@@ -100,7 +100,7 @@ func (p PostRepoImpl) SelectAllBookmark(context context.Context, userId string) 
 	posts := []model.Post{}
 	err := p.sql.Db.SelectContext(context, &posts,
 		`SELECT 
-					posts.name, posts.link
+					posts.name, posts.link, posts.tags
 				FROM bookmarks 
 				INNER JOIN posts
 				ON bookmarks.user_id=$1 AND posts.name = bookmarks.post_name`, userId)
@@ -115,14 +115,14 @@ func (p PostRepoImpl) SelectAllBookmark(context context.Context, userId string) 
 	return posts, nil
 }
 
-func (p PostRepoImpl) Bookmark(context context.Context, bid, namePost, userId string) error {
+func (p PostRepoImpl) Bookmark(context context.Context, bookmarkId, namePost, userId string) error {
 	statement := `INSERT INTO bookmarks(
-					bid, user_id, post_name, created_at, updated_at) 
+					bookmark_id, user_id, post_name, created_at, updated_at) 
           		  VALUES($1, $2, $3, $4, $5)`
 
 	now := time.Now()
 	_, err := p.sql.Db.ExecContext(
-		context, statement, bid, userId,
+		context, statement, bookmarkId, userId,
 		namePost, now, now)
 	if err != nil {
 		if err, ok := err.(*pq.Error); ok {

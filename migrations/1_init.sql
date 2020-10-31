@@ -11,11 +11,12 @@ CREATE TABLE "users" (
 
 CREATE TABLE "posts" (
   "name" text PRIMARY KEY,
-  "link" text
+  "link" text,
+  "tags"  text
 );
 
 CREATE TABLE "bookmarks" (
-  "bid" text PRIMARY KEY,
+  "bookmark_id" text PRIMARY KEY,
   "user_id" text,
   "post_name" text,
   "created_at" TIMESTAMPTZ NOT NULL,
