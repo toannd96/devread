@@ -8,7 +8,7 @@
 ## Mô tả ứng dụng
 - Ứng dụng sẽ tự động thu thập các thông tin về bài viết gồm **tên bài viết**, **thể loại**, **link liên kết bài viết đến trang nguồn** nằm trong top những bài viết hay nhất về và cập nhật theo thời gian thực (đảm bảo không thu thập nội dung bài viết, vi phạm nội dung bản quyền tác giả).Tệp dữ liệu mà ứng dụng thu thập, xem tại [đây](https://github.com/dactoankmapydev/tech_posts_trending/blob/master/posts.csv)
 - Thay vì mò mẫm vào từng trang blog thì nay chỉ cần vào 1 trang duy nhất để xem những bài đăng hấp dẫn từ các trang blog it như:
-  - [Viblo](https://viblo.asia/) mục [trending](https://viblo.asia/trending), [series](https://viblo.asia/series), [newest](https://viblo.asia/newest)
+  - [Viblo](https://viblo.asia/) mục [trending](https://viblo.asia/trending), [series](https://viblo.asia/series), một phần mục [newest](https://viblo.asia/newest)
   - [Toidicodedao](https://toidicodedao.com/) mục [chuyện coding](https://toidicodedao.com/category/chuyen-coding/)
   - [Yellowcodebooks](https://yellowcodebooks.com/) mục [java](https://yellowcodebooks.com/category/lap-trinh-java/), [android](https://yellowcodebooks.com/category/lap-trinh-android/)
   - [Quan-cam](https://quan-cam.com/) mục [programming](https://quan-cam.com/tags/programming)
