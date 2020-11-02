@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+	"os"
 	"tech_posts_trending/db"
 	_ "tech_posts_trending/docs"
 	"tech_posts_trending/handler"
@@ -8,8 +10,6 @@ import (
 	"tech_posts_trending/log"
 	"tech_posts_trending/repository/repo_impl"
 	"tech_posts_trending/router"
-	"fmt"
-	"os"
 	"time"
 
 	"github.com/joho/godotenv"
@@ -36,30 +36,21 @@ func init() {
 // @license.name Apache 2.0
 // @license.url http://www.apache.org/licenses/LICENSE-2.0.html
 
-// @securityDefinitions.apikey token-verify-account
-// @in query
-// @name token
-
-// @securityDefinitions.apikey token-reset-password
-// @in query
-// @name token
-
 // @host localhost:3000
 // @BasePath /
 
 func main() {
 
 	// redis details
-	redisHost     := os.Getenv("REDIS_HOST")
+	redisHost := os.Getenv("REDIS_HOST")
 	redisPort := os.Getenv("REDIS_PORT")
 
 	// postgres details
-	host     := os.Getenv("DB_HOST")
-	port     := os.Getenv("DB_PORT")
+	host := os.Getenv("DB_HOST")
+	port := os.Getenv("DB_PORT")
 	password := os.Getenv("DB_PASSWORD")
 	username := os.Getenv("DB_USERNAME")
-	dbname   := os.Getenv("DB_NAME")
-
+	dbname := os.Getenv("DB_NAME")
 
 	// connect redis
 	client := &db.RedisDB{
@@ -94,7 +85,7 @@ func main() {
 
 	postHandler := handler.PostHandler{
 		PostRepo: repo_impl.NewPostRepo(sql),
-		AuthRepo:  repo_impl.NewAuthRepo(client),
+		AuthRepo: repo_impl.NewAuthRepo(client),
 	}
 
 	api := router.API{
@@ -105,7 +96,7 @@ func main() {
 
 	api.SetupRouter()
 
-	go scheduleUpdateTrending(5*time.Second, postHandler)
+	go scheduleUpdateTrending(24*time.Second, postHandler)
 
 	e.Logger.Fatal(e.Start(":3000"))
 }

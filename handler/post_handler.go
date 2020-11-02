@@ -11,9 +11,14 @@ import (
 	"tech_posts_trending/security"
 )
 
+func GetQueryTags(r *http.Request) string {
+	tags := r.URL.Query().Get("tags")
+	return tags
+}
+
 type PostHandler struct {
 	PostRepo repository.PostRepo
-	AuthRepo   repository.AuthRepo
+	AuthRepo repository.AuthRepo
 }
 
 // PostTrending godoc
@@ -32,7 +37,31 @@ func (post *PostHandler) PostTrending(c echo.Context) error {
 			StatusCode: http.StatusNotFound,
 			Message:    err.Error(),
 		})
+	}
+	return c.JSON(http.StatusOK, model.Response{
+		StatusCode: http.StatusOK,
+		Message:    "Xử lý thành công",
+		Data:       repos,
+	})
+}
 
+// SearchPost godoc
+// @Summary Search post by tag
+// @Tags post-service
+// @Accept  json
+// @Produce  json
+// @Param tags query string true "tags of posts"
+// @Success 200 {object} model.Response
+// @Failure 404 {object} model.Response
+// @Router /posts [post]
+func (post *PostHandler) SearchPost(c echo.Context) error {
+	repos, err := post.PostRepo.SelectPostByTags(c.Request().Context(), GetQueryTags(c.Request()))
+	if err != nil {
+		log.Error(err.Error())
+		return c.JSON(http.StatusNotFound, model.Response{
+			StatusCode: http.StatusNotFound,
+			Message:    "Không tìm thấy bài viết",
+		})
 	}
 	return c.JSON(http.StatusOK, model.Response{
 		StatusCode: http.StatusOK,

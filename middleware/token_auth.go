@@ -1,10 +1,10 @@
 package middleware
 
 import (
-	"tech_posts_trending/model"
-	"tech_posts_trending/security"
 	"github.com/labstack/echo/v4"
 	"net/http"
+	"tech_posts_trending/model"
+	"tech_posts_trending/security"
 )
 
 func TokenAuthMiddleware() echo.MiddlewareFunc {

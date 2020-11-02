@@ -1,16 +1,17 @@
 package repository
 
 import (
-	"tech_posts_trending/model"
 	"context"
+	"tech_posts_trending/model"
 )
 
 type PostRepo interface {
 	// Post
+	UpdatePost(context context.Context, post model.Post) (model.Post, error)
 	SavePost(context context.Context, post model.Post) (model.Post, error)
 	SelectAllPost(context context.Context) ([]model.Post, error)
 	SelectPostByName(context context.Context, name string) (model.Post, error)
-	UpdatePost(context context.Context, post model.Post) (model.Post, error)
+	SelectPostByTags(context context.Context, tags string) ([]model.Post, error)
 
 	// Bookmark
 	SelectAllBookmark(context context.Context, userId string) ([]model.Post, error)

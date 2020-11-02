@@ -1,11 +1,11 @@
 package security
 
 import (
-	"tech_posts_trending/model"
 	"fmt"
 	"github.com/dgrijalva/jwt-go"
 	"net/http"
 	"os"
+	"tech_posts_trending/model"
 )
 
 func ExtractAccessToken(r *http.Request) string {

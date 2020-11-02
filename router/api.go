@@ -1,9 +1,9 @@
 package router
 
 import (
+	"github.com/labstack/echo/v4"
 	"tech_posts_trending/handler"
 	"tech_posts_trending/middleware"
-	"github.com/labstack/echo/v4"
 )
 
 type API struct {
@@ -21,7 +21,7 @@ func (api *API) SetupRouter() {
 		middleware.HeadersMiddleware(),
 		middleware.HeadersAccept(),
 		middleware.GzipMiddleware(),
-		)
+	)
 	user.POST("/sign-in", api.UserHandler.SignIn)
 	user.POST("/sign-up", api.UserHandler.SignUp)
 	user.POST("/refresh", api.UserHandler.Refresh)
@@ -37,7 +37,7 @@ func (api *API) SetupRouter() {
 		middleware.HeadersMiddleware(),
 		middleware.HeadersAccept(),
 		middleware.GzipMiddleware(),
-		)
+	)
 	userProfile.GET("/profile", api.UserHandler.Profile)
 	userProfile.PUT("/profile/update", api.UserHandler.UpdateProfile)
 	userProfile.POST("/sign-out", api.UserHandler.SignOut)
@@ -50,7 +50,7 @@ func (api *API) SetupRouter() {
 		middleware.HeadersMiddleware(),
 		middleware.HeadersAccept(),
 		middleware.GzipMiddleware(),
-		)
+	)
 	bookmark.GET("/bookmark/list", api.PostHandler.SelectBookmarks)
 	bookmark.POST("/bookmark/add", api.PostHandler.Bookmark)
 	bookmark.DELETE("/bookmark/delete", api.PostHandler.DelBookmark)
@@ -64,4 +64,5 @@ func (api *API) SetupRouter() {
 		middleware.GzipMiddleware(),
 	)
 	post.GET("posts", api.PostHandler.PostTrending)
+	post.POST("posts", api.PostHandler.SearchPost)
 }

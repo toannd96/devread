@@ -20,11 +20,11 @@ func CodeaholicguyPost(postRepo repository.PostRepo) {
 	posts := []model.Post{}
 	var codeaholicguyPost model.Post
 
-	c.OnHTML("span[class=cat-links]" , func(e *colly.HTMLElement) {
+	c.OnHTML("span[class=cat-links]", func(e *colly.HTMLElement) {
 		if codeaholicguyPost.Name == "" || codeaholicguyPost.Link == "" {
 			return
 		}
-		codeaholicguyPost.Tags = strings.Replace(e.ChildText("span.cat-links > a:last-child"), "Chuyện coding", "", -1)
+		codeaholicguyPost.Tags = strings.ToLower(strings.Replace(e.ChildText("span.cat-links > a:last-child"), "Chuyện coding", "", -1))
 		posts = append(posts, codeaholicguyPost)
 	})
 
@@ -45,8 +45,8 @@ func CodeaholicguyPost(postRepo repository.PostRepo) {
 
 		for _, post := range posts {
 			queue.Submit(&CodeaholicguyProcess{
-				post:       post,
-				postRepo:   postRepo,
+				post:     post,
+				postRepo: postRepo,
 			})
 		}
 	})
@@ -62,8 +62,8 @@ func CodeaholicguyPost(postRepo repository.PostRepo) {
 }
 
 type CodeaholicguyProcess struct {
-	post       model.Post
-	postRepo  repository.PostRepo
+	post     model.Post
+	postRepo repository.PostRepo
 }
 
 func (process *CodeaholicguyProcess) Process() {

@@ -121,7 +121,7 @@ func (u *UserHandler) SignUp(c echo.Context) error {
 	errSendMail := smtp.SendMail(smtpsv.Address(), auth, from, to, message)
 	if errSendMail != nil {
 		log.Error(errSendMail)
-		return(errSendMail)
+		return (errSendMail)
 	}
 
 	return c.JSON(http.StatusOK, model.Response{
@@ -221,6 +221,7 @@ func (u *UserHandler) ForgotPassword(c echo.Context) error {
 // @Accept  json
 // @Produce  json
 // @Param data body req.PasswordSubmit true "user"
+// @Param token query string true "token verify email"
 // @Security token-verify-account
 // @Success 200 {object} model.Response
 // @Failure 400 {object} model.Response
@@ -314,6 +315,7 @@ func (u *UserHandler) VerifyAccount(c echo.Context) error {
 // @Accept  json
 // @Produce  json
 // @Param data body req.PasswordSubmit true "user"
+// @Param token query string true "token reset password"
 // @Security token-reset-password
 // @Success 201 {object} model.Response
 // @Failure 400 {object} model.Response
@@ -326,7 +328,7 @@ func (u *UserHandler) ResetPassword(c echo.Context) error {
 		log.Error(err.Error())
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
-			Message:   "Lỗi cú pháp",
+			Message:    "Lỗi cú pháp",
 		})
 	}
 
@@ -478,7 +480,7 @@ func (u *UserHandler) SignIn(c echo.Context) error {
 		SameSite: 2,
 		HttpOnly: true,
 		//Secure: true,
-		Expires:  time.Now().Add(time.Hour * 24),
+		Expires: time.Now().Add(time.Hour * 24),
 	}
 	c.SetCookie(rtCookie)
 
@@ -776,7 +778,7 @@ func (u *UserHandler) Refresh(c echo.Context) error {
 			SameSite: 2,
 			HttpOnly: true,
 			//Secure: true,
-			Expires:  time.Now().Add(time.Hour * 24),
+			Expires: time.Now().Add(time.Hour * 24),
 		}
 		c.SetCookie(rtCookie)
 

@@ -59,6 +59,41 @@ var doc = `{
                         }
                     }
                 }
+            },
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "post-service"
+                ],
+                "summary": "Search post by tag",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "tags of posts",
+                        "name": "tags",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/model.Response"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/model.Response"
+                        }
+                    }
+                }
             }
         },
         "/user/bookmark/add": {
@@ -274,6 +309,13 @@ var doc = `{
                         "schema": {
                             "$ref": "#/definitions/req.PasswordSubmit"
                         }
+                    },
+                    {
+                        "type": "string",
+                        "description": "token reset password",
+                        "name": "token",
+                        "in": "query",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -603,6 +645,13 @@ var doc = `{
                         "schema": {
                             "$ref": "#/definitions/req.PasswordSubmit"
                         }
+                    },
+                    {
+                        "type": "string",
+                        "description": "token verify email",
+                        "name": "token",
+                        "in": "query",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -733,18 +782,6 @@ var doc = `{
                     "type": "string"
                 }
             }
-        }
-    },
-    "securityDefinitions": {
-        "token-reset-password": {
-            "type": "apiKey",
-            "name": "token",
-            "in": "query"
-        },
-        "token-verify-account": {
-            "type": "apiKey",
-            "name": "token",
-            "in": "query"
         }
     }
 }`

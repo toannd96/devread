@@ -1,10 +1,10 @@
 package security
 
 import (
-	"tech_posts_trending/model"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/google/uuid"
 	"os"
+	"tech_posts_trending/model"
 	"time"
 )
 

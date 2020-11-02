@@ -20,9 +20,9 @@ func QuancamPost(postRepo repository.PostRepo) {
 		var quancamPost model.Post
 		quancamPost.Name = e.ChildText("h3.post__title > a")
 		quancamPost.Link = "https://quan-cam.com" + e.ChildAttr("h3.post__title > a", "href")
-		quancamPost.Tags = strings.Replace(
+		quancamPost.Tags = strings.ToLower(strings.Replace(
 			strings.Replace(
-				e.ChildText("span.tagging > a"), "\n", "", -1), "#", " ", -1)
+				e.ChildText("span.tagging > a"), "\n", "", -1), "#", " ", -1))
 		posts = append(posts, quancamPost)
 	})
 
@@ -33,8 +33,8 @@ func QuancamPost(postRepo repository.PostRepo) {
 
 		for _, post := range posts {
 			queue.Submit(&QuancamProcess{
-				post:       post,
-				postRepo:   postRepo,
+				post:     post,
+				postRepo: postRepo,
 			})
 		}
 	})
@@ -51,8 +51,8 @@ func QuancamPost(postRepo repository.PostRepo) {
 }
 
 type QuancamProcess struct {
-	post       model.Post
-	postRepo   repository.PostRepo
+	post     model.Post
+	postRepo repository.PostRepo
 }
 
 func (process *QuancamProcess) Process() {

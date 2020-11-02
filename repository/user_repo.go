@@ -1,9 +1,9 @@
 package repository
 
 import (
+	"context"
 	"tech_posts_trending/model"
 	"tech_posts_trending/model/req"
-	"context"
 )
 
 type UserRepo interface {

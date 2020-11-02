@@ -16,22 +16,22 @@ definitions:
       password:
         type: string
     required:
-    - confirm
-    - password
+      - confirm
+      - password
     type: object
   req.ReqBookmark:
     properties:
       post:
         type: string
     required:
-    - post
+      - post
     type: object
   req.ReqEmail:
     properties:
       email:
         type: string
     required:
-    - email
+      - email
     type: object
   req.ReqSignIn:
     properties:
@@ -40,8 +40,8 @@ definitions:
       password:
         type: string
     required:
-    - email
-    - password
+      - email
+      - password
     type: object
   req.ReqSignUp:
     properties:
@@ -52,9 +52,9 @@ definitions:
       password:
         type: string
     required:
-    - email
-    - full_name
-    - password
+      - email
+      - full_name
+      - password
     type: object
   req.ReqUpdateUser:
     properties:
@@ -82,9 +82,9 @@ paths:
   /posts:
     get:
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: OK
@@ -96,20 +96,43 @@ paths:
             $ref: '#/definitions/model.Response'
       summary: Get all posts trending
       tags:
-      - post-service
+        - post-service
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: tags of posts
+          in: query
+          name: tags
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/model.Response'
+      summary: Search post by tag
+      tags:
+        - post-service
   /user/bookmark/add:
     post:
       consumes:
-      - application/json
+        - application/json
       parameters:
-      - description: user
-        in: body
-        name: data
-        required: true
-        schema:
-          $ref: '#/definitions/req.ReqBookmark'
+        - description: user
+          in: body
+          name: data
+          required: true
+          schema:
+            $ref: '#/definitions/req.ReqBookmark'
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: OK
@@ -133,20 +156,20 @@ paths:
             $ref: '#/definitions/model.Response'
       summary: Add bookmark
       tags:
-      - bookmark-service
+        - bookmark-service
   /user/bookmark/delete:
     delete:
       consumes:
-      - application/json
+        - application/json
       parameters:
-      - description: user
-        in: body
-        name: data
-        required: true
-        schema:
-          $ref: '#/definitions/req.ReqBookmark'
+        - description: user
+          in: body
+          name: data
+          required: true
+          schema:
+            $ref: '#/definitions/req.ReqBookmark'
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: OK
@@ -166,13 +189,13 @@ paths:
             $ref: '#/definitions/model.Response'
       summary: Delete bookmark
       tags:
-      - bookmark-service
+        - bookmark-service
   /user/bookmark/list:
     get:
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: OK
@@ -184,20 +207,20 @@ paths:
             $ref: '#/definitions/model.Response'
       summary: Get list bookmark
       tags:
-      - bookmark-service
+        - bookmark-service
   /user/password/forgot:
     post:
       consumes:
-      - application/json
+        - application/json
       parameters:
-      - description: user
-        in: body
-        name: data
-        required: true
-        schema:
-          $ref: '#/definitions/req.ReqEmail'
+        - description: user
+          in: body
+          name: data
+          required: true
+          schema:
+            $ref: '#/definitions/req.ReqEmail'
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: OK
@@ -217,20 +240,25 @@ paths:
             $ref: '#/definitions/model.Response'
       summary: Forgot password
       tags:
-      - user-service
+        - user-service
   /user/password/reset:
     put:
       consumes:
-      - application/json
+        - application/json
       parameters:
-      - description: user
-        in: body
-        name: data
-        required: true
-        schema:
-          $ref: '#/definitions/req.PasswordSubmit'
+        - description: user
+          in: body
+          name: data
+          required: true
+          schema:
+            $ref: '#/definitions/req.PasswordSubmit'
+        - description: token reset password
+          in: query
+          name: token
+          required: true
+          type: string
       produces:
-      - application/json
+        - application/json
       responses:
         "201":
           description: Created
@@ -249,16 +277,16 @@ paths:
           schema:
             $ref: '#/definitions/model.Response'
       security:
-      - token-reset-password: []
+        - token-reset-password: [ ]
       summary: Reset password
       tags:
-      - user-service
+        - user-service
   /user/profile:
     get:
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: OK
@@ -282,20 +310,20 @@ paths:
             $ref: '#/definitions/model.Response'
       summary: Get user profile
       tags:
-      - profile-service
+        - profile-service
   /user/profile/update:
     put:
       consumes:
-      - application/json
+        - application/json
       parameters:
-      - description: user
-        in: body
-        name: data
-        required: true
-        schema:
-          $ref: '#/definitions/req.ReqUpdateUser'
+        - description: user
+          in: body
+          name: data
+          required: true
+          schema:
+            $ref: '#/definitions/req.ReqUpdateUser'
       produces:
-      - application/json
+        - application/json
       responses:
         "201":
           description: Created
@@ -315,13 +343,13 @@ paths:
             $ref: '#/definitions/model.Response'
       summary: Update user profile
       tags:
-      - profile-service
+        - profile-service
   /user/refresh:
     post:
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       responses:
         "201":
           description: Created
@@ -337,20 +365,20 @@ paths:
             $ref: '#/definitions/model.Response'
       summary: Refresh token
       tags:
-      - user-service
+        - user-service
   /user/sign-in:
     post:
       consumes:
-      - application/json
+        - application/json
       parameters:
-      - description: user
-        in: body
-        name: data
-        required: true
-        schema:
-          $ref: '#/definitions/req.ReqSignIn'
+        - description: user
+          in: body
+          name: data
+          required: true
+          schema:
+            $ref: '#/definitions/req.ReqSignIn'
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: OK
@@ -374,13 +402,13 @@ paths:
             $ref: '#/definitions/model.Response'
       summary: Sign in to access your account
       tags:
-      - user-service
+        - user-service
   /user/sign-out:
     post:
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: OK
@@ -392,20 +420,20 @@ paths:
             $ref: '#/definitions/model.Response'
       summary: Sign out user profile
       tags:
-      - profile-service
+        - profile-service
   /user/sign-up:
     post:
       consumes:
-      - application/json
+        - application/json
       parameters:
-      - description: user
-        in: body
-        name: data
-        required: true
-        schema:
-          $ref: '#/definitions/req.ReqSignUp'
+        - description: user
+          in: body
+          name: data
+          required: true
+          schema:
+            $ref: '#/definitions/req.ReqSignUp'
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: OK
@@ -429,20 +457,25 @@ paths:
             $ref: '#/definitions/model.Response'
       summary: Create new account
       tags:
-      - user-service
+        - user-service
   /user/verify:
     post:
       consumes:
-      - application/json
+        - application/json
       parameters:
-      - description: user
-        in: body
-        name: data
-        required: true
-        schema:
-          $ref: '#/definitions/req.PasswordSubmit'
+        - description: user
+          in: body
+          name: data
+          required: true
+          schema:
+            $ref: '#/definitions/req.PasswordSubmit'
+        - description: token verify email
+          in: query
+          name: token
+          required: true
+          type: string
       produces:
-      - application/json
+        - application/json
       responses:
         "200":
           description: OK
@@ -461,17 +494,8 @@ paths:
           schema:
             $ref: '#/definitions/model.Response'
       security:
-      - token-verify-account: []
+        - token-verify-account: [ ]
       summary: Verify email
       tags:
-      - user-service
-securityDefinitions:
-  token-reset-password:
-    in: query
-    name: token
-    type: apiKey
-  token-verify-account:
-    in: query
-    name: token
-    type: apiKey
+        - user-service
 swagger: "2.0"

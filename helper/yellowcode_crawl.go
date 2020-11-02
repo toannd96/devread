@@ -20,10 +20,10 @@ func YellowcodePost(postRepo repository.PostRepo) {
 	c.OnHTML("header[class=entry-header]", func(e *colly.HTMLElement) {
 		yellowcodePost.Name = e.ChildText("h2.entry-title > a")
 		yellowcodePost.Link = e.ChildAttr("h2.entry-title > a", "href")
-		yellowcodePost.Tags = strings.Replace(
+		yellowcodePost.Tags = strings.ToLower(strings.Replace(
 			strings.Replace(
 				strings.Replace(
-					e.ChildText("span.meta-category > a"), "\n", "", -1), "/", "", -1), "-", "", -1)
+					e.ChildText("span.meta-category > a"), "\n", "", -1), "/", "", -1), "-", "", -1))
 		posts = append(posts, yellowcodePost)
 	})
 
@@ -34,8 +34,8 @@ func YellowcodePost(postRepo repository.PostRepo) {
 
 		for _, post := range posts {
 			queue.Submit(&YellowcodeProcess{
-				post:       post,
-				postRepo:   postRepo,
+				post:     post,
+				postRepo: postRepo,
 			})
 		}
 	})
@@ -54,15 +54,15 @@ func YellowcodePost(postRepo repository.PostRepo) {
 		listURL = append(listURL, newest)
 	}
 
-	for _,url := range listURL {
+	for _, url := range listURL {
 		c.Visit(url)
 		fmt.Println(url)
 	}
 }
 
 type YellowcodeProcess struct {
-	post       model.Post
-	postRepo  repository.PostRepo
+	post     model.Post
+	postRepo repository.PostRepo
 }
 
 func (process *YellowcodeProcess) Process() {
@@ -86,4 +86,3 @@ func (process *YellowcodeProcess) Process() {
 		}
 	}
 }
-

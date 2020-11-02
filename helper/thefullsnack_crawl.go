@@ -20,7 +20,7 @@ func ThefullsnackPost(postRepo repository.PostRepo) {
 		var thefullsnackPost model.Post
 		thefullsnackPost.Name = e.ChildText("div.home-list-item > a")
 		thefullsnackPost.Link = "https://thefullsnack.com" + e.ChildAttr("div.home-list-item > a", "href")
-		tags := e.Text
+		tags := strings.ToLower(e.Text)
 		regexSplitName := regexp.MustCompile("[0-9]{2}[-]{1}[0-9]{2}[-]{1}[0-9]{4}([a-z]{1,60}[-][a-z]{1,60}|[a-z]{1,60}|)|[,]\\s([a-z]{1,60}[-][a-z]{1,60}|[a-z]{1,60}|)")
 		regexSplitTime := regexp.MustCompile("[0-9]{2}[-]{1}[0-9]{2}[-]{1}[0-9]{4}")
 		splitName := strings.Join(regexSplitName.FindAllString(tags, -1), " ")
@@ -36,8 +36,8 @@ func ThefullsnackPost(postRepo repository.PostRepo) {
 
 		for _, post := range posts {
 			queue.Submit(&ThefullsnackProcess{
-				post:       post,
-				postRepo:   postRepo,
+				post:     post,
+				postRepo: postRepo,
 			})
 		}
 	})
@@ -50,8 +50,8 @@ func ThefullsnackPost(postRepo repository.PostRepo) {
 }
 
 type ThefullsnackProcess struct {
-	post       model.Post
-	postRepo  repository.PostRepo
+	post     model.Post
+	postRepo repository.PostRepo
 }
 
 func (process *ThefullsnackProcess) Process() {

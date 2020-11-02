@@ -1,13 +1,13 @@
 package repo_impl
 
 import (
+	"context"
+	"database/sql"
 	"tech_posts_trending/custom_error"
 	"tech_posts_trending/db"
 	"tech_posts_trending/model"
 	"tech_posts_trending/model/req"
 	"tech_posts_trending/repository"
-	"context"
-	"database/sql"
 	"time"
 
 	"github.com/lib/pq"

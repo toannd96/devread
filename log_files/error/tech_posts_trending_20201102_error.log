@@ -1,0 +1,7 @@
+time="2020-11-02T12:31:38.871690561+07:00" level=error msg="scannable dest type slice with >1 columns (3) in result" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=77
+time="2020-11-02T12:33:19.193993558+07:00" level=error msg="scannable dest type slice with >1 columns (3) in result" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=77
+time="2020-11-02T12:33:39.015428569+07:00" level=error msg="scannable dest type slice with >1 columns (3) in result" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=77
+time="2020-11-02T12:34:10.076916628+07:00" level=error msg="scannable dest type slice with >1 columns (3) in result" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=77
+time="2020-11-02T14:16:49.645185027+07:00" level=error msg="scannable dest type slice with >1 columns (3) in result" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=77
+time="2020-11-02T16:54:11.632419481+07:00" level=error msg="scannable dest type slice with >1 columns (3) in result" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=60
+time="2020-11-02T16:54:47.40605922+07:00" level=error msg="scannable dest type slice with >1 columns (3) in result" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=60

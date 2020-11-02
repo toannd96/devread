@@ -6,6 +6,7 @@ import (
 	"github.com/gocolly/colly/v2"
 	"github.com/labstack/gommon/log"
 	"runtime"
+	"strings"
 	"tech_posts_trending/custom_error"
 	"tech_posts_trending/model"
 	"tech_posts_trending/repository"
@@ -23,7 +24,7 @@ func ToidicodedaoPost(postRepo repository.PostRepo) {
 		if toidicodedaoPost.Name == "" || toidicodedaoPost.Link == "" {
 			return
 		}
-		toidicodedaoPost.Tags = e.ChildText("span.tag-links > a:last-child")
+		toidicodedaoPost.Tags = strings.ToLower(e.ChildText("span.tag-links > a:last-child"))
 		posts = append(posts, toidicodedaoPost)
 	})
 
@@ -44,8 +45,8 @@ func ToidicodedaoPost(postRepo repository.PostRepo) {
 
 		for _, post := range posts {
 			queue.Submit(&ToidicodedaoProcess{
-				post:       post,
-				postRepo:   postRepo,
+				post:     post,
+				postRepo: postRepo,
 			})
 		}
 	})
@@ -62,8 +63,8 @@ func ToidicodedaoPost(postRepo repository.PostRepo) {
 }
 
 type ToidicodedaoProcess struct {
-	post       model.Post
-	postRepo  repository.PostRepo
+	post     model.Post
+	postRepo repository.PostRepo
 }
 
 func (process *ToidicodedaoProcess) Process() {

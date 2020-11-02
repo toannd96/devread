@@ -1,10 +1,10 @@
 package middleware
 
 import (
-	"tech_posts_trending/model"
 	"github.com/labstack/echo/v4"
 	"golang.org/x/time/rate"
 	"net/http"
+	"tech_posts_trending/model"
 )
 
 var limiter = rate.NewLimiter(1, 1)

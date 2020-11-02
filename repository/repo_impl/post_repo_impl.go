@@ -1,14 +1,14 @@
 package repo_impl
 
 import (
-	"tech_posts_trending/custom_error"
-	"tech_posts_trending/db"
-	"tech_posts_trending/model"
-	"tech_posts_trending/repository"
 	"context"
 	"database/sql"
 	"github.com/labstack/gommon/log"
 	"github.com/lib/pq"
+	"tech_posts_trending/custom_error"
+	"tech_posts_trending/db"
+	"tech_posts_trending/model"
+	"tech_posts_trending/repository"
 	"time"
 )
 
@@ -52,6 +52,21 @@ func (p PostRepoImpl) SelectPostByName(context context.Context, name string) (mo
 		return post, err
 	}
 	return post, nil
+}
+
+func (p PostRepoImpl) SelectPostByTags(context context.Context, tags string) ([]model.Post, error) {
+	var posts = []model.Post{}
+	err := p.sql.Db.SelectContext(context, &posts,
+		`SELECT * FROM posts WHERE tags in ($1)`, tags)
+
+	if err != nil {
+		if err == sql.ErrNoRows {
+			return posts, custom_error.PostNotFound
+		}
+		log.Error(err.Error())
+		return posts, err
+	}
+	return posts, nil
 }
 
 func (p PostRepoImpl) UpdatePost(context context.Context, post model.Post) (model.Post, error) {
