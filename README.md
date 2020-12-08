@@ -1,4 +1,4 @@
-# Ứng dụng tổng hợp bài viết kỹ thuật chất lượng từ các blog IT
+# DevReading - Ứng dụng tổng hợp bài viết kỹ thuật chất lượng từ các blog IT
 
 ## Bài toán
 - Cập nhập kiến thức thường xuyên trong lĩnh vực IT là việc hết sức quan trọng, hiện nay có rất nhiều các blog IT được lập nên để chia sẻ kiến thức cho mọi người ví dụ viblo, tôi đi code dạo, the full snack, kipalog,... (chỉ nêu tên một số).
