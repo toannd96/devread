@@ -35,11 +35,5 @@
 ```
 - Ứng dụng chạy trên ```http://localhost:3000/swagger/index.html```
 
-## Người phát triển dự án
-1. Nguyễn Đắc Toàn
-- Email: nguyendactoankma@gmail.com
-- Facebook: https://www.facebook.com/toan.nguyen.31392410/
-- Linkedin: https://www.linkedin.com/in/dac-toan-nguyen-a94b2a146/
-
 ## Tham khảo
 - Ứng dụng được xây dựng dựa trên nền tảng của khóa học [golang-flutter](https://www.code4func.com/course/golang-flutter) tại [code4func](https://www.code4func.com/).
