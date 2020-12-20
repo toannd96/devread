@@ -35,5 +35,11 @@
 ```
 - Ứng dụng chạy trên ```http://localhost:3000/swagger/index.html```
 
+## Người phát triển
+1. Nguyễn Đắc Toàn
+- https://www.facebook.com/toan.nguyendac130396/
+2. Nguyễn Văn An
+- https://www.facebook.com/apkadmin1
+
 ## Tham khảo
 - Ứng dụng được xây dựng dựa trên nền tảng của khóa học [golang-flutter](https://www.code4func.com/course/golang-flutter) tại [code4func](https://www.code4func.com/).
