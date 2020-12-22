@@ -11,9 +11,9 @@ docker-compose up
 
 ## Người phát triển
 1. Nguyễn Đắc Toàn
-- Sáng lập, backend developer
+- Người sáng lập dự án, backend developer
 - https://www.facebook.com/toan.nguyendac130396/
 
 2. Nguyễn Văn An
-- Đồng sáng lập, mobile developer
+- Đồng sáng lập dự án, mobile developer
 - https://www.facebook.com/apkadmin1
