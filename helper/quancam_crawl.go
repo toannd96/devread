@@ -20,7 +20,7 @@ func QuancamPost(postRepo repository.PostRepo) {
 		var quancamPost model.Post
 		quancamPost.Name = e.ChildText("h3.post__title > a")
 		quancamPost.Link = "https://quan-cam.com" + e.ChildAttr("h3.post__title > a", "href")
-		quancamPost.Tags = strings.ToLower(strings.Replace(
+		quancamPost.Tag = strings.ToLower(strings.Replace(
 			strings.Replace(
 				e.ChildText("span.tagging > a"), "\n", "", -1), "#", " ", -1))
 		posts = append(posts, quancamPost)

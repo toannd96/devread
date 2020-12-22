@@ -24,7 +24,7 @@ func CodeaholicguyPost(postRepo repository.PostRepo) {
 		if codeaholicguyPost.Name == "" || codeaholicguyPost.Link == "" {
 			return
 		}
-		codeaholicguyPost.Tags = strings.ToLower(strings.Replace(e.ChildText("span.cat-links > a:last-child"), "Chuyện coding", "", -1))
+		codeaholicguyPost.Tag = strings.ToLower(strings.Replace(e.ChildText("span.cat-links > a:last-child"), "Chuyện coding", "", -1))
 		posts = append(posts, codeaholicguyPost)
 	})
 

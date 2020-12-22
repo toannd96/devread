@@ -26,7 +26,7 @@ func VibloPost(postRepo repository.PostRepo) {
 			return
 		}
 		vibloPost.Link = "https://viblo.asia" + e.ChildAttr("h3.word-break > a", "href")
-		vibloPost.Tags = strings.ToLower(
+		vibloPost.Tag = strings.ToLower(
 			strings.Replace(
 				strings.Replace(e.ChildText("div.tags > a:last-child"), "\n", "", -1), "Trending", "", -1))
 		posts = append(posts, vibloPost)
@@ -38,7 +38,7 @@ func VibloPost(postRepo repository.PostRepo) {
 			return
 		}
 		vibloPost.Link = "https://viblo.asia" + e.ChildAttr("h1.series-title-header  > a", "href")
-		vibloPost.Tags = strings.ToLower(e.ChildText("div.tags > a:last-child"))
+		vibloPost.Tag = strings.ToLower(e.ChildText("div.tags > a:last-child"))
 		posts = append(posts, vibloPost)
 	})
 

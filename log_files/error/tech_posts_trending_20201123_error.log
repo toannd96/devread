@@ -1,0 +1,25 @@
+time="2020-11-23T14:39:42.712505556+07:00" level=error msg="Email là bắt buộc \n FullName là bắt buộc \n Password là bắt buộc" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=56
+time="2020-11-23T15:55:23.620875616+07:00" level=error msg="FullName là bắt buộc" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=54
+time="2020-11-23T15:56:04.935088165+07:00" level=error msg="FullName là bắt buộc" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=54
+time="2020-11-23T15:58:27.720479965+07:00" level=error msg="FullName là bắt buộc" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=54
+time="2020-11-23T16:02:44.181990035+07:00" level=error msg="Người dùng không tồn tại" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=424
+time="2020-11-23T16:02:48.652065822+07:00" level=error msg="Người dùng không tồn tại" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=424
+time="2020-11-23T16:03:12.517593086+07:00" level=error msg="Người dùng không tồn tại" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=424
+time="2020-11-23T16:03:17.482732565+07:00" level=error msg="Người dùng không tồn tại" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=424
+time="2020-11-23T16:07:19.600696992+07:00" level=error msg="Người dùng không tồn tại" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=424
+time="2020-11-23T16:07:35.429341501+07:00" level=error msg="Người dùng không tồn tại" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=424
+time="2020-11-23T16:16:21.913527026+07:00" level=error msg="Email là bắt buộc \n FullName là bắt buộc \n Password là bắt buộc" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=54
+time="2020-11-23T16:17:52.343106884+07:00" level=error msg="FullName là bắt buộc" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=54
+time="2020-11-23T16:19:06.293010842+07:00" level=error msg="Email là bắt buộc \n FullName là bắt buộc \n Mật khẩu tối thiểu 8 ký tự" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=54
+time="2020-11-23T16:21:01.522580711+07:00" level=error msg="Email là bắt buộc \n FullName là bắt buộc \n Password là bắt buộc" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=54
+time="2020-11-23T16:25:00.196427572+07:00" level=error msg="FullName là bắt buộc" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=54
+time="2020-11-23T20:25:15.068970391+07:00" level=error msg="Email là bắt buộc \n FullName là bắt buộc \n Password là bắt buộc" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=54
+time="2020-11-23T20:25:27.96890462+07:00" level=error msg="Email là bắt buộc \n FullName là bắt buộc" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=54
+time="2020-11-23T20:25:37.789258302+07:00" level=error msg="Email là bắt buộc \n FullName là bắt buộc" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=54
+time="2020-11-23T20:27:23.439850425+07:00" level=error msg="Người dùng đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=82
+time="2020-11-23T20:34:04.65990708+07:00" level=error msg="Mật khẩu tối thiểu 8 ký tự" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=54
+time="2020-11-23T20:34:25.388188675+07:00" level=error msg="Mật khẩu tối thiểu 8 ký tự" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=54
+time="2020-11-23T20:34:47.669084946+07:00" level=error msg="Mật khẩu tối thiểu 8 ký tự" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=54
+time="2020-11-23T20:35:16.747212939+07:00" level=error msg="Mật khẩu tối thiểu 8 ký tự" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=54
+time="2020-11-23T20:35:31.302043235+07:00" level=error msg="Mật khẩu tối thiểu 8 ký tự" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=54
+time="2020-11-23T20:36:26.470177795+07:00" level=error msg="Người dùng đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=82

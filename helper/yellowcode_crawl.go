@@ -20,7 +20,7 @@ func YellowcodePost(postRepo repository.PostRepo) {
 	c.OnHTML("header[class=entry-header]", func(e *colly.HTMLElement) {
 		yellowcodePost.Name = e.ChildText("h2.entry-title > a")
 		yellowcodePost.Link = e.ChildAttr("h2.entry-title > a", "href")
-		yellowcodePost.Tags = strings.ToLower(strings.Replace(
+		yellowcodePost.Tag = strings.ToLower(strings.Replace(
 			strings.Replace(
 				strings.Replace(
 					e.ChildText("span.meta-category > a"), "\n", "", -1), "/", "", -1), "-", "", -1))

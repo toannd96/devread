@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"github.com/dgrijalva/jwt-go"
 	"github.com/google/uuid"
 	"github.com/labstack/echo/v4"
 	"net/http"
@@ -8,17 +9,16 @@ import (
 	"tech_posts_trending/model"
 	"tech_posts_trending/model/req"
 	"tech_posts_trending/repository"
-	"tech_posts_trending/security"
 )
 
-func GetQueryTags(r *http.Request) string {
-	tags := r.URL.Query().Get("tags")
-	return tags
+func GetQueryTag(r *http.Request) string {
+	tag := r.URL.Query().Get("tag")
+	return tag
 }
 
 type PostHandler struct {
 	PostRepo repository.PostRepo
-	AuthRepo repository.AuthRepo
+	AuthRepo repository.AuthenRepo
 }
 
 // PostTrending godoc
@@ -28,7 +28,7 @@ type PostHandler struct {
 // @Produce  json
 // @Success 200 {object} model.Response
 // @Failure 401 {object} model.Response
-// @Router /posts [get]
+// @Router /trend [get]
 func (post *PostHandler) PostTrending(c echo.Context) error {
 	repos, err := post.PostRepo.SelectAllPost(c.Request().Context())
 	if err != nil {
@@ -50,12 +50,12 @@ func (post *PostHandler) PostTrending(c echo.Context) error {
 // @Tags post-service
 // @Accept  json
 // @Produce  json
-// @Param tags query string true "tags of posts"
+// @Param tag query string true "tag of posts"
 // @Success 200 {object} model.Response
 // @Failure 404 {object} model.Response
-// @Router /posts [post]
+// @Router /posts [get]
 func (post *PostHandler) SearchPost(c echo.Context) error {
-	repos, err := post.PostRepo.SelectPostByTags(c.Request().Context(), GetQueryTags(c.Request()))
+	repos, err := post.PostRepo.SelectPostByTag(c.Request().Context(), GetQueryTag(c.Request()))
 	if err != nil {
 		log.Error(err.Error())
 		return c.JSON(http.StatusNotFound, model.Response{
@@ -79,27 +79,12 @@ func (post *PostHandler) SearchPost(c echo.Context) error {
 // @Failure 401 {object} model.Response
 // @Router /user/bookmark/list [get]
 func (post *PostHandler) SelectBookmarks(c echo.Context) error {
-	tokenAuth, err := security.ExtractAccessTokenMetadata(c.Request())
-	if err != nil {
-		log.Error(err.Error())
-		return c.JSON(http.StatusUnauthorized, model.Response{
-			StatusCode: http.StatusUnauthorized,
-			Message:    err.Error(),
-		})
-	}
-
-	userID, err := post.AuthRepo.FetchAuth(tokenAuth.AccessUUID)
-	if err != nil {
-		log.Error(err.Error())
-		return c.JSON(http.StatusUnauthorized, model.Response{
-			StatusCode: http.StatusUnauthorized,
-			Message:    "Truy cập không được phép",
-		})
-	}
+	token := c.Get("user").(*jwt.Token)
+	claims := token.Claims.(*model.TokenDetails)
 
 	repos, _ := post.PostRepo.SelectAllBookmark(
 		c.Request().Context(),
-		userID)
+		claims.UserID)
 
 	return c.JSON(http.StatusOK, model.Response{
 		StatusCode: http.StatusOK,
@@ -138,24 +123,8 @@ func (post *PostHandler) Bookmark(c echo.Context) error {
 			Message:    "Lỗi cú pháp",
 		})
 	}
-
-	tokenAuth, err := security.ExtractAccessTokenMetadata(c.Request())
-	if err != nil {
-		log.Error(err.Error())
-		return c.JSON(http.StatusUnauthorized, model.Response{
-			StatusCode: http.StatusUnauthorized,
-			Message:    err.Error(),
-		})
-	}
-
-	userID, err := post.AuthRepo.FetchAuth(tokenAuth.AccessUUID)
-	if err != nil {
-		log.Error(err.Error())
-		return c.JSON(http.StatusUnauthorized, model.Response{
-			StatusCode: http.StatusUnauthorized,
-			Message:    "Truy cập không được phép",
-		})
-	}
+	token := c.Get("user").(*jwt.Token)
+	claims := token.Claims.(*model.TokenDetails)
 
 	bId, err := uuid.NewUUID()
 	if err != nil {
@@ -170,7 +139,7 @@ func (post *PostHandler) Bookmark(c echo.Context) error {
 		c.Request().Context(),
 		bId.String(),
 		req.PostName,
-		userID)
+		claims.UserID)
 
 	if err != nil {
 		log.Error(err.Error())
@@ -216,27 +185,12 @@ func (post *PostHandler) DelBookmark(c echo.Context) error {
 		})
 	}
 
-	tokenAuth, err := security.ExtractAccessTokenMetadata(c.Request())
-	if err != nil {
-		log.Error(err.Error())
-		return c.JSON(http.StatusUnauthorized, model.Response{
-			StatusCode: http.StatusUnauthorized,
-			Message:    err.Error(),
-		})
-	}
-
-	userID, err := post.AuthRepo.FetchAuth(tokenAuth.AccessUUID)
-	if err != nil {
-		log.Error(err.Error())
-		return c.JSON(http.StatusUnauthorized, model.Response{
-			StatusCode: http.StatusUnauthorized,
-			Message:    "Truy cập không được phép",
-		})
-	}
+	token := c.Get("user").(*jwt.Token)
+	claims := token.Claims.(*model.TokenDetails)
 
 	err = post.PostRepo.DelBookmark(
 		c.Request().Context(),
-		req.PostName, userID)
+		req.PostName, claims.UserID)
 
 	if err != nil {
 		log.Error(err.Error())

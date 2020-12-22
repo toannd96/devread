@@ -23,8 +23,8 @@ func NewPostRepo(sql *db.Sql) repository.PostRepo {
 }
 
 func (p PostRepoImpl) SavePost(context context.Context, post model.Post) (model.Post, error) {
-	statement := `INSERT INTO posts(name, link, tags) 
-          		  VALUES(:name,:link, :tags)`
+	statement := `INSERT INTO posts(name, link, tag) 
+          		  VALUES(:name,:link, :tag)`
 	_, err := p.sql.Db.NamedExecContext(context, statement, post)
 	if err != nil {
 		if err, ok := err.(*pq.Error); ok {
@@ -54,10 +54,10 @@ func (p PostRepoImpl) SelectPostByName(context context.Context, name string) (mo
 	return post, nil
 }
 
-func (p PostRepoImpl) SelectPostByTags(context context.Context, tags string) ([]model.Post, error) {
+func (p PostRepoImpl) SelectPostByTag(context context.Context, tag string) ([]model.Post, error) {
 	var posts = []model.Post{}
 	err := p.sql.Db.SelectContext(context, &posts,
-		`SELECT * FROM posts WHERE tags in ($1)`, tags)
+		`SELECT * FROM posts WHERE tag=$1`, tag)
 
 	if err != nil {
 		if err == sql.ErrNoRows {
@@ -74,7 +74,7 @@ func (p PostRepoImpl) UpdatePost(context context.Context, post model.Post) (mode
 		UPDATE posts
 		SET
 			link = :link,
-			tags = :tags
+			tag = :tag
 		WHERE name = :name
 	`
 
@@ -99,7 +99,7 @@ func (p PostRepoImpl) UpdatePost(context context.Context, post model.Post) (mode
 func (p PostRepoImpl) SelectAllPost(context context.Context) ([]model.Post, error) {
 	posts := []model.Post{}
 	err := p.sql.Db.SelectContext(context, &posts,
-		`SELECT * FROM posts`)
+		`SELECT * FROM posts`,)
 
 	if err != nil {
 		if err == sql.ErrNoRows {
@@ -115,7 +115,7 @@ func (p PostRepoImpl) SelectAllBookmark(context context.Context, userId string) 
 	posts := []model.Post{}
 	err := p.sql.Db.SelectContext(context, &posts,
 		`SELECT 
-					posts.name, posts.link, posts.tags
+					posts.name, posts.link, posts.tag
 				FROM bookmarks 
 				INNER JOIN posts
 				ON bookmarks.user_id=$1 AND posts.name = bookmarks.post_name`, userId)

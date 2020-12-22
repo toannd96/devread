@@ -24,7 +24,7 @@ func ToidicodedaoPost(postRepo repository.PostRepo) {
 		if toidicodedaoPost.Name == "" || toidicodedaoPost.Link == "" {
 			return
 		}
-		toidicodedaoPost.Tags = strings.ToLower(e.ChildText("span.tag-links > a:last-child"))
+		toidicodedaoPost.Tag = strings.ToLower(e.ChildText("span.tag-links > a:last-child"))
 		posts = append(posts, toidicodedaoPost)
 	})
 

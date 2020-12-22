@@ -24,7 +24,7 @@ func init() {
 	log.InitLogger(false)
 }
 
-// @title Tech Posts Trending API
+// @title Deviread API
 // @version 1.0
 // @description Build web applications to crawler article information on technology blogs using Echo Framework (Golang)
 // @termsOfService http://swagger.io/terms/
@@ -35,6 +35,10 @@ func init() {
 
 // @license.name Apache 2.0
 // @license.url http://www.apache.org/licenses/LICENSE-2.0.html
+
+// @securityDefinitions.apikey jwt
+// @in header
+// @name Authorization
 
 // @host localhost:3000
 // @BasePath /
@@ -80,12 +84,12 @@ func main() {
 
 	userHandler := handler.UserHandler{
 		UserRepo: repo_impl.NewUserRepo(sql),
-		AuthRepo: repo_impl.NewAuthRepo(client),
+		AuthRepo: repo_impl.NewAuthenRepo(client),
 	}
 
 	postHandler := handler.PostHandler{
 		PostRepo: repo_impl.NewPostRepo(sql),
-		AuthRepo: repo_impl.NewAuthRepo(client),
+		AuthRepo: repo_impl.NewAuthenRepo(client),
 	}
 
 	api := router.API{

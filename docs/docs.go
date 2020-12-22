@@ -44,38 +44,12 @@ var doc = `{
                 "tags": [
                     "post-service"
                 ],
-                "summary": "Get all posts trending",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/model.Response"
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthorized",
-                        "schema": {
-                            "$ref": "#/definitions/model.Response"
-                        }
-                    }
-                }
-            },
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "post-service"
-                ],
                 "summary": "Search post by tag",
                 "parameters": [
                     {
                         "type": "string",
-                        "description": "tags of posts",
-                        "name": "tags",
+                        "description": "tag of posts",
+                        "name": "tag",
                         "in": "query",
                         "required": true
                     }
@@ -89,6 +63,34 @@ var doc = `{
                     },
                     "404": {
                         "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/model.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/trend": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "post-service"
+                ],
+                "summary": "Get all posts trending",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/model.Response"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
                         "schema": {
                             "$ref": "#/definitions/model.Response"
                         }
@@ -443,40 +445,6 @@ var doc = `{
                 }
             }
         },
-        "/user/refresh": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "user-service"
-                ],
-                "summary": "Refresh token",
-                "responses": {
-                    "201": {
-                        "description": "Created",
-                        "schema": {
-                            "$ref": "#/definitions/model.Response"
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthorized",
-                        "schema": {
-                            "$ref": "#/definitions/model.Response"
-                        }
-                    },
-                    "403": {
-                        "description": "Forbidden",
-                        "schema": {
-                            "$ref": "#/definitions/model.Response"
-                        }
-                    }
-                }
-            }
-        },
         "/user/sign-in": {
             "post": {
                 "consumes": [
@@ -527,34 +495,6 @@ var doc = `{
                     },
                     "500": {
                         "description": "Internal Server Error",
-                        "schema": {
-                            "$ref": "#/definitions/model.Response"
-                        }
-                    }
-                }
-            }
-        },
-        "/user/sign-out": {
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "profile-service"
-                ],
-                "summary": "Sign out user profile",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/model.Response"
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthorized",
                         "schema": {
                             "$ref": "#/definitions/model.Response"
                         }
@@ -783,6 +723,13 @@ var doc = `{
                 }
             }
         }
+    },
+    "securityDefinitions": {
+        "jwt": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
     }
 }`
 
@@ -801,7 +748,7 @@ var SwaggerInfo = swaggerInfo{
 	Host:        "localhost:3000",
 	BasePath:    "/",
 	Schemes:     []string{},
-	Title:       "Tech Posts Trending API",
+	Title:       "Deviread API",
 	Description: "Build web applications to crawler article information on technology blogs using Echo Framework (Golang)",
 }
 

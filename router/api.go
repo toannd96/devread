@@ -17,14 +17,12 @@ func (api *API) SetupRouter() {
 	// user
 	user := api.Echo.Group("/user",
 		middleware.CORSMiddleware(),
-		middleware.LimitRequest(),
 		middleware.HeadersMiddleware(),
 		middleware.HeadersAccept(),
 		middleware.GzipMiddleware(),
 	)
 	user.POST("/sign-in", api.UserHandler.SignIn)
 	user.POST("/sign-up", api.UserHandler.SignUp)
-	user.POST("/refresh", api.UserHandler.Refresh)
 	user.POST("/verify", api.UserHandler.VerifyAccount)
 	user.POST("/password/forgot", api.UserHandler.ForgotPassword)
 	user.PUT("/password/reset", api.UserHandler.ResetPassword)
@@ -32,21 +30,18 @@ func (api *API) SetupRouter() {
 	// user profile
 	userProfile := api.Echo.Group("/user",
 		middleware.CORSMiddleware(),
-		middleware.TokenAuthMiddleware(),
-		middleware.LimitRequest(),
+		middleware.JWTMiddleware(),
 		middleware.HeadersMiddleware(),
 		middleware.HeadersAccept(),
 		middleware.GzipMiddleware(),
 	)
 	userProfile.GET("/profile", api.UserHandler.Profile)
 	userProfile.PUT("/profile/update", api.UserHandler.UpdateProfile)
-	userProfile.POST("/sign-out", api.UserHandler.SignOut)
 
 	// bookmark user
 	bookmark := api.Echo.Group("/user",
 		middleware.CORSMiddleware(),
-		middleware.TokenAuthMiddleware(),
-		middleware.LimitRequest(),
+		middleware.JWTMiddleware(),
 		middleware.HeadersMiddleware(),
 		middleware.HeadersAccept(),
 		middleware.GzipMiddleware(),
@@ -58,11 +53,10 @@ func (api *API) SetupRouter() {
 	// post
 	post := api.Echo.Group("/",
 		middleware.CORSMiddleware(),
-		middleware.LimitRequest(),
 		middleware.HeadersMiddleware(),
 		middleware.HeadersAccept(),
 		middleware.GzipMiddleware(),
 	)
-	post.GET("posts", api.PostHandler.PostTrending)
-	post.POST("posts", api.PostHandler.SearchPost)
+	post.GET("trend", api.PostHandler.PostTrending)
+	post.GET("posts", api.PostHandler.SearchPost)
 }

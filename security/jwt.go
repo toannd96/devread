@@ -2,13 +2,12 @@ package security
 
 import (
 	"github.com/dgrijalva/jwt-go"
-	"github.com/google/uuid"
 	"os"
 	"tech_posts_trending/model"
 	"time"
 )
 
-func CreateToken(userID string) (*model.TokenDetails, error) {
+/*func CreateToken(userID string) (*model.TokenDetails, error) {
 	td := &model.TokenDetails{
 		AtExpires:   time.Now().Add(time.Minute * 15).Unix(),
 		AccessUUID:  uuid.New().String(),
@@ -43,4 +42,21 @@ func CreateToken(userID string) (*model.TokenDetails, error) {
 	}
 
 	return td, nil
+}*/
+
+func CreateToken(user model.User) (string, error) {
+	claims := &model.TokenDetails{
+		UserID: user.UserID,
+		StandardClaims: jwt.StandardClaims{
+			ExpiresAt: time.Now().Add(time.Hour * 24).Unix(),
+		},
+	}
+
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
+	tokenString, err := token.SignedString([]byte(os.Getenv("ACCESS_SECRET")))
+	if err != nil {
+		return "", err
+	}
+
+	return tokenString, nil
 }

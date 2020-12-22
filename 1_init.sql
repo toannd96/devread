@@ -1,4 +1,6 @@
 -- +migrate Up
+CREATE DATABASE trending;
+\connect trending;
 CREATE TABLE "users" (
   "user_id" text PRIMARY KEY,
   "full_name" text,
@@ -12,7 +14,7 @@ CREATE TABLE "users" (
 CREATE TABLE "posts" (
   "name" text PRIMARY KEY,
   "link" text,
-  "tags"  text
+  "tag"  text
 );
 
 CREATE TABLE "bookmarks" (
@@ -26,8 +28,3 @@ CREATE TABLE "bookmarks" (
 
 ALTER TABLE "bookmarks" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("user_id");
 ALTER TABLE "bookmarks" ADD FOREIGN KEY ("post_name") REFERENCES "posts" ("name");
-
--- +migrate Down
-DROP TABLE bookmarks;
-DROP TABLE users;
-DROP TABLE posts;

@@ -1,4 +1,0 @@
-time="2020-10-09T13:22:06.197805334+07:00" level=error msg="535 5.7.8 Username and Password not accepted. Learn more at\n5.7.8  https://support.google.com/mail/?p=BadCredentials i1sm9937032pjh.52 - gsmtp" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=126
-time="2020-10-09T13:44:06.007763344+07:00" level=error msg="535 5.7.8 Username and Password not accepted. Learn more at\n5.7.8  https://support.google.com/mail/?p=BadCredentials w187sm9220645pfb.93 - gsmtp" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=126
-time="2020-10-09T14:28:14.121194374+07:00" level=error msg="PostName là bắt buộc" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=106
-time="2020-10-09T14:30:01.838999818+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=147

@@ -1,0 +1,21 @@
+version: "2"
+services:
+  app:
+    image: golang:latest
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: go run main.go
+    ports:
+      - "3000:3000"
+    links:
+      - db
+  db:
+    image: postgres
+    restart: always
+    volumes:
+      - ./1_init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      POSTGRES_PASSWORD: dactoan
+    ports:
+      - "5432:5432"

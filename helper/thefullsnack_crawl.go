@@ -25,7 +25,7 @@ func ThefullsnackPost(postRepo repository.PostRepo) {
 		regexSplitTime := regexp.MustCompile("[0-9]{2}[-]{1}[0-9]{2}[-]{1}[0-9]{4}")
 		splitName := strings.Join(regexSplitName.FindAllString(tags, -1), " ")
 		splitTime := strings.Join(regexSplitTime.FindAllString(splitName, -1), " ")
-		thefullsnackPost.Tags = strings.Replace(splitName, splitTime, "", -1)
+		thefullsnackPost.Tag = strings.Replace(splitName, splitTime, "", -1)
 		posts = append(posts, thefullsnackPost)
 	})
 

@@ -32,14 +32,14 @@ func HeadersAccept() echo.MiddlewareFunc {
 				if err != nil {
 					return c.JSON(http.StatusBadRequest, model.Response{
 						StatusCode: http.StatusBadRequest,
-						Message:    "Tiêu đề loại nội dung không đúng",
+						Message:    err.Error(),
 					})
 				}
 
 				if mt != "application/json" {
 					return c.JSON(http.StatusUnsupportedMediaType, model.Response{
 						StatusCode: http.StatusUnsupportedMediaType,
-						Message:    "Tiêu đề loại nội dung phải là application/json",
+						Message:    err.Error(),
 					})
 				}
 			}
@@ -51,7 +51,7 @@ func HeadersAccept() echo.MiddlewareFunc {
 
 func CORSMiddleware() echo.MiddlewareFunc {
 	config := middleware.CORSConfig{
-		AllowOrigins: []string{"https://test-demo.local/"},
+		AllowOrigins: []string{"*"},
 		AllowHeaders: []string{echo.HeaderContentType, echo.HeaderContentLength, echo.HeaderAccept, echo.HeaderOrigin},
 		AllowMethods: []string{http.MethodGet, http.MethodPost, http.MethodPut, http.MethodDelete},
 	}

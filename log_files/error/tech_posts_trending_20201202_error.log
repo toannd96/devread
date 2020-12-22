@@ -1,0 +1,55 @@
+time="2020-12-02T12:09:51.881257054+07:00" level=error msg="Người dùng đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=82
+time="2020-12-02T12:10:00.233121873+07:00" level=error msg="Người dùng đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=82
+time="2020-12-02T12:10:01.869428136+07:00" level=error msg="Người dùng đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=82
+time="2020-12-02T12:10:05.242472392+07:00" level=error msg="Người dùng đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=82
+time="2020-12-02T23:40:15.66968389+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-02T23:40:16.342817237+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-02T23:40:17.0126715+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-02T23:40:17.500874069+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-02T23:40:18.00876156+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-02T23:40:19.77100239+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-02T23:40:20.307333965+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-02T23:40:20.850700109+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-02T23:40:23.051511479+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-02T23:40:24.730029354+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-02T23:40:28.854408151+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-02T23:40:29.622547185+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-02T23:40:30.152606665+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-02T23:40:34.545335291+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-02T23:40:38.341321386+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-02T23:41:07.164121319+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-02T23:41:13.21359377+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-02T23:41:14.366385907+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-02T23:41:17.404895019+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-02T23:41:17.980994365+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-02T23:41:18.818856456+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-03T00:18:14.19048044+07:00" level=error msg="Email không hợp lệ" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=415
+time="2020-12-03T00:21:21.155083378+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-03T00:21:27.190873937+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-03T00:21:31.140556248+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-03T00:24:41.095306297+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-03T00:24:44.445063288+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-03T00:24:45.198444379+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-03T00:24:52.439508331+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-03T00:28:23.509467605+07:00" level=error msg="Bookmark không tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=196
+time="2020-12-03T00:30:47.65225742+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-03T00:36:12.464694496+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-03T00:36:19.161070012+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-03T00:36:25.724234407+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-03T00:36:33.416596102+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-03T00:37:25.198735069+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-03T00:37:50.099464814+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-03T00:41:20.530173332+07:00" level=error msg="Bookmark không tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=196
+time="2020-12-03T00:55:32.816078403+07:00" level=error msg="Bookmark đã tồn tại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-03T02:16:22.882948364+07:00" level=error msg="Email không hợp lệ" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=415
+time="2020-12-03T02:16:26.579533615+07:00" level=error msg="Email không hợp lệ" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=415
+time="2020-12-03T02:16:48.042502993+07:00" level=error msg="Người dùng không tồn tại" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=424
+time="2020-12-03T02:16:51.323200785+07:00" level=error msg="Người dùng không tồn tại" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=424
+time="2020-12-03T02:43:42.625788926+07:00" level=error msg="Người dùng không tồn tại" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=482
+time="2020-12-03T02:43:57.739295542+07:00" level=error msg="Người dùng không tồn tại" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=482
+time="2020-12-03T02:44:28.977610041+07:00" level=error msg="Bookmark thất bại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-03T02:44:29.514342931+07:00" level=error msg="Bookmark thất bại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-03T02:44:37.071434369+07:00" level=error msg="Bookmark thất bại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-03T02:44:37.742620608+07:00" level=error msg="Bookmark thất bại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-03T02:45:07.434166245+07:00" level=error msg="Bookmark thất bại" file=/home/dactoan/tech_posts_trending/handler/post_handler.go line=145
+time="2020-12-03T02:59:23.233024485+07:00" level=error msg="Email là bắt buộc \n Password là bắt buộc" file=/home/dactoan/tech_posts_trending/handler/user_handler.go line=415
