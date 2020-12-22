@@ -1,4 +1,4 @@
-## DevReading - Nền tảng tổng hợp tri thức cho developer
+## DevRead - Nền tảng tổng hợp tri thức cho developer
 
 ## Run
 ```
