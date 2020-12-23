@@ -1,4 +1,4 @@
-## DevRead - Nền tảng tổng hợp tri thức cho developer
+## DevRead - Nền tảng tổng hợp tri thức cho developer, thu thập thông tin bài viết hay nhất trên các blog IT như viblo, toidicodedao, yellowcodebooks, thefullsnack, quan-cam, codeaholicguy,...
 
 ## Run
 ```
