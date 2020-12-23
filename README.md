@@ -1,4 +1,10 @@
-## DevRead - Nền tảng tổng hợp tri thức cho developer, thu thập thông tin bài viết hay nhất trên các blog IT như viblo, toidicodedao, yellowcodebooks, thefullsnack, quan-cam, codeaholicguy,...
+# DevRead - Nền tảng tổng hợp kiến thức cho developer
+## Tổng hợp bài viết hay nhất trên các blog IT như viblo, toidicodedao, yellowcodebooks, thefullsnack, quan-cam, codeaholicguy,...
+
+- Nội dung thu thập như trong [tệp](https://github.com/dactoankmapydev/devread/blob/master/huong_dan/posts.csv) đảm bảo không vi phạm bản quyền tác giả
+
+- Danh sách API hiện có:
+![](https://github.com/dactoankmapydev/devread/blob/master/huong_dan/api.png)
 
 ## Run
 ```
@@ -17,3 +23,6 @@ docker-compose up
 2. Nguyễn Văn An
 - Đồng sáng lập dự án, developer
 - https://www.facebook.com/apkadmin1
+
+
+
