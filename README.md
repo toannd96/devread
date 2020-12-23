@@ -1,4 +1,4 @@
-# DevRead - Nền tảng tổng hợp kiến thức cho developer
+## DevRead - Nền tảng tổng hợp kiến thức cho developer
 ## Tổng hợp bài viết hay nhất trên các blog IT như viblo, toidicodedao, yellowcodebooks, thefullsnack, quan-cam, codeaholicguy,...
 
 - Nội dung thu thập như trong [tệp](https://github.com/dactoankmapydev/devread/blob/master/huong_dan/posts.csv) đảm bảo không vi phạm bản quyền tác giả
