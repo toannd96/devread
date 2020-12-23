@@ -3,13 +3,13 @@ package main
 import (
 	"fmt"
 	"os"
-	"tech_posts_trending/db"
-	_ "tech_posts_trending/docs"
-	"tech_posts_trending/handler"
-	"tech_posts_trending/helper"
-	"tech_posts_trending/log"
-	"tech_posts_trending/repository/repo_impl"
-	"tech_posts_trending/router"
+	"devread/db"
+	_ "devread/docs"
+	"devread/handler"
+	"devread/helper"
+	"devread/log"
+	"devread/repository/repo_impl"
+	"devread/router"
 	"time"
 
 	"github.com/joho/godotenv"
@@ -24,9 +24,9 @@ func init() {
 	log.InitLogger(false)
 }
 
-// @title Deviread API
+// @title DevRead API
 // @version 1.0
-// @description Build web applications to crawler article information on technology blogs using Echo Framework (Golang)
+// @description Nền tảng tổng hợp kiến thức cho developer
 // @termsOfService http://swagger.io/terms/
 
 // @contact.name API Support
@@ -100,6 +100,7 @@ func main() {
 
 	api.SetupRouter()
 
+	// time start crawler
 	go scheduleUpdateTrending(24*time.Second, postHandler)
 
 	e.Logger.Fatal(e.Start(":3000"))

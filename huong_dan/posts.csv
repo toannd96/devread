@@ -1,0 +1,1402 @@
+name,link,tag
+"Bạn nên tránh sử dụng Soft Delete khi có thể, và đây là lý do tại sao",https://viblo.asia/p/ban-nen-tranh-su-dung-soft-delete-khi-co-the-va-day-la-ly-do-tai-sao-LzD5dL1E5jY,rails
+Docker: Chưa biết gì đến biết dùng ( Phần 4 - Một số trick tối ưu và lưu ý ),https://viblo.asia/p/docker-chua-biet-gi-den-biet-dung-phan-4-mot-so-trick-toi-uu-va-luu-y-LzD5dJREZjY,linux
+"Sự khác nhau giữa GETDATE(), SYSDATETIME() với GETUTCDATE() và cách so sánh Date trong SQL Server",https://viblo.asia/p/su-khac-nhau-giua-getdate-sysdatetime-voi-getutcdate-va-cach-so-sanh-date-trong-sql-server-QpmleLxDZrd,sqlserver
+SQL INJECTION VÀ CÁCH PHÒNG CHỐNG,https://viblo.asia/p/sql-injection-va-cach-phong-chong-OeVKB410lkW,""
+Phân tích thiết kế hệ thống thông tin sử dụng biểu đồ UML (Phần 1),https://viblo.asia/p/phan-tich-thiet-ke-he-thong-thong-tin-su-dung-bieu-do-uml-phan-1-PjxMe6yNG4YL,abstract class
+Bài toán tìm đường đi ngắn nhất với giải thuật Dijkstra,https://viblo.asia/p/bai-toan-tim-duong-di-ngan-nhat-voi-giai-thuat-dijkstra-eW65GRxLlDO,ruby
+Thuật toán sắp xếp nào là nhanh nhất?,https://viblo.asia/p/thuat-toan-sap-xep-nao-la-nhanh-nhat-1VgZvxam5Aw,sort
+"Data Warehousing là gì? Các kiểu (types) , định nghĩa và ví dụ",https://viblo.asia/p/data-warehousing-la-gi-cac-kieu-types-dinh-nghia-va-vi-du-Az45bYNQlxY,big data
+Học Regular Expression và cuộc đời bạn sẽ bớt khổ (Updated v2.2),https://viblo.asia/p/hoc-regular-expression-va-cuoc-doi-ban-se-bot-kho-updated-v22-Az45bnoO5xY,clean code
+Tìm hiểu về Microservices - Phần 1: Microservices là gì?,https://viblo.asia/p/tim-hieu-ve-microservices-phan-1-microservices-la-gi-63vKjVjyK2R,web server
+Mô hình quan hệ - thực thể (Entity – Relationship Model),https://viblo.asia/p/mo-hinh-quan-he-thuc-the-entity-relationship-model-oOVlYEenl8W,relationships
+"Dự án tiềm năng Pinetwork, đào coin trên điện thoại với nền tảng blockchain4.0, sử dụng công nghệ thuật toán stellar",https://viblo.asia/p/du-an-tiem-nang-pinetwork-dao-coin-tren-dien-thoai-voi-nen-tang-blockchain40-su-dung-cong-nghe-thuat-toan-stellar-XL6lA9qAlek,pinetwork
+Kỹ thuật kiểm thử hộp đen - Black box Testing,https://viblo.asia/p/ky-thuat-kiem-thu-hop-den-black-box-testing-WrJvYADwvVO,qa
+Dừng ngay việc đặt tên biến là data,https://viblo.asia/p/dung-ngay-viec-dat-ten-bien-la-data-924lJmJbZPM,javascript es6
+Chuẩn hóa cơ sở dữ liệu quan hệ,https://viblo.asia/p/chuan-hoa-co-so-du-lieu-quan-he-bWrZnLrY5xw,chuan hoa co so du lieu
+Chinh phục RxDart Flutter trong 3 nốt nhạc. Nốt cuối cùng: RxDart không đáng sợ như bạn nghĩ,https://viblo.asia/p/chinh-phuc-rxdart-flutter-trong-3-not-nhac-not-cuoi-cung-rxdart-khong-dang-so-nhu-ban-nghi-bWrZn0qp5xw,rxdart
+Tổng hợp các bài hướng dẫn về Design Pattern - 23 mẫu cơ bản của GoF,https://viblo.asia/p/tong-hop-cac-bai-huong-dan-ve-design-pattern-23-mau-co-ban-cua-gof-3P0lPQPG5ox,singleton pattern
+Ràng buộc (Constraint) trong SQL,https://viblo.asia/p/rang-buoc-constraint-trong-sql-eW65GAnJZDO,ràng buộc sql
+Trích xuất thông tin từ chứng minh thư,https://viblo.asia/p/trich-xuat-thong-tin-tu-chung-minh-thu-bJzKmaRwK9N,recognize identity card
+Những cạm bẫy với Laravel mà chắc người mới sẽ gặp phải,https://viblo.asia/p/nhung-cam-bay-voi-laravel-ma-chac-nguoi-moi-se-gap-phai-LzD5dLxo5jY,php
+Thật dễ dàng để code PHP mà không cần cài đặt gì lên máy tính của bạn ?,https://viblo.asia/p/that-de-dang-de-code-php-ma-khong-can-cai-dat-gi-len-may-tinh-cua-ban-GrLZDDkwZk0,php
+React JS - Hiểu về Functional và Class Components,https://viblo.asia/p/react-js-hieu-ve-functional-va-class-components-Qbq5QpkRlD8,functionalcomponent
+SORT - Deep SORT : Một góc nhìn về Object Tracking (phần 1),https://viblo.asia/p/sort-deep-sort-mot-goc-nhin-ve-object-tracking-phan-1-Az45bPooZxY,object detection
+Cấu trúc thư mục và phân quyền trong Ubuntu,https://viblo.asia/p/cau-truc-thu-muc-va-phan-quyen-trong-ubuntu-jvElaGpAKkw,linux folder
+Microservices là gì?,https://viblo.asia/p/microservices-la-gi-gAm5yjD8Kdb,microservices
+Streaming videos server sử dụng NGINX RTMP và HLS,https://viblo.asia/p/streaming-videos-server-su-dung-nginx-rtmp-va-hls-maGK7q4Llj2,streaming videos
+Chinh phục bài toán Object Detection với Tensorflow V2 API trong 5 phút,https://viblo.asia/p/chinh-phuc-bai-toan-object-detection-voi-tensorflow-v2-api-trong-5-phut-1VgZvMRrKAw,tensorflow api object detection
+Sử dụng trigger trong SQL qua ví dụ cơ bản.,https://viblo.asia/p/su-dung-trigger-trong-sql-qua-vi-du-co-ban-aWj538APK6m,mysql
+Sử dụng AI đánh giá sản phẩm trên Lazada(Tiki) dựa trên comment,https://viblo.asia/p/su-dung-ai-danh-gia-san-pham-tren-lazadatiki-dua-tren-comment-aWj53b9ol6m,review comment
+sử dụng index trong sql query,https://viblo.asia/p/su-dung-index-trong-sql-query-1ZnbRlPQR2Xo,sql
+Tính trừu tượng và tư duy trong lập trình OOP,https://viblo.asia/p/tinh-truu-tuong-va-tu-duy-trong-lap-trinh-oop-LzD5dJrWZjY,abstract class
+Cách sử dụng Jmeter cho performance và load testing,https://viblo.asia/p/cach-su-dung-jmeter-cho-performance-va-load-testing-1VgZvpx95Aw,jmeter
+Một số ví dụ sử dụng Ajax,https://viblo.asia/p/mot-so-vi-du-su-dung-ajax-RnB5pGablPG,tạo ứng dụng đơn giản với ajax
+Vòng đời của một React Component,https://viblo.asia/p/vong-doi-cua-mot-react-component-RQqKLMRzZ7z,reactjs
+"Học Flutter từ cơ bản đến nâng cao. Phần 6: Key là gì, có mở khóa trái tim nàng được không?",https://viblo.asia/p/hoc-flutter-tu-co-ban-den-nang-cao-phan-6-key-la-gi-co-mo-khoa-trai-tim-nang-duoc-khong-ORNZqk4q50n,flutter
+Sử dụng vector trong lập trình C++ - giải bài toán lập trình muôn thủa,https://viblo.asia/p/su-dung-vector-trong-lap-trinh-c-giai-bai-toan-lap-trinh-muon-thua-Az45bnGQ5xY,algorithm
+BERT- bước đột phá mới trong công nghệ xử lý ngôn ngữ tự nhiên của Google,https://viblo.asia/p/bert-buoc-dot-pha-moi-trong-cong-nghe-xu-ly-ngon-ngu-tu-nhien-cua-google-RnB5pGV7lPG,deep learning
+Tìm hiểu về Migration trong Laravel.,https://viblo.asia/p/tim-hieu-ve-migration-trong-laravel-bWrZn1MpKxw,laravel
+Tạo Pull request đúng cách,https://viblo.asia/p/tao-pull-request-dung-cach-bWrZnwkrlxw,basic
+Giới thiệu về Lodash và một số hàm thường dùng,https://viblo.asia/p/gioi-thieu-ve-lodash-va-mot-so-ham-thuong-dung-3Q75w2zGlWb,javascript
+Thay đổi kiểu dữ liệu trong Javascript,https://viblo.asia/p/thay-doi-kieu-du-lieu-trong-javascript-gAm5y84Oldb,data types
+NodeJS Bài 4: Query Parameters,https://viblo.asia/p/nodejs-bai-4-query-parameters-bWrZn63QZxw,express
+Bài toán phân quyền vấn đề muôn thuở.,https://viblo.asia/p/bai-toan-phan-quyen-van-de-muon-thuo-1VgZvw9mlAw,phân tích thiết kế
+Cùng tìm hiểu về các hook trong React hooks,https://viblo.asia/p/cung-tim-hieu-ve-cac-hook-trong-react-hooks-Ljy5VYgjlra,react hooks
+Laravel 8 có gì mới?,https://viblo.asia/p/laravel-8-co-gi-moi-eW65G1aLZDO,laravel
+Zing MP3 - Tôi đã khai thác API như thế nào ?,https://viblo.asia/p/zing-mp3-toi-da-khai-thac-api-nhu-the-nao-L4x5xvdaZBM,reverse
+Học React/Redux qua ví dụ thực tế: Authentication thông qua Soundcloud API,https://codeaholicguy.com/2016/12/28/hoc-reactredux-qua-vi-du-thuc-te-authentication-thong-qua-soundcloud-api/,redux
+Series AngularJS cho người mới: Filter và Validation,https://codeaholicguy.com/2016/01/07/series-angularjs-cho-nguoi-moi-filter-va-validation/,javascript
+"Android Bài 4: Máy Ảo, Máy Thật & Khởi Chạy Ứng Dụng",https://yellowcodebooks.com/2016/09/06/bai-4-may-ao-may-that-khoi-chay-ung-dung/,android  java
+Java Bài 15: Tổng Quan Lập Trình Hướng Đối Tượng,https://yellowcodebooks.com/2017/03/08/java-bai-15-tong-quan-lap-trinh-huong-doi-tuong/,java
+Java Bài 11: Mảng (Array),https://yellowcodebooks.com/2016/12/13/java-bai-11-mang-array/,java
+Lifecycle Component trong ReactJS,https://viblo.asia/p/lifecycle-component-trong-reactjs-gGJ59jzxKX2,null
+Tính toán và xử lí ngày tháng bằng câu lệnh SQL,https://viblo.asia/p/tinh-toan-va-xu-li-ngay-thang-bang-cau-lenh-sql-V3m5WbYvlO7,mysql
+"CI, CD và ... DevOps ???",https://viblo.asia/p/ci-cd-va-devops-07LKXYXDZV4,continuous delivery
+Khác biệt giữa khóa chính và khóa ngoại trong SQL,https://viblo.asia/p/khac-biet-giua-khoa-chinh-va-khoa-ngoai-trong-sql-924lJMdWZPM,sql
+Exceptions trong Ruby,https://viblo.asia/p/exceptions-trong-ruby-eW65GJm6lDO,ruby
+Crawl dữ liệu trong Rails với gem Mechanize,https://viblo.asia/p/crawl-du-lieu-trong-rails-voi-gem-mechanize-LzD5dLv05jY,mechanize
+PHP 8.0 có gì mới ?,https://viblo.asia/p/php-80-co-gi-moi-924lJm36ZPM,php
+Tổng quan về thread và process trong ruby,https://viblo.asia/p/tong-quan-ve-thread-va-process-trong-ruby-L4x5xvvYZBM,multi threading
+React Query (phần 1),https://viblo.asia/p/react-query-phan-1-vyDZOqqk5wj,javascrip
+Tìm hiểu CSS căn bản,https://viblo.asia/s/WrZng8pblxw,css layout
+Series 2 | Ubuntu,https://viblo.asia/s/24lJDzxaKPM,ms sql server
+Học Flutter từ cơ bản đến nâng cao,https://viblo.asia/s/JzKmg8kDl9N,cross platform
+Chia Sẽ Kiến thức về Xamarin,https://viblo.asia/s/4x5xp7gO5BM,xamarin
+"Machine Learning, Medical Image Analysis & Biometric Application",https://viblo.asia/s/P856j7XR5Y3,deep learning
+Design Pattern series,https://viblo.asia/s/68Z00nN9ZkG,design patterns
+Tổng hợp Javascript,https://viblo.asia/s/aGK7jPEO5j2,reduce
+Kiến thức cơ bản về Node js,https://viblo.asia/s/DVK2jDvjKLj,javascript
+Tìm hiểu một số Docker cơ bản,https://viblo.asia/s/Q75wqJReZWb,docker swarm
+Tìm hiểu về Webpacker ở Rails 6,https://viblo.asia/s/375z0mJ6ZGW,ruby on rails
+Elastic là gì? Tôi có nên áp dụng vào dự án?,https://viblo.asia/s/QqKLvpm4l7z,elasticsearch engine
+Dạo quanh Amazon EKS (Amazon Elastic Kubernetes Service),https://viblo.asia/s/VgZvEvbmKAw,mayfest
+Nhật kí 1 tháng học golang,https://viblo.asia/s/WOZrgnkElQ0,golang
+Tạo Chrome extension với Typescript + Vue theo phong cách Viblo,https://viblo.asia/s/pmleB8G95rd,javascript
+"[Series] Học Docker, CICD từ cơ bản đến áp dụng vào thực tế",https://viblo.asia/s/jeZ103QgKWz,socket.io
+Search tutorial,https://viblo.asia/s/dbZN76rmlYM,laravel
+Học xử lý ảnh từ cơ bản đến nâng cao,https://viblo.asia/s/W65GEjzRZDO,image processing
+Dịch sách Advance Programming In UNIX Environment,https://viblo.asia/s/Am5yqPzw5db,advance programming in unix environtment
+Dịch sách The Linux Programming Interface,https://viblo.asia/s/GJ59jLR1KX2,kernel
+Hacker mũ trắng - CEH,https://viblo.asia/s/RNZqg70850n,an toàn
+Rails Code Smell And Solutions,https://viblo.asia/s/24lJDg1mKPM,design pattern
+Series Study MySql,https://viblo.asia/s/3m5WBNpQlO7,mysql
+Ruby's basically,https://viblo.asia/s/JzKmgDYwl9N,sort
+HTML / CSS Series. Save to use later.,https://viblo.asia/s/WrZngQ3Ylxw,css3
+Frontend - Và những điều thú vị?,https://viblo.asia/s/eVKByjX05kW,bem
+es tip trust..................,https://viblo.asia/s/VgZvE2g2KAw,elasticsearch
+State of Chain 2018,https://viblo.asia/s/zD5dBoqOZjY,blockch
+Deep Learning for Chatbot,https://viblo.asia/s/RNZqg7mM50n,machine learning
+Mình thích Laravel nhờ người ấy,https://viblo.asia/s/24lJDgVNKPM,orm
+Deploy ứng dụng Machine learning lên Web server,https://viblo.asia/s/Q75wqN0BZWb,python
+[Spring boot + Rest API],https://viblo.asia/s/P0lPmJrP5ox,spring boot
+"Cùng nhau tìm hiểu về ReactJS, thư viện do Facebook phát triển!",https://viblo.asia/s/DVK2jPP2KLj,laravel
+"Xây dựng các ứng dụng không máy chủ với Nodejs, AWS Lambda, API Gateway, Serverless Framework và DynamoDB",https://viblo.asia/s/aGK7jNNM5j2,node.js
+Odoo Developa / Odoo for Beginnar,https://viblo.asia/s/P0lPmJBm5ox,openerp
+Tìm hiểu Composer - The Dependency Manager for PHP,https://viblo.asia/s/yDZOPvnalwj,php
+Từ căn bản đến nâng cao về Responsive Web Design,https://viblo.asia/s/VgZvE26rKAw,front-end
+Đại số quan hệ và SQL,https://viblo.asia/s/jy5VB2jz5ra,sql
+"Xây dựng ứng dụng đơn giản với AngularJS, Node.js và MySQL",https://viblo.asia/s/pmleBzNm5rd,node.js
+xamarin playlist,https://viblo.asia/s/zD5dBoezZjY,uncategory
+12 yếu tố tạo nên 1 web app xịn xò – Lược dịch và giải thích Twelve-Factor – Phần 2,https://toidicodedao.com/2020/09/08/12-yeu-to-tao-nen-1-web-app-xin-xo-luoc-dich-va-giai-thich-twelve-factor-phan-2/,web application
+12 yếu tố tạo nên 1 web app xịn xò – Lược dịch và giải thích Twelve-Factor,https://toidicodedao.com/2020/09/01/12-yeu-to-tao-nen-1-web-app-xin-xo-luot-dich-va-giai-thich-twelve-factor/,web application
+Cùng học Cờ Lao – Azure Phần Cuối: Toàn bộ một hệ thống chạy trên Azure sẽ như thế nào?,https://toidicodedao.com/2019/11/26/cung-hoc-co-lao-azure-phan-cuoi-toan-bo-mot-he-thong-chay-tren-azure-se-nhu-the-nao/,điện toán đám mây
+"Kiến thức trong ngành IT có 2 loại – Một loại để càng lâu càng cũ, loại kia thì ngược lại",https://toidicodedao.com/2019/04/16/kien-thuc-cong-nghe-nganh-it/,thư viện
+Lightning Talk Kì 23 – Bốn kĩ năng mềm lập trình viên nên có,https://toidicodedao.com/2018/11/22/lightning-talk-ki-23-bon-ki-nang-mem-lap-trinh-vien-nen-co/,đại học
+9 project nhỏ mà bạn có thể code để luyện tập kĩ năng lập trình,https://toidicodedao.com/2018/09/04/project-luyen-tap-ki-nang-lap-trinh/,web bán hàng
+"Linter – Giúp bạn viết code tốt hơn, xịn hơn, không cần senior hay giáo viên chỉ dạy",https://toidicodedao.com/2018/05/15/viet-code-tot-hon-voi-linter-eslint-visual-studio-code/,vscode
+Làm trò với Puppeteer – Phần 2: Cùng cào dữ liệu và vếu từ kênh 14,https://toidicodedao.com/2017/12/19/puppeteer-headless-chrome-api-phan-2-cao-du-lieu-kenh14/,web crawler
+“Em Thèm Vếu” – Từ ý tưởng đến sản phẩm chỉ trong 30 phút!,https://toidicodedao.com/2017/07/04/em-them-veu-tu-y-tuong-den-san-pham-chi-trong-30-phut/,vếu
+Chuyện phát âm,https://quan-cam.com/posts/chuyen-phat-am, opinion
+API Gateway là gì? Tại sao một hệ thống microservices lại cần API Gateway?,https://viblo.asia/p/api-gateway-la-gi-tai-sao-mot-he-thong-microservices-lai-can-api-gateway-Do754pDX5M6,microservices
+Bạn đã sử dụng hết tính năng của Comment trong Ruby?,https://viblo.asia/p/ban-da-su-dung-het-tinh-nang-cua-comment-trong-ruby-RnB5pWjrlPG,comment
+Git - The title must be at least 15 characters,https://viblo.asia/s/rLZDX4xVZk0,github
+Reactjs nâng cao,https://viblo.asia/s/VgZvEv9rKAw,reactjs
+Machine Learning Engineering?!,https://viblo.asia/s/W65GEj2xZDO,model optimization
+Quản lý state trong react app với RecoilJS,https://viblo.asia/s/dbZN760nlYM,reactjs
+Tổng hợp những thay đổi trong Rails 6?,https://viblo.asia/s/Wj53OQJw56m,rails 6
+Cơ bản về Hyperledger Sawtooth,https://viblo.asia/s/RNZqg8qq50n,hyperledger sawtooth
+MySQL Optimization,https://viblo.asia/s/J3ZgB8bxKmB,normalization
+Học Deep Learning từ cơ bản đến nâng cao,https://viblo.asia/s/eVKByjLd5kW,deep learning
+Quản lý web với Google sheet,https://viblo.asia/s/nB5pXJqd5PG,google sheet
+Học vuejs nâng cao,https://viblo.asia/s/JzKmgDNrl9N,scoped-slot
+Functional Programming,https://viblo.asia/s/RNZqg7YL50n,functional programming
+[JS] ES6 & Beyond,https://viblo.asia/s/zD5dBoGdZjY,javascript
+[SPA] Xây dựng SPA App Vuejs - Laravel,https://viblo.asia/s/yDZOPvOPlwj,vuejs
+Tech Invasion 2018,https://viblo.asia/s/QqKLv3pbl7z,edtech
+Vietnam Mobile Day 2018 Presentation Videos,https://viblo.asia/s/AyK8VqrnlxX,internet of things
+Laravel shopping,https://viblo.asia/s/JzKmgDdXl9N,""
+Tìm hiểu về React Router.,https://viblo.asia/s/3m5WBNmblO7,history
+Lập trình hướng đối tượng với PHP,https://viblo.asia/s/bq5QL7EzlD8,laravel
+2018 - Cùng nhau học Docker,https://viblo.asia/s/Wj53Omjb56m,docker container
+Loạt bài về trình hướng đối tượng trong PHP,https://viblo.asia/s/yDZOPvkQlwj,psr
+Python for Beginners,https://viblo.asia/s/zD5dBoa4ZjY,multi threading
+Laravel up and running,https://viblo.asia/s/z45bxjLVZxY,artisan command
+Laravel Tips <3,https://viblo.asia/s/aGK7jNAB5j2,laravel
+"Single Page Application with ReactJS, Rails API",https://viblo.asia/s/3vKjRg1MK2R,reactjs
+Tạo file ảnh đúng dung lượng bằng base64,https://viblo.asia/s/GJ59j0QGKX2,qa
+[Translation] Các khái niệm cơ bản về Fragment trong Android,https://viblo.asia/s/z45bxj4zZxY,android
+Tôi đã lên cấp và tiến hoá như thế nào qua 6 năm lăn lộn trong ngành – Phần 1,https://toidicodedao.com/2020/08/04/developer-tien-hoa-phan-1/,senior developer
+Những cách đặt câu hỏi lập trình hay ho để “được” ăn gạch đá!,https://toidicodedao.com/2019/11/05/cach-dat-cau-hoi-lap-trinh/,tư vấn
+Cùng học Cờ Lao – Azure Phần 4.1: Azure App Service là gì? Nó có gì hay ho?,https://toidicodedao.com/2019/04/09/cung-hoc-co-lao-azure-phan-4-1-azure-app-service-la-gi-no-co-gi-hay-ho/,điện toán đám mây
+Review sách: Site Reliability Engineering – How Google Run Production System,https://toidicodedao.com/2018/11/20/review-sach-site-reliability-engineering-how-google-run-production-system/,system architecture
+"Lộ trình học lập trình, vài lời khuyên cho các bạn sinh viên IT",https://toidicodedao.com/2018/08/30/lo-trinh-hoc-cong-nghe-thong-tin/,đồ án tốt nghiệp
+Tại sao đa phần các công ty thích dùng công nghệ “lỗi thời”,https://toidicodedao.com/2018/05/08/tai-sao-da-phan-cac-cong-ty-thich-dung-cong-nghe-loi-thoi/,technology
+Làm trò với Puppeteer – Phần 1: Cùng tìm hiểu về Puppeteer và Headless Browser,https://toidicodedao.com/2017/12/12/puppeteer-headless-chrome-api-phan-1/,web crawler
+Series Nhập Môn Lập Trình – Học ngôn ngữ lập trình đầu tiên như thế nào?,https://toidicodedao.com/2017/06/29/hoc-ngon-ngu-lap-trinh-dau-tien/,đại học
+Series Phản Phác Quy Chân – Lý thuyết hay thực hành quan trọng hơn?,https://toidicodedao.com/2017/03/28/ly-thuyet-va-thuc-hanh/,đại học
+Lozi.vn đã “vô ý” để lộ dữ liệu 2 triệu người dùng như thế nào,https://toidicodedao.com/2016/12/06/lozi-vn-lo-du-lieu-2-trieu-nguoi-dung/,tấn công
+JS Truyền Kì – Chương 1: Lược sử giang hồ,https://toidicodedao.com/2016/08/16/js-truyen-ki-chuong-1-luoc-su-giang-ho/,series
+"Một lần theo chân team đi tiếp thị, quảng cáo, và… code dạo",https://toidicodedao.com/2016/05/05/mot-lan-theo-chan-team-di-tiep-thi-quang-cao-va-code-dao/,team
+Sự thật đắng lòng: Đôi khi cắm đầu ngồi CODE là cách … ngu nhất để giải quyết vấn đề ,https://toidicodedao.com/2016/01/20/su-that-dang-long-doi-khi-cam-dau-ngoi-code-la-cach-ngu-nhat-de-giai-quyet-van-de/,đắng lòng
+Series C# hay ho: C# 6 có gì hay ho nào,https://toidicodedao.com/2015/10/22/series-c-hay-ho-c-6-co-gi-hay-ho-nao/,thư viện
+Sự khác biệt giữa Web Site và Web Application,https://toidicodedao.com/2015/08/13/su-khac-biet-giua-web-site-va-web-application/,website
+Review sách: Clean Code: A Handbook of Agile Software Craftsmanship,https://toidicodedao.com/2015/04/09/review-sach-clean-code-a-handbook-of-agile-software-craftsmanship/,sách
+Viết và chia sẻ code online với fiddle,https://toidicodedao.com/2015/02/03/viet-va-chia-se-code-online-voi-fiddle/,programming
+Phỏng vấn tác giả Proxyman: Từ side project thành full-time business,https://thefullsnack.com/posts/interview-nghia-tran-proxyman.html,"interview , indiehackerph"
+"2019 rồi, setup Vim như nào?",https://thefullsnack.com/posts/vim-setup-2019.html,"vim , emacs , setup"
+"Helm, Ripgrep và Emacs dùng... helm-ag",https://thefullsnack.com/posts/ripgrep-emacs.html,"emacshelm , ripgrep"
+Paper Review: Why Functional Programming Matters,https://thefullsnack.com/posts/review-why-functional-programming-matters.html,"research , paper , haskell , functional-programmingpaper"
+Vài ghi chép về V8 và Garbage Collection,https://thefullsnack.com/posts/javascript-v8-notes.html,"javascript , v"
+Bảo mật 2 lớp và ứng dụng,https://thefullsnack.com/posts/guess-runi-two-factor-authentication.html,"guest , golangb"
+Gõ tiếng Việt trên Emacs Linux,https://thefullsnack.com/posts/emacs-tieng-viet.html,"emacs , linuxg"
+Phân tích và tiếp cận bài toán Quy hoạch động,https://thefullsnack.com/posts/dynamic-programming.html,algorithmph
+Tìm hiểu cơ bản về mô hình TCP/IP,https://viblo.asia/p/tim-hieu-co-ban-ve-mo-hinh-tcpip-RQqKLkJp57z,kiến trúc phân tầng tcp/ip
+UI Design - Các yếu tố cơ bản trong thiết kế giao diện,https://viblo.asia/p/ui-design-cac-yeu-to-co-ban-trong-thiet-ke-giao-dien-OeVKBnqMKkW,ui
+Tìm hiểu về phân luồng (threading) trong Ruby,https://viblo.asia/p/tim-hieu-ve-phan-luong-threading-trong-ruby-djeZ1mwGZWz,multi threading
+Python - Data Structure and Algorithms,https://viblo.asia/s/Am5yqPqD5db,binary tree
+Thực hành Docker từ căn bản,https://viblo.asia/s/68Z00n0zZkG,docker file
+Flutter: Chinh phục RxDart trong 3 nốt nhạc,https://viblo.asia/s/rLZDX4AJZk0,rxdart
+Deploy PHP Application với server Ubuntu,https://viblo.asia/s/yDZOPgQQlwj,ubuntu
+Trà chanh- chém gió về paper,https://viblo.asia/s/3m5WB82wlO7,computer vision
+PyTorch Tutorial,https://viblo.asia/s/Wj53OQVb56m,pytorch
+Javascript Document,https://viblo.asia/s/rLZDX49eZk0,javascript
+Git Essentials - Tổng hợp các bài viết chọn lọc về Git,https://viblo.asia/s/JzKmg82kl9N,version control system (vcs)
+Sinh Test data tự động từ các đồ thị UML,https://viblo.asia/s/jy5VB8k95ra,statediagram
+Laravel + VueJS + Package,https://viblo.asia/s/GJ59jL81KX2,handle validation
+Automation Tool,https://viblo.asia/s/Q75wqN4GZWb,automation testing tool
+Một vài cuốn sách hay,https://viblo.asia/s/bq5QL7eLlD8,life
+Bài viết bổ ích,https://viblo.asia/s/L6lAyebmlek,git
+Blockchain with Java,https://viblo.asia/s/3vKjRgEkK2R,java
+Một số mẹo và thủ thuật khi sử dụng SublimeText,https://viblo.asia/s/GJ59j0djKX2,sublime text
+CSS - Hogwarts University for Hary-Developer,https://viblo.asia/s/MnKMJDkrZ7P,rem
+Kiểm thử UI/UX: Tổng hợp những điều cần lưu ý,https://viblo.asia/s/DVK2jPqeKLj,testing
+Ứng dụng công nghệ Blockchain trong các lĩnh vực của đời sống,https://viblo.asia/s/yEZkgnDyZQ0,ứng dụng blockchain trong lĩnh vực giáo dục
+Các Bài Học Về Cơ Sở Dữ Liệu,https://viblo.asia/s/aGK7jNPb5j2,sql
+Làm quen với Pytorch,https://viblo.asia/s/rLZDXo4OZk0,""
+Metaprogramming trong Ruby,https://viblo.asia/s/WrZngQQblxw,metaprogramming
+Mastering Blockchain,https://viblo.asia/s/VgZvE2JYKAw,byzantine fault tolerance
+Vài ba thứ linh tinh về shellscript,https://viblo.asia/s/4x5xpqPq5BM,return
+Học reactjs và redux 2018,https://viblo.asia/s/nB5pXJp65PG,redux
+Tìm hiểu về Docker.,https://viblo.asia/s/vElaBka45kw,docker
+Vim: Daily Usage,https://viblo.asia/s/z45bxjMVZxY,""
+How To Become An Agile Tester,https://viblo.asia/s/Q75wqNV9ZWb,agile
+[Front-end] CSS_SASS,https://viblo.asia/s/bq5QL7aElD8,front-end
+Functional Programming in JavaScript,https://viblo.asia/s/Je5Ejz74KnL,javascript
+[React-Native] Series for beginner,https://viblo.asia/s/jeZ107yjKWz,learning
+Ứng dụng beacon trong việc xác định vị trí,https://viblo.asia/s/DVK2jP4nKLj,android development
+Tìm hiểu về Kubernetes,https://viblo.asia/s/bq5QL7Q4lD8,quản lý docker
+Những cuộc “chạy đua vũ trang” ngầm khá hay ho trong giới công nghệ,https://toidicodedao.com/2020/07/14/chay-dua-vu-trang-cong-nghe/,web crawler
+Cùng học Cờ Lao – Azure Phần 7: Một số service hay ho khác của Azure,https://toidicodedao.com/2019/10/29/cung-hoc-co-lao-azure-phan-7-mot-so-service-hay-ho-khac-cua-azure/,điện toán đám mây
+"Thực hư chuyện Facebook lưu mật khẩu dưới dạng text, để lộ mật khẩu trăm triệu người dùng?",https://toidicodedao.com/2019/03/26/facebook-luu-mat-khau-dang-text-lo-mat-khau/,security
+"Từ chuyện về cây bút chì trong vũ trụ, đến chuyện làm web hiện đại và về cách giải quyết vấn đề",https://toidicodedao.com/2018/11/15/chuyen-lam-web-over-engieering-va-giai-quyet-van-de/,web development
+Series Lược Sử Lập Trình Web Phần 4.2 – Web Front-end hiện đại có gì hot,https://toidicodedao.com/2018/08/28/series-luoc-su-lap-trinh-web-phan-4-2-front-end-web-hien-dai-co-gi-hot/,webpack
+Gắn râu Yua Mikami – Phần 3: Kết hợp Face Detection + Image Processing và… Toán Học,https://toidicodedao.com/2018/05/03/gan-rau-yua-mikami-face-detection-image-processing-toan-hoc/,tutorial
+"Ngày xửa ngày xưa, lập trình là vốn là chuyện của … đàn bà???",https://toidicodedao.com/2017/12/05/ngay-xua-lap-trinh-la-chuyen-cua-dan-ba/,đàn bà
+Series UI/UX Cho Developer – Phân biệt UI và UX,https://toidicodedao.com/2017/06/20/phan-biet-ui-va-ux/,ux
+Series Nhập Môn Lập Trình – Công việc thường ngày của một lập trình viên,https://toidicodedao.com/2017/03/23/cong-viec-lap-trinh-vien-lam-gi/,series nhập môn lập trình
+Series Bảo Mật Nhập Môn – CSRF – Những cú lừa ngoạn mục,https://toidicodedao.com/2016/11/29/csrf-cu-lua-ngoan-muc/,xss
+Hai sai lầm hay gặp khi tự code một trang web… bán hàng,https://toidicodedao.com/2016/08/09/web-ban-hang-khong-don-gian/,session
+Series SOLID cho thanh niên code CỨNG: Single Responsibility Principle,https://toidicodedao.com/2016/05/03/series-solid-cho-thanh-nien-code-cung-single-responsibility-principle/,srp
+Series JavaScript sida – Object trong JavaScript,https://toidicodedao.com/2016/01/19/series-javascript-sida-object-trong-javascript/,web developer
+Chuyện về các cây đa cây đề trong làng Software Engineering,https://toidicodedao.com/2015/10/15/chuyen-ve-cac-cay-da-cay-de-trong-lang-software-engineering/,unix
+Series C# hay ho: Giới thiệu Humanizer – Một thư viện khá thú vị của C#,https://toidicodedao.com/2015/08/11/series-c-hay-ho-gioi-thieu-humanizer-mot-thu-vien-kha-thu-vi-cua-c/,thư viện
+Viết unit test cho javascript với Jasmine – Phần 2,https://toidicodedao.com/2015/04/07/viet-unit-test-cho-javascript-voi-jasmine-phan-2/,unit test
+Short-circuit evaluation : Đoản mạch và chập điện,https://toidicodedao.com/2015/01/29/short-circuit-evaluation-doan-mach-va-chap-dien/,đoản mạch
+Vài ghi chép về Iterator trong JavaScript,https://thefullsnack.com/posts/javascript-iterator.html,javascriptv
+Tail Call Optimization là gì? Và tại sao bạn không cần quan tâm đến nó?,https://thefullsnack.com/posts/tail-call-optimization-javascript.html,javascripttail
+Hướng dẫn sử dụng Postman cho test API,https://viblo.asia/p/huong-dan-su-dung-postman-cho-test-api-aWj53Lb1K6m,""
+Cách dowload và cài đặt SQL Server,https://viblo.asia/p/cach-dowload-va-cai-dat-sql-server-YWOZra2PKQ0,ms sql server
+Tìm hiểu cách sử dụng Lambda Function trong Python,https://viblo.asia/p/tim-hieu-cach-su-dung-lambda-function-trong-python-924lJm46ZPM,basic python
+Try to build a Firebase application development environment with Docker in 2020,https://viblo.asia/p/try-to-build-a-firebase-application-development-environment-with-docker-in-2020-bJzKma4kK9N,cài đặt vuejs
+Một số function hữu ích khi làm việc với javascript,https://viblo.asia/s/o754jvjeZM6,javascript
+Các ghi chú về Unity2D,https://viblo.asia/s/Wj53OQ2b56m,unity2d
+Khám phá đại bản doanh Python,https://viblo.asia/s/OVlYq8Ozl8W,daibandoanhpython
+Three JS - Thư viện JS tạo đối tượng 3D trên web,https://viblo.asia/s/J3ZgB82BKmB,3d
+Reading documents,https://viblo.asia/s/zD5dB8A4ZjY,clean architecture
+Github Education Packs,https://viblo.asia/s/Q75wqJD2ZWb,github
+Google Analytics,https://viblo.asia/s/P856j7yB5Y3,google analytics
+Java cơ bản cho người mới,https://viblo.asia/s/aGK7jPXL5j2,java
+Tìm hiểu Elasticsearch,https://viblo.asia/s/yDZOPg8klwj,inverted index
+Laravel cho người mới bắt đầu .,https://viblo.asia/s/3m5WB89ylO7,laravel
+Tìm hiểu Ruby căn bản,https://viblo.asia/s/RNZqg8Eq50n,ruby 2.6
+Selenium Tutorial,https://viblo.asia/s/WrZngQJQlxw,command
+Web vulnerability,https://viblo.asia/s/bq5QL7XmlD8,github hacking
+iOS Animation: Tutorials about animation,https://viblo.asia/s/Je5EjzNjKnL,particle
+Learning - Node.js,https://viblo.asia/s/4x5xpqYB5BM,javascript
+Cyber Security With Exploit Development,https://viblo.asia/s/3vKjRgNAK2R,exploit development
+CHINH PHỤC CÁC TRANG WEB VỀ THUẬT TOÁN,https://viblo.asia/s/aGK7jNnD5j2,data structure
+Lập trình với Ruby on Rails cơ bản (ROR),https://viblo.asia/s/bq5QL7nXlD8,query
+Custom UI Master Class,https://viblo.asia/s/jeZ107rQKWz,pagination
+UX/UI Performance Best Practices,https://viblo.asia/s/P0lPmJVP5ox,progressive web app
+Solidity And Smart Contract,https://viblo.asia/s/Q75wqNJBZWb,solidity
+Fulltext Search,https://viblo.asia/s/J3ZgBp8qKmB,fulltext search
+"Series Viết code ""nghệ thuật""",https://viblo.asia/s/o754jLL0ZM6,javascript
+Clean code - Robert Cecil Martin,https://viblo.asia/s/jy5VB2RG5ra,function
+Memory Leaks in Swift,https://viblo.asia/s/rLZDXoREZk0,""
+Tìm hiểu GraphQL,https://viblo.asia/s/AyK8Vq66lxX,api
+JavaScript - Functional Programming,https://viblo.asia/s/zD5dBoMwZjY,javascript
+JavaScript Design Pattern,https://viblo.asia/s/jeZ107z8KWz,constructor pattern
+Test_Requirement,https://viblo.asia/s/DVK2jPeXKLj,test
+PHP Unit Testing With PHPUnit,https://viblo.asia/s/Wj53OmBb56m,php
+Android Programing với EDMTDev,https://viblo.asia/s/nB5pXJj75PG,edmtdev
+Android - Cơ bản về Gradle,https://viblo.asia/s/P856j2nB5Y3,android
+E Commerce Testing,https://viblo.asia/s/dbZN7QnnlYM,translated
+Custom view android,https://viblo.asia/s/rLZDXo0eZk0,android recyclerview
+Cảnh giới cao nhất của việc Code chính là … không Code!,https://toidicodedao.com/2020/06/30/canh-gioi-cao-nhat-no-code/,thiết kế hệ thống
+Chuyện về bậc thiền sư và chàng coder trẻ tuổi,https://toidicodedao.com/2019/10/22/bac-thien-su-va-chang-coder/,uncle bob
+Lightning Talk Kì 29 – Những môn học quan trọng trong ngành lập trình,https://toidicodedao.com/2019/03/20/lightning-talk-ki-29-nhung-mon-hoc-quan-trong-trong-nganh-lap-trinh/,đi làm
+Cùng Học Cờ Lao – Cloud là cái chi chi? Cloud có gì hot?,https://toidicodedao.com/2018/11/13/cloud-la-gi-tong-quat-ve-cloud/,điện toán đám mây
+Series Lược Sử Lập Trình Web Phần 4.1 – ReactJS ngang trời xuất thế,https://toidicodedao.com/2018/08/21/series-luoc-su-lap-trinh-web-phan-4-1-reactjs-ngang-troi-xuat-the/,web
+Gắn râu JAV Idol – Phần 2: Làm quen với các thư viện và API cần sử dụng,https://toidicodedao.com/2018/04/24/gan-rau-jav-idol-phan-2-thu-vien-va-api/,yua mikami
+Điểm số có thật sự quan trọng với Sinh Viên IT hay không?,https://toidicodedao.com/2017/11/16/diem-so-co-quan-trong-voi-sinh-vien-it/,điểm số
+Giới thiệu Series UI/UX Cho Developer – “Hack Não” người dùng với UX tuyệt hảo,https://toidicodedao.com/2017/06/12/series-ux-ui-gioi-thieu/,ux
+Series Nhận diện Idol: Phần cuối – Từ Demo tới Deploy – Hoàn chỉnh ứng dụng,https://toidicodedao.com/2017/03/21/series-nhan-dien-idol-phan-cuoi-hoan-chinh-deploy-ung-dung/,webtask
+Bạn muốn code giỏi? Thử luyện tập và “chiến đấu” với bọn nước ngoài xem nào!,https://toidicodedao.com/2016/11/24/fight-with-code-the-hien-trinh-do/,topcoder
+"Series Phản Phác Quy Chân – Luận về Technical Debt – Nợ kiếp này, duyên kiếp trước",https://toidicodedao.com/2016/08/02/technical-debt/,thư viện
+Code trên “chín tầng mây” cùng Cloud 9 IDE,https://toidicodedao.com/2016/04/26/code-tren-chin-tang-may-cung-cloud-9-ide/,trên mây
+[Tutorial] Viết ứng dụng di động một cách dễ dàng với Ionic Framework,https://toidicodedao.com/2016/01/12/tutorial-viet-ung-dung-di-dong-mot-cach-de-dang-voi-ionic-framework/,window phone
+Sự “bá đạo” của Chrome Developer Tools – Phần 2,https://toidicodedao.com/2015/10/13/su-ba-dao-cua-chrome-developer-tools-phan-2/,web developer
+[Tutorial] Hướng dẫn tích hợp Visual Studio với Github,https://toidicodedao.com/2015/08/04/tutorial-huong-dan-tich-hop-visual-studio-voi-github/,vs2013
+"C# là ngôn ngữ tuyệt vời nhất. Java, PHP, C, C++, Ruby chỉ toàn là thứ rẻ tiền",https://toidicodedao.com/2015/07/30/c-la-ngon-ngu-tuyet-voi-nhat-java-php-c-c-ruby-chi-toan-la-thu-re-tien/,tôn giáo
+Viết unit test cho javascript với Jasmine,https://toidicodedao.com/2015/04/02/viet-unit-test-cho-javascript-voi-jasmine/,unit test
+Series C# hay ho: Những điều thú vị trong C# (Phần 2),https://toidicodedao.com/2015/01/27/series-c-hay-ho-nhung-dieu-thu-vi-trong-c-phan-2/,series
+Chuyện không đầu không đít,https://thefullsnack.com/posts/chuyen-khong-dau-khong-dit.html,"random , opinionchuy"
+Thuật toán tham lam - Greedy Algorithm,https://viblo.asia/p/thuat-toan-tham-lam-greedy-algorithm-XQZGxozlvwA,algorithm
+Tìm hiểu về YOLO trong bài toán real-time object detection,https://viblo.asia/p/tim-hieu-ve-yolo-trong-bai-toan-real-time-object-detection-yMnKMdvr57P,machine learning
+Thế nào mới là 1 DevOps thật sự,https://viblo.asia/p/the-nao-moi-la-1-devops-that-su-m68Z0ab6lkG,devops
+Stateful và Stateless Functional Components trong React,https://viblo.asia/p/stateful-va-stateless-functional-components-trong-react-3P0lPkymZox,javascript
+Cải thiện kĩ năng Javascript bằng cách tự viết Framework,https://viblo.asia/p/cai-thien-ki-nang-javascript-bang-cach-tu-viet-framework-vyDZOqMk5wj,javascript
+Mobx và Mobx trong ReactJs,https://viblo.asia/s/MnKMJGJmZ7P,javascript
+Command trên ubuntu,https://viblo.asia/s/z45bx8x6ZxY,ubuntu
+Go Pro Devops (Thực hành Best-Practices và Tools),https://viblo.asia/s/7LKXN8AelV4,docker
+Do things with React,https://viblo.asia/s/aQZRb8GXZvx,reactjs
+Tự học React ...,https://viblo.asia/s/7LKXN8O2lV4,reactjs
+SOTA trong vòng 5 phút?,https://viblo.asia/s/375z0mybZGW,deep learning
+Series: Interview Questions,https://viblo.asia/s/RNZqg8wr50n,best pratices
+Dịch bài - Translated Article,https://viblo.asia/s/AyK8VmEElxX,mayfest
+Lập trình Golang từ cơ bản đến nâng cao,https://viblo.asia/s/L6lAy1YJlek,golang
+Server monitoring with Monit,https://viblo.asia/s/DVK2jDbnKLj,moni
+Framework Nestjs,https://viblo.asia/s/yEZkg8PYZQ0,nest
+Triển khai lên Production làm sao cho nuột,https://viblo.asia/s/Je5EjW31KnL,clean code
+Tập tành tìm hiểu CSS animation,https://viblo.asia/s/b85og8Qm52G,css
+Mysql Database Design,https://viblo.asia/s/L6lAyemAlek,mysql
+Web APIs Series,https://viblo.asia/s/zD5dBo3EZjY,javascript
+Tut về AI Trí Tuệ Nhân Tạo,https://viblo.asia/s/QqKLv34Ol7z,deep learning
+Thiết lập theme Material Component cho Android,https://viblo.asia/s/Wj53Omr856m,google material design
+Penetration Testing Web & Apps,https://viblo.asia/s/pmleBzPM5rd,sql injection
+Quá trình tự học Machine Learning,https://viblo.asia/s/24lJDgQ0KPM,linear regression
+Tìm hiểu Sàn giao dịch tiền điện tử (cryptocurrency),https://viblo.asia/s/z45bxjVOZxY,sàn giao dịch binance
+Vẽ biểu đồ với JavaScript,https://viblo.asia/s/OVlYq08Bl8W,chart
+"Deploy Rails App to AWS EC2 By Using Nginx, Puma and Capistrano Gem",https://viblo.asia/s/yDZOPvvGlwj,deploy rails app
+Laravel và những điều thú vị.,https://viblo.asia/s/o754jLreZM6,php
+Tizen Platform - A new world !,https://viblo.asia/s/DVK2jPr2KLj,tizen
+React Sketch.app,https://viblo.asia/s/WrZngQAblxw,front-end developer
+Apache HttpComponents,https://viblo.asia/s/Wj53OmoP56m,httpclient
+Thử tạo Blockchain và tiền ảo BitCoin bằng HTML và Javascript,https://viblo.asia/s/GJ59j07aKX2,hash
+Ruby-tutorial-basic,https://viblo.asia/s/OVlYq0nzl8W,ruby on rails
+Amazon Web Service Tutorials,https://viblo.asia/s/aQZRbPyXZvx,amazon web services (aws)
+Học Python cùng tôi,https://viblo.asia/s/yDZOPv3dlwj,python
+Sập Server có phải muôn đời – Phần 3: Phương pháp phòng chống – ngủ ngon không lo server sập,https://toidicodedao.com/2020/06/16/sap-server-co-phai-muon-doi-phan-3-phuong-phap-phong-chong-ngu-ngon-khong-lo-server-sap/,sla
+"Sống khiêm tốn lại thôi nào, có khi chúng ta không giỏi như mình nghĩ!",https://toidicodedao.com/2019/10/15/song-khiem-ton-lai/,thành công
+Cùng học Cờ Lao – Azure Phần 3: Cùng deploy ứng dụng Web trên máy ảo Azure Cloud,https://toidicodedao.com/2019/03/19/deploy-ung-dung-web-tren-may-ao-azure/,điện toán đám mây
+Coding Life – Một ngày cuối tuần của Lập Trình Viên,https://toidicodedao.com/2018/11/08/coding-life-mot-ngay-cuoi-tuan-cua-lap-trinh-vien/,youtube channel
+Sự khác biệt giữa Junior và Senior Developer,https://toidicodedao.com/2018/08/14/khac-biet-giua-junior-va-senior-developer/,technical
+Gắn râu Sơn Tùng – Phần 1 : Bắt chước tính năng cực hay của Snapchat và Facebook,https://toidicodedao.com/2018/04/17/gan-rau-son-tung-phan-1-bat-chuoc-tinh-nang-cuc-hay-cua-snapchat-va-facebook/,tutorial
+Năm ý tưởng cực thú dzị cho đồ án tốt nghiệp ngành CNTT – Phần 2,https://toidicodedao.com/2017/11/14/nam-y-tuong-cuc-thu-dzi-cho-do-an-tot-nghiep-nganh-cntt-phan-2/,đồ án tốt nghiệp
+"Series Phản Phác Quy Chân – Đừng cắm mặt vào dùng công nghệ, hãy hiểu nó!",https://toidicodedao.com/2017/06/06/dung-cong-nghe-hieu-cong-nghe/,series phản phác qui chân
+Giới thiệu series “Nhập Môn Lập Trình Không Code”,https://toidicodedao.com/2017/03/16/nhap-mon-lap-trinh-khong-code/,đại học
+Series Bảo Mật Nhập Môn – Insecure Direct Object References – Giấu đầu lòi đuôi,https://toidicodedao.com/2016/11/22/lo-hong-bao-mat-insecure-direct-object-references/,vietnamwork
+Microsoft Cognitive Service API – Phép màu công nghệ,https://toidicodedao.com/2016/07/25/microsoft-cognitive-service-api/,vi diệu
+Series Phản Phác Quy Chân – Điều gì ngăn cản bạn đạt cảnh giới tối cao trong “code học”?,https://toidicodedao.com/2016/04/19/series-phan-phac-quy-chan-dieu-gi-ngan-can-ban-dat-canh-gioi-toi-cao-trong-code-hoc/,đại học fpt
+Một button trị giá 300 triệu đô – Cái nhìn khác về UI và chức năng,https://toidicodedao.com/2016/01/07/mot-button-tri-gia-300-trieu-do-cai-nhin-khac-ve-ui-va-chuc-nang/,đăng ký
+Sự “bá đạo” của Chrome Developer Tools – Phần 1,https://toidicodedao.com/2015/10/08/su-ba-dao-cua-chrome-developer-tools-phan-1/,web development
+[Tutorial] Trích xuất thông tin từ website với HTML Aglitity Pack,https://toidicodedao.com/2015/07/28/tutorial-trich-xuat-thong-tin-tu-website-voi-html-aglitity-pack/,webtretho
+Series C# hay ho: LINQ – Lột mặt nạ sự “bá đạo” của LINQ,https://toidicodedao.com/2015/03/26/series-c-hay-ho-linq/,series
+Series C# hay ho: Những điều thú vị trong C# (Phần 1),https://toidicodedao.com/2015/01/22/series-c-hay-ho-nhung-dieu-thu-vi-trong-c-phan-1/,series
+"Paper Review: Chuyện học khi ""mê sảng""",https://thefullsnack.com/posts/lucid-dream-learning.html,paperpaper
+JavaScript Closures,https://codeaholicguy.com/2015/12/31/javascript-closures/,javascript
+4 đặc tính của lập trình hướng đối tượng (Object oriented program),https://viblo.asia/p/4-dac-tinh-cua-lap-trinh-huong-doi-tuong-object-oriented-program-XL6lAA7Nlek,c
+[Secure coding - Part 3] Là developer cần làm gì để ứng dụng của mình an toàn và bảo mật hơn?,https://viblo.asia/p/secure-coding-part-3-la-developer-can-lam-gi-de-ung-dung-cua-minh-an-toan-va-bao-mat-hon-L4x5xvEaZBM,secure coding
+Docker: Chưa biết gì đến biết dùng (Phần 3: Docker-compose),https://viblo.asia/p/docker-chua-biet-gi-den-biet-dung-phan-3-docker-compose-3P0lPm6p5ox,linux
+Những tính năng JavaScript bạn có thể chưa từng sử dụng,https://viblo.asia/p/nhung-tinh-nang-javascript-ban-co-the-chua-tung-su-dung-L4x5xv6YZBM,javascript
+Các kỹ thuật xử lý vấn đề về chữ trong CSS mà bạn nên biết,https://viblo.asia/p/cac-ky-thuat-xu-ly-van-de-ve-chu-trong-css-ma-ban-nen-biet-XL6lAdDpZek,css text
+Deploy một ứng dụng rails đơn giản với Docker,https://viblo.asia/p/deploy-mot-ung-dung-rails-don-gian-voi-docker-Eb85o4e4K2G,docker
+Sailing the Laravel,https://viblo.asia/s/OVlYq8WQl8W,docker
+IBM BPM Tutorial,https://viblo.asia/s/RNZqg8gG50n,ibm
+Cùng phân tích 1 requirement nho nhỏ,https://viblo.asia/s/DVK2jDMvKLj,requirement
+Tìm hiểu về Distributed Systems,https://viblo.asia/s/aQZRb8wQZvx,consensus
+Tự học Salesforce,https://viblo.asia/s/MnKMJGygZ7P,salesforce
+The Avengers Auditorium : An Assembly of the Average Amateur Aficionado in the Art of Argument.,https://viblo.asia/s/jy5VB8xz5ra,release tag
+Let's start Python,https://viblo.asia/s/3vKjR86MK2R,beginner python
+Agile căn bản và cách vận dụng,https://viblo.asia/s/dbZN76xvlYM,agile
+Các tài liệu đã đọc,https://viblo.asia/s/DVK2jDanKLj,php
+Cùng nhau tìm học Vuejs,https://viblo.asia/s/nB5pX8dY5PG,vue
+Kiến trúc máy tính và hệ điều hành,https://viblo.asia/s/RNZqg8Jb50n,computer science
+Làm gì đó với DevOps.,https://viblo.asia/s/aQZRb8NmZvx,laravel
+Hướng dẫn cài đặt Python trên hệ điều hành Windows - MacOS - Linux 2020,https://viblo.asia/s/b85og8R452G,cài đặt python
+Clean Code Ruby,https://viblo.asia/s/dbZN76mmlYM,clean code ruby - methods
+Laravel series for dummies,https://viblo.asia/s/AyK8VqwplxX,laravel
+Tìm hiểu Nuxt.js,https://viblo.asia/s/yDZOPve9lwj,vuejs
+speech  to text Vietnamese,https://viblo.asia/s/VgZvE2kpKAw,analysis_vietnamese
+NodeJS căn bản cho người mới bắt đầu,https://viblo.asia/s/7LKXNqXrlV4,javascript
+Kiến thức toán học cần thiết,https://viblo.asia/s/68Z00JrQZkG,mathemmatics
+Javascript những điều vụn vặt,https://viblo.asia/s/VgZvE2dpKAw,javascript
+Ruby on Rails API with Vue.js,https://viblo.asia/s/WrZngQGYlxw,vuejs
+Một số thủ thuật đơn giản nhưng tăng đáng kể hiệu suất cho Website của bạn,https://viblo.asia/s/jy5VB2Ny5ra,css
+Spring WebFlux - Thế hệ web mới,https://viblo.asia/s/aGK7jNaa5j2,spring 5
+Tạo Custom View trong Android,https://viblo.asia/s/bq5QL7V3lD8,customview
+Cùng tìm hiểu Coroutines trong Kotlin,https://viblo.asia/s/jy5VB2Vo5ra,coroutines
+[Laravel] Laravel Và Những Điều Căn Bản Nhất,https://viblo.asia/s/jy5VB28o5ra,relationships
+Python everything,https://viblo.asia/s/nB5pXJ825PG,angularjs
+REST API vs APIs,https://viblo.asia/s/vElaBkRA5kw,soap
+Tôi đã bắt đầu học iOS như thế nào?,https://viblo.asia/s/Wj53Omx156m,auto layout
+Notes Tips Tricks Code,https://viblo.asia/s/bq5QL76zlD8,laravel
+Practical Laravel,https://viblo.asia/s/Je5Ejz6GKnL,laravel
+Xây dựng ứng dụng web với NodeJS + Express FrameWork + AngularJS,https://viblo.asia/s/3vKjRgeVK2R,single page application
+[VueJS] Chia sẻ những thứ mình thích,https://viblo.asia/s/68Z00JoNZkG,reusecomponent
+Những kiến thức cần biết khi bắt đầu làm một  project web,https://viblo.asia/s/Wj53OmjP56m,css
+Clean Code in Ruby on Rails,https://viblo.asia/s/OVlYq0Pzl8W,oop
+Học Javascript hiện đại,https://viblo.asia/s/Q75wqN69ZWb,await
+Apache POI - Đọc ghi file MS Office,https://viblo.asia/s/yDZOPvMQlwj,library
+[MLE] Machine Learning Experiment,https://viblo.asia/s/GJ59j0MDKX2,""
+Những thay đổi của Laravel ở các phiên bản,https://viblo.asia/s/JzKmgDPOl9N,5.6
+"Sập Server có phải muôn đời – Phần 2: Cách viết post-mortem, nhìn lại vấn đề sau khi xử lý xong sự cố",https://toidicodedao.com/2020/06/09/sap-server-co-phai-muon-doi-phan-2-cach-viet-post-mortem-nhin-lai-van-de-sau-khi-xu-ly-xong-su-co/,viết postmortem như thế nào
+Messege Queue – Bộ phận không thể thiếu trong các hệ thống lớn và microservice architecture,https://toidicodedao.com/2019/10/08/message-queue-la-gi-ung-dung-microservice/,software architecture
+Năm thói quen xấu của lập trình viên “dỏm” mà các bạn nên bỏ,https://toidicodedao.com/2019/03/05/thoi-quen-xau-lap-trinh-vien-nen-bo/,youtube channel
+5 thái độ cần có của một developer thành công,https://toidicodedao.com/2018/11/01/thai-do-can-co-cua-developer-thanh-cong/,unit test
+Series Lược Sử Lập Trình Web phần 3.2 – NodeJS làm loạn giới front-end,https://toidicodedao.com/2018/08/07/series-luoc-su-lap-trinh-web-phan-3-2-nodejs-lam-loan-gioi-front-end/,web developer
+"Theo chân đại ca Cảnh Trần – Data Scientist, phân tích nhiều điều thú vị về ngành JAV",https://toidicodedao.com/2018/04/05/data-scientist-phan-tich-jav/,python
+Năm ý tưởng cực thú dzị cho đồ án tốt nghiệp ngành CNTT,https://toidicodedao.com/2017/11/07/y-tuong-do-an-tot-nghiep-nganh-cntt/,đồ ăn
+"Series Chuyện Code Chuyện Đời – Từ chuyện con ếch luộc, chuyện tán gái cho tới chuyện chàng lập trình viên",https://toidicodedao.com/2017/06/01/ech-tan-gai-va-lap-trinh-vien/,tán gái
+"Series Nhận diện Idol: Phần 6.2 – Từ Demo tới Deploy, viết RestAPI cho ứng dụng với WebTask",https://toidicodedao.com/2017/03/14/series-nhan-dien-idol-phan-6-2-tu-demo-toi-deploy-viet-restapi-cho-ung-dung-voi-webtask/,website
+Series Bảo Mật Nhập Môn – SQL Injection – Lỗ hổng bảo mật thần thánh,https://toidicodedao.com/2016/11/15/lo-hong-sql-injection-than-thanh/,xss
+Deadlock trong SQL transaction. Ứng dụng trong Laravel.,https://viblo.asia/p/deadlock-trong-sql-transaction-ung-dung-trong-laravel-WAyK89emZxX,mysql
+Pair Programing  - Một trong những kỹ thuật phát triển phần mềm thượng thừa nên biết.,https://viblo.asia/p/pair-programing-mot-trong-nhung-ky-thuat-phat-trien-phan-mem-thuong-thua-nen-biet-bJzKma7EK9N,pair programming
+Giới thiệu 5 thư viện bạn cần có trong Xcode,https://viblo.asia/p/gioi-thieu-5-thu-vien-ban-can-co-trong-xcode-gAm5yJ68Kdb,extension
+Maps in Golang,https://viblo.asia/p/maps-in-golang-Az45bPPgZxY,maps
+Push Notification đơn giản với Rails ActionCable,https://viblo.asia/p/push-notification-don-gian-voi-rails-actioncable-aWj53bBwl6m,push notification
+Học python từ rất cơ bản đến nâng cao,https://viblo.asia/s/Q75wqJkMZWb,cài đặt python
+[Giải ngố thuật ngữ] Các thuật ngữ hay dùng trong IT,https://viblo.asia/s/dbZN767qlYM,giaingothuatngu
+50 tips cho mọi lập trình viên,https://viblo.asia/s/Je5EjWdGKnL,beginer developer
+React Packages Overview,https://viblo.asia/s/Je5EjW84KnL,react router
+Deep Dive In JavaScript,https://viblo.asia/s/aGK7jPLB5j2,chrome plugin
+Series  Chrome DevTools,https://viblo.asia/s/3m5WB8Y8lO7,devtools
+"Tạo 1 Search app hoàn chỉnh với SearchView, RxJava và data binding",https://viblo.asia/s/OVlYq8Qrl8W,android
+Cẩm nang kiểm thử với Vue,https://viblo.asia/s/aGK7jNde5j2,mock
+[JavaScript] Căn bản trong Javascript,https://viblo.asia/s/QqKLv3j6l7z,web developer
+Update công nghệ,https://viblo.asia/s/WOZrgP9ylQ0,non-tech
+ReactJs cho người mới bắt đầu,https://viblo.asia/s/nB5pXJaD5PG,complex
+E2E Acceptance testing từ lý thuyết tới thực tiễn,https://viblo.asia/s/vElaBkQm5kw,cucumber
+Laravel design pattern,https://viblo.asia/s/QqKLv3WMl7z,laravel
+Kỹ thuật AJAX trong Javascript,https://viblo.asia/s/OVlYq0mal8W,ajax
+Tăng tốc cho Rails bằng việc loại bỏ N+1 queries,https://viblo.asia/s/QqKLv3Drl7z,ruby on rails
+Kiến thức cơ bản về Test,https://viblo.asia/s/JzKmgDvEl9N,testing
+Laravel checkout my alvindev,https://viblo.asia/s/AyK8VqmklxX,eloquent
+SASS và 5 tính năng chính của SASS,https://viblo.asia/s/jeZ107EoKWz,sass laravel
+Bookmarks Viblo,https://viblo.asia/s/P0lPmJ8m5ox,""
+SOLID Principles,https://viblo.asia/s/WrZngQznlxw,ruby on rails
+CSS Upgrade: Styled-components,https://viblo.asia/s/P856j2pL5Y3,styled-components
+Dive Into GraphQL,https://viblo.asia/s/dbZN7QkalYM,apollo client
+PHP Developer ffffffffffff,https://viblo.asia/s/rLZDXoGEZk0,ssh
+Phát triển Android hiện đại với Kotlin,https://viblo.asia/s/4x5xpq6O5BM,kotlin
+iOS Bluetooth Guide,https://viblo.asia/s/W65GEpmxZDO,bluetooth
+JavaScript Design Patterns,https://viblo.asia/s/jeZ107mYKWz,javascript
+Học linh tinh về iOS,https://viblo.asia/s/P0lPmJDn5ox,delegate
+Sập Server có phải muôn đời – Phần 1: Làm gì khi hệ thống sập bất ngờ?,https://toidicodedao.com/2020/06/02/sap-server-co-phai-muon-doi-phan-1-lam-gi-khi-he-thong-sap-bat-ngo/,sysadmin
+Bốn sai lầm các bạn sinh viên / lập trình viên hay mắc phải khi mới đi làm,https://toidicodedao.com/2019/10/01/sai-lam-cua-developer/,senior developer
+Thiên Địa Hội truyền kì – Chuyện về tầm quan trọng của Index trong Database (Phần 1),https://toidicodedao.com/2019/09/03/thien-dia-hoi-truyen-ki-database-index-phan-1/,đánh index
+Lập trình viên “gà” hay nói những câu gì? Xem để phòng tránh nhé!,https://toidicodedao.com/2019/02/26/lap-trinh-vien-ga-hay-noi-nhung-cau-gi/,đi làm
+Giới thiệu Series Cùng học Cờ Lao – Tìm hiểu về Cloud Computing,https://toidicodedao.com/2018/10/30/gioi-thieu-series-cung-hoc-co-lao-tim-hieu-ve-cloud-computing/,điện toán đám mây
+Code Cùng Code Dạo – Học HTML/CSS/JS thông qua… vếu,https://toidicodedao.com/2018/08/02/code-cung-code-dao-hoc-html-css-js-thong-qua-veu/,web developer
+Lật mặt tốc độ tải trang “rùa bò” của Sên Đô và Tiki,https://toidicodedao.com/2018/04/03/tiki-sendo-tai-trang-cham-sen-bo/,web
+Lựa chọn laptop lập trình – Người bạn đồng hành của mọi lập trình viên,https://toidicodedao.com/2017/10/17/lua-chon-laptop-lap-trinh-nguoi-ban-dong-hanh-cua-moi-lap-trinh-vien/,sinh viên
+Lập trình viên cần biết gì về Package Manager?,https://toidicodedao.com/2017/05/30/package-manager-la-gi/,web
+Series Nhận diện Idol: Phần 6.1 – Luận về Serverless – Vô Thai Kiếm,https://toidicodedao.com/2017/03/07/giai-thich-kien-truc-serverless/,website
+Nguyễn Nhật Ánh sẽ nói gì về lập trình và… code?,https://toidicodedao.com/2016/11/03/nguyen-nhat-anh-lap-trinh-code/,văn học
+Series Phản Phác Quy Chân – Bí kíp để trở thành “cao thủ” trong việc fix bug,https://toidicodedao.com/2016/07/18/cao-thu-fix-bug/,series phản phác qui chân
+Series Phản Phác Quy Chân – Chuyện về những “ổ gà” trên con đường lập trình,https://toidicodedao.com/2016/04/14/series-phan-phac-quy-chan-chuyen-ve-nhung-o-ga-tren-con-duong-lap-trinh/,webform
+Những mánh khóe “không bao giờ tiết lộ” của các lập trình viên vĩ đại,https://toidicodedao.com/2015/12/24/nhung-manh-khoe-khong-bao-gio-tiet-lo-cua-cac-lap-trinh-vien-vi-dai/,test
+Review sách: Microsoft .NET – Architecting Applications for the Enterprise (1st Edition),https://toidicodedao.com/2015/10/06/review-sach-microsoft-net-architecting-applications-for-the-enterprise-1st-edition/,software architecture
+Một số câu phỏng vấn thú vị về lập trình,https://toidicodedao.com/2015/07/14/mot-so-cau-phong-van-thu-vi-ve-lap-trinh/,thú vị
+SOLID là gì – Áp dụng các nguyên lý SOLID để trở thành lập trình viên code “cứng”,https://toidicodedao.com/2015/03/24/solid-la-gi-ap-dung-cac-nguyen-ly-solid-de-tro-thanh-lap-trinh-vien-code-cung/,srp
+Học ngôn ngữ lập trình nào bây giờ (Phần cuối),https://toidicodedao.com/2015/01/20/hoc-ngon-ngu-lap-trinh-nao-bay-gio-phan-cuoi/,nghề nghiệp
+Blame Driven Development,https://thefullsnack.com/posts/blame-driven-development.html,"random , opinion , javascriptblame"
+Hai kiểu lập trình viên,https://thefullsnack.com/posts/css-specificity.html,"random , opinion , csshai"
+"BERT, RoBERTa, PhoBERT, BERTweet: Ứng dụng state-of-the-art pre-trained model cho bài toán phân loại văn bản",https://viblo.asia/p/bert-roberta-phobert-bertweet-ung-dung-state-of-the-art-pre-trained-model-cho-bai-toan-phan-loai-van-ban-4P856PEWZY3,deep learning
+Securing Spring Boot with JWT,https://viblo.asia/p/securing-spring-boot-with-jwt-bJzKm14rK9N,jwt
+6 Top Video on demand platform to Start a Streaming Website in 2020,https://viblo.asia/p/6-top-video-on-demand-platform-to-start-a-streaming-website-in-2020-maGK70GLZj2,video on demand
+Tìm Hiểu Về Cấu Trúc Dữ Liệu Cây Tìm Kiếm Ưu Tiên (PST),https://viblo.asia/p/tim-hieu-ve-cau-truc-du-lieu-cay-tim-kiem-uu-tien-pst-E375z766KGW,priority search tree
+Handling custom page navigation on Next.js,https://viblo.asia/p/handling-custom-page-navigation-on-nextjs-YWOZrjoPZQ0,nextjs
+So sánh từ khóa Var và Dynamic trong C#,https://viblo.asia/p/so-sanh-tu-khoa-var-va-dynamic-trong-c-m68Z0PPMZkG,c#
+Upload file ajax với FormData,https://viblo.asia/p/upload-file-ajax-voi-formdata-LzD5dL2e5jY,ajax
+Viết  document cho API dễ dàng với Swagger.,https://viblo.asia/p/viet-document-cho-api-de-dang-voi-swagger-m68Z0PAMZkG,swagger
+TracePoint trong Ruby,https://viblo.asia/p/tracepoint-trong-ruby-1Je5EQQ15nL,ruby
+Giới thiệu 1 số thư viện load ảnh trong Android,https://viblo.asia/p/gioi-thieu-1-so-thu-vien-load-anh-trong-android-1VgZvD675Aw,android
+NodeJS những kinh nghiệm dự án,https://viblo.asia/s/AyK8VmM6lxX,lodash
+Làm Game với Construct 3,https://viblo.asia/s/eVKByaoJ5kW,cordova plugin
+PHP   &   Laravel,https://viblo.asia/s/P0lPmrO85ox,eloquent
+Docker for Newbie - 0 to Hero,https://viblo.asia/s/W65GEjk9ZDO,docker
+Báo khoa học trong vòng 5 phút?,https://viblo.asia/s/rLZDX4YnZk0,information embedding
+Tìm hiểu In App Purchase trong Flutter,https://viblo.asia/s/J3ZgB86RKmB,ios payment
+Tự học Natural Language Processing,https://viblo.asia/s/GJ59jLwxKX2,feature engineering
+Series cùng bần đạo tìm hiểu về send email với laravel,https://viblo.asia/s/VgZvE2WmKAw,job
+Xây dựng ứng dụng không server với React Native và AWS,https://viblo.asia/s/DVK2jP00KLj,amazon web services (aws)
+Các package hữu ích với VueJs,https://viblo.asia/s/aGK7jNdA5j2,vue-materialize-datatable
+Học và làm Vue.js,https://viblo.asia/s/VgZvE2WMKAw,vuejs
+Cùng nhau nghiên cứu Angular 7,https://viblo.asia/s/jy5VB2nM5ra,angular 7
+Clean Code (Translated),https://viblo.asia/s/J3ZgBpvEKmB,clean code
+Nghịch Google Cloud,https://viblo.asia/s/3m5WBNgglO7,kubernetes engine
+"Series Hướng dẫn Spring Boot căn bản, Zero to Hero",https://viblo.asia/s/J3ZgBpLLKmB,spring mvc
+Thông báo (Notification) trong android với Firebase Cloud Messaging,https://viblo.asia/s/P0lPmJRb5ox,firebase cloud messaging
+"Tự học NodeJS, NodeJS cho mobile",https://viblo.asia/s/P0lPmJ7p5ox,node.js
+"Tìm hiểu công nghệ Blockchain, thuật ngữ cơ bản của công nghệ Blockchain",https://viblo.asia/s/WrZngQkrlxw,tìm hiểu blockchain
+"Xây dựng ứng dụng CRUD với Nodejs, Typescript và MongoDB",https://viblo.asia/s/aGK7jNab5j2,express
+HYBRID AUTOMATION FRAMEWORK (Python test automation),https://viblo.asia/s/4x5xpq9w5BM,testing framework
+"Symbols, Iterators, Generators, Async/Await và Async Iterators trong Javascript",https://viblo.asia/s/L6lAye1glek,iterator
+Ruby Metaprogramming,https://viblo.asia/s/P856j2795Y3,metaprogramming
+"DApps, hoạt động và cách tạo ra chúng",https://viblo.asia/s/jeZ10773KWz,learn blockchain
+Cùng tìm hiểu về ReactJS,https://viblo.asia/s/MnKMJDRmZ7P,ruby on rails
+Tìm hiểu về Cassandra,https://viblo.asia/s/QqKLv3RNl7z,cassandra
+Javascript in depth,https://viblo.asia/s/yEZkgnj4ZQ0,compiler
+Design Pattern Ruby,https://viblo.asia/s/P0lPmJGg5ox,design pattern
+Học php và laravel 5.5,https://viblo.asia/s/WrZngQVnlxw,laravel
+JavaScript Cơ bản,https://viblo.asia/s/eVKByjkJ5kW,sort array
+Android Jetpack - Android Architecture Components,https://viblo.asia/s/J3ZgBp0BKmB,android architecture
+Tìm hiểu về BEM - A Front End Methodology,https://viblo.asia/s/MnKMJD2aZ7P,coding style
+Thủ thuật trong Javascript,https://viblo.asia/s/QqKLv3e0l7z,javascript
+Kinh nghiệm làm việc cho công ty product – Làm sao học và kiếm triệu đô từ blockchain,https://toidicodedao.com/2020/05/26/kinh-nghiem-lam-viec-cho-cong-ty-product-lam-sao-hoc-va-kiem-trieu-do-tu-blockchain/,kinh nghiệm học blockchain
+Code bạn viết ra sẽ méo bao giờ hoàn hảo hoặc hoàn toàn clean – But that’s okay!,https://toidicodedao.com/2019/08/27/code-ban-viet-ra-se-meo-bao-gio-hoan-hao-hoac-hoan-toan-clean-but-thats-okay/,uncle bob
+Lightning Talk Kì 28 – Làm sao để trở thành senior developer lương “nghìn đô”,https://toidicodedao.com/2019/02/21/lightning-talk-ki-28-lam-sao-de-tro-thanh-senior-developer-luong-nghin-do/,đi làm
+Lightning Talk Kì 22 – Con đường phát triển (career path) sự nghiệp của lập trình viên,https://toidicodedao.com/2018/10/25/lightning-talk-ki-22-con-duong-phat-trien-career-path-su-nghiep-cua-lap-trinh-vien/,đại học
+Series Lược Sử Lập Trình Web Phần 3.1 – JS framework trỗi dậy,https://toidicodedao.com/2018/07/31/series-luoc-su-lap-trinh-web-phan-3-1-js-framework-troi-day/,server side rendering
+Công nghệ “hiện đại” phía sau tốc độ tải trang “chóng mặt” của Thế Giới Di Động,https://toidicodedao.com/2018/03/27/cong-nghe-tai-trang-the-gioi-di-dong/,web
+Series JavaScript sida – Sự bá đạo của Async/Await trong JS,https://toidicodedao.com/2017/10/10/async-await-trong-javascript/,sida
+Technical Stack là cái khỉ gì?,https://toidicodedao.com/2017/05/23/giai-thich-technical-stack-la-gi/,server
+Series Nhận diện Idol: Phần 5 – Kiểm tra độ chính xác của thuật toán,https://toidicodedao.com/2017/02/28/series-nhan-dien-idol-phan-5-do-chinh-xac-thuat-toan/,xác suất thống kê
+Series Bảo Mật Nhập Môn – Ẩn giấu thông tin hệ thống – Tránh con mắt người đời và kẻ xấu,https://toidicodedao.com/2016/11/01/an-thong-tin-he-thong/,thư viện
+Series C# hay ho – Hello .NET Core,https://toidicodedao.com/2016/07/12/series-c-hay-ho-hello-net-core/,webform
+Từ spacemacs đến init.el,https://thefullsnack.com/posts/spacemacs-to-initel.html,emacst
+GIẢ LẬP MACOS TRÊN MÁY ẢO VMWARE NĂM 2020,https://viblo.asia/p/gia-lap-macos-tren-may-ao-vmware-nam-2020-jvEla7DdKkw,macos
+Rõ hơn một chút về Virtual DOM trong ReactJS,https://viblo.asia/p/ro-hon-mot-chut-ve-virtual-dom-trong-reactjs-maGK70ALZj2,reactjs
+Hiểu Open - Closed Principle qua ví dụ !,https://viblo.asia/p/hieu-open-closed-principle-qua-vi-du-GrLZDDJnZk0,c#
+Gặp nhau cuối tuần - Tản mạn về Javascript,https://viblo.asia/s/yEZkg894ZQ0,khai báo hàm trong javascript
+Hướng dẫn lập trình Shader căn bản.,https://viblo.asia/s/b85og8Mj52G,shader
+Laravel in Production,https://viblo.asia/s/zD5dB8O4ZjY,logging
+Series kiến thức cơ bản về CSS Box Model,https://viblo.asia/s/MnKMJG3aZ7P,css
+Polymorphic Associations trong Ruby on Rails,https://viblo.asia/s/eVKByaYJ5kW,rails
+Docker cho người mới bắt đầu,https://viblo.asia/s/bq5QL8qElD8,docker compose
+Theo dõi dung lượng lưu trữ và cài đặt cảnh báo trên Amazon EC2,https://viblo.asia/s/z45bx8JzZxY,server monitoring
+Một số kiến thức cơ bản về mạng máy tính,https://viblo.asia/s/nB5pX8vr5PG,udp
+Kỹ Thuật Code theo phong cách TDD - Chân Kinh Test Đại Đi  😎,https://viblo.asia/s/QqKLv3j4l7z,message broker
+Docker cho mọi người,https://viblo.asia/s/DVK2jP0rKLj,docker image
+Tối ưu CSS căn bản đến chuyên nghiệp,https://viblo.asia/s/Wj53OmMG56m,scss
+Hyperledger Fabric ( Private Blockchain ) cho người mới bắt đầu.,https://viblo.asia/s/MnKMJDWQZ7P,hyperledger fabric
+[Dịch sách] Ebook Web Hacking 101: SĂN TIỀN THƯỞNG TỪ CÁC LỖ HỔNG BẢO MẬT WEB,https://viblo.asia/s/yDZOPvdOlwj,#web
+Tự học chứng chỉ LPIC-1,https://viblo.asia/s/Am5yq0kV5db,pipe
+NodeJS & Beyond,https://viblo.asia/s/z45bxjvNZxY,javascript
+Tối ưu MySql từ cơ bản đến nâng cao,https://viblo.asia/s/aGK7jN295j2,optimization
+Automation test - Katalon,https://viblo.asia/s/Q75wqNLQZWb,qa
+Javascript - cô gái để yêu chứ không để hiểu,https://viblo.asia/s/GJ59j04pKX2,compiler
+Spring security,https://viblo.asia/s/aQZRbP8GZvx,spring security
+[Back To Basic],https://viblo.asia/s/375z099jZGW,javascript
+Ruby & Ruby on Rails,https://viblo.asia/s/MnKMJDDDZ7P,draper
+Laravel Cho người mới bắt đầu,https://viblo.asia/s/GJ59j0r9KX2,laravel
+Giới thiệu về Flutter - A cross-platform mobile app SDK from Google,https://viblo.asia/s/JzKmgDAXl9N,dart
+Static Site Generator với Hugo,https://viblo.asia/s/OVlYq0JVl8W,go
+Series lập trình Nodejs,https://viblo.asia/s/7LKXNqkelV4,node.js
+Những điều nên biết về testing,https://viblo.asia/s/pmleBz175rd,translated article
+Design Pattern C#,https://viblo.asia/s/aGK7jNGx5j2,design pattern
+Machine Learning thật thú vị,https://viblo.asia/s/dbZN7QNvlYM,gradient descent
+Blockchain Series,https://viblo.asia/s/z45bxjPzZxY,""
+Mình đã làm bể cá thông minh như thế nào,https://viblo.asia/s/eVKByjnY5kW,iot
+Zimbra Mail on CentOS Server,https://viblo.asia/s/Wj53OmWp56m,server
+Turtorial NodeJS,https://viblo.asia/s/7LKXNqbDlV4,express
+Phân loại văn bản Tiếng Việt,https://viblo.asia/s/3m5WBN08lO7,""
+8 Cấu Trúc Dữ Liệu siêu cơ bản mà dev nào cũng nên biết – Phần 1: Ôn lại về Big-O Notation và độ phức tạp,https://toidicodedao.com/2020/12/01/cau-truc-du-lieu-co-ban-p1-big-o-do-phuc-tap/,độ phức tạp
+Series Phản Phác Quy Chân – Luận về nguyên lý Separation of Concerns (Chia Để Trị),https://toidicodedao.com/2020/11/18/separation-of-concerns-chia-de-tri-phan-phac-qui-chan/,thư viện
+Build và deploy website để “khè” bạn bè vô cùng đơn giản với Glitch.com,https://toidicodedao.com/2020/10/27/glitch-build-web-site/,tạo domain web
+12 yếu tố tạo nên 1 web app xịn xò – Lược dịch và giải thích Twelve-Factor – Phần 3,https://toidicodedao.com/2020/09/22/12-yeu-to-tao-nen-1-web-app-xin-xo-luoc-dich-va-giai-thich-twelve-factor-phan-3/,web application
+"Từ chuyện cargo cult programming, đến phong cách lập trình theo kiểu “bầy đàn”",https://toidicodedao.com/2020/05/19/cargo-cult-lap-trinh-kieu-bay-dan/,senior developer
+Cùng học Cờ Lao – Azure Phần 6.2: Tìm hiểu về Azure Blob và Azure File,https://toidicodedao.com/2019/08/06/cung-hoc-co-lao-azure-phan-6-2-tim-hieu-ve-azure-blob-va-azure-file/,điện toán đám mây
+Những thứ mình đã học trong năm 2018,https://toidicodedao.com/2019/02/14/nhung-thu-minh-da-hoc-trong-nam-2018/,vuejs
+"Giải ngố về các khái niệm IaaS, PaaS, SaaS trong Cloud Computing",https://toidicodedao.com/2018/10/23/so-sanh-iaas-paas-saas-la-gi/,điện toán đám mây
+Series Lược Sử Lập Trình Web Phần 2 – Thời đại của jQuery,https://toidicodedao.com/2018/07/24/series-luoc-su-lap-trinh-web-phan-2-thoi-dai-cua-jquery/,web developer
+Tìm hiểu về ELK Stack – công cụ quản lý log ngầu nhất quả đất!,https://toidicodedao.com/2018/03/20/elk-stack-logging/,youtube channel
+Series Code Dạo Trời Tây – Phần 1: Tôi đã bị reject sml như thế nào,https://toidicodedao.com/2017/09/14/series-code-dao-troi-tay-phan-1-toi-da-bi-reject-sml-nhu-the-nao/,test
+Sinh viên “bối rối” vì 7 điểm khác biệt giữa đi học và đi làm,https://toidicodedao.com/2017/05/18/khac-biet-di-hoc-va-di-lam/,đại học
+Series Chuyện Code Chuyện Đời – Từ tối ưu code cho đến optimize cuộc sống,https://toidicodedao.com/2017/02/23/optimize-code-va-cuoc-song/,vốn sống
+Series Bảo Mật Nhập Môn – Lưu trữ cookie – Tưởng không hại ai ngờ hại không tưởng,https://toidicodedao.com/2016/10/25/bao-mat-cookie/,web
+Series JavaScript sida – Promise – Hứa thật nhiều thất hứa thật nhiều,https://toidicodedao.com/2016/07/05/javascript-promise/,sida
+"Series JavaScript sida – Cùng làm quen và “chịch”, nhầm… nghịch ES6",https://toidicodedao.com/2016/04/05/series-javascript-sida-cung-lam-quen-va-chich-nham-nghich-es6/,source code
+Lỗ hổng bảo mật khủng khiếp của Lotte Cinema (Lưu trữ mật khẩu người dùng – Tưởng dễ mà không đơn giản),https://toidicodedao.com/2015/12/22/lo-hong-bao-mat-khung-khiep-cua-lotte-cinema-luu-tru-mat-khau-nguoi-dung-tuong-de-ma-khong-don-gian/,xem phim
+15 câu hỏi phỏng vấn React phổ biến,https://viblo.asia/p/15-cau-hoi-phong-van-react-pho-bien-V3m5W0PwKO7,reactjs
+Docker: Chưa biết gì đến biết dùng (Phần 1- Lịch sử),https://viblo.asia/p/docker-chua-biet-gi-den-biet-dung-phan-1-lich-su-ByEZkWrEZQ0,docker compose
+Simplifying APIs with coroutines and Flow,https://viblo.asia/p/simplifying-apis-with-coroutines-and-flow-gGJ59MAx5X2,flow
+Pytorch Learning Series.,https://viblo.asia/s/QqKLvpYml7z,pytorch
+Thủ thuật Swift - iOS,https://viblo.asia/s/nB5pX8775PG,ios
+Lạc vào thế giới Java,https://viblo.asia/s/z45bx8AVZxY,java
+Cùng nhau tìm hiểu về vuejs !,https://viblo.asia/s/4x5xp7Rg5BM,laravel
+Tìm hiểu về Apache Kafka,https://viblo.asia/s/J3ZgB8kAKmB,mayfest
+Hướng dẫn toàn diện về Trí tuệ nhân tạo với Python (Dịch),https://viblo.asia/s/o754jvELZM6,python
+SOLID trong Android,https://viblo.asia/s/OVlYq8E4l8W,solid
+Tổng quan về sql,https://viblo.asia/s/7LKXN8EDlV4,mayfest
+"Tạo ứng dụng điểm danh sử dụng Mongodb, ExpressJS và Nodejs",https://viblo.asia/s/68Z00n1AZkG,mayfest
+Tổng hợp những kiến thức Báu có được khi thực chiến với VueJS.,https://viblo.asia/s/P0lPmrXn5ox,vue router
+Back to Basics: ML cơ bản cho người mất gốc (như mình),https://viblo.asia/s/eVKByaE25kW,linear regression
+Một vài thủ thuật cho những dạng layout thường gặp,https://viblo.asia/s/3m5WB8evlO7,css
+Sử dụng TypeScript để tạo API bảo mật với Node.js và Express,https://viblo.asia/s/P0lPmrNv5ox,api
+ES6 - Từ cơ bản tới nâng cao,https://viblo.asia/s/yEZkg8dAZQ0,es6
+"Tự học, Kỹ năng bản thân",https://viblo.asia/s/24lJDgy6KPM,tìm kiếm
+[Flutter Series] Tự học Flutter,https://viblo.asia/s/JzKmgDQrl9N,flutter architect
+100 Day Devops Series,https://viblo.asia/s/yEZkgnYxZQ0,amazon web services (aws)
+Tớ đã học bảo mật cơ bản như thế nào ?,https://viblo.asia/s/68Z00JY2ZkG,xss
+Một số câu hỏi liên quan đến Crypto / Hashes / Passwords,https://viblo.asia/s/375z09p1ZGW,hash
+Selenium Webdriver,https://viblo.asia/s/rLZDXo62Zk0,selenium
+Học tiếng Anh trong ngành IT,https://viblo.asia/s/4x5xpqba5BM,english
+Hành trình chinh phục Laravel Framework,https://viblo.asia/s/nB5pXJDG5PG,laravel
+Học React Native từ cơ bản đến nâng cao,https://viblo.asia/s/WrZngQkwlxw,boilerplate
+CS231n Convolutional Neural Networks for Visual Recognition T,https://viblo.asia/s/nB5pXJP25PG,algorithm
+Sinh viên CNTT cần biết,https://viblo.asia/s/MnKMJDGDZ7P,web development
+Series ASP.NET MVC,https://viblo.asia/s/bq5QL783lD8,.net mvc
+Tìm kiếm dữ liệu với Elasticsearch,https://viblo.asia/s/7LKXNq8ElV4,elasticsearch
+Hướng dẫn lập trình Dapp,https://viblo.asia/s/b85ogvv052G,solidity
+Kotlin for Beginner,https://viblo.asia/s/68Z00JBzZkG,android
+Các thư viện JavaScript bổ ích với Laravel,https://viblo.asia/s/rLZDXorVZk0,editor
+android serries hay ho,https://viblo.asia/s/jy5VB23G5ra,android
+Linux advance articles,https://viblo.asia/s/WOZrgP3NlQ0,memory
+Từ PHP sang nodeJS,https://viblo.asia/s/bq5QL7EElD8,node-persist
+Chỉ mục(index) trong cơ sở dữ liệu,https://viblo.asia/s/WrZngQVmlxw,chỉ mục
+Let's learn about Blockchain,https://viblo.asia/s/68Z00JP9ZkG,zksnark
+Bảo mật hệ thống,https://viblo.asia/s/24lJDgmWKPM,security
+Hibernate Caching toàn tập - Hướng dẫn có source code demo,https://viblo.asia/s/OVlYq024l8W,hibernate
+"5 trang web cực hay để luyện thuật toán, học lập trình",https://toidicodedao.com/2020/04/21/5-trang-web-cuc-hay-de-luyen-thuat-toan-hoc-lap-trinh/,thuật toán
+Cùng học Cờ Lao – Azure Phần 6.1: Lưu trữ file từ vài trăm MB tới hàng chục TB với Azure Storage,https://toidicodedao.com/2019/07/30/cung-hoc-co-lao-azure-phan-6-1-luu-tru-file-tu-vai-tram-mb-toi-hang-chuc-tb-voi-azure-storage/,điện toán đám mây
+Những công nghệ mình chưa biết trong năm 2018,https://toidicodedao.com/2019/02/12/nhung-cong-nghe-minh-chua-biet-trong-nam-2018/,web
+"Chuyện 2 cái xô trong ga tàu điện ngầm, và những con bug ko bao giờ được fix",https://toidicodedao.com/2018/10/18/chuyen-2-cai-xo-trong-ga-tau-dien-ngam-va-nhung-con-bug-ko-bao-gio-duoc-fix/,technical debt
+Lập trình Web Front-end đã thay đổi như thế nào sau 10 năm – Phần 1,https://toidicodedao.com/2018/07/17/lap-trinh-web-front-end-da-thay-doi-nhu-the-nao-sau-10-nam-phan-1/,web development
+"Công cụ đơn giản, bá đạo mà 69.96% sinh viên IT không biết – Phần 2 : Profiler và Command Line",https://toidicodedao.com/2018/03/13/cong-cu-sinh-vien-it-khong-biet-phan-2-profiler-command-line/,ubuntu
+Series UI/UX Cho Developer – Hai hướng UX Research và UX Design,https://toidicodedao.com/2017/09/12/ux-research-va-ux-design/,web designer
+Review sách: No Tech Hacking – Làm “Nắc Cơ” không cần biết công nghệ!,https://toidicodedao.com/2017/05/16/review-sach-no-tech-hacking-lam-nac-co-khong-can-biet-cong-nghe/,tấn công
+Microservice có gì hot? Chuyện về cái bồn cầu và microservice,https://toidicodedao.com/2017/02/21/tong-quan-micro-service/,toilet
+Series Bảo Mật Nhập Môn – Lỗ hổng bảo mật XSS nguy hiểm đến mức nào?,https://toidicodedao.com/2016/10/18/lo-hong-bao-mat-xss/,xss
+Được gì mất gì khi học lập trình bằng tiếng Việt,https://toidicodedao.com/2016/06/28/khong-nen-hoc-lap-trinh-tieng-viet/,đại học
+[Giải trí] Tổng hợp các comment “bá đạo” từ trước đến nay,https://toidicodedao.com/2016/03/30/giai-tri-tong-hop-cac-comment-ba-dao-tu-truoc-den-nay/,viết code
+Thực trạng học lập trình của một số thanh niên hiện nay,https://toidicodedao.com/2015/12/17/thuc-trang-hoc-lap-trinh-cua-mot-so-thanh-nien-hien-nay/,đại học
+NoSQL có gì hay ho – Tổng quan về NoSQL – Phần 2,https://toidicodedao.com/2015/09/29/nosql-co-gi-hay-ho-tong-quan-ve-nosql-phan-2/,tổng quan
+Luận về comment code (Phong cách kiếm hiệp),https://toidicodedao.com/2015/07/09/luan-ve-comment-code-phong-cach-kiem-hiep/,độc cô cầu bại
+Học ngôn ngữ lập trình nào bây giờ (Phần 2),https://toidicodedao.com/2015/01/15/hoc-ngon-ngu-lap-trinh-nao-bay-gio-phan-2/,nghề nghiệp
+Hướng dẫn làm mấy cái chấm bay bay và có dây nối nó với nhau và nối với chuột bằng Canvas,https://viblo.asia/p/huong-dan-lam-may-cai-cham-bay-bay-va-co-day-noi-no-voi-nhau-va-noi-voi-chuot-bang-canvas-1VgZvDz75Aw,canvas
+Cách tạo Wrapper Component trong React với Props - Phần 2,https://viblo.asia/p/cach-tao-wrapper-component-trong-react-voi-props-phan-2-Az45bPJzZxY,children
+Secure coding for developers,https://viblo.asia/s/dbZN76EalYM,developer
+"Không chỉ là code, mà phải code sạch, code đẹp",https://viblo.asia/s/375z0mEbZGW,coding tip
+Tut about React Native,https://viblo.asia/s/P0lPmrOn5ox,styled-components
+Nhật kí xây dựng hệ thống máy chấm thi lập trình tực tuyến,https://viblo.asia/s/nB5pX8nY5PG,code challenge
+Kotlin - Các tính năng độc quyền mà bạn nên sử dụng,https://viblo.asia/s/P0lPmrXv5ox,delegates
+Optimize wordpress,https://viblo.asia/s/nB5pX8Er5PG,wordpress
+Useful posts about growthacking,https://viblo.asia/s/o754jv7QZM6,growth hacking
+DevOps cùng tôi,https://viblo.asia/s/DVK2jDx0KLj,terraform
+React Hook Series,https://viblo.asia/s/4x5xp7er5BM,react
+SASS - Những điều cơ bản cần biết,https://viblo.asia/s/J3ZgB8QxKmB,front-end
+Bài viết chia sẻ về PHP,https://viblo.asia/s/Wj53OmMQ56m,traits
+Custom Wordpress,https://viblo.asia/s/z45bxjdqZxY,plugins
+R programming | Ngôn ngữ lập trình R,https://viblo.asia/s/jeZ107YJKWz,machine learning
+React Navigation,https://viblo.asia/s/JzKmgD9wl9N,navigation
+Tìm hiểu về EJBCA,https://viblo.asia/s/WOZrgPvwlQ0,ejbca
+Coding for cyris,https://viblo.asia/s/pmleBzOn5rd,performance
+Tìm hiểu về Flutter,https://viblo.asia/s/Wj53Om0e56m,flutter
+My favorite lists,https://viblo.asia/s/WOZrgPn7lQ0,android
+Tìm hiểu về Javascript,https://viblo.asia/s/RNZqg7AG50n,node.js
+Một vài thủ thuật CSS mà chính Frontend có thể còn chưa biết,https://viblo.asia/s/bq5QL7RJlD8,system font stack
+javascript tips,https://viblo.asia/s/W65GEp6LZDO,javascript
+Chatbot the lazy way,https://viblo.asia/s/aGK7jNGB5j2,node.js
+Auto layout cho người mới bắt đầu !,https://viblo.asia/s/z45bxjPVZxY,swift
+Chi tiết về material design trong android,https://viblo.asia/s/QqKLv3b0l7z,android
+Xây dựng ứng dụng Viblo trên android bằng kotlin sử dụng lib jsoup,https://viblo.asia/s/aQZRbPM0Zvx,jsoup
+Docker với lập trình viên web,https://viblo.asia/s/WrZngQmplxw,ruby on rails
+Neural Network Fundamental,https://viblo.asia/s/W65GEpW9ZDO,machine learning
+"Các hệ thống lớn sử dụng Rate Limiting để chống DDOS, hạn chế spam, bảo vệ hệ thống như thế nào? – Phần 2",https://toidicodedao.com/2020/03/24/rate-limiting-chong-ddos-p2/,token bucket
+Developer học những ngôn ngữ lập trình – công nghệ gì cho dễ tìm việc?,https://toidicodedao.com/2019/07/23/hoc-ngon-ngu-lap-trinh-cong-nghe-de-tim-viec/,tìm việc lập trình
+Lightning Talk Kì 27 – Khi code gặp khó khăn thì phải làm gì?,https://toidicodedao.com/2019/01/24/lightning-talk-ki-27-khi-code-gap-kho-khan-thi-phai-lam-gi/,đi làm
+"Lightning Talk Kì 21 – Những điều cần lưu ý khi mới đi làm, đi thực tập",https://toidicodedao.com/2018/10/11/lightning-talk-ki-21-nhung-dieu-can-luu-y-khi-moi-di-lam-di-thuc-tap/,đi làm
+Học hỏi thông qua Best Practice – Đứng trên vai những người khổng lồ,https://toidicodedao.com/2018/07/10/hoc-best-practice-programming/,system architecture
+"Công cụ đơn giản, bá đạo mà 69.96% sinh viên IT không biết – Phần 1 : Unit Test và Logging",https://toidicodedao.com/2018/03/08/cong-cu-sinh-vien-it-khong-biet-phan-1-unit-test-logging/,sơn tùng
+"Bắt chước Facebook và Google, cùng viết hệ thống “theo dõi” người dùng với Cookie",https://toidicodedao.com/2017/09/05/viet-he-thong-theo-doi-nguoi-dung/,web
+Series Nhập Môn Lập Trình – Con đường nào cho các bạn tự học lập trình?,https://toidicodedao.com/2017/05/11/con-duong-tu-hoc-lap-trinh/,tự học lập trình
+Series Nhận diện Idol: Phần 4.2 – Sử dụng Microsoft Face API để training hệ thống,https://toidicodedao.com/2017/02/14/nhan-dien-idol-phan-4-2-microsoft-face-api-training/,series nhận diện idol
+Series Phản Phác Qui Chân – Học thuật toán để làm vẹo gì???,https://toidicodedao.com/2016/10/06/hoc-thuat-toan-de-lam-gi/,đại học
+"Series C# hay ho: Tránh xa Web Form, CÀNG XA CÀNG TỐT",https://toidicodedao.com/2016/06/21/tranh-xa-asp-web-form/,winform
+Ngày đầu đi code dạo nơi đất khách quê người – Phần 2,https://toidicodedao.com/2016/03/29/ngay-dau-di-code-dao-noi-dat-khach-que-nguoi-phan-2/,đồng nghiệp
+Series C# hay ho – Tổng quan về Windows Services (WS),https://toidicodedao.com/2015/12/15/series-c-hay-ho-tong-quan-ve-windows-services-ws/,ws
+NoSQL có gì hay ho – Tổng quan về NoSQL – Phần 1,https://toidicodedao.com/2015/09/24/nosql-co-gi-hay-ho-tong-quan-ve-nosql-phan-1/,tổng quan
+"[Tutorial] Tạo ứng dụng chat với 50 dòng code, Firebase và AngularJS",https://toidicodedao.com/2015/07/07/tutorial-tao-ung-dung-chat-voi-50-dong-code-firebase-va-angularjs/,tutorial
+Tạo dummy data với Faker và Mockaroo – Xa rồi những ngày nhập tay nhàm chán,https://toidicodedao.com/2015/03/19/tao-dummy-data-voi-faker-va-mockaroo-xa-roi-nhung-ngay-nhap-tay-nham-chan/,sql
+Học ngôn ngữ lập trình nào bây giờ (Phần 1),https://toidicodedao.com/2015/01/13/hoc-ngon-ngu-lap-trinh-nao-bay-gio-phan-1/,nghề nghiệp
+"Promise, Async/Await và Map/Reduce",https://thefullsnack.com/posts/javascript-promise-va-map.html,"javascriptpromise , async"
+Tối ưu hiệu suất MongoDB bằng cách quản lý index,https://thefullsnack.com/posts/guest-xluffy-mongodb-improving-index.html,"guest , database , mongodbt"
+Anagram và đa thức đối xứng,https://thefullsnack.com/posts/guest-dat-anagram-da-thuc-doi-xung.html,"guest , math , algorithmanagram"
+"Quick and Dirty Stack, Queue and Deque in JavaScript",https://thefullsnack.com/posts/quick-and-dirty-stack-queue.html,"code , javascript , algorithmquick , queue"
+Keyboard from Scratch: Prototype,https://thefullsnack.com/posts/mechkeyboard-first-part.html,"hardware , hacking , keyboard-buildingkeyboard"
+Tăng tốc tính toán bằng cách chuyển hệ cơ số,https://thefullsnack.com/posts/multiply-in-different-base.html,"algorithm , matht"
+Những lệnh Git cơ bản cần nhớ,https://viblo.asia/p/nhung-lenh-git-co-ban-can-nho-V3m5W1OyZO7,cau hoi ve git
+Một số hàm thông dụng trong matlab để vẽ đồ thị,https://viblo.asia/p/mot-so-ham-thong-dung-trong-matlab-de-ve-do-thi-RQqKLxebK7z,""
+Bạn có biết - Bí quyết thay version như thay áo,https://viblo.asia/p/ban-co-biet-bi-quyet-thay-version-nhu-thay-ao-m68Z0PRXZkG,node.js
+Lập trình bất đồng bộ trong C#,https://viblo.asia/p/lap-trinh-bat-dong-bo-trong-c-DZrGNDoWkVB,.net
+RSpec: sự khác nhau giữa Mocks và Stub,https://viblo.asia/p/rspec-su-khac-nhau-giua-mocks-va-stub-maGK70oAZj2,rspec
+Tản mạn về unit testing trong laravel,https://viblo.asia/p/tan-man-ve-unit-testing-trong-laravel-gDVK2L40lLj,unittesting
+Windowing in ReactJS (Part1),https://viblo.asia/p/windowing-in-reactjs-part1-jvEla7y6Kkw,reactjs
+Mã hóa bất đối xứng,https://viblo.asia/s/68Z00ndNZkG,encryption
+Learning Node.js,https://viblo.asia/s/3vKjR8nMK2R,npm
+[Linux Basic Command] Sử dụng lệnh cơ bản trên Linux,https://viblo.asia/s/P0lPmrv85ox,phim tat linux
+MongoDB cơ bản cho người mới,https://viblo.asia/s/Je5EjWY4KnL,mongodb
+Testing căn bản,https://viblo.asia/s/jy5VB8bb5ra,sdlc
+Series PhpStorm,https://viblo.asia/s/WrZng8bplxw,fix conflict
+[For beginners in PM] 15 chủ đề để học về cơ sở và kĩ thuật quản lý dự án.,https://viblo.asia/s/375z0mz6ZGW,project management
+Học Javascript cùng Báu,https://viblo.asia/s/Am5yqPL85db,js
+Tôi đã học Assembly 32bit như thế nào,https://viblo.asia/s/P0lPmrwo5ox,assembly
+Tìm hiểu về Laravel 6.x,https://viblo.asia/s/P0lPmJgG5ox,semantic
+Elasticsearch | From zero to hero,https://viblo.asia/s/OVlYq0Xyl8W,types
+Web API - Căn Bản,https://viblo.asia/s/WOZrgPYYlQ0,api
+Cùng học Kotlin Coroutine,https://viblo.asia/s/z45bxjBoZxY,android
+Tự Học Lập Trình Android,https://viblo.asia/s/P0lPmJo45ox,android
+[Spring boot + Spring data] Tập hợp các ví dụ sử dụng spring boot + spring data,https://viblo.asia/s/L6lAyeORlek,spring data
+React app làm việc với Rails 5.1 API,https://viblo.asia/s/375z09NRZGW,ruby on rails
+Tạo ứng dụng đọc sách điện tử với EPUB,https://viblo.asia/s/rLZDXogOZk0,java
+Series Rails cơ bản.,https://viblo.asia/s/pmleBzzk5rd,ruby on rails
+Eloquent - Behind the Mask,https://viblo.asia/s/dbZN7QRqlYM,eloquent
+Tập tành tìm hiểu và viết chrome extension bằng VueJS,https://viblo.asia/s/z45bxjRQZxY,chrome extension
+Ngôn ngữ lập trình Go,https://viblo.asia/s/OVlYq0RQl8W,oop
+Login social network,https://viblo.asia/s/vElaBkq45kw,facebook api
+JavaScript - ES6,https://viblo.asia/s/WrZngQrnlxw,this
+Giới thiệu về Shopify,https://viblo.asia/s/b85ogvrj52G,shopify domain
+Play  Framework,https://viblo.asia/s/4x5xpqVO5BM,""
+My list favorite of php,https://viblo.asia/s/375z09VbZGW,oop
+Docker for beginner,https://viblo.asia/s/DVK2jPBXKLj,nginx
+Hướng dẫn Apache JMeter,https://viblo.asia/s/DVK2jPLXKLj,""
+Series JSF Framework,https://viblo.asia/s/VgZvE2D1KAw,jsf
+javascript quick tip,https://viblo.asia/s/aQZRbPv0Zvx,design pattern
+"Các hệ thống lớn sử dụng Rate Limiting để chống DDOS, hạn chế spam, bảo vệ hệ thống như thế nào? – Phần 1",https://toidicodedao.com/2020/03/17/rate-limiting-chong-ddos-p1/,trà sữa
+Ba bài học về Software Engineering học được qua một buổi hái xoài (bonus thêm 2 trái xoài siêu to khổng lồ),https://toidicodedao.com/2019/07/09/hai-xoai-va-software-engineer/,đại học
+Chuyện Code Chuyện Đời – Lại chuyện tình iu và chuyện kinh nghiệm code,https://toidicodedao.com/2019/01/22/chuyen-tinh-iu-va-kinh-nghiem-code/,đi làm
+Bốn phương pháp rèn luyện tư duy lập trình,https://toidicodedao.com/2018/10/09/ren-luyen-tu-duy-lap-trinh/,youtube channel
+Tổng hợp những câu nói gây ức chế nhất cho developer,https://toidicodedao.com/2018/07/05/cau-noi-gay-uc-che-developer/,đi làm
+Tổng hợp sách hay về JavaScript – Từ nhập môn đến nâng cao,https://toidicodedao.com/2018/03/06/tong-hop-sach-hay-ve-javascript-tu-nhap-mon-den-nang-cao/,thư viện
+Tổng hợp những clip livestream hay của Tôi đi Code Dạo và Codeaholicguy,https://toidicodedao.com/2017/08/24/tong-hop-nhung-clip-livestream-hay-cua-toi-di-code-dao-va-codeaholicguy/,web developer
+Series Nhập Môn Lập Trình – Hai con đường trở thành lập trình viên: Đại Học và Học Đại,https://toidicodedao.com/2017/05/04/tro-thanh-lap-trinh-vien/,đại học
+Series Nhận diện Idol: Phần 4.1 – Lý thuyết và cơ chế nhận diện khuôn mặt,https://toidicodedao.com/2017/02/07/nhan-dien-idol-phan-4-1-ly-thuyet-co-che/,website
+Series Bảo Mật Nhập Môn – Giao thức HTTP “bảo mật” đến mức nào?,https://toidicodedao.com/2016/10/04/bao-mat-cua-giao-thuc-http/,ssl
+Series SOLID cho thanh niên code CỨNG: Dependency Inversion Principle,https://toidicodedao.com/2016/06/14/series-solid-cho-thanh-nien-code-cung-dependency-inversion-principle/,srp
+Ngày đầu đi code dạo nơi đất khách quê người – Phần 1,https://toidicodedao.com/2016/03/24/ngay-dau-di-code-dao-noi-dat-khach-que-nguoi-phan-1/,đồng nghiệp
+Giới thiệu tổng quát về Meteor,https://toidicodedao.com/2015/12/10/gioi-thieu-tong-quat-ve-meteor/,website
+Hướng dẫn tích hợp Travis-CI vào project trên github,https://toidicodedao.com/2015/09/15/huong-dan-tich-hop-travis-ci-vao-project-tren-github/,visual studio
+Cách tiếp cận 1 ngôn ngữ/công nghệ mới – Phần 2,https://toidicodedao.com/2015/06/25/cach-tiep-can-1-ngon-ngucong-nghe-moi-phan-2/,đại học
+Mẹo vặt trong Visual Studio – Liệu bạn đã biết rõ IDE của mình chưa?,https://toidicodedao.com/2015/03/12/meo-vat-trong-visual-studio-lieu-ban-da-biet-ro-ide-cua-minh-chua/,visual studio
+Be an Amateur,https://thefullsnack.com/posts/be-an-amateur.html,"random , opinionbe"
+Chuyện không đầu không đít (Phần 2),https://thefullsnack.com/posts/chuyen-khong-dau-khong-dit-phan-2.html,"random , opinionchuy"
+Keyboard from Scratch: Debounce,https://thefullsnack.com/posts/mechkeyboard-second-part.html,"hardware , hacking , keyboard-buildingkeyboard"
+Học Regex cơ bản,https://viblo.asia/p/hoc-regex-co-ban-GrLZDvxV5k0,regular expression (regexp)
+CÁC NHÂN TỐ ẢNH HƯỞNG ĐẾN QUYẾT ĐỊNH ĐỊNH GIÁ BÁN SẢN PHẨM TRONG DOANH NGHIỆP,https://viblo.asia/p/cac-nhan-to-anh-huong-den-quyet-dinh-dinh-gia-ban-san-pham-trong-doanh-nghiep-XqakELbWeWK,others
+Những điều cần lưu ý và sử dụng Hook trong React (Phần 2),https://viblo.asia/p/nhung-dieu-can-luu-y-va-su-dung-hook-trong-react-phan-2-gDVK2Ln0lLj,reactjs
+Radix Sort,https://viblo.asia/p/radix-sort-Do7542eWZM6,ruby
+Tìm hiểu Ec-cube 4,https://viblo.asia/s/VgZvEvNYKAw,php
+Tìm hiểu về Kubernetes (K8s) từ con số 0,https://viblo.asia/s/nB5pX8N65PG,container
+Tableau cho người mới,https://viblo.asia/s/DVK2jD8vKLj,eda
+Tìm hiểu cơ bản về hệ phân tán,https://viblo.asia/s/3m5WB8OwlO7,đồng bộ hóa
+"JavaScript cho người ""không mới""",https://viblo.asia/s/yEZkg8LgZQ0,javascript
+Viết game xếp hình (Tetris) hoàn chỉnh từ con số 0,https://viblo.asia/s/zD5dB8PzZjY,tetris
+CSS và những điều thú vị,https://viblo.asia/s/GJ59jLYGKX2,frontend
+Crawl comment Facebook Plugin của Phimmoi,https://viblo.asia/s/QqKLvpM0l7z,web mining
+Dựng CLI với Cookiecutter,https://viblo.asia/s/WOZrgnDRlQ0,cookiecutter
+Paper Explain - Tóm tắt nội dung và Implement các paper trong linh vực AI,https://viblo.asia/s/QqKLvpazl7z,paper
+Linux Privilege Escalation,https://viblo.asia/s/Wj53OQgw56m,environment variables
+SwiftUI series: tìm hiểu về SwiftUI,https://viblo.asia/s/eVKByazA5kW,securefield
+WordPress Tutorial,https://viblo.asia/s/7LKXNqv4lV4,wordpress
+Javascript - Learn enough to be awesome,https://viblo.asia/s/b85ogvPW52G,slice
+[GAN series-0]: Giới thiệu series bài viết về GAN,https://viblo.asia/s/DVK2jPErKLj,deep learning
+Kinh nghiệm code React Native từ một Web Developer,https://viblo.asia/s/jy5VB2GM5ra,messenger
+Hướng dẫn MySQl cơ bản,https://viblo.asia/s/375z09jJZGW,ubuntu
+Sử dụng Traefik với Docker,https://viblo.asia/s/P0lPmJdG5ox,docker machine
+Mocks không phải là Stubs,https://viblo.asia/s/WrZngQqvlxw,stub
+Series về Hackintosh,https://viblo.asia/s/nB5pXJYD5PG,install
+[iOS] Core Animation,https://viblo.asia/s/DVK2jPAmKLj,ios
+Tip And Trick??????????,https://viblo.asia/s/3m5WBNqElO7,certificate authority
+Cách tối ưu hoá trang chi tiết ứng dụng của bạn trên Google Play Store,https://viblo.asia/s/P0lPmJpp5ox,android app
+SEO trên ứng dụng ReactJS,https://viblo.asia/s/P856j2D35Y3,reactjs
+Giới thiệu về ECMAScript 6,https://viblo.asia/s/W65GEpVaZDO,es6
+Chuyện tình Spring và JMS,https://viblo.asia/s/3vKjRggNK2R,spring
+"Machine Learning, Deep Learning cho người bắt đầu",https://viblo.asia/s/vElaBkkY5kw,python
+"Tạo hiệu ứng ""Liên kết hạt (Particles)"" bằng canvas HTML5",https://viblo.asia/s/WOZrgPGvlQ0,canvas
+Front End Interview Handbook,https://viblo.asia/s/3vKjRgWdK2R,html
+Lập trình Kotlin nâng cao,https://viblo.asia/s/Wj53Omz156m,inline function
+Tìm hiểu về IOT thông qua ứng dụng điều khiển các thiết bị trong nhà thông qua Internet,https://viblo.asia/s/24lJDg8aKPM,iot
+Amazon Web Services for Essential,https://viblo.asia/s/L6lAye6Dlek,""
+Validate data với Json schema,https://viblo.asia/s/jeZ107j8KWz,node.js
+Học cách làm app bằng NodeJs với React,https://viblo.asia/s/jy5VB2P35ra,reactjs
+Code review - How to make it awesome,https://viblo.asia/s/7LKXNq72lV4,code review
+Hướng đối tượng OOP và lập trình PHP,https://viblo.asia/s/jeZ107wYKWz,abstract class
+Series Spring Core,https://viblo.asia/s/QqKLv3bpl7z,spring
+library_for_web,https://viblo.asia/s/eVKByjNY5kW,restful
+Tôi đã viết game Bầu Cua chơi qua Livestream như thế nào!,https://toidicodedao.com/2020/03/03/lam-game-bau-cua-live-stream/,youtube api
+Giải ngố về môi trường (environment) – Một khái niệm/kĩ thuật cực hữu ích trong ngành lập trình,https://toidicodedao.com/2019/07/02/environment-trong-lap-trinh/,tester
+Cùng học Cờ Lao – Azure Phần 2: Tạo máy ảo (Virtual Machine) Windows để nghịch ngợm,https://toidicodedao.com/2019/01/15/cung-hoc-co-lao-azure-phan-2-tao-may-ao-virtual-machine-windows-de-nghich-ngom/,điện toán đám mây
+Làm sao để trở thành senior developer lương “nghìn đô”,https://toidicodedao.com/2018/10/04/lam-sao-thanh-senior-developer/,senior developer
+Sự khác biệt giữa developer thường và developer “xịn”,https://toidicodedao.com/2018/07/03/khac-biet-developer-thuong-va-developer-xin/,web
+"Đưa kiến thức lập trình tự tìm đến bạn thông qua email, Facebook và Youtube",https://toidicodedao.com/2018/02/27/dua-kien-thuc-lap-trinh-tu-tim-den-ban-thong-qua-email-facebook-va-youtube/,youtube
+Làm thế nào để trở thành Web Developer – Phần 2,https://toidicodedao.com/2017/08/22/lam-the-nao-tro-thanh-web-developer-phan-2/,website
+Xoá mù Agile và Scurm – Phần 2 – Tìm hiểu và ứng dụng Scrum,https://toidicodedao.com/2017/05/02/ung-dung-scrum/,waterfall
+"Rảnh rỗi không biết code gì, sao không làm pet project?",https://toidicodedao.com/2017/01/19/code-pet-project/,startup
+Đừng để mình trở thành coder “siêu nhân”,https://toidicodedao.com/2016/09/29/coder-sieu-nhan/,thần thánh
+Series SOLID cho thanh niên code CỨNG: Interface Segregation Principle,https://toidicodedao.com/2016/06/09/series-solid-cho-thanh-nien-code-cung-interface-segregation-principle/,solid
+Series Phản Phác Qui Chân – Tuốt tuồn tuột về Unicode và Charset,https://toidicodedao.com/2016/03/22/series-phan-phac-qui-chan-tuot-tuon-tuot-ve-unicode-va-charset/,utf-8
+Series C# hay ho: Luận về cái chết của Silverlight,https://toidicodedao.com/2015/12/08/series-c-hay-ho-luan-ve-cai-chet-cua-silverlight/,wpf
+Tổng quan về lập trình ứng dụng di động – Phần 2,https://toidicodedao.com/2015/09/03/tong-quan-ve-lap-trinh-ung-dung-di-dong-phan-2/,windows phone
+Cách tiếp cận 1 ngôn ngữ/công nghệ mới – Phần 1,https://toidicodedao.com/2015/06/23/cach-tiep-can-1-ngon-ngucong-nghe-moi-phan-1/,đại học
+Stay healthy,https://thefullsnack.com/posts/stay-healthy.html,randomstay
+Học Flutter từ cơ bản đến nâng cao. Phần 2: StatefulWidget vs StatelessWidget. Khi nào thì cần sử dụng cái nào?,https://viblo.asia/p/hoc-flutter-tu-co-ban-den-nang-cao-phan-2-statefulwidget-vs-statelesswidget-khi-nao-thi-can-su-dung-cai-nao-ORNZq12rZ0n,widget
+Từng bước học Vue2 Tập 11,https://viblo.asia/p/tung-buoc-hoc-vue2-tap-11-6J3ZgNNRKmB,vue2
+"setup Jacoco for an Android Multiple Module Project(Clean Architect Project,...).",https://viblo.asia/p/setup-jacoco-for-an-android-multiple-module-projectclean-architect-project-4dbZNNoqZYM,android development
+Software Process Improvement(SPI) - Part 1,https://viblo.asia/p/software-process-improvementspi-part-1-jvEla77oKkw,agile software development
+Series 3 | Java,https://viblo.asia/s/jy5VB8BG5ra,javafx
+Làm quen với React.js,https://viblo.asia/s/GJ59jLj9KX2,lifecycle
+[JAVA] Spring Framework From Scratch,https://viblo.asia/s/aQZRb81QZvx,spring boot
+Python cho người mới bắt đầu,https://viblo.asia/s/jeZ103V8KWz,tuple
+Pro Kubernetes:  Lý thuyết và Thực tiễn,https://viblo.asia/s/OVlYq81Vl8W,programming
+Cypress Hero To Zero,https://viblo.asia/s/L6lAy1XDlek,cypress
+Các kỹ thuật thu thập dữ liệu (Crawler) trên Internet,https://viblo.asia/s/7LKXN84elV4,colly
+Ứng Dụng Elasticsearch Trong Project Laravel,https://viblo.asia/s/JzKmg8M6l9N,elasticsearch trong laravel
+Laravel Vỡ Lòng,https://viblo.asia/s/o754jvWBZM6,laravel
+Cùng giải Cryptopals!,https://viblo.asia/s/68Z00nw9ZkG,hash
+asdfjhg asdfjhg asdfjhg,https://viblo.asia/s/VgZvEvB1KAw,regex
+Các thuật toán sắp xếp thông dụng,https://viblo.asia/s/aGK7jPwL5j2,bubble sort
+Lập trình Web với Golang,https://viblo.asia/s/yDZOPg9klwj,server
+Hướng dẫn cài đặt OpenCV 4 lên MacOS,https://viblo.asia/s/aGK7jPge5j2,imageprocess
+Tổng hợp kiến thức trong tháng,https://viblo.asia/s/jy5VB8Ej5ra,note
+Public blockchain for newbie,https://viblo.asia/s/nB5pX8Rw5PG,reactjs
+Amazon Web Services Journey,https://viblo.asia/s/aQZRbPEAZvx,solution architecture
+Design patterns in ruby,https://viblo.asia/s/yEZkgnbWZQ0,rub
+Refactor Code In C#,https://viblo.asia/s/P856j2EW5Y3,c#
+Nội dung thực hiện,https://viblo.asia/s/JzKmgD9Bl9N,notification
+Tìm hiểu Linux cơ bản,https://viblo.asia/s/Q75wqNb3ZWb,linux
+Lập trình với Kotlin cho người mới bắt đầu.,https://viblo.asia/s/Am5yq0NX5db,class
+Khám phá Docker.,https://viblo.asia/s/JzKmgDnBl9N,permission
+Trả lời các câu hỏi mà bản thân thấy thích thú về lập trình. :),https://viblo.asia/s/DVK2jPNAKLj,class
+Thu thâp dữ liệu với Scrapy,https://viblo.asia/s/W65GEpXPZDO,crawler
+Ghi chép React Redux,https://viblo.asia/s/o754jL0VZM6,redux
+Cùng thử yêu Ruby.,https://viblo.asia/s/rLZDXoMBZk0,ruby
+Flask Tutorials (Out-dated),https://viblo.asia/s/WOZrgPL7lQ0,python
+React up and running,https://viblo.asia/s/68Z00JJjZkG,jsx
+Ứng dụng Deep Learning vào xử lý ảnh,https://viblo.asia/s/z45bxjjQZxY,tensorflow
+Thư viện javascript,https://viblo.asia/s/L6lAyeVrlek,javascript
+Các mô hình và thuật toán internet phổ biến,https://viblo.asia/s/P856j2G15Y3,digital signature
+Xây dựng weather app,https://viblo.asia/s/3m5WBNkWlO7,promise
+Blockchain & Smart Contract,https://viblo.asia/s/Am5yq0mq5db,ethereum
+React Native mini course,https://viblo.asia/s/4x5xpqrq5BM,""
+Machine Learning cho người mới bắt đầu,https://viblo.asia/s/WOZrgPVplQ0,machine learning
+Tìm hiểu JavaScript,https://viblo.asia/s/JzKmgDaDl9N,java
+Tìm hiểu về Typescript,https://viblo.asia/s/rLZDXoDeZk0,typescript
+ECMAScript 2015 - ES6,https://viblo.asia/s/7LKXNqeDlV4,es6
+Setup Big Data for ubuntu,https://viblo.asia/s/AyK8VqDElxX,big data
+Tối ưu công cụ lập trình,https://viblo.asia/s/zD5dBovzZjY,svn
+"Bạn biết JS, jQuery và nghĩ rằng mình đã thành thạo JavaScript? Hãy để hiện thực vả bạn sml",https://toidicodedao.com/2020/02/25/lam-sao-thanh-thao-front-end/,webpack
+Cùng học Cờ Lao – Azure Phần 5.2: Tạo và kết nối SQL Database trên Cloud trong 10 phút,https://toidicodedao.com/2019/06/11/cung-hoc-co-lao-azure-phan-5-2-tao-va-ket-noi-sql-database-tren-cloud-trong-10-phut/,điện toán đám mây
+Lightning Talk Kì 26 – Qui trình làm việc trong các công ty phần mềm,https://toidicodedao.com/2018/12/27/lightning-talk-ki-26-qui-trinh-lam-viec-trong-cac-cong-ty-phan-mem/,đi làm
+Gặp khó khăn khi viết code thì phải làm sao?,https://toidicodedao.com/2018/10/02/gap-kho-khan-khi-viet-code-thi-phai-lam-sao/,viết code
+Bạn tưởng CSS đơn giản và dễ học? Bạn sẽ nghĩ lại sau khi đọc bài viết này!,https://toidicodedao.com/2018/06/26/css-co-don-gian-de-hoc/,style
+Ngẫm – Không có khiếu code thì liệu có theo ngành lập trình được không?,https://toidicodedao.com/2018/02/06/khong-co-khieu-code-co-nen-theo-nganh-lap-trinh/,đam mê
+Làm thế nào để trở thành Web Developer – Phần 1,https://toidicodedao.com/2017/08/17/lam-the-nao-de-tro-thanh-web-developer-phan-1/,website
+Xoá mù Agile và Scurm – Phần 1 – Tìm hiểu về Agile,https://toidicodedao.com/2017/04/25/tim-hieu-agile-scrum-la-gi/,waterfall
+Series Nhận diện Idol: Phần 3 – Cùng đi đào dữ liệu VAV Idol,https://toidicodedao.com/2017/01/17/series-nhan-dien-idol-phan-3-thu-thap-du-lieu/,website
+Series Phản Phác Qui Chân – Luận về Optimize Code,https://toidicodedao.com/2016/09/27/optimize-code/,stackoverflow
+Hướng dẫn viết chat bot cho Facebook – Phần 3: Deploy và submit bot cho Facebook,https://toidicodedao.com/2016/06/07/huong-dan-viet-chat-bot-cho-facebook-phan-3-deploy-va-submit-bot-cho-facebook/,webhook
+Series Phản Phác Quy Chân – Tại sao cộng string lại chậm,https://toidicodedao.com/2016/03/15/series-phan-phac-quy-chan-tai-sao-cong-string-lai-cham/,string
+Series C# hay ho: Tại sao WinForm vẫn “chưa chết” – Có nên học WinForm hay không ?,https://toidicodedao.com/2015/12/03/series-c-hay-ho-tai-sao-winform-van-chua-chet-co-nen-hoc-winform-hay-khong/,xaml
+Open Source Story: Agar.IO Clone,https://thefullsnack.com/posts/agario-story.html,"code , game , opensourceopen"
+AWS (Amazon web services) là gì? Ứng dụng trong thực tế. (Phần 1),https://viblo.asia/p/aws-amazon-web-services-la-gi-ung-dung-trong-thuc-te-phan-1-4dbZNN98ZYM,amazon web services (aws)
+Tại sao bạn nên sử dụng Constants File trong Swift,https://viblo.asia/p/tai-sao-ban-nen-su-dung-constants-file-trong-swift-4P856qqGlY3,ios
+10 điều mà bạn có thể chưa biết khi dùng Chrome Dev Tools,https://viblo.asia/p/10-dieu-ma-ban-co-the-chua-biet-khi-dung-chrome-dev-tools-LzD5dLLe5jY,chrome
+Vanilla Javascript Projects,https://viblo.asia/s/P0lPmryg5ox,vanilla javascript projects
+Translate sách The Art of Game Design,https://viblo.asia/s/J3ZgB8JPKmB,game design
+Cùng tôi chia sẻ,https://viblo.asia/s/z45bx8n6ZxY,website technologies
+Thuật toán đồng thuận Raft,https://viblo.asia/s/Am5yqPwO5db,hyperledger fabric
+Học nhanh ngôn ngữ Dart (Flutter) nhờ ngôn ngữ Kotlin,https://viblo.asia/s/dbZN76DvlYM,lambda expression
+"Học rất có Lợi, Chơi rất có Hại, Học và Chơi thật LỢI HẠI",https://viblo.asia/s/L6lAy1gJlek,puppeteer
+Giới thiệu và tìm hiểu về framework Laravel,https://viblo.asia/s/b85og82652G,laravel
+Shell Script tutorial,https://viblo.asia/s/VgZvEv71KAw,linux shell
+Solution Hacker Rank,https://viblo.asia/s/z45bx86gZxY,java
+Những chức năng bạn có thể cần trong một project Laravel,https://viblo.asia/s/AyK8VmW9lxX,api
+Hệ gợi ý: Những bài viết cho người mới bắt đầu,https://viblo.asia/s/P856j7wO5Y3,nbcf
+learning Spring,https://viblo.asia/s/AyK8VqzplxX,spring boot
+Từ ES5 tới ES10 — tất cả các feature được thêm vào JavaScript từ 2015 tới 2019,https://viblo.asia/s/o754jL8XZM6,javascript
+Programming Language,https://viblo.asia/s/Wj53OmY856m,logo programming language
+Robot Framework Cơ Bản,https://viblo.asia/s/3vKjRgYAK2R,robot framework
+Khám phá Android Q,https://viblo.asia/s/yEZkgnRqZQ0,android
+"Tutorial Testing với thư viện Jest, một số tiêu chí khi viết Unit Test và cách sử dụng Jest trong Vuejs như thế nào.",https://viblo.asia/s/yDZOPvm7lwj,stub
+Linux command Line,https://viblo.asia/s/jeZ107MRKWz,shell
+Handbook Computer Vision with Deep Learning,https://viblo.asia/s/MnKMJDQrZ7P,image classification
+Xây dựng ứng dụng web với Python + Flask Framework + Angular2 + DynamoDB,https://viblo.asia/s/OVlYq0Dnl8W,flask framework
+CS224n: Natural Language Processing with Deep Learning,https://viblo.asia/s/AyK8VqyklxX,nlp
+1 số gói hỗ trợ trong Laravel 5.7,https://viblo.asia/s/68Z00JnjZkG,php
+My Follow Series,https://viblo.asia/s/dbZN7QQklYM,continuous integration
+CFNetwork Guide,https://viblo.asia/s/7LKXNqQPlV4,macosx
+Learn the Javascript,https://viblo.asia/s/z45bxjqQZxY,function scope
+Giới thiệu về RxJava,https://viblo.asia/s/aGK7jN6x5j2,android
+Save for me..........,https://viblo.asia/s/68Z00JeNZkG,nosql
+Tài liệu Hadoop A2Z,https://viblo.asia/s/Je5EjzaGKnL,machine learning
+Automation testing tool - Selenium,https://viblo.asia/s/zD5dBoWwZjY,selenium ide
+Jquery Validation,https://viblo.asia/s/eVKByjAJ5kW,jquery
+Speech Recognizer,https://viblo.asia/s/o754jLdBZM6,android
+Hướng dẫn tạo bộ lọc màu ảnh giống như trong Instagram,https://viblo.asia/s/VgZvE2DrKAw,android
+Cùng đi học Machine Learning,https://viblo.asia/s/Wj53Ombp56m,machine learning
+Giới thiệu về Android Architecture Components,https://viblo.asia/s/jy5VB24b5ra,android
+Xử Lý Ngôn Ngữ Tự Nhiên với Python,https://viblo.asia/s/Je5Ejz9wKnL,nlp
+Làm sao để trở thành senior “giả cầy”??,https://toidicodedao.com/2020/02/18/lam-sao-thanh-senior-gia-cay/,tester
+Lightning Talk Kì 31- 5 thái độ nên có của lập trình viên thành công,https://toidicodedao.com/2019/06/06/lightning-talk-ki-31-5-thai-do-nen-co-cua-lap-trinh-vien-thanh-cong/,đi làm
+Cùng học Cờ Lao – Azure Phần 1: Cách tạo account Microsoft Azure để bắt đầu nghịch,https://toidicodedao.com/2018/12/25/cach-tao-account-microsoft-azure/,điện toán đám mây
+Lightning Talk Kì 20 – Năm điều quan trọng mà Đại Học không dạy bạn,https://toidicodedao.com/2018/09/27/lightning-talk-ki-20-nam-dieu-quan-trong-ma-dai-hoc-khong-day-ban/,đại học
+7 sự thật trong ngành lập trình mà dân “ngoại đạo” không hề biết,https://toidicodedao.com/2018/06/19/su-that-nganh-lap-trinh-it-nguoi-biet/,windows
+Làm trò với Puppeteer – Phần 3: Bắt đầu testing với puppeteer,https://toidicodedao.com/2018/01/30/lam-tro-voi-puppeteer-phan-3-bat-dau-testing-voi-puppeteer/,unit test
+"Facebook và Google đã dòm ngó, theo dõi chúng ta như thế nào?",https://toidicodedao.com/2017/08/15/facebook-va-google-theo-doi-nguoi-dung-nhu-the-nao/,web
+Khoảng trống kiến thức giữa sinh viên IT và Lập Trình Viên,https://toidicodedao.com/2017/04/20/khoang-trong-kien-thuc-lap-trinh-vien/,xin việc
+Nghịch ngợm RestAPI với Postman – Gọi API đâu có gì khó?,https://toidicodedao.com/2017/01/10/goi-rest-api-voi-postman/,web developer
+Review sách: SQL Antipatterns – Những sai lầm chết người khi làm việc với SQL,https://toidicodedao.com/2016/09/20/review-sach-sql-antipatterns-nhung-sai-lam-chet-nguoi-khi-lam-viec-voi-sql/,sql database
+Hướng dẫn viết chat bot cho Facebook – Phần 2: Tạo Fanpage và kết nối với bot,https://toidicodedao.com/2016/06/02/huong-dan-viet-chat-bot-cho-facebook-phan-2-tao-fanpage-va-ket-noi-voi-bot/,webhook
+"Series JavaScript sida – Bind, Call và Apply trong JavaScript",https://toidicodedao.com/2016/03/08/series-javascript-sida-bind-call-va-apply-trong-javascript/,source code
+Series C# hay ho: EPPlus – Thư viện Excel “bá đạo” – Phần 2,https://toidicodedao.com/2015/11/26/series-c-hay-ho-epplus-thu-vien-excel-ba-dao-phan-2/,tạo file excel
+Tổng quan về lập trình ứng dụng di động – Phần 1,https://toidicodedao.com/2015/09/01/tong-quan-ve-lap-trinh-ung-dung-di-dong-phan-1/,windows phone
+Series C# hay ho: So sánh 2 object trong C# (Deep compare),https://toidicodedao.com/2015/06/16/series-c-hay-ho-so-sanh-2-object-trong-c-deep-compare/,series
+"Series C# hay ho: IEnumerable và yield, tưởng đơn giản mà lắm thứ phải bàn",https://toidicodedao.com/2015/03/10/series-c-hay-ho-ienumerable-va-yield-tuong-don-gian-ma-lam-thu-phai-ban/,yield
+Làm chủ Rspec với câu lệnh,https://viblo.asia/p/lam-chu-rspec-voi-cau-lenh-924lJmPmZPM,ruby on rails
+1 số tool webpack hay ho bạn có thể sử dụng được trong dự án,https://viblo.asia/p/1-so-tool-webpack-hay-ho-ban-co-the-su-dung-duoc-trong-du-an-07LKXeo8ZV4,webpack
+Custom selectbox jquery,https://viblo.asia/p/custom-selectbox-jquery-07LKXee8ZV4,jquery
+Indexing for High Performance,https://viblo.asia/s/vElaB8E45kw,mysql
+Cùng học Unit Test,https://viblo.asia/s/jeZ103BYKWz,unittest
+Giải thuật bản đầy đủ,https://viblo.asia/s/GJ59jLaDKX2,giai thuat
+Trở thành lập trình viên với ngôn ngữ Kotlin,https://viblo.asia/s/jy5VB8rz5ra,hoc lap trinh
+Spring Batch - Series - 1 - Một số khái niệm cơ bản,https://viblo.asia/s/aGK7jPLO5j2,jdk
+Tìm hiểu về JMeter,https://viblo.asia/s/pmleB8qV5rd,jmeter
+Microservices serial,https://viblo.asia/s/Wj53OQdw56m,unoconv
+"Hôm nay ăn gì với Laravel, ReactJS, React Hook, Redux Saga",https://viblo.asia/s/W65GEj36ZDO,reactjs
+SEO Web EXP And Tool SEO,https://viblo.asia/s/WrZng8R9lxw,web performance
+Học Kubernetes qua ví dụ minh họa,https://viblo.asia/s/OVlYq8xvl8W,ingress
+Áp dụng các thuật toán sắp xếp trong Javascript,https://viblo.asia/s/Am5yqPgw5db,mergesort
+Front-end development,https://viblo.asia/s/yEZkg8BAZQ0,html5
+DOM là cần thiết cho Javascript Master,https://viblo.asia/s/vElaB8p65kw,html
+Học wordpress toàn tập,https://viblo.asia/s/J3ZgBpAEKmB,wordpress
+Elasticsearch DSL,https://viblo.asia/s/vElaBkxz5kw,elasticsearch
+API Testing bằng Postman,https://viblo.asia/s/aGK7jNxA5j2,postman
+Cron Job and Background Job,https://viblo.asia/s/Q75wqNeDZWb,delayed job
+C/C++ Program for Nguyen,https://viblo.asia/s/zD5dBoYoZjY,design pattern
+Toàn tập về cấu trúc dữ liệu xưa như trái đất không trượt cái nào với Pythongggg,https://viblo.asia/s/24lJDgk0KPM,python
+Từ phát triển tới triển khai,https://viblo.asia/s/dbZN7QzylYM,vuejs
+System Recovery,https://viblo.asia/s/AyK8VqvolxX,tăng tốc khởi động lại
+Tìm hiểu về Storybook,https://viblo.asia/s/375z09mjZGW,workflow
+Testing Document,https://viblo.asia/s/z45bxjjLZxY,qa
+Cùng học VueJS từ con số 0,https://viblo.asia/s/L6lAyeBrlek,vue template
+Ứng dụng chat trên Android với NodeJs và Socket.io,https://viblo.asia/s/bq5QL7BJlD8,chat
+Nghịch ngợm cùng Puppeteer,https://viblo.asia/s/dbZN7QXalYM,node.js
+ReactJs+Redux thập cẩm,https://viblo.asia/s/AyK8VqJ6lxX,laravel mix
+Tự viết các component React mà không cần dùng tới third-party code,https://viblo.asia/s/pmleBze75rd,reactjs
+Scrum - Under The Hood,https://viblo.asia/s/nB5pXJV75PG,agile
+2018 - Cùng nhau học VueJS,https://viblo.asia/s/b85ogvV252G,vuejs example
+[Elasticsearch] Mình đã bắt đầu với Elasticsearch như thế nào,https://viblo.asia/s/bq5QL79ElD8,php
+Continuous Integration with Jenkins,https://viblo.asia/s/aGK7jN0O5j2,github
+Machine Learning,https://viblo.asia/s/L6lAye2Jlek,model representation
+Immutability trong Reactjs,https://viblo.asia/s/J3ZgBpPAKmB,functional programming
+Phát triển game với Pygame,https://viblo.asia/s/vElaBk3N5kw,game
+Review Sách: The Art of Readable Code – Nghệ Thuật Viết Code Dễ Đọc,https://toidicodedao.com/2020/02/11/review-sach-the-art-of-readable-code-nghe-thuat-viet-code-de-doc/,the art of readable code
+Cùng học Cờ Lao – Azure Phần 5.1: Sự bá đạo của Azure SQL Database?,https://toidicodedao.com/2019/06/04/cung-hoc-co-lao-azure-phan-5-1-su-ba-dao-cua-azure-sql-database/,điện toán đám mây
+Bạn biết gì về Caching – Kĩ thuật được 96.69% hệ thống sử dụng để tăng tốc độ tải,https://toidicodedao.com/2018/12/18/caching-la-gi-caching-tang-toc-do-tai/,web performance
+[Tâm sự] Những sai lầm và thất bại mà mình từng nếm trải trong 5 năm làm việc – Phần 3,https://toidicodedao.com/2018/09/25/sai-lam-that-bai-tung-nem-trai-p3/,thất bại
+Tại sao sinh viên IT/ lập trình viên nên có một con VPS,https://toidicodedao.com/2018/06/12/tai-sao-developer-nen-co-vps/,web
+"Tổng quan về testing – Phần 3: Công việc của tester, Automation Test có gì hot",https://toidicodedao.com/2018/01/16/tong-quan-testing-3-cong-viec-cua-tester-va-automation-test/,whitebox testing
+Làm sao để thiết kế hệ thống phục vụ hàng triệu người dùng?,https://toidicodedao.com/2017/08/01/thiet-ke-he-thong-trieu-nguoi-dung-high-scalability/,uber
+Kĩ năng “Back of The Envelope” của các developer thần thánh,https://toidicodedao.com/2017/04/18/ki-nang-tinh-nham-back-of-the-envelope/,technical
+Series Nhận diện Idol: Phần 2 – Kiến trúc tổng thể và các công nghệ sử dụng,https://toidicodedao.com/2016/12/27/nhan-dien-idol-phan-2-kien-truc-cong-nghe/,website
+Series Bảo Mật Nhập Môn – Bảo mật cơ bản cho developer,https://toidicodedao.com/2016/09/13/bao-mat-co-ban-phan-1/,tấn công
+Hướng dẫn viết chat bot cho Facebook – Phần 1: Kiến thức cơ bản & Cơ chế hoạt động,https://toidicodedao.com/2016/05/31/huong-dan-viet-chat-bot-cho-facebook-phan-1-kien-thuc-co-ban-co-che-hoat-dong/,webhook
+Nhập môn Design Pattern (Phong cách kiếm hiệp),https://toidicodedao.com/2016/03/01/nhap-mon-design-pattern-phong-cach-kiem-hiep/,võ công
+Series C# hay ho: EPPlus – Thư viện Excel “bá đạo” – Phần 1,https://toidicodedao.com/2015/11/24/series-c-hay-ho-epplus-thu-vien-excel-ba-dao-phan-1/,tạo file excel
+Giải thích đơn giản về CI – Continuous Integration (Tích hợp liên tục),https://toidicodedao.com/2015/08/27/giai-thich-don-gian-ve-ci-continuous-integration-tich-hop-lien-tuc/,đại học
+Éo ai quan tâm đến code bạn viết đâu,https://toidicodedao.com/2015/05/21/eo-ai-quan-tam-den-code-ban-viet-dau/,project
+Series C# hay ho: Generic là cái thứ chi chi,https://toidicodedao.com/2015/03/05/series-c-hay-ho-generic-la-cai-thu-chi-chi/,series
+Vùng lùng bùng,https://thefullsnack.com/posts/vung-lung-bung.html,"random , opinionv"
+Paper Review: What do Sketches say about Thinking,https://thefullsnack.com/posts/sketching-thinking.html,paperpaper
+Cái nút Unsubscribe,https://thefullsnack.com/posts/unsubscribe.html,"random , opinionc"
+"Cấu hình eslint airbnb, prettier cho dự next.js sử dụng typescript",https://viblo.asia/p/cau-hinh-eslint-airbnb-prettier-cho-du-nextjs-su-dung-typescript-63vKj91b52R,cài đặt eslint trong typescript
+Link prefetching và Lazy loading (Vue Router),https://viblo.asia/p/link-prefetching-va-lazy-loading-vue-router-4dbZNNnmZYM,co ban vuejs
+Implement Multi-Connections Download in Go - Part II,https://viblo.asia/p/implement-multi-connections-download-in-go-part-ii-4P856qAGlY3,go
+Gems for common validators,https://viblo.asia/p/gems-for-common-validators-WAyK899NZxX,gem
+Những kỹ thuật rút gọn code trong JavaScript mà bạn có thể chưa biết?,https://viblo.asia/p/nhung-ky-thuat-rut-gon-code-trong-javascript-ma-ban-co-the-chua-biet-RnB5pWWrlPG,javascript
+Hướng dẫn về Arduino,https://viblo.asia/s/3vKjR8mVK2R,arduino
+Prometheus & Grafana,https://viblo.asia/s/QqKLvpgpl7z,grafana
+Nghiên cứu iOS cùng SwiftUI,https://viblo.asia/s/Q75wqJW9ZWb,ios
+"Một số mẹo vặt ""hay ho"" của ES6",https://viblo.asia/s/P856j7gR5Y3,codingtips
+Chatbots are cool. Let's build a chatbot!,https://viblo.asia/s/OVlYq8dzl8W,machine learning
+So sánh giữa CHARATER CONTROLLER và RIGID BODY trong Unity3D (Phần 1),https://viblo.asia/s/AyK8VmRelxX,unity
+Fast Fast Websiteeeee,https://viblo.asia/s/7LKXN8YDlV4,javascript
+Speed Up For Website,https://viblo.asia/s/yDZOPgydlwj,nginx
+swiftttttttttttt,https://viblo.asia/s/pmleB83r5rd,swift
+Học Selenium Automation Test,https://viblo.asia/s/L6lAy1j4lek,selenium
+[JavaScript] Webpack cơ bản phần,https://viblo.asia/s/L6lAye3Alek,javascript
+Desgin Pattern with PHP,https://viblo.asia/s/Am5yq0ek5db,dota2
+Những điều nhỏ nhặt khi lập trình javascript,https://viblo.asia/s/AyK8VqnWlxX,webpack
+Xây dựng cấu trúc cây cho ứng dụng Ruby,https://viblo.asia/s/VgZvE2dRKAw,tree node
+RxSwift - Reactive Programing in Swift,https://viblo.asia/s/Am5yq02L5db,reactivex
+"[JAVA] Cùng lục lọi, soi mói về java",https://viblo.asia/s/Q75wqNrQZWb,setup
+Text to speech chuyển văn bản thành giọng nói,https://viblo.asia/s/375z09nRZGW,tools
+data mining khai phá dữ liệu,https://viblo.asia/s/b85ogv8052G,khai phá dữ liệu
+Accelerated Application Development using Firebase Authentication,https://viblo.asia/s/vElaBk8Y5kw,ruby
+Laravel và React,https://viblo.asia/s/24lJDgzNKPM,larvel
+Hướng dẫn Tự Học Tensorflow Cơ bản,https://viblo.asia/s/DVK2jPPeKLj,tensorflow tutorial
+QuesXpert: Chương trình hỏi - đáp công nghệ,https://viblo.asia/s/24lJDggYKPM,ruby on rails
+Mastering Android Themes,https://viblo.asia/s/zD5dBoRWZjY,""
+Automation Testing ASP.NET Core 2.0,https://viblo.asia/s/b85ogvzO52G,testing api
+Series about node js,https://viblo.asia/s/P0lPmJ3g5ox,express
+Tìm hiểu về Android KTX,https://viblo.asia/s/W65GEpGxZDO,android
+Spring - Thymeleaf,https://viblo.asia/s/vElaBkmx5kw,thymeleaf
+Bài viết hay trên Viblo,https://viblo.asia/s/yEZkgnMgZQ0,coding style
+SQL for Tester from basic to advance,https://viblo.asia/s/3vKjRgbyK2R,qa
+Elixir và Unicode,https://viblo.asia/s/Am5yq0DE5db,utf-8
+5 điều nên làm để trở thành lập trình viên giỏi!,https://toidicodedao.com/2020/02/04/5-dieu-nen-lam-de-tro-thanh-lap-trinh-vien-gioi/,ux
+Code Cùng Code Dạo – Những kênh học lập trình hay ho và thú vị,https://toidicodedao.com/2019/05/30/code-cung-code-dao-nhung-kenh-hoc-lap-trinh-hay-ho-va-thu-vi/,web dạy lập trình
+Cùng học Cờ Lao – Những ưu nhược điểm của Cloud,https://toidicodedao.com/2018/12/11/uu-nhuoc-diem-cua-cloud/,điện toán đám mây
+Lightning Talk Kì 19 – Năm điểm khác biệt giữa đi học và đi làm,https://toidicodedao.com/2018/09/20/lightning-talk-ki-19-nam-diem-khac-biet-giua-di-hoc-va-di-lam/,đi làm
+Developer phải làm sao khi làm việc với code … rởm?,https://toidicodedao.com/2018/06/05/lam-viec-voi-code-rom/,technology
+Tổng quan về testing – Phần 2: Phân biệt các loại testing và thuật ngữ chuyên ngành test,https://toidicodedao.com/2018/01/09/tong-quan-ve-testing-phan-2-phan-biet-cac-loai-testing-va-thuat-ngu-chuyen-nganh-test/,whitebox testing
+Thử thách tuyển dụng developer siêu ngầu theo phong cách Ma Trận,https://toidicodedao.com/2017/07/25/thu-thach-developer-sieu-ngau-phong-cach-the-matrix/,the matrix
+Series Nhập Môn Lập Trình – Triển vọng nghề nghiệp của ngành lập trình,https://toidicodedao.com/2017/04/13/trien-vong-nghe-nghiep-nganh-lap-trinh/,đại học
+Tôi đã viết “Nhận diện Idol” như thế nào – Phần 1 – Chuyện ngày xưa,https://toidicodedao.com/2016/12/22/nhan-dien-idol-phan-1-gioi-thieu/,website
+Tôi đã hack “tơi tả” Web Site của Lotte Cinema như thế nào?,https://toidicodedao.com/2016/08/30/hack-lotte-cinema/,xss attack
+Tổng hợp những series/bài viết hay nhất trên blog,https://toidicodedao.com/2016/05/26/tong-hop-nhung-seriesbai-viet-hay-nhat-tren-blog/,tiếng anh
+Series Javascript sida – OOP trong JavaScript,https://toidicodedao.com/2016/02/23/series-javascript-sida-oop-trong-javascript/,đa hình
+Dependency Injection và Inversion of Control – Phần 3: DI Container. Áp dụng DI vào ASP.NET MVC,https://toidicodedao.com/2015/11/12/dependency-injection-va-inversion-of-control-phan-3-di-container-ap-dung-di-vao-asp-net-mvc/,định nghĩa
+[Tutorial] Viết Unit Test trong C# với NUnit,https://toidicodedao.com/2015/08/25/tutorial-viet-unit-test-trong-c-voi-nunit/,visual studio
+Series C# hay ho: C# đã tiến hóa như thế nào (Những thay đổi của C# từ 1.0 cho tới 5.0),https://toidicodedao.com/2015/05/14/series-c-hay-ho-c-da-tien-hoa-nhu-the-nao-nhung-thay-doi-cua-c-tu-1-0-cho-toi-5-0/,series
+Series C# hay ho: Lambda Expression,https://toidicodedao.com/2015/02/12/series-c-hay-ho-lambda-expression/,series
+Rethinking the hjkl,https://thefullsnack.com/posts/faster-vim.html,"vim , opinionrethinking"
+Hàm replace() xài với callback,https://thefullsnack.com/posts/javascript-replace-with-callback.html,javascripth
+Là framework? hay là library?,https://thefullsnack.com/posts/framework-or-library.html,"random , opinionl"
+Kí sự si-li-côn,https://thefullsnack.com/posts/silicon-journey.html,randomk
+[AWS Practioner] [2.総合サービス] 3. RDSとElastic Beanstalk,https://viblo.asia/p/aws-practioner-2総合サービス-3-rdsとelastic-beanstalk-ByEZkMaY5Q0,日本語
+Tạo một số hàm common hay dùng trong javascript - Part 1,https://viblo.asia/p/tao-mot-so-ham-common-hay-dung-trong-javascript-part-1-naQZRMMmKvx,javascipt
+Copy và tạo đường dẫn thư mục đơn giản với NPM Script (Phần 1),https://viblo.asia/p/copy-va-tao-duong-dan-thu-muc-don-gian-voi-npm-script-phan-1-Qpmlebbr5rd,html
+Giới thiệu thư viện Benchmark.js,https://viblo.asia/p/gioi-thieu-thu-vien-benchmarkjs-aWj53bbwl6m,javascript
+Series 1 | Chia sẻ tài liệu học CNTT,https://viblo.asia/s/zD5dB8DwZjY,cấu trúc dữ liệu
+Bí kíp luyện công Vue.js,https://viblo.asia/s/rLZDX4AEZk0,vuejs lifecycle
+Nhập môn với VueJS,https://viblo.asia/s/4x5xp7yO5BM,cài đặt vuejs
+Series hướng dẫn tạo animation số tăng dần với Javascript,https://viblo.asia/s/3vKjR8pyK2R,javascript
+Cosmos SDK tutorial,https://viblo.asia/s/jeZ103gjKWz,cosmossdk
+[ToanPV] [Today I Learn] Note những thứ tự học trong ngày,https://viblo.asia/s/zD5dB8neZjY,dgraph
+Test Responsive of WEB on mobile devices with Simulator,https://viblo.asia/s/zD5dB8m0ZjY,#web
+How To Become A Tester!!!,https://viblo.asia/s/P856j2ea5Y3,những điều cần lưu ý khi test web site
+Design Pattern in Swift,https://viblo.asia/s/68Z00JX2ZkG,prototype pattern
+Augmented Reality Tutorial,https://viblo.asia/s/7LKXNqGrlV4,augmented reality
+Design Patterns,https://viblo.asia/s/aGK7jNn95j2,design pattern
+Authentication story,https://viblo.asia/s/jy5VB29V5ra,authentication
+CSS Tips And Tricks,https://viblo.asia/s/QqKLv3drl7z,tips
+Developer hiện đại với docker,https://viblo.asia/s/Wj53OmAo56m,docker
+[LINUX 101] Series làm quen với Linux cho Newbie,https://viblo.asia/s/zD5dBo8YZjY,linuxacademy
+Chuẩn viết code PHP theo  PHP Fig,https://viblo.asia/s/aGK7jNNb5j2,clean code
+Seri: Hẹn hò cùng js,https://viblo.asia/s/JzKmgDDXl9N,jquery
+Introduction to Deeplearning,https://viblo.asia/s/375z09APZGW,neural networks
+Start with React,https://viblo.asia/s/nB5pXJOJ5PG,reactjs
+Ansible Fundamentals,https://viblo.asia/s/VgZvE2rYKAw,ansible-module
+Laravel by my self,https://viblo.asia/s/Q75wqNEJZWb,""
+Network android,https://viblo.asia/s/J3ZgBpWBKmB,java
+Yêu thích của tôi,https://viblo.asia/s/nB5pXJbY5PG,get;
+Tổng hợp SQL for QAs,https://viblo.asia/s/68Z00JaAZkG,sql
+Tìm hiểu về Elasticsearch,https://viblo.asia/s/VgZvE2M1KAw,fulltext search
+Css bai suu tam,https://viblo.asia/s/WOZrgPNRlQ0,css3
+Tôi đã cắm vài chục GB torrent The Witcher từ VPS như thế nào?,https://toidicodedao.com/2020/01/14/toi-da-cam-vai-chuc-gb-torrent-the-witcher-tu-vps-nhu-the-nao/,vps
+Bí quyết để đạt lương “khủng” trong ngành IT mà *éo ai nói cho bạn biết,https://toidicodedao.com/2019/05/14/cach-co-luong-cao-trong-nganh-it/,đại học fpt
+Lightning Talk Kì 24 – Những áp lực trong ngành lập trình,https://toidicodedao.com/2018/12/06/lightning-talk-ki-24-nhung-ap-luc-trong-nganh-lap-trinh/,đại học
+[Tâm sự] Những sai lầm và thất bại mà mình từng nếm trải trong 5 năm làm việc – Phần 2,https://toidicodedao.com/2018/09/18/sai-lam-that-bai-tung-nem-trai-p2/,web
+Làm sao để không cảm thấy “ngộp” khi học cái mới?,https://toidicodedao.com/2018/05/31/hoc-cong-nghe-moi-hieu-qua/,tự học
+Top 5 ngôn ngữ lập trình đáng học cho năm 2018,https://toidicodedao.com/2018/01/02/top-5-ngon-ngu-lap-trinh-dang-hoc-cho-nam-2018/,swift
+Chuyện Code Chuyện Đời – Đi xin việc cũng như đi… tán gái,https://toidicodedao.com/2017/07/19/di-xin-viec-va-di-tan-gai/,xin việc
+Thực hư về cái gọi là “căn bản” và “tư duy lập trình”,https://toidicodedao.com/2017/04/11/can-ban-va-tu-duy-lap-trinh/,tư duy lập trình
+Series Bảo Mật Nhập Môn – Quản lý người dùng – Tưởng dễ ăn mà không đơn giản,https://toidicodedao.com/2016/12/20/quan-ly-user-dung-cach/,vietnamwork
+Nên học một hay nhiều ngôn ngữ,https://toidicodedao.com/2016/08/25/hoc-sau-hay-hoc-rong/,định hướng
+Series SOLID cho thanh niên code CỨNG: Liskov substitution principle,https://toidicodedao.com/2016/05/17/series-solid-cho-thanh-nien-code-cung-liskov-substitution-principle/,srp
+Series Javascript sida – Pờ rồ tô tai (Prototype) là cái gì,https://toidicodedao.com/2016/02/02/series-javascript-sida-po-ro-to-tai-prototype-la-cai-gi/,string
+Dependency Injection và Inversion of Control – Phần 2: Áp dụng DI vào code,https://toidicodedao.com/2015/11/10/dependency-injection-va-inversion-of-control-phan-2-ap-dung-di-vao-code/,định nghĩa
+Top 6 “trường dạy code” cho các developer,https://toidicodedao.com/2015/08/20/top-6-truong-day-code-cho-cac-developer/,trường code
+Tăng sức mạnh cho javascript với lodash,https://toidicodedao.com/2015/04/16/tang-suc-manh-cho-javascript-voi-lodash/,thư viện
+"Series C# hay ho: Callback trong C# – Delegate, Action, Predicate, Func",https://toidicodedao.com/2015/02/10/series-c-hay-ho-callback-trong-c-delegate-action-predicate-func/,series
+Chuyện không đầu không đít (Phần 3),https://thefullsnack.com/posts/chuyen-khong-dau-khong-dit-phan-3.html,"random , opinionchuy"
+Keyboard from Scratch: Từ A tới Z,https://thefullsnack.com/posts/mechkeyboard-third-part.html,"hardware , hacking , keyboard-buildingkeyboard"
+A taste of Atomic CSS,https://thefullsnack.com/posts/a-taste-of-atomic-css.html,"css , opiniona"
+Bàn về Problem Solving Skill,https://thefullsnack.com/posts/wtf-is-problem-solving-skill.html,"random , opinionb"
+0x0B và JSON parser,https://thefullsnack.com/posts/0x0b.html,javascript
+Lái xe với robot,https://thefullsnack.com/posts/life-with-robot.html,randoml
+Chuyển số Float thành Int dùng các phép bitwise,https://thefullsnack.com/posts/bitwise-float-int.html,"algorithm , math , bitwisechuy"
+Đi làm cho startups,https://thefullsnack.com/posts/work-for-a-startup.html,"random , opinion"
+Game of Life,https://thefullsnack.com/posts/game-of-life.html,"algorithm , game , bitwise , code , researchgame"
+Algorithm in Frontend - Kỳ 3: Hashmap,https://thefullsnack.com/posts/frontend-algorithm-003.html,"code , algorithm , frontendalgorithm"
+Giới thiệu về Observer Design Pattern,https://viblo.asia/p/gioi-thieu-ve-observer-design-pattern-Ljy5V4j9Zra,observer
+Swagger - Công cụ viết document cho RESTfull APIs,https://viblo.asia/p/swagger-cong-cu-viet-document-cho-restfull-apis-3Q75wQQeZWb,swagger ui
+Top Video on Demand Platforms of 2021,https://viblo.asia/p/top-video-on-demand-platforms-of-2021-6J3ZgN0RKmB,videoondemand
+Streaming IO in Go,https://viblo.asia/p/streaming-io-in-go-gGJ59MMx5X2,golang
+"Làm app ""To do list"" với ReactJS & NodeJS",https://viblo.asia/s/aGK7jP8x5j2,authenticate
+flutter programming topics,https://viblo.asia/s/WrZng8vmlxw,b
+Bookmarks-220820,https://viblo.asia/s/L6lAy1PNlek,code convention
+Xây dựng hệ thống nhận dạng khuôn mặt real time,https://viblo.asia/s/nB5pX8e75PG,sharpartificial intelligence
+Webpack từ A đến Á cùng kentrung,https://viblo.asia/s/pmleB8Am5rd,css
+Cải thiện code base cho Android Project,https://viblo.asia/s/24lJDzM8KPM,android lint
+The Twelve-Factor App,https://viblo.asia/s/3m5WB8E8lO7,twelve-factor app
+JavaScript và những thứ kỳ quặc của nó,https://viblo.asia/s/MnKMJGLzZ7P,front-end
+Xây dựng một ứng dụng Restful API đơn giản với Rails 5,https://viblo.asia/s/b85og8q452G,ruby on rails
+Series Lưu Lại Để Khi Cần Thiết,https://viblo.asia/s/24lJDzvXKPM,c#
+97 Things every Programmer should know,https://viblo.asia/s/AyK8VmYNlxX,programmer
+"Các ""chiêu trò"" JS tưởng không hay mà hay không tưởng",https://viblo.asia/s/DVK2jDyjKLj,javascript
+Tìm hiểu về Docker,https://viblo.asia/s/3m5WB8wylO7,docker là gì
+Thuật toán và các vấn đề liên quan,https://viblo.asia/s/jy5VB8aj5ra,design pattern
+100 ngày học Devops,https://viblo.asia/s/W65GEpqYZDO,amazon web services (aws)
+Learning AWS from begining,https://viblo.asia/s/GJ59j0nJKX2,rails
+Tấn công mạng là gì?,https://viblo.asia/s/L6lAye7mlek,an toàn
+Xây dựng Chatbot và services cho ứng dụng Chatbot theo kịch bản,https://viblo.asia/s/P0lPmJob5ox,chatbot
+Hikari Connection Pool - Java dev ắt phải biết!,https://viblo.asia/s/375z09q2ZGW,framework
+Xây dựng một blog cá nhân bằng VuePress,https://viblo.asia/s/DVK2jPXAKLj,vuepress
+VueJS nâng cao (tips and tricks),https://viblo.asia/s/jy5VB2Ay5ra,twitter
+Các nguyên tắc cơ bản về quá trình Code Signing trong iOS,https://viblo.asia/s/3m5WBN87lO7,code signing
+Cùng học laravel,https://viblo.asia/s/o754jLv0ZM6,cache
+Cùng nhau học ReactJs,https://viblo.asia/s/Wj53OmQe56m,react-redux
+Linux - Chim cánh cụt đáng mến,https://viblo.asia/s/24lJDggNKPM,bsd
+Học Redux bằng hướng dẫn dễ dàng nhất thế giới,https://viblo.asia/s/W65GEpBjZDO,reactjs
+Phỏng vấn JavaScript hay và khó,https://viblo.asia/s/o754jLOeZM6,phỏng vấn
+Laravel learning,https://viblo.asia/s/WrZngQoblxw,""
+Kotlin -  inheritance and development,https://viblo.asia/s/bq5QL7DzlD8,làm quen kotlin
+Laravel - những công nghệ nên biết,https://viblo.asia/s/MnKMJD0aZ7P,lap trinh vien php
+Pixel Art in action,https://viblo.asia/s/QqKLv3qpl7z,photoshop
+Testing on mobile,https://viblo.asia/s/vElaBkyN5kw,testing
+Laravel 5.5 có gì mới,https://viblo.asia/s/b85ogv9652G,laravel
+Feature Flag – Developer “lén lút” đưa tính năng mới cho người dùng như thế nào?,https://toidicodedao.com/2019/12/10/feature-flag-developer-len-lut-dua-tinh-nang-moi-cho-nguoi-dung-nhu-the-nao/,tính năng
+Lightning Talk Kì 30 – Làm sao rèn luyện tư duy lập trình,https://toidicodedao.com/2019/04/25/lightning-talk-ki-30-lam-sao-ren-luyen-tu-duy-lap-trinh/,đi làm
+"Khó khăn và cơ hội cho những bạn học trái trái ngành, hoặc tự học lập trình",https://toidicodedao.com/2018/12/04/kho-khan-tu-hoc-lap-trinh-hoc-trai-nganh/,đại học
+[Tâm sự] Những sai lầm và thất bại mà mình từng nếm trải trong 5 năm làm việc – Phần 1,https://toidicodedao.com/2018/09/13/sai-lam-that-bai-tung-nem-trai-p1/,đại học
+CDN là cái gì? CDN tăng tốc độ tải của hệ thống như thế nào?,https://toidicodedao.com/2018/05/29/cdn-la-gi-tang-toc-do-tai-he-thong/,web performance
+Phản Phác Quy Chân – Từ chuyện luyện võ cho tới chuyện học code,https://toidicodedao.com/2017/12/28/luyen-vo-va-hoc-code/,đam mỹ
+Học English với gái xinh – Làm app hữu ích đâu có khó!,https://toidicodedao.com/2017/07/17/lam-chrome-extension-hoc-english-voi-gai-xinh/,tiếng anh
+Series Phản Phác Quy Chân – Thuật toán sort nào nhanh nhất??,https://toidicodedao.com/2017/04/04/thuat-toan-sort-nhanh-nhat/,thuật toán
+Series Phản Phác Quy Chân – Tránh over-engineering,https://toidicodedao.com/2016/12/13/tranh-over-engineering/,võ đạo
+JS Truyền Kì – Chương 3 : Quần hùng cát cứ,https://toidicodedao.com/2016/08/23/js-truyen-ki-chuong-3-quan-hung-cat-cu/,series javascript sida
+Top 26 sai lầm mà các lập trình viên “non trẻ” hay mắc phải,https://toidicodedao.com/2016/05/12/top-26-sai-lam-ma-cac-lap-trinh-vien-non-tre-hay-mac-phai/,xây dựng hình ảnh
+Series JavaScript sida – Luận bàn về cái đít (this) trong javascript,https://toidicodedao.com/2016/01/26/series-javascript-sida-luan-ban-ve-cai-dit-this-trong-javascript/,this
+Dependency Injection và Inversion of Control – Phần 1: Định nghĩa,https://toidicodedao.com/2015/11/03/dependency-injection-va-inversion-of-control-phan-1-dinh-nghia/,định nghĩa
+Những kĩ năng cần có của một web developer,https://toidicodedao.com/2015/08/18/nhung-ki-nang-can-co-cua-mot-web-developer/,website
+"Áp dụng LINQ trong javascript, chuyện nhiều người chưa biết",https://toidicodedao.com/2015/04/14/ap-dung-linq-trong-javascript-chuyen-nhieu-nguoi-chua-biet/,programming
+Callback trong javascript,https://toidicodedao.com/2015/02/05/callback-trong-javascript/,linq
+Cách mạng 0.4 của Neovim: Floating Window,https://thefullsnack.com/posts/vim-play-with-floating.html,vimc
+Giấy với bút,https://thefullsnack.com/posts/paper-and-pen.html,"random , opiniongi"
+Đừng đánh nhau với borrow checker,https://thefullsnack.com/posts/rust-borrow-checker-part-1.html,rust
+Short posts - 03/2018,https://thefullsnack.com/posts/short-posts-032018.html,"random , opinionshort"
+Mai mối cho anh em nhà font-size (phần 2),https://viblo.asia/p/mai-moi-cho-anh-em-nha-font-size-phan-2-XL6lAd4AZek,css
+Nguyên lý S.O.L.I.D trong JavaScript (P3),https://viblo.asia/p/nguyen-ly-solid-trong-javascript-p3-maGK70WMZj2,solid
+How to Truncate and then seed all Laravel tables,https://viblo.asia/p/how-to-truncate-and-then-seed-all-laravel-tables-GrLZDD33Zk0,route
+Hướng dẫn sử dụng ngôn ngữ R cho người mới bắt đầu,https://viblo.asia/p/huong-dan-su-dung-ngon-ngu-r-cho-nguoi-moi-bat-dau-gAm5yJJ8Kdb,r
+Git Flow là gì và những khái niệm,https://viblo.asia/p/git-flow-la-gi-va-nhung-khai-niem-yMnKM22NZ7P,sharpgitstash
+Nodejs cho người mới bắt đầu,https://viblo.asia/s/DVK2jDkXKLj,node.js
+Django Rest Framework for Beginner,https://viblo.asia/s/J3ZgB8EBKmB,json web token
+Dive into design partterns,https://viblo.asia/s/JzKmg8LDl9N,design pattern
+API Testing - Một vài điều cần biết,https://viblo.asia/s/68Z00nmAZkG,crud
+Merkle Tree và các hệ thống phân tán,https://viblo.asia/s/aQZRb8g0Zvx,merkle tree
+Google search trick,https://viblo.asia/s/MnKMJGEzZ7P,google
+Advanced  Swift,https://viblo.asia/s/jeZ1031GKWz,swift
+Điểm qua một số đoạn code chưa được ổn lắm,https://viblo.asia/s/o754jvgWZM6,coding conventions
+Khám phá Kubernetes,https://viblo.asia/s/3vKjR87RK2R,docker
+Lập trình Golang,https://viblo.asia/s/jeZ103LgKWz,struct trong golang
+Các bài viết về Git,https://viblo.asia/s/nB5pXJLd5PG,git
+"Xây dựng docker container backend Flask, frontend Vuejs và sử dụng traefik để cân bằng tải.",https://viblo.asia/s/3m5WBN6glO7,nginx
+Làm chủ SOLID - Full series,https://viblo.asia/s/bq5QL7dmlD8,kotlin
+Back to basic - Linux Command Line,https://viblo.asia/s/o754jLX3ZM6,linux
+Go go go langgggggggggg,https://viblo.asia/s/VgZvE2YpKAw,php
+Lý thuyết xác suất thống kê,https://viblo.asia/s/OVlYq0aal8W,probability & statistics
+Tôi đã phỏng vấn ở Sillicon valley như thế nào,https://viblo.asia/s/nB5pXJQb5PG,microservices
+From AI to Strategy,https://viblo.asia/s/68Z00J9dZkG,ai
+Bàn về JavaScript,https://viblo.asia/s/z45bxj2OZxY,javascript
+Become friend with JavaScript,https://viblo.asia/s/dbZN7Q6klYM,javascript
+Cùng tôi học Vuejs,https://viblo.asia/s/WrZngQQwlxw,vuejs
+Tổng hợp những bài viết hay.,https://viblo.asia/s/P0lPmJJm5ox,sublime text
+"Xây dựng ứng dụng chat realtime sử dụng Laravel, VueJS, Laravel Echo, Redis, Socket.IO",https://viblo.asia/s/P856j2r15Y3,laravel echo
+GraphQL for dummies,https://viblo.asia/s/zD5dBo9WZjY,graphql
+"Test_Process: Objectives, Stage and Activities",https://viblo.asia/s/vElaBkNA5kw,""
+Học VueJS và Laravel từ căn bản đến nâng cao,https://viblo.asia/s/z45bxjq6ZxY,list rendering
+Lập trình IOS - Thử thách từ con số 0,https://viblo.asia/s/L6lAye0Dlek,""
+Android Architecture,https://viblo.asia/s/dbZN7Q9vlYM,android
+Simple & Basic Elasticsearch,https://viblo.asia/s/JzKmgD4Dl9N,elasticsearch
+Làm quen với Kotlin,https://viblo.asia/s/W65GEp19ZDO,kotlin
+Xây dựng app chat cơ bản với Firebase,https://viblo.asia/s/RNZqg7ke50n,firebase
+Học học học mãi học nữa,https://viblo.asia/s/pmleBzJV5rd,magic methods
+Useful things to build microservice architecture,https://viblo.asia/s/o754jLDLZM6,opentracing
+"8 Cấu Trúc Dữ Liệu siêu cơ bản mà dev nào cũng nên biết – Phần 3: HashTable và Set, Graph và Tree",https://toidicodedao.com/2020/12/22/cau-truc-du-lieu-co-ban-p3-hashtable-va-set-graph-va-tree/,độ phức tạp
+"8 Cấu Trúc Dữ Liệu siêu cơ bản mà dev nào cũng nên biết – Phần 2: Array và Linked-List, Stack và Queue",https://toidicodedao.com/2020/12/08/cau-truc-du-lieu-co-ban-p2-array-va-linked-list-stack-va-queue/,độ phức tạp
+"Chuyện về cái hộp đen trong máy bay, và những “hộp đen” trong ngành lập trình",https://toidicodedao.com/2020/10/13/hop-den-nganh-lap-trinh/,memory dump
+Tôi đã lên cấp và tiến hoá như thế nào qua 6 năm lăn lộn trong ngành – Phần 2,https://toidicodedao.com/2020/08/12/developer-tien-hoa-phan-2/,typescript
+Tại sao mấy ông developer lương … cao quá dzị ???,https://toidicodedao.com/2019/12/03/tai-sao-may-ong-developer-luong-cao-qua-dzi/,ngành công nghệ thông tin
+Cùng học Cờ Lao – Azure Phần 4.2: Deploy ứng dụng lên Azure App Service trong 5 phút,https://toidicodedao.com/2019/04/23/cung-hoc-co-lao-azure-phan-4-2-deploy-ung-dung-len-azure-app-service-trong-5-phut/,điện toán đám mây
+"Cùng học Cờ Lao – Sự ra đời của Cloud; AWS, Azure, Google Cloud Platform và các dịch vụ của họ",https://toidicodedao.com/2018/11/27/cloud-ra-doi-cloud-provider-aws-azure-gcp/,điện toán đám mây
+Sự khác biệt giữa server-side rendering và client-side rendering,https://toidicodedao.com/2018/09/11/su-khac-biet-giua-server-side-rendering-va-client-side-rendering/,web development
+Tại sao code hiện tại của dự án lại … “tởm” quá vậy?,https://toidicodedao.com/2018/05/22/tai-sao-code-tom/,technology
+Tổng quan về testing – Phần 1: Tại sao lập trình viên cần biết về testing?,https://toidicodedao.com/2017/12/26/tong-quan-testing-1-lap-trinh-vien-biet-ve-testing/,unit test
+"Series Nhập Môn Lập Trình – Học “xong” lập trình thì làm gì, khi nào đi làm được??",https://toidicodedao.com/2017/07/13/hoc-lap-trinh-khi-nao-di-lam-duoc/,đi làm
+Series Nhập Môn Lập Trình – Năm con đường kiếm tiền từ nghề lập trình,https://toidicodedao.com/2017/07/11/kiem-tien-tu-lap-trinh/,startup
+Series Nhập Môn Lập Trình – Những tố chất cần có để trở thành lập trình viên,https://toidicodedao.com/2017/03/30/to-chat-de-tro-thanh-lap-trinh-vien/,series nhập môn lập trình
+Phần mềm cũng giống bánh mì và … xôi,https://toidicodedao.com/2016/12/08/phan-mem-cung-giong-banh-mi-va-xoi/,software
+JS Truyền Kì – Chương 2: Võ lâm dậy sóng,https://toidicodedao.com/2016/08/18/js-truyen-ki-chuong-2-vo-lam-day-song/,source code
+Series SOLID cho thanh niên code CỨNG: Open/Closed Principle,https://toidicodedao.com/2016/05/10/series-solid-cho-thanh-nien-code-cung-openclosed-principle/,srp
+Chuyện cái comment,https://thefullsnack.com/posts/comment-story.html,"code , rust , databasechuy"
+Phân tích thiết kế hệ thống thông tin sử dụng biểu đồ UML (Phần 2),https://viblo.asia/p/phan-tich-thiet-ke-he-thong-thong-tin-su-dung-bieu-do-uml-phan-2-0bDM6wpAG2X4,sequence diagram
+Giới thiệu về Matplotlib (một thư viện rất hữu ích của Python dùng để vẽ đồ thị),https://viblo.asia/p/gioi-thieu-ve-matplotlib-mot-thu-vien-rat-huu-ich-cua-python-dung-de-ve-do-thi-yMnKMN6gZ7P,hoc python
+Xây dựng RESTful API đơn giản với NodeJS,https://viblo.asia/p/xay-dung-restful-api-don-gian-voi-nodejs-1Je5EdewlnL,restful
+Học React/Redux qua ví dụ thực tế: Kết nối với SoundCloud,https://codeaholicguy.com/2016/11/15/hoc-reactredux-qua-vi-du-thuc-te-ket-noi-voi-soundcloud/,redux
+JavaScript Object dưới con mắt của Java Developer,https://codeaholicguy.com/2015/12/22/javascript-object-duoi-con-mat-cua-java-developer/,javascript
+Android Bài 3: Tạo Mới Project & Làm Quen Với Android Studio,https://yellowcodebooks.com/2016/09/01/bai-3-tao-moi-project-lam-quen-voi-android-studio/,android  java
+Java Bài 14: StringBuffer Và StringBuilder,https://yellowcodebooks.com/2017/02/14/java-bai-14-stringbuffer-va-stringbuilder/,java
+"Silicon Valley, Route 128 và Việt Nam?",https://thefullsnack.com/posts/silicon-valley-va-vietnam.html,"random , opinionsilicon , route"
+Đôi điều về Regex,https://thefullsnack.com/posts/regex.html,"random , opinion"
+Weekend Reading 22/07/2017,https://thefullsnack.com/posts/good-reads-22-07-2017.html,"random , opinion , readingweekend"
+Học React/Redux qua ví dụ thực tế: Kết nối React với Redux,https://codeaholicguy.com/2016/09/06/hoc-reactredux-qua-vi-du-thuc-te-ket-noi-react-voi-redux/,redux
+Java những điều có thể bạn đã biết: Có gì mới trong Java 8 (Phần 2),https://codeaholicguy.com/2015/12/20/java-nhung-dieu-co-the-ban-da-biet-co-gi-moi-trong-java-8-phan-2/,java những điều có thể bạn đã biết
+Android Bài 2: Cài Đặt Các Công Cụ Phát Triển Cho Android,https://yellowcodebooks.com/2016/08/31/bai-2-cai-dat-cac-cong-cu-phat-trien-android/,android  java
+Java Bài 19: Package,https://yellowcodebooks.com/2017/05/23/java-bai-19-package/,java
+Algorithm Visualization,https://thefullsnack.com/posts/algorithm-visualization.html,"code , algorithm , visualization , calgorithm"
+Algorithm in Frontend - Kỳ 1: Xử lý dữ liệu trên Frontend,https://thefullsnack.com/posts/frontend-algorithm-001.html,"code , algorithm , frontendalgorithm"
+Môi trường làm việc ở Mỹ và Trung Quốc,https://thefullsnack.com/posts/cach-lam-viec-my-va-trung-quoc.html,"random , opinionm"
+Code không màu...,https://thefullsnack.com/posts/vim-no-color.html,"vim , opinioncode"
+Chuyện răng ri mô rứa :)),https://thefullsnack.com/posts/giong-dia-phuong.html,"random , opinionchuy"
+Kĩ thuật Memoize cải thiện performance,https://thefullsnack.com/posts/memoize.html,"javascript , memoize , performance , algorithmk"
+"Mathematics as a hobby, tại sao không?",https://thefullsnack.com/posts/math-as-a-hobby.html,"random , math , opinion , reading , reviewmathematics , t"
+Thư gửi con trai của ba,https://thefullsnack.com/posts/evan-letter.html,randomth
+Lập trình và Toán học,https://thefullsnack.com/posts/lap-trinh-va-toan-hoc.html,"opinion , random , math , algorithml"
+Học React/Redux qua ví dụ thực tế: Redux,https://codeaholicguy.com/2016/08/16/hoc-reactredux-qua-vi-du-thuc-te-redux/,redux
+Angular 2 Beta và những sự thay đổi,https://codeaholicguy.com/2015/12/18/angular-2-beta-va-nhung-su-thay-doi/,javascript
+Android Bài 1: Giới Thiệu Về Android & Môi Trường Phát Triển Phần Mềm,https://yellowcodebooks.com/2016/08/26/lap-trinh-android-bai-1-gioi-thieu-ve-android-moi-truong-phat-trien-pham-mem/,android  java
+Java Bài 16: Đối Tượng (Object) & Lớp (Class),https://yellowcodebooks.com/2017/03/22/java-bai-16-doi-tuong-object-lop-class/,java
+Java Bài 7: Nhập/Xuất Trên Console,https://yellowcodebooks.com/2016/11/01/java-bai-7-nhapxuat-tren-console/,java
+"Đọc cái gì, và đọc ở đâu",https://thefullsnack.com/posts/the-source-of-knowledge.html,"random , opinion , v"
+Back to work...,https://thefullsnack.com/posts/back-to-work.html,"random , opinionback"
+Vài phím kinh nghiệm thường gặp khi dùng Vim,https://thefullsnack.com/posts/vai-phim-tat-vim.html,vimv
+Làm game Flappy Bird trên Arduino,https://thefullsnack.com/posts/lam-game-flappy-bird-tren-arduino.html,"arduino , game , hacking , hardwarel"
+Thế giới của abstraction và khi abstraction bị rò rỉ,https://quan-cam.com/posts/ro-ri-abstraction, programming
+[Sách hay nên đọc] The Shortest History of Europe,https://quan-cam.com/posts/the-shortest-history-of-europe, book
+Học React/Redux qua ví dụ thực tế: Testing,https://codeaholicguy.com/2016/07/26/hoc-reactredux-qua-vi-du-thuc-te-testing/,redux
+Java những điều có thể bạn đã biết: Có gì mới trong Java 8 (Phần 1),https://codeaholicguy.com/2015/12/16/java-nhung-dieu-co-the-ban-da-biet-co-gi-moi-trong-java-8-phan-1/,java những điều có thể bạn đã biết
+"Java Bài 49 – Thread Pool Tập 2 – Executors, Executor Và ExecutorService",https://yellowcodebooks.com/2019/09/16/java-bai-49-thread-pool-tap-2-executors-executor-va-executorservice/,java
+Java Bài 41: Thread Tập 1 – Thread Và Các Khái Niệm,https://yellowcodebooks.com/2018/08/10/java-bai-41-thread-tap-1-thread-va-cac-khai-niem/,java
+Java Bài 13: Chuỗi (String),https://yellowcodebooks.com/2017/01/10/java-bai-13-chuoi-string/,java
+Java Bài 5: Toán Tử (Operator),https://yellowcodebooks.com/2016/10/12/java-bai-5-cac-toan-tu-operators/,java
+Chuyện biểu diễn ma trận trên máy tính,https://thefullsnack.com/posts/matrix-representation.html,"emulator , javascript , bitwise , rust , hacking , hardware , game , mathchuy"
+Kinh nghiệm làm việc với Cgo,https://thefullsnack.com/posts/vai-dieu-ve-cgo.html,"code , c , gokinh"
+Chuyện ăn cắp,https://quan-cam.com/posts/chuyen-an-cap, opinion
+Học React/Redux qua ví dụ thực tế: Viết Component đầu tiên,https://codeaholicguy.com/2016/07/19/hoc-reactredux-qua-vi-du-thuc-te-viet-component-dau-tien/,redux
+Series Java những điều có thể bạn đã biết: Map/HashMap hoạt động như thế nào?,https://codeaholicguy.com/2015/12/13/series-java-nhung-dieu-co-the-ban-da-biet-maphashmap-hoat-dong-nhu-the-nao/,java những điều có thể bạn đã biết
+Java Bài 48: Thread Pool Tập 1 – Làm Quen Với Thread Pool,https://yellowcodebooks.com/2019/07/25/java-bai-48-thread-pool-tap-1-lam-quen-voi-thread-pool/,java
+Java Bài 12: Tiếp Tục Nói Về Mảng,https://yellowcodebooks.com/2017/01/03/java-bai-12-tiep-tuc-noi-ve-mang/,java
+Java Bài 10: Các Câu Lệnh Nhảy (break Và continue) Trong Vòng Lặp,https://yellowcodebooks.com/2016/12/09/java-bai-10-cac-cau-lenh-nhay-trong-vong-lap/,java
+Chuyện lương :)),https://thefullsnack.com/posts/my-salary-story.html,randomchuy
+Khi những con số biết lừa,https://thefullsnack.com/posts/the-numbers-do-lie.html,"math , randomkhi"
+ExUnit capture log và Erlang IO system,https://quan-cam.com/posts/exunit-capture-log-va-erlang-io-system, erlang elixir
+Vô chiêu thắng hữu chiêu,https://quan-cam.com/posts/vo-chieu-thang-huu-chieu, opinion
+Six confusing features in Ruby,https://quan-cam.com/posts/six-confusing-features-in-ruby, ruby programming
+Học React/Redux qua ví dụ thực tế: Khởi tạo project,https://codeaholicguy.com/2016/06/28/hoc-reactredux-qua-vi-du-thuc-te-khoi-tao-project/,redux
+Series AngularJS cho người mới: Forms và Models,https://codeaholicguy.com/2015/12/10/series-angularjs-cho-nguoi-moi-forms-va-models/,javascript
+Giới thiệu về Microservices (Phần 3) Những ưu nhược điểm của Microservices,https://codeaholicguy.com/2015/11/16/gioi-thieu-ve-microservices-phan-3-nhung-uu-nhuoc-diem-cua-microservices/,""
+Java Bài 47: Deadlock,https://yellowcodebooks.com/2019/06/05/java-bai-47-deadlock/,java
+Java Bài 9: Câu Lệnh Lặp,https://yellowcodebooks.com/2016/11/26/java-bai-9-cac-cau-lenh-lap/,java
+Java Bài 1: Tổng Quan Về Java,https://yellowcodebooks.com/2016/09/28/java-bai-1-tong-quan-ve-java/,java
+[Review] Game Engine Black Book,https://thefullsnack.com/posts/game-engine-black-book.html,"review , reading"
+Viết ứng dụng đọc tin HackerNews bằng Rust,https://thefullsnack.com/posts/making-rust-hackernews.html,"rust , codevi"
+Viết cho tuổi 20,https://quan-cam.com/posts/viet-cho-tuoi-20, random opinion
+Trứng lòng đào và các vấn đề đồng hồ trong lập trình,https://quan-cam.com/posts/trung-long-dao-va-dong-ho, distributed-system
+My daily routine and why I love it,https://quan-cam.com/posts/my-daily-routine, lifestyle
+Định hướng,https://quan-cam.com/posts/dinh-huong, random opinion
+Tự tin khoe cá tính với Github Profile README,https://codeaholicguy.com/2020/08/26/tu-tin-khoe-ca-tinh-voi-github-profile-readme/,""
+“Đùa nghịch” với Docker trong 5 phút,https://codeaholicguy.com/2018/08/30/dua-nghich-voi-docker-trong-5-phut/,nodejs
+Tôi đã làm cho bạn nhân viên bán hàng sung sướng như thế nào?,https://codeaholicguy.com/2018/07/04/toi-da-lam-cho-ban-nhan-vien-ban-hang-sung-suong-nhu-the-nao/,redux
+CORS là gì?,https://codeaholicguy.com/2018/05/07/cors-la-gi/,""
+"Chuyện tối ưu code, xấu đẹp, đẹp xấu",https://codeaholicguy.com/2017/11/27/chuyen-toi-uu-code-xau-dep-dep-xau/,""
+Chuyện xưa cũ: Ai chưa đọc JavaScript The Good Parts,https://codeaholicguy.com/2016/06/21/chuyen-xua-cu-ai-chua-doc-javascript-the-good-parts/,javascript
+Giới thiệu về Microservices (Phần 2) Đơn giản hóa mọi sự phức tạp với Microservices,https://codeaholicguy.com/2015/11/15/gioi-thieu-ve-microservices-phan-2-don-gian-hoa-moi-su-phuc-tap-voi-microservices/,""
+Java Bài 46: Đồng Bộ Hóa Tập 3 – Đồng Bộ Cooperation – Các Từ Khóa wait/notify/notifyall,https://yellowcodebooks.com/2019/02/25/java-bai-46/,java
+Java Bài 6: Ép Kiểu & Comment Source Code,https://yellowcodebooks.com/2016/10/25/java-bai-6-ep-kieu-comment-source-code/,java
+Algorithm in Frontend - Kỳ 2: Tree và Menu,https://thefullsnack.com/posts/frontend-algorithm-002.html,"code , frontend , algorithmalgorithm"
+Rust và Lập trình Web,https://thefullsnack.com/posts/rust-for-the-web.html,"rust , coderust"
+Tính nhẩm đổi màu RGB ra Hexadecimal và ngược lại,https://thefullsnack.com/posts/rgb-to-hex.html,"math , codet"
+Khi user ngoan cố...,https://thefullsnack.com/posts/khi-user-ngoan-co.html,randomkhi
+Cài đặt Rust trên Arch Linux,https://thefullsnack.com/posts/rust-linux.html,"rust , linux , vimc"
+Làm thế nào để viết blog kĩ thuật?,https://thefullsnack.com/posts/lam-the-nao-viet-blog-ki-thuat.html,"opinion , writing , randoml"
+Rust là gì? Có ăn được không?,https://thefullsnack.com/posts/rust-intro.html,rustrust
+Nihilism - Nothing is responsible for anything,https://thefullsnack.com/posts/nihilism.html,"opinion , randomnihilism"
+Tiết kiệm thời gian commit bằng WhatTheCommit,https://thefullsnack.com/posts/what-the-commit.html,gitti
+Vài điều linh tinh về Github,https://thefullsnack.com/posts/tan-man-github.html,"random , opinionv"
+Nhật ký hốt sh*t—Chuyện về cái service A,https://quan-cam.com/posts/chuyen-ve-cai-service-a, elixir erlang
+Elixir - Ngôn ngữ được viết bằng macros,https://quan-cam.com/posts/elixir-ngon-ngu-viet-bang-macro, elixir programming
+[DIY] Tự viết driver cho Redis trong 30 phút với Rust,https://quan-cam.com/posts/tu-viet-redis-driver-voi-rust, programming rust
+"Chạy database migration khi deploy, nên hay không?",https://quan-cam.com/posts/migrate-khi-deploy-nen-hay-khong, backend
+Chuyện xưa cũ: Nên dùng === hay == để so sánh trong Javascript?,https://codeaholicguy.com/2016/06/14/nen-dung-hay-de-so-sanh-trong-javascript/,javascript
+Giới thiệu về Microservices (Phần 1) Điạ ngục kiến trúc một khối,https://codeaholicguy.com/2015/11/13/gioi-thieu-ve-microservices-phan-1-dia-nguc-kien-truc-mot-khoi/,""
+Java Bài 44: Đồng Bộ Hoá Tập 1 – Làm Quen Với Đồng Bộ Hoá,https://yellowcodebooks.com/2018/10/25/java-bai-44-dong-bo-hoa-tap-1-lam-quen-voi-dong-bo-hoa/,java
+"Java Bài 40: Exception Tập 4 – Throw, Throws & Custom Exception",https://yellowcodebooks.com/2018/07/06/java-bai-40-exception-tap-4-throw-throws-custom-exception/,java
+Java Bài 3: Làm Quen Với Eclipse/InteliJ & Tạo Mới Project,https://yellowcodebooks.com/2016/10/02/java-bai-3-tao-moi-project-lam-quen-voi-eclipse/,java
+Chuyện nói tiếng Anh,https://thefullsnack.com/posts/chuyen-tieng-anh.html,"opinion , randomchuy"
+"Rock band và Dev team, từ chuyện Outsourcing đến chuyện làm Product",https://thefullsnack.com/posts/rock-band-va-dev-team.html,"random , opinionrock , t"
+Rework và tư duy build sản phẩm,https://thefullsnack.com/posts/rework.html,"reading , review , opinionrework"
+Lamport timestamp,https://quan-cam.com/posts/lamport-timestamp, distributed-system paper-review
+[Review sách] Work Effectively With Legacy Code,https://quan-cam.com/posts/review-work-effectively-with-legacy-code, book-review
+Tôi đã tiết kiệm $5 mỗi tháng với Heroku như thế nào?,https://quan-cam.com/posts/toi-da-tiet-kiem-5-do-moi-thang-voi-heroku-nhu-the-nao, heroku
+Facebook đã tạo hiệu ứng xoxo như thế nào?,https://codeaholicguy.com/2018/03/27/facebook-da-tao-hieu-ung-xoxo-nhu-the-nao/,""
+Tại sao developer cần biết Regular Expression?,https://codeaholicguy.com/2017/10/31/tai-sao-developer-can-biet-regular-expression/,""
+Những vấn đề thường được hỏi khi phỏng vấn về JavaScript,https://codeaholicguy.com/2016/05/17/nhung-van-de-thuong-duoc-hoi-khi-phong-van-ve-javascript/,kinh nghiệm phỏng vấn
+Series AngularJS cho người mới: Built-in Directives (Phần 3),https://codeaholicguy.com/2015/11/12/series-angularjs-built-in-directives-phan-3/,javascript
+Java Bài 45: Đồng Bộ Hóa Tập 2 – Đồng Bộ Mutual Exclusive & Từ Khóa synchronized,https://yellowcodebooks.com/2018/11/20/java-bai-45-dong-bo-hoa-tap-2-dong-bo-mutual-exclusive-tu-khoa-synchronized/,java
+Java Bài 38: Exception Tập 2 – Bắt (Bẫy) Exception Thông Qua Try Catch,https://yellowcodebooks.com/2018/02/06/java-bai-38-exception-tap-2-bat-bay-exception/,java
+Java Bài 4: Biến Và Hằng Trong Java,https://yellowcodebooks.com/2016/10/09/java-bai-4-bien-va-hang-trong-java/,java
+“Always negative your paid time off”,https://thefullsnack.com/posts/negative-your-paid-time-off.html,"random , opinion"
+Tự làm đồng hồ Pomodoro để bàn,https://thefullsnack.com/posts/diy-pomodoro-timer.html,"hacking , hardwaret"
+Timing attack,https://quan-cam.com/posts/timing-attack, security
+Tại sao phải viết code thật đẹp?,https://codeaholicguy.com/2017/09/10/tai-sao-phai-viet-code-that-dep/,""
+Tạo Slack Bot đơn giản với NodeJs và Botkit,https://codeaholicguy.com/2016/04/12/tao-slack-bot-don-gian-voi-nodejs-va-botkit/,nodejs
+Series AngularJS cho người mới: Built-in Directives (Phần 2),https://codeaholicguy.com/2015/11/11/series-angularjs-built-in-directives-phan-2/,javascript
+Java Bài 42: Thread Tập 2 – Các Cách Thức Để Tạo Một Thread,https://yellowcodebooks.com/2018/08/22/java-bai-42-thread-tap-2-cac-cach-thuc-de-tao-mot-thread/,java
+Java Bài 2: Cài Đặt Các Công Cụ Phát Triển Cho Java,https://yellowcodebooks.com/2016/09/29/java-bai-2-cai-dat-cac-cong-cu-phat-trien-cho-java/,java
+Mô hình toán học và DotA 2,https://thefullsnack.com/posts/mo-hinh-toan.html,"research , mathm"
+Cache stampede—Hiện tượng chất đống cache,https://quan-cam.com/posts/cache-stampede-hien-tuong-chat-dong-cache, backend elixir
+do {} while(0) loop,https://quan-cam.com/posts/do-while-0-loop, programming
+UDP trong Elixir và thủ thuật cache UDP header,https://quan-cam.com/posts/cache-udp-header-trong-elixir, elixir
+Nói chuyện về Kotlin,https://codeaholicguy.com/2017/06/28/noi-chuyen-ve-kotlin/,kotlin
+"Điểm qua các JavaScript frameworks, libraries và tools",https://codeaholicguy.com/2016/04/05/diem-qua-cac-javascript-frameworks-libraries-va-tools/,javascript
+Series AngularJS cho người mới: Built-in Directives (Phần 1),https://codeaholicguy.com/2015/11/08/series-angularjs-built-in-directives/,javascript
+Java Bài 43: Thread Tập 3 – Vòng Đời Của Thread,https://yellowcodebooks.com/2018/10/09/java-bai-43-thread-tap-3-vong-doi-cua-thread/,java
+Java Bài 8: Câu Lệnh Điều Kiện,https://yellowcodebooks.com/2016/11/22/java-bai-8-block-scope-cac-cau-lenh-dieu-kien/,java
+Quy tắc của Hướng đạo sinh và nghề Lập trình,https://thefullsnack.com/posts/boy-scout-rule.html,"opinion , random , readingquy"
+Vấn đề bản quyền bài viết,https://thefullsnack.com/posts/ban-quyen-bai-viet.html,"random , opinionv"
+Tản mạn về nghề đi code thuê,https://thefullsnack.com/posts/tu-giac-lap-trinh.html,"random , opiniont"
+Growth Hacking dành cho Developer,https://thefullsnack.com/posts/developer-va-growth-hacking.html,"opinion , growthhacking , reviewgrowth"
+Dùng Vim làm REST API client,https://thefullsnack.com/posts/vim-rest.html,vimd
+Nhân ma trận - Phần 2: Tính toán trên GPU,https://thefullsnack.com/posts/nhan-ma-tran-2.html,"algorithm , math , gpunh"
+Giả định và Suy nghĩ khoa học,https://quan-cam.com/posts/gia-dinh-va-suy-nghi-khoa-hoc, opinion
+Học React/Redux qua ví dụ thực tế: Sử dụng dữ liệu từ SoundCloud API và kết thúc hành trình,https://codeaholicguy.com/2017/04/07/hoc-reactredux-qua-vi-du-thuc-te-su-dung-du-lieu-tu-soundcloud-api-va-ket-thuc-hanh-trinh/,redux
+Học ReactJS trong 15 phút (Phần cuối),https://codeaholicguy.com/2016/03/08/hoc-reactjs-trong-15-phut-phan-cuoi/,reactjs
+Series AngularJS cho người mới: Controller,https://codeaholicguy.com/2015/10/29/series-angularjs-hay-ho-controller/,javascript
+Java Bài 34: Lớp Lồng,https://yellowcodebooks.com/2017/11/01/java-bai-34-lop-long/,java
+Java Bài 31: Ép Kiểu Trong OOP,https://yellowcodebooks.com/2017/09/20/java-bai-31-ep-kieu-trong-oop/,java
+Java Bài 24: Lớp Object,https://yellowcodebooks.com/2017/08/02/java-bai-24-lop-object/,java
+Speed listening,https://thefullsnack.com/posts/speed-listening.html,"random , opinionspeed"
+Một số thay đổi trên blog gần đây,https://thefullsnack.com/posts/blog-update.html,"random , opinionm"
+Fun: Tư vấn chọn mua laptop làm lập trình,https://thefullsnack.com/posts/chon-mua-laptop.html,"random , opinion , linuxfun"
+[Review sách] Never Split the Difference: Negotiating As If Your Life Depended On It,https://quan-cam.com/posts/review-sach-never-split-the-difference, book
+Lỗ hổng bảo mật làm lộ thông tin người dùng từ một sản phẩm tìm kiếm việc làm tại Việt Nam,https://codeaholicguy.com/2017/01/04/website-tim-viec-lon-nhat-nhi-viet-nam-da-de-lot-hon-4-trieu-nguoi-dung-vao-tay-toi-nhu-the-nao/,security
+Học ReactJS trong 15 phút (Phần 2),https://codeaholicguy.com/2016/03/03/hoc-reactjs-trong-15-phut-phan-2/,reactjs
+"Series AngularJS cho người mới: Directive, Module, Expression",https://codeaholicguy.com/2015/10/27/series-angularjs-hay-ho-directive-module-expression/,javascript
+Java Bài 37: Exception Tập 1 – Làm Quen Với Exception,https://yellowcodebooks.com/2018/01/25/java-bai-37-exception-tap-1-lam-quen-voi-exception/,java
+The Map of Mathematics: Bản đồ toán học,https://thefullsnack.com/posts/the-map-of-mathematics.html,maththe
+[Reading] Engineer's Mini-Notebook: Communications Projects,https://thefullsnack.com/posts/engineer-mini-notebook-commproj.html,"reading , hacking , hardware , review"
+Weekend Reading - 03/2017,https://thefullsnack.com/posts/good-reads-03-2017.html,"random , algorithm , review , math , rustweekend"
+Thuật toán phục hồi số hữu tỉ và bài toán John's PIN,https://thefullsnack.com/posts/john-pin-problem.html,"math , algorithmthu"
+Một số papers về xử lý nội dung Manga,https://thefullsnack.com/posts/manga-papers.html,"research , opencv , hackingm"
+Một vài papers về DotA 2 và Machine Learning,https://thefullsnack.com/posts/paper-dota-2.html,"research , hackingm"
+TDD qua ví dụ thực tế,https://thefullsnack.com/posts/tdd.html,"tdd , ruby , fizzbuzztdd"
+"Elixir/Erlang, Actors model và Concurrency",https://quan-cam.com/posts/elixir-erlang-actors-model-va-concurrency, elixir
+[Phỏng vấn] Parse file XML kích thước lớn như thế nào?,https://quan-cam.com/posts/parse-file-xml-lon, programming algorithm
+Monitor Varnish Cache như thế nào?,https://quan-cam.com/posts/monitor-varnish, backend
+Git LFS - Chí Phèo và nồi cháo hành của Thị Nở,https://quan-cam.com/posts/git-lfs-chi-pheo-va-noi-chao-hanh-cua-thi-no, git algorithm
+"Good team, bad team",https://quan-cam.com/posts/good-team-bad-team, random opinion
+Học ReactJS trong 15 phút (Phần 1),https://codeaholicguy.com/2016/03/01/hoc-reactjs-trong-15-phut-phan-1/,reactjs
+Series Java những điều có thể bạn đã biết: Java 8 Lambda Expressions,https://codeaholicguy.com/2015/10/04/java-8-lambda-expressions/,java những điều có thể bạn đã biết
+Java Bài 39: Exception Tập 3 – Try Catch Và Hơn Thế Nữa,https://yellowcodebooks.com/2018/05/28/java-bai-39-exception-tap-3-try-catch-va-hon-the-nua/,java
+[Reading] What If?,https://thefullsnack.com/posts/book-what-if.html,"review , reading"
+Hacking Amazon Dash Button,https://thefullsnack.com/posts/hacking-amazon-dash-button.html,"hardware , hacking , javascripthacking"
+Tản mạn chuyện viết lách,https://thefullsnack.com/posts/chuyen-viet-lach.html,"random , opinion , review , writingt"
+[Web nhà nghèo] Tui đã viết tính năng “chém gió” như thế nào?,https://quan-cam.com/posts/tui-da-viet-chuc-nang-chem-gio-nhu-the-nao, programming
+[Review sách] Nhật ký hành trình xuyên châu Mĩ La-tinh,https://quan-cam.com/posts/che-guevara, book
+Chia sẻ một số sách hay về Java,https://codeaholicguy.com/2016/02/23/chia-se-mot-so-sach-hay-ve-java/,kỹ năng làm việc
+Series Java những điều có thể bạn đã biết: Java 8 Repeating Annotations,https://codeaholicguy.com/2015/10/02/repeating-annotations-in-java-8/,java những điều có thể bạn đã biết
+Java Bài 35: Lớp Vô Danh (Anonymous Class),https://yellowcodebooks.com/2017/12/26/java-bai-35-lop-vo-danh-anonymous-class/,java
+"Chuyện con vịt, cái máy bay và cu Tèo đọc báo",https://thefullsnack.com/posts/cu-teo-doc-bao.html,"math , random , opinionchuy , c"
+Chuyện gõ tiếng Việt trên Linux,https://thefullsnack.com/posts/go-tieng-viet-linux.html,"random , opinion , linuxchuy"
+Implement bài toán duyệt cây nhị phân với Rust,https://thefullsnack.com/posts/rust-binary-tree-traversal.html,"rust , algorithmimplement"
+Tự học lập trình - Hỏi làm sao để được trả lời?,https://thefullsnack.com/posts/asking-guru.html,"random , opinion , reviewt"
+Deep Learning? Machine Learning? Học như thế nào?,https://thefullsnack.com/posts/machine-learning-deep-learning.html,"opinion , random , reviewdeep"
+Chuyện uống trà,https://quan-cam.com/posts/uong-tra, lifestyle
+Tạo nhanh Restful API với Spring Boot và MongoDB,https://codeaholicguy.com/2016/02/16/tao-nhanh-restful-api-voi-spring-boot-va-mongodb/,spring
+Series Java những điều có thể bạn đã biết: Hướng dẫn sử dụng Annotations,https://codeaholicguy.com/2015/06/30/getting-deal-with-custom-java-annotations/,java những điều có thể bạn đã biết
+Java Bài 32: Tính Trừu Tượng (Abstraction),https://yellowcodebooks.com/2017/09/26/java-bai-32-tinh-truu-tuong-abstraction/,java
+Java Bài 30: Đa Hình (Polymorphism),https://yellowcodebooks.com/2017/09/12/java-bai-30-da-hinh-polymorphism/,java
+Bài toán xếp hình,https://thefullsnack.com/posts/bai-toan-xep-hinh.html,mathb
+[XML DoS] Những nụ cười rực rỡ,https://quan-cam.com/posts/billion-laughs-attack, programming security
+69 câu hỏi phỏng vấn về Spring (Phần cuối),https://codeaholicguy.com/2016/02/04/69-cau-hoi-phong-van-ve-spring-phan-cuoi/,spring
+Tìm Hiểu Các Widget Cơ Bản,https://yellowcodebooks.com/2016/11/08/tim-hieu-cac-widget-co-ban/,các vấn đề về ui
+Android Bài 8: Làm Quen Với Android Resource,https://yellowcodebooks.com/2016/10/05/android-bai-8-tim-hieu-android-resource/,android  java
+Java Bài 33: Interface,https://yellowcodebooks.com/2017/10/15/java-bai-33-interface/,java
+Java Bài 27: Phương Thức Getter Và Setter,https://yellowcodebooks.com/2017/08/21/java-bai-27-phuong-thuc-getter-setter/,java
+Dân IT đọc sách như thế nào đây?,https://thefullsnack.com/posts/dan-it-doc-sach.html,"random , opinion , readingd"
+Nhận diện khung truyện manga với OpenCV,https://thefullsnack.com/posts/manga-frame.html,"algorithm , opencv , hacking , researchnh"
+Tự tạo SSH tunnel để forward port ra remote server,https://thefullsnack.com/posts/ssh-tunnel-reverse-proxy.html,randomt
+Code Đức,https://quan-cam.com/posts/code-duc, random opinion
+69 câu hỏi phỏng vấn về Spring (Phần 2),https://codeaholicguy.com/2016/02/02/69-cau-hoi-phong-van-ve-spring-phan-2/,spring
+Android Bài 10: Đi Sâu Vào Layout,https://yellowcodebooks.com/2016/11/17/android-bai-10-di-sau-vao-layout/,android  java
+Java Bài 36: Lớp Wrapper,https://yellowcodebooks.com/2018/01/19/java-bai-36-lop-wrapper/,java
+OrgMode trên Vim,https://thefullsnack.com/posts/vim-org-mode.html,"vim , emacsorgmode"
+"Chết server, làm gì đây?",https://quan-cam.com/posts/chet-server-lam-gi-day, backend
+Euruko 2017 Notes,https://quan-cam.com/posts/euruko-2017-notes, ruby programming conference
+69 câu hỏi phỏng vấn về Spring (Phần 1),https://codeaholicguy.com/2016/01/28/69-cau-hoi-phong-van-ve-spring-phan-1/,spring
+Android: Tất Tần Tật Về Alternative Resource,https://yellowcodebooks.com/2016/10/20/android-tat-tan-tat-ve-alternative-resource/,các vấn đề về ui
+Java Bài 29: Nạp Chồng Phương Thức (Overloading),https://yellowcodebooks.com/2017/08/31/java-bai-29-nap-chong-phuong-thuc-overloading/,java
+Java Bài 21: Làm Quen Với Kế Thừa,https://yellowcodebooks.com/2017/06/14/java-bai-21-ke-thua-lam-quen-voi-ke-thua/,java
+Java Bài 18: Phương Thức Của Lớp,https://yellowcodebooks.com/2017/05/05/java-bai-18-phuong-thuc-cua-lop/,java
+Viết test trong Rust the idiomatic way,https://thefullsnack.com/posts/rust-testing.html,"tdd , rustvi"
+Các thuật toán nhân ma trận,https://thefullsnack.com/posts/nhan-ma-tran.html,"algorithm , math , performancec"
+Một commit cho 2 branches - Cherrypick,https://thefullsnack.com/posts/git-cherry-pick.html,gitm
+Phức tạp hoá vấn đề: Phân tích và mô phỏng nút cảm xúc của Facebook,https://thefullsnack.com/posts/phuc-tap-hoa-facebook-reaction.html,"javascript , css , hackingph"
+Vài ghi chép về Elixir Compiler (phần 1),https://quan-cam.com/posts/elixir-compiler-1, elixir
+Một số kĩ thuật caching với HTTP/1.1,https://quan-cam.com/posts/http-caching, programming http
+IO data và Vectored IO,https://quan-cam.com/posts/iodata-va-vectored-io, elixir erlang programming
+Poolboy và kĩ thuật pooling trong Erlang/Elixir,https://quan-cam.com/posts/poolboy, elixir erlang programming
+Randomart và thuật toán The Drunken Bishop,https://quan-cam.com/posts/the-drunken-bishop, algorithm
+My engineering life,https://quan-cam.com/posts/my-engineering-life, programming random
+Tìm hiểu về Javascript Promise,https://codeaholicguy.com/2016/01/26/tim-hieu-ve-javascript-promise/,javascript
+Android Bài 9: Đi Sâu Vào Widget,https://yellowcodebooks.com/2016/10/17/android-bai-9-di-sau-vao-widget/,android  java
+Android Bài 6: Dạo Qua Ứng Dụng TourNote & Thực Hành Debug Ứng Dụng,https://yellowcodebooks.com/2016/09/22/bai-6-dao-qua-ung-dung-tournote-thuc-hanh-debug-ung-dung/,android  java
+Hướng Dẫn Cài Đặt Google Play Cho Máy Ảo Genymotion,https://yellowcodebooks.com/2016/09/08/huong-dan-cai-dat-google-play-cho-may-ao-genymotion/,máy ảo genymotion
+Java Bài 28: Từ Khóa static,https://yellowcodebooks.com/2017/08/23/java-bai-28-tu-khoa-static/,java
+GPU programming với Golang,https://thefullsnack.com/posts/go-opencl.html,"gpu , golang , algorithm , mathgpu"
+Tính tổng các số Fibonacci từ 1 tới 4 triệu,https://thefullsnack.com/posts/fibonacci-4m.html,"algorithm , matht"
+Dùng neovim thay thế vimdiff,https://thefullsnack.com/posts/compare-neovim.html,"vim , gitd"
+Tự viết Emulator: CHIP-8 Interpreter,https://thefullsnack.com/posts/tu-viet-emulator.html,"emulator , javascript , bitwise , assembly , hacking , hardware , gamet"
+[Elixir RSS Reader] Phần 1 - HTTP client,https://quan-cam.com/posts/elixir-rss-reader-phan-1-http-client, elixir programming
+Packfile - Người hùng thầm lặng của Git,https://quan-cam.com/posts/packfile-nguoi-hung-tham-lang-cua-git, git algorithm
+How to explain rsync to a six year old,https://quan-cam.com/posts/how-to-explain-rsync-to-a-six-year-old, algorithm programming
+React dành cho AngularJS developer (Phần 2),https://codeaholicguy.com/2016/01/21/react-danh-cho-angularjs-developer-phan-2/,reactjs
+Cách Xây Dựng Một ListView Có Thể Expand/Collapse Trong Android,https://yellowcodebooks.com/2016/11/03/cach-xay-dung-mot-listview-co-the-expandcollapse-trong-android/,học qua các project nhỏ
+Android Bài 7: Tạo Giao Diện Người Dùng,https://yellowcodebooks.com/2016/09/26/bai-7-tao-giao-dien-nguoi-dung/,android  java
+Java Bài 26: Từ Khóa final Trong Lập Trình Hướng Đối Tượng,https://yellowcodebooks.com/2017/08/20/java-bai-26-tu-khoa-final-trong-lap-trinh-huong-doi-tuong/,java
+Java Bài 17: Thuộc Tính Của Lớp,https://yellowcodebooks.com/2017/04/26/java-bai-17-thuoc-tinh-cua-lop/,java
+"var, let và const trong ES6",https://thefullsnack.com/posts/var-let-const.html,"javascriptvar , let"
+Nhục Driven Development,https://thefullsnack.com/posts/nhuc-driven-development.html,"random , opinionnh"
+Build a blog in Elixir with Nabo and Phoenix,https://quan-cam.com/posts/build-a-blog-in-elixir-with-nabo-and-phoenix, elixir programming open-source
+React dành cho AngularJS developer (Phần 1),https://codeaholicguy.com/2016/01/19/react-danh-cho-angularjs-developer-phan-1/,reactjs
+Android Bài 12: Khai Báo Manifest,https://yellowcodebooks.com/2016/12/27/android-bai-12-khai-bao-manifest/,android  java
+Java Bài 25: Khả Năng Truy Cập (Access Modifier),https://yellowcodebooks.com/2017/08/11/java-bai-25-kha-nang-truy-cap-vao-cac-gia-tri-lop/,java
+"""Bí mật"" đằng sau bảng hiệu Like của Facebook",https://thefullsnack.com/posts/facebook-sun-backend.html,"opinion , random"
+Phức tạp hóa vấn đề: Datepicker và các thuật toán đằng sau nó,https://thefullsnack.com/posts/phuc-tap-hoa-datepicker.html,"algorithm , mathph"
+Chuyện làm bài test phỏng vấn,https://quan-cam.com/posts/chuyen-lam-bai-test-phong-van, opinion
+Tôi đã tuột quần với Bundler như thế nào?,https://quan-cam.com/posts/toi-da-tuot-quan-voi-bundler-nhu-the-nao, ruby
+Series AngularJS cho người mới: Dependencies và Services,https://codeaholicguy.com/2016/01/14/series-angularjs-cho-nguoi-moi-dependencies-va-services/,javascript
+Tìm Hiểu Các Layout Trong Android,https://yellowcodebooks.com/2016/12/03/tim-hieu-cac-layout-trong-android/,các vấn đề về ui
+Java Bài 23: Tính Phủ Quyết (Overriding) Trong Kế Thừa,https://yellowcodebooks.com/2017/07/27/java-bai-23-tinh-phu-quyet-overriding-trong-ke-thua/,java
+Đôi điều về Elm,https://thefullsnack.com/posts/elm-thoughts.html,"opinion , elm , functional-programming"
+Series AngularJS cho người mới: Custom Directives,https://codeaholicguy.com/2016/01/12/series-angularjs-cho-nguoi-moi-custom-directives/,javascript
+Android Bài 11: Cấu Hình Cho Gradle,https://yellowcodebooks.com/2016/12/16/android-bai-11-cau-hinh-cho-gradle/,android  java
+Android Bài 5: Dạo Quanh Một Chút Về Ứng Dụng Android,https://yellowcodebooks.com/2016/09/13/bai-5-dao-quanh-mot-chut-ve-ung-dung-android/,android  java
+Java Bài 22: Từ Khóa this & Từ Khóa super,https://yellowcodebooks.com/2017/06/28/java-bai-22-tu-khoa-this-tu-khoa-super/,java
+Java Bài 20: Phương Thức Khởi Tạo – Constructor,https://yellowcodebooks.com/2017/05/30/java-bai-20-phuong-thuc-khoi-tao-constructor/,java

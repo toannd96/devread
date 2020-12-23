@@ -2,8 +2,8 @@ package repository
 
 import (
 	"context"
-	"tech_posts_trending/model"
-	"tech_posts_trending/model/req"
+	"devread/model"
+	"devread/model/req"
 )
 
 type UserRepo interface {

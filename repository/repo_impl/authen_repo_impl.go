@@ -1,8 +1,8 @@
 package repo_impl
 
 import (
-	"tech_posts_trending/db"
-	"tech_posts_trending/repository"
+	"devread/db"
+	"devread/repository"
 )
 
 type AuthenRepoImpl struct {

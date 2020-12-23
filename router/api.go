@@ -2,8 +2,8 @@ package router
 
 import (
 	"github.com/labstack/echo/v4"
-	"tech_posts_trending/handler"
-	"tech_posts_trending/middleware"
+	"devread/handler"
+	"devread/middleware"
 )
 
 type API struct {

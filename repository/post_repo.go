@@ -2,7 +2,7 @@ package repository
 
 import (
 	"context"
-	"tech_posts_trending/model"
+	"devread/model"
 )
 
 type PostRepo interface {

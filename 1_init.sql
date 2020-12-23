@@ -1,6 +1,6 @@
 -- +migrate Up
-CREATE DATABASE trending;
-\connect trending;
+CREATE DATABASE devread;
+\connect devread;
 CREATE TABLE "users" (
   "user_id" text PRIMARY KEY,
   "full_name" text,

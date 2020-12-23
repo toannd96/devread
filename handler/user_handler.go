@@ -7,12 +7,12 @@ import (
 	"net/http"
 	"net/smtp"
 	"os"
-	"tech_posts_trending/custom_error"
-	"tech_posts_trending/log"
-	"tech_posts_trending/model"
-	"tech_posts_trending/model/req"
-	"tech_posts_trending/repository"
-	"tech_posts_trending/security"
+	"devread/custom_error"
+	"devread/log"
+	"devread/model"
+	"devread/model/req"
+	"devread/repository"
+	"devread/security"
 )
 
 type smtpServer struct {
@@ -469,6 +469,7 @@ func (u *UserHandler) SignIn(c echo.Context) error {
 // @Tags profile-service
 // @Accept  json
 // @Produce  json
+// @Security jwt
 // @Success 200 {object} model.Response
 // @Failure 401 {object} model.Response
 // @Failure 403 {object} model.Response
@@ -507,6 +508,7 @@ func (u *UserHandler) Profile(c echo.Context) error {
 // @Tags profile-service
 // @Accept  json
 // @Produce  json
+// @Security jwt
 // @Param data body req.ReqUpdateUser true "user"
 // @Success 201 {object} model.Response
 // @Failure 400 {object} model.Response

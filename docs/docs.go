@@ -100,6 +100,11 @@ var doc = `{
         },
         "/user/bookmark/add": {
             "post": {
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ],
                 "consumes": [
                     "application/json"
                 ],
@@ -157,6 +162,11 @@ var doc = `{
         },
         "/user/bookmark/delete": {
             "delete": {
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ],
                 "consumes": [
                     "application/json"
                 ],
@@ -208,6 +218,11 @@ var doc = `{
         },
         "/user/bookmark/list": {
             "get": {
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ],
                 "consumes": [
                     "application/json"
                 ],
@@ -350,6 +365,11 @@ var doc = `{
         },
         "/user/profile": {
             "get": {
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ],
                 "consumes": [
                     "application/json"
                 ],
@@ -396,6 +416,11 @@ var doc = `{
         },
         "/user/profile/update": {
             "put": {
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ],
                 "consumes": [
                     "application/json"
                 ],
@@ -748,8 +773,8 @@ var SwaggerInfo = swaggerInfo{
 	Host:        "localhost:3000",
 	BasePath:    "/",
 	Schemes:     []string{},
-	Title:       "Deviread API",
-	Description: "Build web applications to crawler article information on technology blogs using Echo Framework (Golang)",
+	Title:       "DevRead API",
+	Description: "Nền tảng tổng hợp kiến thức cho developer",
 }
 
 type s struct{}

@@ -5,10 +5,10 @@ import (
 	"database/sql"
 	"github.com/labstack/gommon/log"
 	"github.com/lib/pq"
-	"tech_posts_trending/custom_error"
-	"tech_posts_trending/db"
-	"tech_posts_trending/model"
-	"tech_posts_trending/repository"
+	"devread/custom_error"
+	"devread/db"
+	"devread/model"
+	"devread/repository"
 	"time"
 )
 

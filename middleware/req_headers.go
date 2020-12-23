@@ -5,7 +5,7 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 	"mime"
 	"net/http"
-	"tech_posts_trending/model"
+	"devread/model"
 )
 
 func HeadersMiddleware() echo.MiddlewareFunc {

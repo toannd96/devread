@@ -3,7 +3,7 @@ package security
 import (
 	"github.com/dgrijalva/jwt-go"
 	"os"
-	"tech_posts_trending/model"
+	"devread/model"
 	"time"
 )
 

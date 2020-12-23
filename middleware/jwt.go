@@ -4,7 +4,7 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 	"os"
-	"tech_posts_trending/model"
+	"devread/model"
 )
 
 func JWTMiddleware() echo.MiddlewareFunc {

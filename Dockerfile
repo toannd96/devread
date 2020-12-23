@@ -12,7 +12,7 @@ WORKDIR $GOPATH/app
 
 COPY . .
 
-RUN go mod init tech_posts_trending
+RUN go mod init devread
 
 WORKDIR /app
 RUN GOOS=linux go build -o app

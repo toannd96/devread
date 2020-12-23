@@ -5,10 +5,10 @@ import (
 	"github.com/google/uuid"
 	"github.com/labstack/echo/v4"
 	"net/http"
-	"tech_posts_trending/log"
-	"tech_posts_trending/model"
-	"tech_posts_trending/model/req"
-	"tech_posts_trending/repository"
+	"devread/log"
+	"devread/model"
+	"devread/model/req"
+	"devread/repository"
 )
 
 func GetQueryTag(r *http.Request) string {
@@ -75,6 +75,7 @@ func (post *PostHandler) SearchPost(c echo.Context) error {
 // @Tags bookmark-service
 // @Accept  json
 // @Produce  json
+// @Security jwt
 // @Success 200 {object} model.Response
 // @Failure 401 {object} model.Response
 // @Router /user/bookmark/list [get]
@@ -98,6 +99,7 @@ func (post *PostHandler) SelectBookmarks(c echo.Context) error {
 // @Tags bookmark-service
 // @Accept  json
 // @Produce  json
+// @Security jwt
 // @Param data body req.ReqBookmark true "user"
 // @Success 200 {object} model.Response
 // @Failure 400 {object} model.Response
@@ -160,6 +162,7 @@ func (post *PostHandler) Bookmark(c echo.Context) error {
 // @Tags bookmark-service
 // @Accept  json
 // @Produce  json
+// @Security jwt
 // @Param data body req.ReqBookmark true "user"
 // @Success 200 {object} model.Response
 // @Failure 400 {object} model.Response

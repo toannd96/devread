@@ -1,8 +1,8 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "Build web applications to crawler article information on technology blogs using Echo Framework (Golang)",
-        "title": "Deviread API",
+        "description": "Nền tảng tổng hợp kiến thức cho developer",
+        "title": "DevRead API",
         "termsOfService": "http://swagger.io/terms/",
         "contact": {
             "name": "API Support",
@@ -85,6 +85,11 @@
         },
         "/user/bookmark/add": {
             "post": {
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ],
                 "consumes": [
                     "application/json"
                 ],
@@ -142,6 +147,11 @@
         },
         "/user/bookmark/delete": {
             "delete": {
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ],
                 "consumes": [
                     "application/json"
                 ],
@@ -193,6 +203,11 @@
         },
         "/user/bookmark/list": {
             "get": {
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ],
                 "consumes": [
                     "application/json"
                 ],
@@ -335,6 +350,11 @@
         },
         "/user/profile": {
             "get": {
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ],
                 "consumes": [
                     "application/json"
                 ],
@@ -381,6 +401,11 @@
         },
         "/user/profile/update": {
             "put": {
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ],
                 "consumes": [
                     "application/json"
                 ],

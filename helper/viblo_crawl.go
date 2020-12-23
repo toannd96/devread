@@ -7,9 +7,9 @@ import (
 	"github.com/labstack/gommon/log"
 	"runtime"
 	"strings"
-	"tech_posts_trending/custom_error"
-	"tech_posts_trending/model"
-	"tech_posts_trending/repository"
+	"devread/custom_error"
+	"devread/model"
+	"devread/repository"
 	"time"
 )
 

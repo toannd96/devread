@@ -7,9 +7,9 @@ import (
 	"regexp"
 	"runtime"
 	"strings"
-	"tech_posts_trending/custom_error"
-	"tech_posts_trending/model"
-	"tech_posts_trending/repository"
+	"devread/custom_error"
+	"devread/model"
+	"devread/repository"
 )
 
 func ThefullsnackPost(postRepo repository.PostRepo) {

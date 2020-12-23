@@ -71,12 +71,12 @@ info:
     email: support@swagger.io
     name: API Support
     url: http://www.swagger.io/support
-  description: Build web applications to crawler article information on technology blogs using Echo Framework (Golang)
+  description: Nền tảng tổng hợp kiến thức cho developer
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   termsOfService: http://swagger.io/terms/
-  title: Deviread API
+  title: DevRead API
   version: "1.0"
 paths:
   /posts:
@@ -155,6 +155,8 @@ paths:
           description: Conflict
           schema:
             $ref: '#/definitions/model.Response'
+      security:
+      - jwt: []
       summary: Add bookmark
       tags:
       - bookmark-service
@@ -188,6 +190,8 @@ paths:
           description: Conflict
           schema:
             $ref: '#/definitions/model.Response'
+      security:
+      - jwt: []
       summary: Delete bookmark
       tags:
       - bookmark-service
@@ -206,6 +210,8 @@ paths:
           description: Unauthorized
           schema:
             $ref: '#/definitions/model.Response'
+      security:
+      - jwt: []
       summary: Get list bookmark
       tags:
       - bookmark-service
@@ -309,6 +315,8 @@ paths:
           description: Internal Server Error
           schema:
             $ref: '#/definitions/model.Response'
+      security:
+      - jwt: []
       summary: Get user profile
       tags:
       - profile-service
@@ -342,6 +350,8 @@ paths:
           description: Unprocessable Entity
           schema:
             $ref: '#/definitions/model.Response'
+      security:
+      - jwt: []
       summary: Update user profile
       tags:
       - profile-service

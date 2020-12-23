@@ -3,11 +3,11 @@ package repo_impl
 import (
 	"context"
 	"database/sql"
-	"tech_posts_trending/custom_error"
-	"tech_posts_trending/db"
-	"tech_posts_trending/model"
-	"tech_posts_trending/model/req"
-	"tech_posts_trending/repository"
+	"devread/custom_error"
+	"devread/db"
+	"devread/model"
+	"devread/model/req"
+	"devread/repository"
 	"time"
 
 	"github.com/lib/pq"
