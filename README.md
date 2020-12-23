@@ -11,8 +11,7 @@ docker-compose up -d
 docker-compose up
 ```
 
-- Cập nhật swagger ```swag init```
-- App run swagger test api ```localhost:3000/swagger/index.html```
+- Run swagger test API tại ```localhost:3000/swagger/index.html```
 
 ## Người phát triển
 1. Nguyễn Đắc Toàn
