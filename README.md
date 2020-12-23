@@ -15,5 +15,5 @@ docker-compose up
 - https://www.facebook.com/toan.nguyendac130396/
 
 2. Nguyễn Văn An
-- Đồng sáng lập dự án, mobile developer
+- Đồng sáng lập dự án, mobile developer & support backend
 - https://www.facebook.com/apkadmin1
