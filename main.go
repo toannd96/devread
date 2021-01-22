@@ -2,123 +2,69 @@ package main
 
 import (
 	"fmt"
-	"os"
-	"devread/db"
-	_ "devread/docs"
-	"devread/handler"
-	"devread/helper"
-	"devread/log"
-	"devread/repository/repo_impl"
-	"devread/router"
-	"time"
-
 	"github.com/joho/godotenv"
-	"github.com/labstack/echo/v4"
-	echoSwagger "github.com/swaggo/echo-swagger"
+	"ioc-provider/crawler"
+	"ioc-provider/db"
+	"ioc-provider/helper"
+	"ioc-provider/repository"
+	"ioc-provider/repository/repo_impl"
+	"log"
+	"os"
+	"time"
 )
+
+type IocHandler struct {
+	IocRepo repository.IocRepo
+}
 
 func init() {
 	if err := godotenv.Load(".env"); err != nil {
-		fmt.Println("không nhận được biến môi trường")
+		log.Println("not environment variable")
 	}
-	log.InitLogger(false)
 }
-
-// @title DevRead API
-// @version 1.0
-// @description Nền tảng tổng hợp kiến thức cho developer
-// @termsOfService http://swagger.io/terms/
-
-// @contact.name API Support
-// @contact.url http://www.swagger.io/support
-// @contact.email support@swagger.io
-
-// @license.name Apache 2.0
-// @license.url http://www.apache.org/licenses/LICENSE-2.0.html
-
-// @securityDefinitions.apikey jwt
-// @in header
-// @name Authorization
-
-// @host localhost:3000
-// @BasePath /
 
 func main() {
+	// elastic details
+	esHost := os.Getenv("ES_HOST")
+	esPort := os.Getenv("ES_PORT")
 
-	// redis details
-	redisHost := os.Getenv("REDIS_HOST")
-	redisPort := os.Getenv("REDIS_PORT")
-
-	// postgres details
-	host := os.Getenv("DB_HOST")
-	port := os.Getenv("DB_PORT")
-	password := os.Getenv("DB_PASSWORD")
-	username := os.Getenv("DB_USERNAME")
-	dbname := os.Getenv("DB_NAME")
-
-	// connect redis
-	client := &db.RedisDB{
-		Host: redisHost,
-		Port: redisPort,
+	// connect elastic
+	clientES := &db.ElasticDB{
+		Host: esHost,
+		Port: esPort,
 	}
-	client.NewRedisDB()
+	clientES.NewElasticDB()
 
-	// connect postgres
-	sql := &db.Sql{
-		Host:     host,
-		Port:     port,
-		UserName: username,
-		Password: password,
-		DbName:   dbname,
+	rbmqHost := os.Getenv("RBMQ_HOST")
+	rbmqPort := os.Getenv("RBMQ_PORT")
+	rbmqUserName := os.Getenv("RBMQ_USER_NAME")
+	rbmqPassword := os.Getenv("RBMQ_PASSWORD")
+
+	clientRB := &helper.Rbmq{
+		UserName: rbmqUserName,
+		Password: rbmqPassword,
+		Host: rbmqHost,
+		Port: rbmqPort,
 	}
-	sql.Connect()
-	defer sql.Close()
+	clientRB.ConnectRbmq()
 
-	e := echo.New()
-	e.GET("/swagger/*", echoSwagger.WrapHandler)
-
-	customValidator := helper.NewCustomValidator()
-	customValidator.RegisterValidate()
-
-	e.Validator = customValidator
-
-	userHandler := handler.UserHandler{
-		UserRepo: repo_impl.NewUserRepo(sql),
-		AuthRepo: repo_impl.NewAuthenRepo(client),
+	iocHandler := IocHandler{
+		IocRepo: repo_impl.NewIocRepo(clientES),
 	}
-
-	postHandler := handler.PostHandler{
-		PostRepo: repo_impl.NewPostRepo(sql),
-		AuthRepo: repo_impl.NewAuthenRepo(client),
-	}
-
-	api := router.API{
-		Echo:        e,
-		UserHandler: userHandler,
-		PostHandler: postHandler,
-	}
-
-	api.SetupRouter()
-
 	// time start crawler
-	go scheduleUpdateTrending(24*time.Second, postHandler)
-
-	e.Logger.Fatal(e.Start(":3000"))
+	schedule(60*time.Second, iocHandler)
 }
 
-func scheduleUpdateTrending(timeSchedule time.Duration, handler handler.PostHandler) {
+func schedule(timeSchedule time.Duration, handler IocHandler) {
 	ticker := time.NewTicker(timeSchedule)
-	go func() {
+	func() {
+		fmt.Println(1)
 		for {
 			select {
 			case <-ticker.C:
-				fmt.Println("Quét bài viết ...")
-				helper.VibloPost(handler.PostRepo)
-				helper.ToidicodedaoPost(handler.PostRepo)
-				helper.ThefullsnackPost(handler.PostRepo)
-				helper.QuancamPost(handler.PostRepo)
-				helper.CodeaholicguyPost(handler.PostRepo)
-				helper.YellowcodePost(handler.PostRepo)
+				fmt.Println("Crawler data...")
+				crawler.Subscribed(handler.IocRepo)
+				//crawler.LiveHunting(handler.IocRepo)
 			}
 		}
 	}()
