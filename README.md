@@ -5,6 +5,18 @@
 
 ![](https://github.com/dactoankmapydev/devread/blob/master/huong_dan/api.png)
 
+- Màn hình chức năng sản phẩm:
+
+![Danh sách bài viết](https://github.com/dactoankmapydev/devread/blob/master/huong_dan/2e4a899967b196efcfa0.jpg)
+
+![Hồ sơ cá nhân](https://github.com/dactoankmapydev/devread/blob/master/huong_dan/00e763318d197c472508.jpg)
+
+![Bộ sưu tập](https://github.com/dactoankmapydev/devread/blob/master/huong_dan/bf5a328fdca72df974b6.jpg)
+
+![Đăng ký](https://github.com/dactoankmapydev/devread/blob/master/huong_dan/59e6bc2a5202a35cfa13.jpg)
+
+![Đăng nhập](https://github.com/dactoankmapydev/devread/blob/master/huong_dan/4f57729f9cb76de934a6.jpg)
+
 ## Run
 ```
 docker-compose up -d
