@@ -18,9 +18,5 @@ docker-compose up
 - Người sáng lập dự án, developer
 - https://www.facebook.com/toan.nguyendac130396/
 
-2. Nguyễn Văn An
-- Đồng sáng lập dự án, developer
-- https://www.facebook.com/apkadmin1
-
 
 
