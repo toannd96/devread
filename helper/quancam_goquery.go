@@ -69,6 +69,17 @@ func AllPage() {
 			_, err := getOnePage(pathURL)
 			checkError(err)
 
+			//queue := NewJobQueue(runtime.NumCPU())
+			//queue.Start()
+			//defer queue.Stop()
+			//
+			//for _, post := range posts {
+			//	queue.Submit(&QuancamProcess{
+			//		post:     post,
+			//		postRepo: postRepo,
+			//	})
+			//}
+
 			return nil
 		})
 	}
@@ -76,3 +87,10 @@ func AllPage() {
 		fmt.Printf("g.Wait() err = %+v\n", err)
 	}
 }
+
+//type QuancamProcess struct {
+//	posts []model.Post
+//	//iocRepo  repository.IocRepo
+//}
+//
+//func (process *QuancamProcess) Process() {}
