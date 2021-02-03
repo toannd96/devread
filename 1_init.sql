@@ -28,3 +28,8 @@ CREATE TABLE "bookmarks" (
 
 ALTER TABLE "bookmarks" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("user_id");
 ALTER TABLE "bookmarks" ADD FOREIGN KEY ("post_name") REFERENCES "posts" ("name");
+
+-- -- +migrate Down
+-- DROP TABLE bookmarks;
+-- DROP TABLE users;
+-- DROP TABLE repos;

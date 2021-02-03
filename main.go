@@ -1,8 +1,7 @@
 package main
 
 import (
-	"fmt"
-	"os"
+	"devread/crawler"
 	"devread/db"
 	_ "devread/docs"
 	"devread/handler"
@@ -10,6 +9,8 @@ import (
 	"devread/log"
 	"devread/repository/repo_impl"
 	"devread/router"
+	"fmt"
+	"os"
 	"time"
 
 	"github.com/joho/godotenv"
@@ -101,24 +102,47 @@ func main() {
 	api.SetupRouter()
 
 	// time start crawler
-	go scheduleUpdateTrending(24*time.Second, postHandler)
+	go crawler.VibloPost(postHandler.PostRepo)
+	go crawler.CodeaholicguyPost(postHandler.PostRepo)
+	go crawler.QuancamPost(postHandler.PostRepo)
+	go crawler.ThefullsnackPost(postHandler.PostRepo)
+	go crawler.ToidicodedaoPost(postHandler.PostRepo)
+	crawler.YellowcodePost(postHandler.PostRepo)
+
+	// schedule crawler
+	go schedule(30*time.Minute, postHandler, 1)
+	go schedule(1*time.Hour, postHandler, 2)
+	go schedule(24*time.Hour, postHandler, 3)
+	go schedule(24*time.Hour, postHandler, 4)
+	go schedule(24*time.Hour, postHandler, 5)
+	schedule(24*time.Hour, postHandler, 6)
 
 	e.Logger.Fatal(e.Start(":3000"))
 }
 
-func scheduleUpdateTrending(timeSchedule time.Duration, handler handler.PostHandler) {
+func schedule(timeSchedule time.Duration, handler handler.PostHandler, crowIlnndex int) {
 	ticker := time.NewTicker(timeSchedule)
-	go func() {
+	func() {
 		for {
-			select {
-			case <-ticker.C:
-				fmt.Println("Quét bài viết ...")
-				helper.VibloPost(handler.PostRepo)
-				helper.ToidicodedaoPost(handler.PostRepo)
-				helper.ThefullsnackPost(handler.PostRepo)
-				helper.QuancamPost(handler.PostRepo)
-				helper.CodeaholicguyPost(handler.PostRepo)
-				helper.YellowcodePost(handler.PostRepo)
+			switch crowIlnndex {
+			case 1:
+				<-ticker.C
+				crawler.VibloPost(handler.PostRepo)
+			case 2:
+				<-ticker.C
+				crawler.ToidicodedaoPost(handler.PostRepo)
+			case 3:
+				<-ticker.C
+				crawler.ThefullsnackPost(handler.PostRepo)
+			case 4:
+				<-ticker.C
+				crawler.QuancamPost(handler.PostRepo)
+			case 5:
+				<-ticker.C
+				crawler.CodeaholicguyPost(handler.PostRepo)
+			case 6:
+				<-ticker.C
+				crawler.YellowcodePost(handler.PostRepo)
 			}
 		}
 	}()

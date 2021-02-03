@@ -1,4 +1,4 @@
-package security
+package helper
 
 import (
 	"crypto/md5"

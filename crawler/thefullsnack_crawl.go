@@ -1,15 +1,16 @@
-package helper
+package crawler
 
 import (
 	"context"
+	"devread/custom_error"
+	"devread/helper"
+	"devread/model"
+	"devread/repository"
 	"github.com/gocolly/colly/v2"
 	"github.com/labstack/gommon/log"
 	"regexp"
 	"runtime"
 	"strings"
-	"devread/custom_error"
-	"devread/model"
-	"devread/repository"
 )
 
 func ThefullsnackPost(postRepo repository.PostRepo) {
@@ -30,7 +31,7 @@ func ThefullsnackPost(postRepo repository.PostRepo) {
 	})
 
 	c.OnScraped(func(r *colly.Response) {
-		queue := NewJobQueue(runtime.NumCPU())
+		queue := helper.NewJobQueue(runtime.NumCPU())
 		queue.Start()
 		defer queue.Stop()
 

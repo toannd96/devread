@@ -1,15 +1,16 @@
-package helper
+package crawler
 
 import (
 	"context"
+	"devread/custom_error"
+	"devread/helper"
+	"devread/model"
+	"devread/repository"
 	"fmt"
 	"github.com/gocolly/colly/v2"
 	"github.com/labstack/gommon/log"
 	"runtime"
 	"strings"
-	"devread/custom_error"
-	"devread/model"
-	"devread/repository"
 )
 
 func YellowcodePost(postRepo repository.PostRepo) {
@@ -28,7 +29,7 @@ func YellowcodePost(postRepo repository.PostRepo) {
 	})
 
 	c.OnScraped(func(r *colly.Response) {
-		queue := NewJobQueue(runtime.NumCPU())
+		queue := helper.NewJobQueue(runtime.NumCPU())
 		queue.Start()
 		defer queue.Stop()
 

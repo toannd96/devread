@@ -1,50 +1,51 @@
-package helper
+package crawler
 
 import (
 	"context"
+	"devread/custom_error"
+	"devread/helper"
+	"devread/model"
+	"devread/repository"
 	"fmt"
 	"github.com/gocolly/colly/v2"
 	"github.com/labstack/gommon/log"
 	"runtime"
 	"strings"
-	"devread/custom_error"
-	"devread/model"
-	"devread/repository"
 	"time"
 )
 
-func ToidicodedaoPost(postRepo repository.PostRepo) {
+func CodeaholicguyPost(postRepo repository.PostRepo) {
 	c := colly.NewCollector()
 	c.SetRequestTimeout(30 * time.Second)
 
 	posts := []model.Post{}
-	var toidicodedaoPost model.Post
+	var codeaholicguyPost model.Post
 
-	c.OnHTML("footer[class=entry-meta]", func(e *colly.HTMLElement) {
-		if toidicodedaoPost.Name == "" || toidicodedaoPost.Link == "" {
+	c.OnHTML("span[class=cat-links]", func(e *colly.HTMLElement) {
+		if codeaholicguyPost.Name == "" || codeaholicguyPost.Link == "" {
 			return
 		}
-		toidicodedaoPost.Tag = strings.ToLower(e.ChildText("span.tag-links > a:last-child"))
-		posts = append(posts, toidicodedaoPost)
+		codeaholicguyPost.Tag = strings.ToLower(strings.Replace(e.ChildText("span.cat-links > a:last-child"), "Chuyện coding", "", -1))
+		posts = append(posts, codeaholicguyPost)
 	})
 
-	c.OnHTML(".site-content .entry-title", func(e *colly.HTMLElement) {
-		toidicodedaoPost.Name = e.Text
-		toidicodedaoPost.Link = e.ChildAttr("h1.entry-title > a", "href")
-		c.Visit(e.Request.AbsoluteURL(toidicodedaoPost.Link))
-		if toidicodedaoPost.Name == "" || toidicodedaoPost.Link == "" {
+	c.OnHTML("header[class=entry-header]", func(e *colly.HTMLElement) {
+		codeaholicguyPost.Name = e.ChildText("h1.entry-title > a")
+		codeaholicguyPost.Link = e.ChildAttr("h1.entry-title > a", "href")
+		c.Visit(e.Request.AbsoluteURL(codeaholicguyPost.Link))
+		if codeaholicguyPost.Name == "" || codeaholicguyPost.Link == "" {
 			return
 		}
-		posts = append(posts, toidicodedaoPost)
+		posts = append(posts, codeaholicguyPost)
 	})
 
 	c.OnScraped(func(r *colly.Response) {
-		queue := NewJobQueue(runtime.NumCPU())
+		queue := helper.NewJobQueue(runtime.NumCPU())
 		queue.Start()
 		defer queue.Stop()
 
 		for _, post := range posts {
-			queue.Submit(&ToidicodedaoProcess{
+			queue.Submit(&CodeaholicguyProcess{
 				post:     post,
 				postRepo: postRepo,
 			})
@@ -54,20 +55,19 @@ func ToidicodedaoPost(postRepo repository.PostRepo) {
 	c.OnError(func(r *colly.Response, err error) {
 		log.Error("Request URL:", r.Request.URL, "failed with response:", r, "\nError:", err)
 	})
-
-	for i := 1; i < 32; i++ {
-		fullURL := fmt.Sprintf("https://toidicodedao.com/category/chuyen-coding/page/%d", i)
+	for i := 1; i < 7; i++ {
+		fullURL := fmt.Sprintf("https://codeaholicguy.com/category/chuyen-coding/page/%d", i)
 		c.Visit(fullURL)
 		fmt.Println(fullURL)
 	}
 }
 
-type ToidicodedaoProcess struct {
+type CodeaholicguyProcess struct {
 	post     model.Post
 	postRepo repository.PostRepo
 }
 
-func (process *ToidicodedaoProcess) Process() {
+func (process *CodeaholicguyProcess) Process() {
 	// select post by name
 	cacheRepo, err := process.postRepo.SelectPostByName(context.Background(), process.post.Name)
 	if err == custom_error.PostNotFound {

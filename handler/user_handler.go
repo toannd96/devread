@@ -1,18 +1,19 @@
 package handler
 
 import (
+	"devread/custom_error"
+	"devread/helper"
+	"devread/log"
+	"devread/model"
+	"devread/model/req"
+	"devread/repository"
+	"devread/security"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/google/uuid"
 	"github.com/labstack/echo/v4"
 	"net/http"
 	"net/smtp"
 	"os"
-	"devread/custom_error"
-	"devread/log"
-	"devread/model"
-	"devread/model/req"
-	"devread/repository"
-	"devread/security"
 )
 
 type smtpServer struct {
@@ -87,14 +88,9 @@ func (u *UserHandler) SignUp(c echo.Context) error {
 			Message:    err.Error(),
 		})
 	}
-	return c.JSON(http.StatusOK, model.Response{
-		StatusCode: http.StatusOK,
-		Message:    "Xử lý thành công",
-	})
-
 
 	// verify email
-	token := security.CreateTokenHash(user.Email)
+	token := helper.CreateTokenHash(user.Email)
 
 	// save token to redis
 	saveErr := u.AuthRepo.CreateTokenMail(token, user.UserID)
@@ -172,7 +168,7 @@ func (u *UserHandler) ForgotPassword(c echo.Context) error {
 		})
 	}
 
-	token := security.CreateTokenHash(user.Email)
+	token := helper.CreateTokenHash(user.Email)
 
 	// save token to redis
 	saveErr := u.AuthRepo.CreateTokenMail(token, user.UserID)
