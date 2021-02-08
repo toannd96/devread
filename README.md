@@ -32,11 +32,3 @@ docker-compose up
 ```
 
 - Run swagger test API tại ```localhost:3000/swagger/index.html```
-
-## Người phát triển
-1. Nguyễn Đắc Toàn
-- Sáng lập dự án, developer
-- https://www.facebook.com/toan.nguyendac130396/
-
-
-
