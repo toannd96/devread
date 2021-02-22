@@ -8,7 +8,7 @@ import (
 	"devread/repository"
 	"fmt"
 	"github.com/gocolly/colly/v2"
-	"github.com/labstack/gommon/log"
+	"log"
 	"runtime"
 	"strings"
 )
@@ -25,6 +25,7 @@ func YellowcodePost(postRepo repository.PostRepo) {
 			strings.Replace(
 				strings.Replace(
 					e.ChildText("span.meta-category > a"), "\n", "", -1), "/", "", -1), "-", "", -1))
+		yellowcodePost.PostID = helper.Hash(yellowcodePost.Name, yellowcodePost.Link)
 		posts = append(posts, yellowcodePost)
 	})
 
@@ -42,7 +43,7 @@ func YellowcodePost(postRepo repository.PostRepo) {
 	})
 
 	c.OnError(func(r *colly.Response, err error) {
-		log.Error("Request URL:", r.Request.URL, "failed with response:", r, "\nError:", err)
+		log.Println("Request URL:", r.Request.URL, "failed with response:", r, "\nError:", err)
 	})
 
 	listURL := []string{}
@@ -67,23 +68,24 @@ type YellowcodeProcess struct {
 }
 
 func (process *YellowcodeProcess) Process() {
-	// select post by name
-	cacheRepo, err := process.postRepo.SelectPostByName(context.Background(), process.post.Name)
+	// select post by id
+	cacheRepo, err := process.postRepo.SelectById(context.Background(), process.post.PostID)
 	if err == custom_error.PostNotFound {
 		// insert post to database
-		_, err = process.postRepo.SavePost(context.Background(), process.post)
+		fmt.Println("Add: ", process.post.Name)
+		_, err = process.postRepo.Save(context.Background(), process.post)
 		if err != nil {
-			log.Error(err)
+			log.Println(err)
 		}
 		return
 	}
 
 	// update post
-	if process.post.Name != cacheRepo.Name {
-		log.Info("Updated: ", process.post.Name)
-		_, err = process.postRepo.UpdatePost(context.Background(), process.post)
+	if process.post.PostID != cacheRepo.PostID {
+		fmt.Println("Updated: ", process.post.Name)
+		_, err = process.postRepo.Update(context.Background(), process.post)
 		if err != nil {
-			log.Error(err)
+			log.Println(err)
 		}
 	}
 }

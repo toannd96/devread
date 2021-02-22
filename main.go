@@ -100,24 +100,23 @@ func main() {
 	}
 
 	api.SetupRouter()
+	e.Logger.Fatal(e.Start(":3000"))
 
 	// time start crawler
 	go crawler.VibloPost(postHandler.PostRepo)
-	go crawler.CodeaholicguyPost(postHandler.PostRepo)
-	go crawler.QuancamPost(postHandler.PostRepo)
-	go crawler.ThefullsnackPost(postHandler.PostRepo)
 	go crawler.ToidicodedaoPost(postHandler.PostRepo)
+	go crawler.ThefullsnackPost(postHandler.PostRepo)
+	go crawler.QuancamPostV1(postHandler.PostRepo)
+	go crawler.CodeaholicguyPost(postHandler.PostRepo)
 	crawler.YellowcodePost(postHandler.PostRepo)
 
 	// schedule crawler
-	go schedule(30*time.Minute, postHandler, 1)
-	go schedule(1*time.Hour, postHandler, 2)
+	go schedule(10*time.Minute, postHandler, 1)
+	go schedule(24*time.Hour, postHandler, 2)
 	go schedule(24*time.Hour, postHandler, 3)
 	go schedule(24*time.Hour, postHandler, 4)
 	go schedule(24*time.Hour, postHandler, 5)
 	schedule(24*time.Hour, postHandler, 6)
-
-	e.Logger.Fatal(e.Start(":3000"))
 }
 
 func schedule(timeSchedule time.Duration, handler handler.PostHandler, crowIlnndex int) {
@@ -136,7 +135,7 @@ func schedule(timeSchedule time.Duration, handler handler.PostHandler, crowIlnnd
 				crawler.ThefullsnackPost(handler.PostRepo)
 			case 4:
 				<-ticker.C
-				crawler.QuancamPost(handler.PostRepo)
+				crawler.QuancamPostV1(handler.PostRepo)
 			case 5:
 				<-ticker.C
 				crawler.CodeaholicguyPost(handler.PostRepo)

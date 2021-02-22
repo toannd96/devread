@@ -71,6 +71,7 @@ func getOnePageTest(pathURL string) ([]model.Post, error) {
 		quancamPost.Tag = strings.ToLower(strings.Replace(
 			strings.Replace(
 				s.Find("span.tagging > a").Text(), "\n", "", -1), "#", " ", -1))
+		quancamPost.PostID = helper.Hash(quancamPost.Name, quancamPost.Link)
 		posts = append(posts, quancamPost)
 
 		//fmt.Println("Name", quancamPost.Name)
@@ -81,7 +82,7 @@ func getOnePageTest(pathURL string) ([]model.Post, error) {
 	return posts, nil
 }
 
-func QuancamPostV3(postRepo repository.PostRepo) {
+func QuancamPostV2(postRepo repository.PostRepo) {
 	sem := semaphore.NewWeighted(int64(runtime.NumCPU()))
 	group, ctx := errgroup.WithContext(context.Background())
 	listPage := GetListPage()
@@ -102,7 +103,7 @@ func QuancamPostV3(postRepo repository.PostRepo) {
 			queue.Start()
 			defer queue.Stop()
 			for _, post := range posts {
-				queue.Submit(&QuancamProcessV3{
+				queue.Submit(&QuancamProcessV2{
 					post:     post,
 					postRepo: postRepo,
 				})
@@ -115,27 +116,26 @@ func QuancamPostV3(postRepo repository.PostRepo) {
 	}
 }
 
-type QuancamProcessV3 struct {
+type QuancamProcessV2 struct {
 	post     model.Post
 	postRepo repository.PostRepo
 }
 
-func (process *QuancamProcessV3) Process() {
+func (process *QuancamProcessV2) Process() {
 	// select post by name
-	cacheRepo, err := process.postRepo.SelectPostByName(context.Background(), process.post.Name)
+	cacheRepo, err := process.postRepo.SelectById(context.Background(), process.post.PostID)
 	if err == custom_error.PostNotFound {
 		// insert post to database
 		fmt.Println("Add: ", process.post.Name)
-		_, err = process.postRepo.SavePost(context.Background(), process.post)
+		_, err = process.postRepo.Save(context.Background(), process.post)
 		checkError(err)
 		return
 	}
 
 	// update post
-	if process.post.Name != cacheRepo.Name ||
-		process.post.Link != cacheRepo.Link {
+	if process.post.PostID != cacheRepo.PostID {
 		fmt.Println("Updated: ", process.post.Name)
-		_, err = process.postRepo.UpdatePost(context.Background(), process.post)
+		_, err = process.postRepo.Update(context.Background(), process.post)
 		checkError(err)
 	}
 }

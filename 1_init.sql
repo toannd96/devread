@@ -12,8 +12,9 @@ CREATE TABLE "users" (
 );
 
 CREATE TABLE "posts" (
-  "name" text PRIMARY KEY,
-  "link" text,
+  "post_id" text PRIMARY KEY,
+  "name" text,
+  "link" text UNIQUE,
   "tag"  text
 );
 
@@ -27,4 +28,4 @@ CREATE TABLE "bookmarks" (
 );
 
 ALTER TABLE "bookmarks" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("user_id");
-ALTER TABLE "bookmarks" ADD FOREIGN KEY ("post_name") REFERENCES "posts" ("name");
+ALTER TABLE "bookmarks" ADD FOREIGN KEY ("post_name") REFERENCES "posts" ("post_id");

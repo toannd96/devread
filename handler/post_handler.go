@@ -19,6 +19,7 @@ func GetQueryTag(r *http.Request) string {
 type PostHandler struct {
 	PostRepo repository.PostRepo
 	AuthRepo repository.AuthenRepo
+	BookmarkRepo repository.BookmarkRepo
 }
 
 // PostTrending godoc
@@ -30,7 +31,7 @@ type PostHandler struct {
 // @Failure 401 {object} model.Response
 // @Router /trend [get]
 func (post *PostHandler) PostTrending(c echo.Context) error {
-	repos, err := post.PostRepo.SelectAllPost(c.Request().Context())
+	repos, err := post.PostRepo.SelectAll(c.Request().Context())
 	if err != nil {
 		log.Error(err.Error())
 		return c.JSON(http.StatusNotFound, model.Response{
@@ -55,7 +56,7 @@ func (post *PostHandler) PostTrending(c echo.Context) error {
 // @Failure 404 {object} model.Response
 // @Router /posts [get]
 func (post *PostHandler) SearchPost(c echo.Context) error {
-	repos, err := post.PostRepo.SelectPostByTag(c.Request().Context(), GetQueryTag(c.Request()))
+	repos, err := post.PostRepo.SelectByTag(c.Request().Context(), GetQueryTag(c.Request()))
 	if err != nil {
 		log.Error(err.Error())
 		return c.JSON(http.StatusNotFound, model.Response{
@@ -83,7 +84,7 @@ func (post *PostHandler) SelectBookmarks(c echo.Context) error {
 	token := c.Get("user").(*jwt.Token)
 	claims := token.Claims.(*model.TokenDetails)
 
-	repos, _ := post.PostRepo.SelectAllBookmark(
+	repos, _ := post.BookmarkRepo.SelectAll(
 		c.Request().Context(),
 		claims.UserID)
 
@@ -137,7 +138,7 @@ func (post *PostHandler) Bookmark(c echo.Context) error {
 		})
 	}
 
-	err = post.PostRepo.Bookmark(
+	err = post.BookmarkRepo.Bookmark(
 		c.Request().Context(),
 		bId.String(),
 		req.PostName,
@@ -191,7 +192,7 @@ func (post *PostHandler) DelBookmark(c echo.Context) error {
 	token := c.Get("user").(*jwt.Token)
 	claims := token.Claims.(*model.TokenDetails)
 
-	err = post.PostRepo.DelBookmark(
+	err = post.BookmarkRepo.Delete(
 		c.Request().Context(),
 		req.PostName, claims.UserID)
 

@@ -7,7 +7,7 @@ import (
 	"devread/model"
 	"devread/repository"
 	"github.com/gocolly/colly/v2"
-	"github.com/labstack/gommon/log"
+	"log"
 	"regexp"
 	"runtime"
 	"strings"
@@ -27,6 +27,7 @@ func ThefullsnackPost(postRepo repository.PostRepo) {
 		splitName := strings.Join(regexSplitName.FindAllString(tags, -1), " ")
 		splitTime := strings.Join(regexSplitTime.FindAllString(splitName, -1), " ")
 		thefullsnackPost.Tag = strings.Replace(splitName, splitTime, "", -1)
+		thefullsnackPost.PostID = helper.Hash(thefullsnackPost.Name, thefullsnackPost.Link)
 		posts = append(posts, thefullsnackPost)
 	})
 
@@ -44,7 +45,7 @@ func ThefullsnackPost(postRepo repository.PostRepo) {
 	})
 
 	c.OnError(func(r *colly.Response, err error) {
-		log.Error("Request URL:", r.Request.URL, "failed with response:", r, "\nError:", err)
+		log.Println("Request URL:", r.Request.URL, "failed with response:", r, "\nError:", err)
 	})
 
 	c.Visit("https://thefullsnack.com/")
@@ -56,23 +57,24 @@ type ThefullsnackProcess struct {
 }
 
 func (process *ThefullsnackProcess) Process() {
-	// select post by name
-	cacheRepo, err := process.postRepo.SelectPostByName(context.Background(), process.post.Name)
+	// select post by id
+	cacheRepo, err := process.postRepo.SelectById(context.Background(), process.post.PostID)
 	if err == custom_error.PostNotFound {
 		// insert post to database
-		_, err = process.postRepo.SavePost(context.Background(), process.post)
+		log.Println("Add: ", process.post.Name)
+		_, err = process.postRepo.Save(context.Background(), process.post)
 		if err != nil {
-			log.Error(err)
+			log.Println(err)
 		}
 		return
 	}
 
 	// update post
-	if process.post.Name != cacheRepo.Name {
-		log.Info("Updated: ", process.post.Name)
-		_, err = process.postRepo.UpdatePost(context.Background(), process.post)
+	if process.post.PostID != cacheRepo.PostID {
+		log.Println("Updated: ", process.post.Name)
+		_, err = process.postRepo.Update(context.Background(), process.post)
 		if err != nil {
-			log.Error(err)
+			log.Println(err)
 		}
 	}
 }
