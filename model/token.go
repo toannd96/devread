@@ -1,9 +1,8 @@
 package model
 
-import "github.com/dgrijalva/jwt-go"
+import "github.com/golang-jwt/jwt"
 
 type TokenDetails struct {
-	UserID       string
+	UserID string
 	jwt.StandardClaims
-
 }

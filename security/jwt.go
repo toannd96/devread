@@ -1,10 +1,11 @@
 package security
 
 import (
-	"github.com/dgrijalva/jwt-go"
-	"os"
 	"devread/model"
+	"os"
 	"time"
+
+	"github.com/golang-jwt/jwt"
 )
 
 /*func CreateToken(userID string) (*model.TokenDetails, error) {
