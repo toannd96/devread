@@ -22,7 +22,7 @@ const urlBase = "https://quan-cam.com"
 
 func getOnePage(pathURL string) ([]model.Post, error) {
 	log := log.WriteLog()
-	response, err := helper.HttpClient.GetRequestWithRetries(pathURL)
+	response, err := helper.GetRequestWithRetries(pathURL)
 	if err != nil {
 		log.Error("Lỗi: ", zap.Error(err))
 	}

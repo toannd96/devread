@@ -1,78 +1,59 @@
 package helper
 
 import (
-	"fmt"
-	"log"
+	"devread/log"
 	"net/http"
-	"os"
 	"time"
+
+	"github.com/cenkalti/backoff"
+	"go.uber.org/zap"
 )
 
 const (
 	errUnexpectedResponse = "unexpected response: %s"
 )
 
-type HTTPClient struct{}
+func getRequest(pathURL string) (*http.Response, error) {
+	log := log.WriteLog()
 
-var (
-	HttpClient = HTTPClient{}
-)
-
-var backoffSchedule = []time.Duration{
-	10 * time.Second,
-	15 * time.Second,
-	20 * time.Second,
-	25 * time.Second,
-	30 * time.Second,
-	35 * time.Second,
-	40 * time.Second,
-	45 * time.Second,
-	50 * time.Second,
-	55 * time.Second,
-	60 * time.Second,
-	70 * time.Second,
-	80 * time.Second,
-	90 * time.Second,
-	100 * time.Second,
-}
-
-func (c HTTPClient) GetRequest(pathURL string) (*http.Response, error) {
 	req, _ := http.NewRequest("GET", pathURL, nil)
 	client := &http.Client{}
 	resp, err := client.Do(req)
+
+	log.Sugar().Info(zap.String("Get ", pathURL), zap.Int("Status Code ", resp.StatusCode))
 	if err != nil {
+		log.Error("Phản hồi Không mong đợi ", zap.Int("Status Code", resp.StatusCode), zap.Error(err))
 		return nil, err
-	}
-	c.info(fmt.Sprintf("GET %s -> %d", pathURL, resp.StatusCode))
-	if resp.StatusCode != 200 {
-		respErr := fmt.Errorf(errUnexpectedResponse, resp.Status)
-		fmt.Sprintf("request failed: %v", respErr)
-		return nil, respErr
 	}
 	return resp, nil
 }
 
-func (c HTTPClient) GetRequestWithRetries (api string) (*http.Response, error){
-	//var body []byte
-	var body *http.Response
+func GetRequestWithRetries(api string) (*http.Response, error) {
 	var err error
-	for _, backoff := range backoffSchedule {
-		body, err = c.GetRequest(api)
+	var resp *http.Response
+
+	log := log.WriteLog()
+
+	bo := backoff.NewExponentialBackOff()
+	bo.MaxInterval = 5 * time.Minute
+
+	for {
+		resp, err = getRequest(api)
 		if err == nil {
 			break
 		}
-		fmt.Fprintf(os.Stderr, "Request error: %+v\n", err)
-		fmt.Fprintf(os.Stderr, "Retrying in %v\n", backoff)
-		time.Sleep(backoff)
+		d := bo.NextBackOff()
+		if d == backoff.Stop {
+			log.Debug("Hết thời gian thử lại")
+		}
+		log.Error("Request lỗi ", zap.Error(err))
+		log.Sugar().Info("Thử lại trong ", d)
+		time.Sleep(d)
 	}
 
-	// All retries failed
+	// Tất cả các lần thử lại không thành công
 	if err != nil {
 		return nil, err
 	}
-	return body, nil
-}
-
-func (c HTTPClient) info(msg string) {
-	log.Printf("[client] %s\n", msg)
+	return resp, nil
 }

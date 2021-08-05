@@ -28,8 +28,7 @@ func GetListPage() []string {
 	page := []int{1}
 	for len(page) > 0 {
 		pathURL := fmt.Sprintf("https://quan-cam.com/posts?page=%d", page[0])
-		fmt.Println("GetListPage")
-		response, err := helper.HttpClient.GetRequestWithRetries(pathURL)
+		response, err := helper.GetRequestWithRetries(pathURL)
 		if err != nil {
 			log.Error("Lỗi: ", zap.Error(err))
 		}
@@ -58,7 +57,7 @@ func GetListPage() []string {
 func getOnePageTest(pathURL string) ([]model.Post, error) {
 	log := log.WriteLog()
 
-	response, err := helper.HttpClient.GetRequestWithRetries(pathURL)
+	response, err := helper.GetRequestWithRetries(pathURL)
 	if err != nil {
 		log.Error("Lỗi: ", zap.Error(err))
 	}
@@ -104,7 +103,7 @@ func QuancamPostV2(postRepo repository.PostRepo) {
 			defer sem.Release(1)
 
 			//do work
-			posts, err := getOnePage(page)
+			posts, err := getOnePageTest(page)
 			if err != nil {
 				log.Error("Lỗi: ", zap.Error(err))
 			}

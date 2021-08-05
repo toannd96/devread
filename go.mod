@@ -7,6 +7,7 @@ require (
 	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751
 	github.com/antchfx/xmlquery v1.3.4 // indirect
 	github.com/antchfx/xpath v1.1.11 // indirect
+	github.com/cenkalti/backoff v2.2.1+incompatible
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/go-openapi/spec v0.20.3 // indirect
 	github.com/go-playground/locales v0.13.0
@@ -21,7 +22,6 @@ require (
 	github.com/jmoiron/sqlx v1.3.1
 	github.com/joho/godotenv v1.3.0
 	github.com/labstack/echo/v4 v4.2.0
-	github.com/labstack/gommon v0.3.0
 	github.com/leodido/go-urn v1.2.1 // indirect
 	github.com/lib/pq v1.9.0
 	github.com/mailru/easyjson v0.7.7 // indirect
