@@ -9,20 +9,22 @@ import (
 	"devread/log"
 	"devread/repository/repo_impl"
 	"devread/router"
-	"fmt"
+
 	"os"
 	"time"
 
 	"github.com/joho/godotenv"
 	"github.com/labstack/echo/v4"
 	echoSwagger "github.com/swaggo/echo-swagger"
+
+	"go.uber.org/zap"
 )
 
 func init() {
+	logger := log.WriteLog()
 	if err := godotenv.Load(".env"); err != nil {
-		fmt.Println("không nhận được biến môi trường")
+		logger.Error("không nhận được biến môi trường", zap.Error(err))
 	}
-	log.InitLogger(false)
 }
 
 // @title DevRead API
@@ -86,11 +88,14 @@ func main() {
 	userHandler := handler.UserHandler{
 		UserRepo: repo_impl.NewUserRepo(sql),
 		AuthRepo: repo_impl.NewAuthenRepo(client),
+		Logger:   log.WriteLog(),
 	}
 
 	postHandler := handler.PostHandler{
-		PostRepo: repo_impl.NewPostRepo(sql),
-		AuthRepo: repo_impl.NewAuthenRepo(client),
+		PostRepo:     repo_impl.NewPostRepo(sql),
+		AuthRepo:     repo_impl.NewAuthenRepo(client),
+		BookmarkRepo: repo_impl.NewBookmarkRepo(sql),
+		Logger:       log.WriteLog(),
 	}
 
 	api := router.API{

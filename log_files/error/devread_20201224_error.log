@@ -1,1 +1,0 @@
-time="2020-12-24T14:16:35.6786443Z" level=error msg="535 5.7.8 Username and Password not accepted. Learn more at\n5.7.8  https://support.google.com/mail/?p=BadCredentials w27sm22667792pfq.104 - gsmtp" file=/app/handler/user_handler.go line=122

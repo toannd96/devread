@@ -3,11 +3,12 @@ package repo_impl
 import (
 	"context"
 	"database/sql"
+
 	"devread/custom_error"
 	"devread/db"
 	"devread/model"
 	"devread/repository"
-	"github.com/labstack/gommon/log"
+
 	"github.com/lib/pq"
 )
 
@@ -31,7 +32,6 @@ func (p PostRepoImpl) Save(context context.Context, post model.Post) (model.Post
 				return post, custom_error.PostConflict
 			}
 		}
-		log.Error(err.Error())
 		return post, custom_error.PostInsertFail
 	}
 	return post, nil
@@ -45,7 +45,6 @@ func (p PostRepoImpl) SelectById(context context.Context, id string) (model.Post
 		if err == sql.ErrNoRows {
 			return post, custom_error.PostNotFound
 		}
-		log.Error(err.Error())
 		return post, err
 	}
 	return post, nil
@@ -60,7 +59,6 @@ func (p PostRepoImpl) SelectByTag(context context.Context, tag string) ([]model.
 		if err == sql.ErrNoRows {
 			return posts, custom_error.PostNotFound
 		}
-		log.Error(err.Error())
 		return posts, err
 	}
 	return posts, nil
@@ -77,12 +75,10 @@ func (p PostRepoImpl) Update(context context.Context, post model.Post) (model.Po
 	`
 	result, err := p.sql.Db.NamedExecContext(context, sqlStatement, post)
 	if err != nil {
-		log.Error(err.Error())
 		return post, err
 	}
 	count, err := result.RowsAffected()
 	if err != nil {
-		log.Error(err.Error())
 		return post, custom_error.PostNotUpdated
 	}
 	if count == 0 {
@@ -94,12 +90,11 @@ func (p PostRepoImpl) Update(context context.Context, post model.Post) (model.Po
 func (p PostRepoImpl) SelectAll(context context.Context) ([]model.Post, error) {
 	posts := []model.Post{}
 	err := p.sql.Db.SelectContext(context, &posts,
-		`SELECT * FROM posts`,)
+		`SELECT * FROM posts`)
 	if err != nil {
 		if err == sql.ErrNoRows {
 			return posts, custom_error.PostNotFound
 		}
-		log.Error(err.Error())
 		return posts, err
 	}
 	return posts, nil

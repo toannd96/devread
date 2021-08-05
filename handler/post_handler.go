@@ -1,14 +1,17 @@
 package handler
 
 import (
-	"github.com/dgrijalva/jwt-go"
-	"github.com/google/uuid"
-	"github.com/labstack/echo/v4"
-	"net/http"
-	"devread/log"
 	"devread/model"
 	"devread/model/req"
 	"devread/repository"
+
+	"net/http"
+
+	"github.com/dgrijalva/jwt-go"
+	"github.com/google/uuid"
+	"github.com/labstack/echo/v4"
+
+	"go.uber.org/zap"
 )
 
 func GetQueryTag(r *http.Request) string {
@@ -17,9 +20,10 @@ func GetQueryTag(r *http.Request) string {
 }
 
 type PostHandler struct {
-	PostRepo repository.PostRepo
-	AuthRepo repository.AuthenRepo
+	PostRepo     repository.PostRepo
+	AuthRepo     repository.AuthenRepo
 	BookmarkRepo repository.BookmarkRepo
+	Logger       *zap.Logger
 }
 
 // PostTrending godoc
@@ -33,10 +37,10 @@ type PostHandler struct {
 func (post *PostHandler) PostTrending(c echo.Context) error {
 	repos, err := post.PostRepo.SelectAll(c.Request().Context())
 	if err != nil {
-		log.Error(err.Error())
+		post.Logger.Error("Lỗi khi chọn tất cả bài đăng thịnh hành ", zap.Error(err))
 		return c.JSON(http.StatusNotFound, model.Response{
 			StatusCode: http.StatusNotFound,
-			Message:    err.Error(),
+			Message:    "Nhận tất cả các bài đăng thịnh hành thất bại",
 		})
 	}
 	return c.JSON(http.StatusOK, model.Response{
@@ -58,7 +62,7 @@ func (post *PostHandler) PostTrending(c echo.Context) error {
 func (post *PostHandler) SearchPost(c echo.Context) error {
 	repos, err := post.PostRepo.SelectByTag(c.Request().Context(), GetQueryTag(c.Request()))
 	if err != nil {
-		log.Error(err.Error())
+		post.Logger.Error("Không tìm thấy bài viết theo tag ", zap.Error(err))
 		return c.JSON(http.StatusNotFound, model.Response{
 			StatusCode: http.StatusNotFound,
 			Message:    "Không tìm thấy bài viết",
@@ -84,10 +88,14 @@ func (post *PostHandler) SelectBookmarks(c echo.Context) error {
 	token := c.Get("user").(*jwt.Token)
 	claims := token.Claims.(*model.TokenDetails)
 
-	repos, _ := post.BookmarkRepo.SelectAll(
-		c.Request().Context(),
-		claims.UserID)
-
+	repos, err := post.BookmarkRepo.SelectAll(c.Request().Context(), claims.UserID)
+	if err != nil {
+		post.Logger.Error("Lỗi khi chọn tất cả dấu trang ", zap.Error(err))
+		return c.JSON(http.StatusNotFound, model.Response{
+			StatusCode: http.StatusNotFound,
+			Message:    "Không tìm thấy bài viết",
+		})
+	}
 	return c.JSON(http.StatusOK, model.Response{
 		StatusCode: http.StatusOK,
 		Message:    "Xử lý thành công",
@@ -111,6 +119,7 @@ func (post *PostHandler) SelectBookmarks(c echo.Context) error {
 func (post *PostHandler) Bookmark(c echo.Context) error {
 	req := req.ReqBookmark{}
 	if err := c.Bind(&req); err != nil {
+		post.Logger.Error("Lỗi cú pháp ", zap.Error(err))
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
 			Message:    "Lỗi cú pháp",
@@ -120,7 +129,7 @@ func (post *PostHandler) Bookmark(c echo.Context) error {
 	// validate thông tin gửi lên
 	err := c.Validate(req)
 	if err != nil {
-		log.Error(err.Error())
+		post.Logger.Error("Lỗi cú pháp ", zap.Error(err))
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
 			Message:    "Lỗi cú pháp",
@@ -131,10 +140,9 @@ func (post *PostHandler) Bookmark(c echo.Context) error {
 
 	bId, err := uuid.NewUUID()
 	if err != nil {
-		log.Error(err.Error())
+		post.Logger.Error("Tạo mới uuid thất bại ", zap.Error(err))
 		return c.JSON(http.StatusForbidden, model.Response{
 			StatusCode: http.StatusForbidden,
-			Message:    err.Error(),
 		})
 	}
 
@@ -145,7 +153,7 @@ func (post *PostHandler) Bookmark(c echo.Context) error {
 		claims.UserID)
 
 	if err != nil {
-		log.Error(err.Error())
+		post.Logger.Error("Đánh dấu repo mới thất bại ", zap.Error(err))
 		return c.JSON(http.StatusConflict, model.Response{
 			StatusCode: http.StatusConflict,
 			Message:    "Bookmark thất bại",
@@ -173,6 +181,7 @@ func (post *PostHandler) Bookmark(c echo.Context) error {
 func (post *PostHandler) DelBookmark(c echo.Context) error {
 	req := req.ReqBookmark{}
 	if err := c.Bind(&req); err != nil {
+		post.Logger.Error("Lỗi cú pháp ", zap.Error(err))
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
 			Message:    "Lỗi cú pháp",
@@ -182,7 +191,7 @@ func (post *PostHandler) DelBookmark(c echo.Context) error {
 	// validate thông tin gửi lên
 	err := c.Validate(req)
 	if err != nil {
-		log.Error(err.Error())
+		post.Logger.Error("Lỗi cú pháp ", zap.Error(err))
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
 			Message:    "Lỗi cú pháp",
@@ -197,7 +206,7 @@ func (post *PostHandler) DelBookmark(c echo.Context) error {
 		req.PostName, claims.UserID)
 
 	if err != nil {
-		log.Error(err.Error())
+		post.Logger.Error("Lỗi khi xóa bookmark ", zap.Error(err))
 		return c.JSON(http.StatusConflict, model.Response{
 			StatusCode: http.StatusConflict,
 			Message:    "Bookmark không tồn tại",

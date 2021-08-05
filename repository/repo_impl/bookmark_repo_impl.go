@@ -3,13 +3,14 @@ package repo_impl
 import (
 	"context"
 	"database/sql"
+	"time"
+
 	"devread/custom_error"
 	"devread/db"
 	"devread/model"
 	"devread/repository"
-	"github.com/labstack/gommon/log"
+
 	"github.com/lib/pq"
-	"time"
 )
 
 type BookmarkRepoImpl struct {
@@ -34,7 +35,6 @@ func (b BookmarkRepoImpl) SelectAll(context context.Context, userId string) ([]m
 		if err == sql.ErrNoRows {
 			return posts, custom_error.BookmarkNotFound
 		}
-		log.Error(err.Error())
 		return posts, err
 	}
 	return posts, nil
@@ -54,7 +54,6 @@ func (b BookmarkRepoImpl) Bookmark(context context.Context, bookmarkId, namePost
 				return custom_error.BookmarkConflic
 			}
 		}
-		log.Error(err.Error())
 		return custom_error.BookmarkFail
 	}
 	return nil
@@ -71,7 +70,6 @@ func (b BookmarkRepoImpl) Delete(context context.Context, namePost, userId strin
 		return custom_error.BookmarkNotFound
 	}
 	if err != nil {
-		log.Error(err.Error())
 		return custom_error.DelBookmarkFail
 	}
 	return nil

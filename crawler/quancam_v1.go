@@ -1,34 +1,38 @@
 package crawler
 
 import (
-	"context"
 	"devread/custom_error"
-	"devread/repository"
-	"fmt"
-	"github.com/PuerkitoBio/goquery"
-	"golang.org/x/sync/errgroup"
-	"golang.org/x/sync/semaphore"
 	"devread/helper"
+	"devread/log"
 	"devread/model"
-	"log"
+	"devread/repository"
+
+	"context"
+	"fmt"
 	"runtime"
 	"strings"
+
+	"github.com/PuerkitoBio/goquery"
+	"go.uber.org/zap"
+	"golang.org/x/sync/errgroup"
+	"golang.org/x/sync/semaphore"
 )
 
 const urlBase = "https://quan-cam.com"
 
-func checkError(err error) {
-	if err != nil {
-		log.Println(err)
-	}
-}
-
 func getOnePage(pathURL string) ([]model.Post, error) {
+	log := log.WriteLog()
 	response, err := helper.HttpClient.GetRequestWithRetries(pathURL)
-	checkError(err)
+	if err != nil {
+		log.Error("Lỗi: ", zap.Error(err))
+	}
+
 	defer response.Body.Close()
 	doc, err := goquery.NewDocumentFromReader(response.Body)
-	checkError(err)
+	if err != nil {
+		log.Error("Lỗi: ", zap.Error(err))
+	}
+
 	posts := make([]model.Post, 0)
 	doc.Find("div[class=post]").Each(func(i int, s *goquery.Selection) {
 		var quancamPost model.Post
@@ -45,14 +49,15 @@ func getOnePage(pathURL string) ([]model.Post, error) {
 }
 
 func QuancamPostV1(postRepo repository.PostRepo) {
+	log := log.WriteLog()
+
 	sem := semaphore.NewWeighted(int64(runtime.NumCPU()))
 	group, ctx := errgroup.WithContext(context.Background())
 
-	for page := 1; page <= 5; page++ {
-		pathURL := fmt.Sprintf("%s/posts?page=%d", urlBase,page)
+	for page := 1; page <= 4; page++ {
+		pathURL := fmt.Sprintf("%s/posts?page=%d", urlBase, page)
 		err := sem.Acquire(ctx, 1)
 		if err != nil {
-			fmt.Printf("Acquire err = %+v\n", err)
 			continue
 		}
 		group.Go(func() error {
@@ -60,7 +65,9 @@ func QuancamPostV1(postRepo repository.PostRepo) {
 
 			//do work
 			posts, err := getOnePage(pathURL)
-			checkError(err)
+			if err != nil {
+				log.Error("Lỗi: ", zap.Error(err))
+			}
 
 			queue := helper.NewJobQueue(runtime.NumCPU())
 			queue.Start()
@@ -76,7 +83,7 @@ func QuancamPostV1(postRepo repository.PostRepo) {
 		})
 	}
 	if err := group.Wait(); err != nil {
-		fmt.Printf("g.Wait() err = %+v\n", err)
+		log.Error("Có 1 goroutine lỗi ", zap.Error(err))
 	}
 }
 
@@ -86,24 +93,25 @@ type QuancamProcessV1 struct {
 }
 
 func (process *QuancamProcessV1) Process() {
+	log := log.WriteLog()
 	// select post by id
 	cacheRepo, err := process.postRepo.SelectById(context.Background(), process.post.PostID)
 	if err == custom_error.PostNotFound {
 		// insert post to database
-		fmt.Println("Add: ", process.post.Name)
+		log.Sugar().Info("Thêm bài viết: ", process.post.Name)
 		_, err = process.postRepo.Save(context.Background(), process.post)
 		if err != nil {
-			log.Println(err)
+			log.Error("Thêm bài viết thất bại ", zap.Error(err))
 		}
 		return
 	}
 
 	// update post
 	if process.post.PostID != cacheRepo.PostID {
-		fmt.Println("Updated: ", process.post.Name)
+		log.Sugar().Info("Thêm bài viết: ", process.post.Name)
 		_, err = process.postRepo.Update(context.Background(), process.post)
 		if err != nil {
-			log.Println(err)
+			log.Error("Thêm bài viết thất bại ", zap.Error(err))
 		}
 	}
 }

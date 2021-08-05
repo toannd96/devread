@@ -1,13 +1,16 @@
 package crawler
 
 import (
-	"context"
 	"devread/custom_error"
 	"devread/helper"
+	"devread/log"
 	"devread/model"
 	"devread/repository"
+
 	"github.com/gocolly/colly/v2"
-	"log"
+	"go.uber.org/zap"
+
+	"context"
 	"regexp"
 	"runtime"
 	"strings"
@@ -15,6 +18,7 @@ import (
 
 func ThefullsnackPost(postRepo repository.PostRepo) {
 	c := colly.NewCollector()
+	log := log.WriteLog()
 
 	posts := []model.Post{}
 	c.OnHTML("div[class=home-list-item]", func(e *colly.HTMLElement) {
@@ -45,7 +49,7 @@ func ThefullsnackPost(postRepo repository.PostRepo) {
 	})
 
 	c.OnError(func(r *colly.Response, err error) {
-		log.Println("Request URL:", r.Request.URL, "failed with response:", r, "\nError:", err)
+		log.Error("Lỗi: ", zap.String("Truy cập ", r.Request.URL.String()), zap.Error(err))
 	})
 
 	c.Visit("https://thefullsnack.com/")
@@ -57,24 +61,25 @@ type ThefullsnackProcess struct {
 }
 
 func (process *ThefullsnackProcess) Process() {
+	log := log.WriteLog()
 	// select post by id
 	cacheRepo, err := process.postRepo.SelectById(context.Background(), process.post.PostID)
 	if err == custom_error.PostNotFound {
 		// insert post to database
-		log.Println("Add: ", process.post.Name)
+		log.Sugar().Info("Thêm bài viết: ", process.post.Name)
 		_, err = process.postRepo.Save(context.Background(), process.post)
 		if err != nil {
-			log.Println(err)
+			log.Error("Thêm bài viết thất bại ", zap.Error(err))
 		}
 		return
 	}
 
 	// update post
 	if process.post.PostID != cacheRepo.PostID {
-		log.Println("Updated: ", process.post.Name)
+		log.Sugar().Info("Thêm bài viết: ", process.post.Name)
 		_, err = process.postRepo.Update(context.Background(), process.post)
 		if err != nil {
-			log.Println(err)
+			log.Error("Thêm bài viết thất bại ", zap.Error(err))
 		}
 	}
 }

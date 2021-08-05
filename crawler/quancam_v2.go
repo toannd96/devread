@@ -1,30 +1,29 @@
 package crawler
 
 import (
-	"context"
 	"devread/custom_error"
 	"devread/helper"
+	"devread/log"
 	"devread/model"
 	"devread/repository"
+
+	"context"
 	"fmt"
-	"github.com/PuerkitoBio/goquery"
-	"golang.org/x/sync/errgroup"
-	"golang.org/x/sync/semaphore"
-	"log"
 	"runtime"
 	"strconv"
 	"strings"
+
+	"github.com/PuerkitoBio/goquery"
+	"go.uber.org/zap"
+	"golang.org/x/sync/errgroup"
+	"golang.org/x/sync/semaphore"
 )
 
 const urlBaseTest = "https://quan-cam.com"
 
-func checkErrorTest(err error) {
-	if err != nil {
-		log.Println(err)
-	}
-}
-
 func GetListPage() []string {
+	log := log.WriteLog()
+
 	pageList := make([]string, 0)
 	page := []int{1}
 	for len(page) > 0 {
@@ -32,12 +31,13 @@ func GetListPage() []string {
 		fmt.Println("GetListPage")
 		response, err := helper.HttpClient.GetRequestWithRetries(pathURL)
 		if err != nil {
-			log.Println(err)
+			log.Error("Lỗi: ", zap.Error(err))
 		}
+
 		defer response.Body.Close()
 		doc, err := goquery.NewDocumentFromReader(response.Body)
 		if err != nil {
-			log.Println(err)
+			log.Error("Lỗi: ", zap.Error(err))
 		}
 
 		link, _ := doc.Find("a.next").Attr("href")
@@ -51,16 +51,23 @@ func GetListPage() []string {
 			page = page[:0]
 		}
 	}
-	fmt.Println("list page->", pageList)
+	log.Sugar().Info("Danh sách trang ", pageList)
 	return pageList
 }
 
 func getOnePageTest(pathURL string) ([]model.Post, error) {
+	log := log.WriteLog()
+
 	response, err := helper.HttpClient.GetRequestWithRetries(pathURL)
-	checkError(err)
+	if err != nil {
+		log.Error("Lỗi: ", zap.Error(err))
+	}
+
 	defer response.Body.Close()
 	doc, err := goquery.NewDocumentFromReader(response.Body)
-	checkError(err)
+	if err != nil {
+		log.Error("Lỗi: ", zap.Error(err))
+	}
 
 	posts := make([]model.Post, 0)
 	doc.Find("div[class=post]").Each(func(i int, s *goquery.Selection) {
@@ -74,15 +81,16 @@ func getOnePageTest(pathURL string) ([]model.Post, error) {
 		quancamPost.PostID = helper.Hash(quancamPost.Name, quancamPost.Link)
 		posts = append(posts, quancamPost)
 
-		//fmt.Println("Name", quancamPost.Name)
-		//fmt.Println("Link", quancamPost.Link)
-		//fmt.Println("Tag", quancamPost.Tag)
-		//fmt.Println("\n ")
+		log.Sugar().Info("Tên bài viết ", quancamPost.Name)
+		log.Sugar().Info("Link", quancamPost.Link)
+		log.Sugar().Info("Tag", quancamPost.Tag)
 	})
 	return posts, nil
 }
 
 func QuancamPostV2(postRepo repository.PostRepo) {
+	log := log.WriteLog()
+
 	sem := semaphore.NewWeighted(int64(runtime.NumCPU()))
 	group, ctx := errgroup.WithContext(context.Background())
 	listPage := GetListPage()
@@ -90,7 +98,6 @@ func QuancamPostV2(postRepo repository.PostRepo) {
 	for _, page := range listPage {
 		err := sem.Acquire(ctx, 1)
 		if err != nil {
-			fmt.Printf("Acquire err = %+v\n", err)
 			continue
 		}
 		group.Go(func() error {
@@ -98,7 +105,10 @@ func QuancamPostV2(postRepo repository.PostRepo) {
 
 			//do work
 			posts, err := getOnePage(page)
-			checkError(err)
+			if err != nil {
+				log.Error("Lỗi: ", zap.Error(err))
+			}
+
 			queue := helper.NewJobQueue(runtime.NumCPU())
 			queue.Start()
 			defer queue.Stop()
@@ -112,7 +122,7 @@ func QuancamPostV2(postRepo repository.PostRepo) {
 		})
 	}
 	if err := group.Wait(); err != nil {
-		fmt.Printf("g.Wait() err = %+v\n", err)
+		log.Error("Có 1 goroutine lỗi ", zap.Error(err))
 	}
 }
 
@@ -122,20 +132,25 @@ type QuancamProcessV2 struct {
 }
 
 func (process *QuancamProcessV2) Process() {
+	log := log.WriteLog()
 	// select post by name
 	cacheRepo, err := process.postRepo.SelectById(context.Background(), process.post.PostID)
 	if err == custom_error.PostNotFound {
 		// insert post to database
-		fmt.Println("Add: ", process.post.Name)
+		log.Sugar().Info("Thêm bài viết: ", process.post.Name)
 		_, err = process.postRepo.Save(context.Background(), process.post)
-		checkError(err)
+		if err != nil {
+			log.Error("Thêm bài viết thất bại ", zap.Error(err))
+		}
 		return
 	}
 
 	// update post
 	if process.post.PostID != cacheRepo.PostID {
-		fmt.Println("Updated: ", process.post.Name)
+		log.Sugar().Info("Thêm bài viết: ", process.post.Name)
 		_, err = process.postRepo.Update(context.Background(), process.post)
-		checkError(err)
+		if err != nil {
+			log.Error("Thêm bài viết thất bại ", zap.Error(err))
+		}
 	}
 }

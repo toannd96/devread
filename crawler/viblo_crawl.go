@@ -1,21 +1,26 @@
 package crawler
 
 import (
-	"context"
 	"devread/custom_error"
 	"devread/helper"
+	"devread/log"
 	"devread/model"
 	"devread/repository"
+
+	"context"
 	"fmt"
-	"github.com/gocolly/colly/v2"
-	"log"
 	"runtime"
 	"strings"
 	"time"
+
+	"github.com/gocolly/colly/v2"
+	"go.uber.org/zap"
 )
 
 func VibloPost(postRepo repository.PostRepo) {
 	c := colly.NewCollector()
+	log := log.WriteLog()
+
 	c.SetRequestTimeout(30 * time.Second)
 
 	posts := []model.Post{}
@@ -58,7 +63,7 @@ func VibloPost(postRepo repository.PostRepo) {
 	})
 
 	c.OnError(func(r *colly.Response, err error) {
-		log.Println("Request URL:", r.Request.URL, "failed with response:", r, "\nError:", err)
+		log.Error("Lỗi: ", zap.String("Truy cập ", r.Request.URL.String()), zap.Error(err))
 	})
 
 	listURL := []string{}
@@ -75,8 +80,8 @@ func VibloPost(postRepo repository.PostRepo) {
 		listURL = append(listURL, series)
 	}
 	for _, url := range listURL {
+		log.Sugar().Info("Truy cập: ", url)
 		c.Visit(url)
-		fmt.Println(url)
 	}
 }
 
@@ -86,24 +91,25 @@ type VibloProcess struct {
 }
 
 func (process *VibloProcess) Process() {
+	log := log.WriteLog()
 	// select post by id
 	cacheRepo, err := process.postRepo.SelectById(context.Background(), process.post.PostID)
 	if err == custom_error.PostNotFound {
 		// insert post to database
-		fmt.Println("Add: ", process.post.Name)
+		log.Sugar().Info("Thêm bài viết: ", process.post.Name)
 		_, err = process.postRepo.Save(context.Background(), process.post)
 		if err != nil {
-			log.Println(err)
+			log.Error("Thêm bài viết thất bại ", zap.Error(err))
 		}
 		return
 	}
 
 	// update post
 	if process.post.PostID != cacheRepo.PostID {
-		fmt.Println("Updated: ", process.post.Name)
+		log.Sugar().Info("Thêm bài viết: ", process.post.Name)
 		_, err = process.postRepo.Update(context.Background(), process.post)
 		if err != nil {
-			log.Println(err)
+			log.Error("Thêm bài viết thất bại ", zap.Error(err))
 		}
 	}
 }

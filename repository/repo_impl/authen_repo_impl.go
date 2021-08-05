@@ -27,17 +27,6 @@ func (au *AuthenRepoImpl) CreateTokenMail(token string, userID string) error {
 	return nil
 }
 
-func (au *AuthenRepoImpl) CreateTokenVerify(token string, email string) error {
-
-	// 1 day
-	errAccess := au.client.Client.Set(token, email, 86400000000000).Err()
-	if errAccess != nil {
-		return errAccess
-	}
-
-	return nil
-}
-
 func (au *AuthenRepoImpl) InsertTokenMail(newKey string) error {
 	count, errCount := au.client.Client.DbSize().Result()
 	if errCount != nil {
@@ -70,14 +59,6 @@ func (au *AuthenRepoImpl) InsertTokenMail(newKey string) error {
 
 	return nil
 
-}
-
-func (au *AuthenRepoImpl) FetchToken(accessUUID string) (string, error) {
-	userID, err := au.client.Client.Get(accessUUID).Result()
-	if err != nil {
-		return "", err
-	}
-	return userID, nil
 }
 
 func (au *AuthenRepoImpl) FetchTokenMail(token string) (string, error) {

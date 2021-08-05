@@ -3,17 +3,20 @@ package handler
 import (
 	"devread/custom_error"
 	"devread/helper"
-	"devread/log"
 	"devread/model"
 	"devread/model/req"
 	"devread/repository"
 	"devread/security"
-	"github.com/dgrijalva/jwt-go"
-	"github.com/google/uuid"
-	"github.com/labstack/echo/v4"
+
 	"net/http"
 	"net/smtp"
 	"os"
+
+	"github.com/dgrijalva/jwt-go"
+	"github.com/google/uuid"
+	"github.com/labstack/echo/v4"
+
+	"go.uber.org/zap"
 )
 
 type smtpServer struct {
@@ -29,6 +32,7 @@ func (s *smtpServer) Address() string {
 type UserHandler struct {
 	UserRepo repository.UserRepo
 	AuthRepo repository.AuthenRepo
+	Logger   *zap.Logger
 }
 
 // SignUp godoc
@@ -46,7 +50,7 @@ type UserHandler struct {
 func (u *UserHandler) SignUp(c echo.Context) error {
 	request := req.ReqSignUp{}
 	if err := c.Bind(&request); err != nil {
-		log.Error(err.Error())
+		u.Logger.Error("Lỗi cú pháp ", zap.Error(err))
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
 			Message:    "Lỗi cú pháp",
@@ -54,7 +58,7 @@ func (u *UserHandler) SignUp(c echo.Context) error {
 	}
 
 	if err := c.Validate(request); err != nil {
-		log.Error(err.Error())
+		u.Logger.Error("Lỗi cú pháp ", zap.Error(err))
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
 			Message:    "Lỗi cú pháp",
@@ -65,10 +69,9 @@ func (u *UserHandler) SignUp(c echo.Context) error {
 
 	userID, err := uuid.NewUUID()
 	if err != nil {
-		log.Error(err.Error())
+		u.Logger.Error("Tạo mới uuid thất bại ", zap.Error(err))
 		return c.JSON(http.StatusForbidden, model.Response{
 			StatusCode: http.StatusForbidden,
-			Message:    err.Error(),
 		})
 	}
 
@@ -82,10 +85,9 @@ func (u *UserHandler) SignUp(c echo.Context) error {
 
 	user, err = u.UserRepo.SaveUser(c.Request().Context(), user)
 	if err != nil {
-		log.Error(err.Error())
+		u.Logger.Error("Lưu tài khoản người dùng thất bại ", zap.Error(err))
 		return c.JSON(http.StatusConflict, model.Response{
 			StatusCode: http.StatusConflict,
-			Message:    err.Error(),
 		})
 	}
 
@@ -95,9 +97,9 @@ func (u *UserHandler) SignUp(c echo.Context) error {
 	// save token to redis
 	saveErr := u.AuthRepo.CreateTokenMail(token, user.UserID)
 	if saveErr != nil {
+		u.Logger.Error("Tạo token thất bại mail ", zap.Error(saveErr))
 		return c.JSON(http.StatusForbidden, model.Response{
 			StatusCode: http.StatusForbidden,
-			Message:    saveErr.Error(),
 		})
 	}
 
@@ -120,8 +122,11 @@ func (u *UserHandler) SignUp(c echo.Context) error {
 	auth := smtp.PlainAuth("", from, password, smtpsv.host)
 	errSendMail := smtp.SendMail(smtpsv.Address(), auth, from, to, message)
 	if errSendMail != nil {
-		log.Error(errSendMail)
-		return (errSendMail)
+		u.Logger.Error("Gửi email thất bại ", zap.Error(errSendMail))
+		c.JSON(http.StatusBadRequest, model.Response{
+			StatusCode: http.StatusBadRequest,
+			Message:    "Gửi email thất bại",
+		})
 	}
 
 	return c.JSON(http.StatusOK, model.Response{
@@ -142,9 +147,9 @@ func (u *UserHandler) SignUp(c echo.Context) error {
 // @Failure 403 {object} model.Response
 // @Router /user/password/forgot [post]
 func (u *UserHandler) ForgotPassword(c echo.Context) error {
-	request := req.ReqEmail{}
+	request := req.ReqSignUp{}
 	if err := c.Bind(&request); err != nil {
-		log.Error(err.Error())
+		u.Logger.Error("Lỗi cú pháp ", zap.Error(err))
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
 			Message:    "Lỗi cú pháp",
@@ -152,7 +157,7 @@ func (u *UserHandler) ForgotPassword(c echo.Context) error {
 	}
 
 	if err := c.Validate(request); err != nil {
-		log.Error(err.Error())
+		u.Logger.Error("Lỗi cú pháp ", zap.Error(err))
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
 			Message:    "Lỗi cú pháp",
@@ -161,10 +166,10 @@ func (u *UserHandler) ForgotPassword(c echo.Context) error {
 
 	user, err := u.UserRepo.CheckEmail(c.Request().Context(), request)
 	if err != nil {
-		log.Error(err.Error())
+		u.Logger.Error("Email không tồn tại ", zap.Error(err))
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
-			Message:    err.Error(),
+			Message:    "Email không tồn tại",
 		})
 	}
 
@@ -173,17 +178,17 @@ func (u *UserHandler) ForgotPassword(c echo.Context) error {
 	// save token to redis
 	saveErr := u.AuthRepo.CreateTokenMail(token, user.UserID)
 	if saveErr != nil {
+		u.Logger.Error("Tạo token thất bại mail ", zap.Error(saveErr))
 		return c.JSON(http.StatusForbidden, model.Response{
 			StatusCode: http.StatusForbidden,
-			Message:    saveErr.Error(),
 		})
 	}
 
 	insertErr := u.AuthRepo.InsertTokenMail(token)
 	if insertErr != nil {
+		u.Logger.Error("Nhập token mail thất bại ", zap.Error(insertErr))
 		return c.JSON(http.StatusForbidden, model.Response{
 			StatusCode: http.StatusForbidden,
-			Message:    insertErr.Error(),
 		})
 	}
 
@@ -206,7 +211,11 @@ func (u *UserHandler) ForgotPassword(c echo.Context) error {
 	auth := smtp.PlainAuth("", from, password, smtpsv.host)
 	errSendMail := smtp.SendMail(smtpsv.Address(), auth, from, to, message)
 	if errSendMail != nil {
-		return errSendMail
+		u.Logger.Error("Gửi email thất bại ", zap.Error(errSendMail))
+		return c.JSON(http.StatusBadRequest, model.Response{
+			StatusCode: http.StatusBadRequest,
+			Message:    "Gửi email thất bại",
+		})
 	}
 
 	return c.JSON(http.StatusOK, model.Response{
@@ -231,7 +240,7 @@ func (u *UserHandler) ForgotPassword(c echo.Context) error {
 func (u *UserHandler) VerifyAccount(c echo.Context) error {
 	request := req.PasswordSubmit{}
 	if err := c.Bind(&request); err != nil {
-		log.Error(err.Error())
+		u.Logger.Error("Lỗi cú pháp ", zap.Error(err))
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
 			Message:    "Lỗi cú pháp",
@@ -239,7 +248,7 @@ func (u *UserHandler) VerifyAccount(c echo.Context) error {
 	}
 
 	if err := c.Validate(request); err != nil {
-		log.Error(err.Error())
+		u.Logger.Error("Lỗi cú pháp ", zap.Error(err))
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
 			Message:    "Lỗi cú pháp",
@@ -250,21 +259,23 @@ func (u *UserHandler) VerifyAccount(c echo.Context) error {
 
 	userID, err := u.AuthRepo.FetchTokenMail(token)
 	if err != nil {
+		u.Logger.Error("Lỗi khi tìm token mail ", zap.Error(err))
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
-			Message:    "Truy cập không được phép",
 		})
 	}
 
 	user, err := u.UserRepo.SelectUserByID(c.Request().Context(), userID)
 	if err != nil {
-		return c.JSON(http.StatusUnauthorized, model.Response{
-			StatusCode: http.StatusUnauthorized,
-			Message:    err.Error(),
+		u.Logger.Error("Người dùng không tồn tại ", zap.Error(err))
+		return c.JSON(http.StatusNotFound, model.Response{
+			StatusCode: http.StatusNotFound,
+			Message:    "Người dùng không tồn tại",
 		})
 	}
 
 	if request.Password != request.Confirm {
+		u.Logger.Error("Xác nhận mật khẩu không khớp ", zap.String("Password", request.Password), zap.String("Confirm", request.Confirm))
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    "Xác nhận mật khẩu không khớp",
@@ -274,6 +285,7 @@ func (u *UserHandler) VerifyAccount(c echo.Context) error {
 	// check password
 	isTheSame := security.ComparePasswords(user.Password, []byte(request.Password))
 	if !isTheSame {
+		u.Logger.Error("Mật khẩu không chính xác ", zap.Error(err))
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    "Mật khẩu không đúng",
@@ -287,18 +299,18 @@ func (u *UserHandler) VerifyAccount(c echo.Context) error {
 
 	user, err = u.UserRepo.UpdateVerify(c.Request().Context(), user)
 	if err != nil {
-		log.Error(err.Error())
+		u.Logger.Error("Xác thực tài khoản thất bại ", zap.Error(err))
 		return c.JSON(http.StatusForbidden, model.Response{
 			StatusCode: http.StatusForbidden,
-			Message:    err.Error(),
+			Message:    "Xác thực tài khoản thất bại",
 		})
 	}
 
 	deleteAtErr := u.AuthRepo.DeleteTokenMail(token)
 	if deleteAtErr != nil {
+		u.Logger.Error("Xóa token mail thất bại ", zap.Error(deleteAtErr))
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
-			Message:    deleteAtErr.Error(),
 		})
 	}
 
@@ -325,7 +337,7 @@ func (u *UserHandler) VerifyAccount(c echo.Context) error {
 func (u *UserHandler) ResetPassword(c echo.Context) error {
 	request := req.PasswordSubmit{}
 	if err := c.Bind(&request); err != nil {
-		log.Error(err.Error())
+		u.Logger.Error("Lỗi cú pháp ", zap.Error(err))
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
 			Message:    "Lỗi cú pháp",
@@ -333,7 +345,7 @@ func (u *UserHandler) ResetPassword(c echo.Context) error {
 	}
 
 	if err := c.Validate(request); err != nil {
-		log.Error(err.Error())
+		u.Logger.Error("Lỗi cú pháp ", zap.Error(err))
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
 			Message:    "Lỗi cú pháp",
@@ -344,13 +356,14 @@ func (u *UserHandler) ResetPassword(c echo.Context) error {
 
 	userID, err := u.AuthRepo.FetchTokenMail(token)
 	if err != nil {
+		u.Logger.Error("Lỗi khi tìm token mail ", zap.Error(err))
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
-			Message:    "Truy cập không được phép, cần gửi lại email",
 		})
 	}
 
 	if request.Password != request.Confirm {
+		u.Logger.Error("Xác nhận mật khẩu không khớp ", zap.String("Password", request.Password), zap.String("Confirm", request.Confirm))
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    "Xác nhận mật khẩu không khớp",
@@ -366,18 +379,18 @@ func (u *UserHandler) ResetPassword(c echo.Context) error {
 
 	user, err = u.UserRepo.UpdatePassword(c.Request().Context(), user)
 	if err != nil {
-		log.Error(err.Error())
+		u.Logger.Error("Cập nhật mật khẩu thất bại ", zap.Error(err))
 		return c.JSON(http.StatusForbidden, model.Response{
 			StatusCode: http.StatusForbidden,
-			Message:    err.Error(),
+			Message:    "Cập nhật mật khẩu thất bại",
 		})
 	}
 
 	deleteAtErr := u.AuthRepo.DeleteTokenMail(token)
 	if deleteAtErr != nil {
+		u.Logger.Error("Xóa token mail thất bại ", zap.Error(deleteAtErr))
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
-			Message:    deleteAtErr.Error(),
 		})
 	}
 
@@ -402,7 +415,7 @@ func (u *UserHandler) ResetPassword(c echo.Context) error {
 func (u *UserHandler) SignIn(c echo.Context) error {
 	request := req.ReqSignIn{}
 	if err := c.Bind(&request); err != nil {
-		log.Error(err.Error())
+		u.Logger.Error("Lỗi cú pháp ", zap.Error(err))
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
 			Message:    "Lỗi cú pháp",
@@ -410,7 +423,7 @@ func (u *UserHandler) SignIn(c echo.Context) error {
 	}
 
 	if err := c.Validate(request); err != nil {
-		log.Error(err.Error())
+		u.Logger.Error("Lỗi cú pháp ", zap.Error(err))
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
 			Message:    "Lỗi cú pháp",
@@ -419,14 +432,15 @@ func (u *UserHandler) SignIn(c echo.Context) error {
 
 	user, err := u.UserRepo.CheckSignIn(c.Request().Context(), request)
 	if err != nil {
-		log.Error(err.Error())
-		return c.JSON(http.StatusUnauthorized, model.Response{
-			StatusCode: http.StatusUnauthorized,
-			Message:    err.Error(),
+		u.Logger.Error("Tài khoản không tồn tại ", zap.Error(err))
+		return c.JSON(http.StatusNotFound, model.Response{
+			StatusCode: http.StatusNotFound,
+			Message:    "Tài khoản không tồn tại",
 		})
 	}
 
-	if user.Verify != true {
+	if !user.Verify {
+		u.Logger.Debug("Tài khoản chưa được xác thực")
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    "Tài khoản chưa được xác thực",
@@ -436,19 +450,19 @@ func (u *UserHandler) SignIn(c echo.Context) error {
 	// check password
 	isTheSame := security.ComparePasswords(user.Password, []byte(request.Password))
 	if !isTheSame {
+		u.Logger.Error("Mật khẩu không chính xác ", zap.Error(err))
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
-			Message:    "Email hoặc mật khẩu không chính xác",
+			Message:    "Mật khẩu không chính xác",
 		})
 	}
 
 	// create token
 	token, err := security.CreateToken(user)
 	if err != nil {
-		log.Error(err.Error())
+		u.Logger.Error("Tạo token thất bại ", zap.Error(err))
 		return c.JSON(http.StatusForbidden, model.Response{
 			StatusCode: http.StatusForbidden,
-			Message:    err.Error(),
 		})
 	}
 	user.Token = token
@@ -478,17 +492,17 @@ func (u *UserHandler) Profile(c echo.Context) error {
 
 	user, err := u.UserRepo.SelectUserByID(c.Request().Context(), claims.UserID)
 	if err != nil {
-		log.Error(err.Error())
+		u.Logger.Error("Người dùng không tồn tại ", zap.Error(err))
 		if err == custom_error.UserNotFound {
 			return c.JSON(http.StatusNotFound, model.Response{
 				StatusCode: http.StatusNotFound,
-				Message:    err.Error(),
+				Message:    "Người dùng không tồn tại",
 			})
 		}
 
 		return c.JSON(http.StatusForbidden, model.Response{
 			StatusCode: http.StatusForbidden,
-			Message:    err.Error(),
+			Message:    "Truy cập không được phép",
 		})
 	}
 
@@ -514,7 +528,7 @@ func (u *UserHandler) Profile(c echo.Context) error {
 func (u *UserHandler) UpdateProfile(c echo.Context) error {
 	request := req.ReqUpdateUser{}
 	if err := c.Bind(&request); err != nil {
-		log.Error(err.Error())
+		u.Logger.Error("Lỗi cú pháp ", zap.Error(err))
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
 			Message:    "Lỗi cú pháp",
@@ -522,7 +536,7 @@ func (u *UserHandler) UpdateProfile(c echo.Context) error {
 	}
 
 	if err := c.Validate(request); err != nil {
-		log.Error(err.Error())
+		u.Logger.Error("Lỗi cú pháp ", zap.Error(err))
 		return c.JSON(http.StatusBadRequest, model.Response{
 			StatusCode: http.StatusBadRequest,
 			Message:    "Lỗi cú pháp",
@@ -533,6 +547,7 @@ func (u *UserHandler) UpdateProfile(c echo.Context) error {
 	claims := token.Claims.(*model.TokenDetails)
 
 	if request.Password != request.Confirm {
+		u.Logger.Error("Xác nhận mật khẩu không khớp ", zap.String("Password", request.Password), zap.String("Confirm", request.Confirm))
 		return c.JSON(http.StatusUnauthorized, model.Response{
 			StatusCode: http.StatusUnauthorized,
 			Message:    "Xác nhận mật khẩu không khớp",
@@ -556,10 +571,10 @@ func (u *UserHandler) UpdateProfile(c echo.Context) error {
 
 		user, err = u.UserRepo.UpdateUser(c.Request().Context(), user)
 		if err != nil {
-			log.Error(err.Error())
+			u.Logger.Error("Cập nhật thông tin người dùng thất bại ", zap.Error(err))
 			return c.JSON(http.StatusUnprocessableEntity, model.Response{
 				StatusCode: http.StatusUnprocessableEntity,
-				Message:    err.Error(),
+				Message:    "Cập nhật thông tin người dùng thất bại",
 			})
 		}
 	}
@@ -572,10 +587,10 @@ func (u *UserHandler) UpdateProfile(c echo.Context) error {
 
 		user, err = u.UserRepo.UpdateUser(c.Request().Context(), user)
 		if err != nil {
-			log.Error(err.Error())
+			u.Logger.Error("Cập nhật thông tin người dùng thất bại ", zap.Error(err))
 			return c.JSON(http.StatusUnprocessableEntity, model.Response{
 				StatusCode: http.StatusUnprocessableEntity,
-				Message:    err.Error(),
+				Message:    "Cập nhật thông tin người dùng thất bại",
 			})
 		}
 	}
@@ -588,10 +603,10 @@ func (u *UserHandler) UpdateProfile(c echo.Context) error {
 
 	user, err = u.UserRepo.UpdateUser(c.Request().Context(), user)
 	if err != nil {
-		log.Error(err.Error())
+		u.Logger.Error("Cập nhật thông tin người dùng thất bại ", zap.Error(err))
 		return c.JSON(http.StatusUnprocessableEntity, model.Response{
 			StatusCode: http.StatusUnprocessableEntity,
-			Message:    err.Error(),
+			Message:    "Cập nhật thông tin người dùng thất bại",
 		})
 	}
 

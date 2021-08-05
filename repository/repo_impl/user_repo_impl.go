@@ -3,12 +3,13 @@ package repo_impl
 import (
 	"context"
 	"database/sql"
+	"time"
+
 	"devread/custom_error"
 	"devread/db"
 	"devread/model"
 	"devread/model/req"
 	"devread/repository"
-	"time"
 
 	"github.com/lib/pq"
 )
@@ -55,19 +56,7 @@ func (u *UserRepoImpl) CheckSignIn(context context.Context, signinReq req.ReqSig
 	return user, nil
 }
 
-func (u *UserRepoImpl) CheckEmail(context context.Context, emailReq req.ReqEmail) (model.User, error) {
-	var user = model.User{}
-	err := u.sql.Db.GetContext(context, &user, "SELECT * FROM users WHERE email=$1", emailReq.Email)
-	if err != nil {
-		if err == sql.ErrNoRows {
-			return user, custom_error.UserNotFound
-		}
-		return user, err
-	}
-	return user, nil
-}
-
-func (u *UserRepoImpl) CheckEmailSignUp(context context.Context, emailReq req.ReqSignUp) (model.User, error) {
+func (u *UserRepoImpl) CheckEmail(context context.Context, emailReq req.ReqSignUp) (model.User, error) {
 	var user = model.User{}
 	err := u.sql.Db.GetContext(context, &user, "SELECT * FROM users WHERE email=$1", emailReq.Email)
 	if err != nil {

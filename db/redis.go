@@ -1,8 +1,11 @@
 package db
 
 import (
+	"devread/log"
+
 	"github.com/go-redis/redis"
-	"log"
+
+	"go.uber.org/zap"
 )
 
 type RedisDB struct {
@@ -12,12 +15,14 @@ type RedisDB struct {
 }
 
 func (rd *RedisDB) NewRedisDB() {
+	log := log.WriteLog()
 	rd.Client = redis.NewClient(&redis.Options{
 		Addr: rd.Host + ":" + rd.Port,
 	})
 	_, err := rd.Client.Ping().Result()
 	if err != nil {
-		log.Println(err)
+		log.Error("Kết nối không thành công tới redis ", zap.Error(err))
 	}
-	log.Println("Kết nối thành công tới redis")
+
+	log.Info("Kết nối thành công tới redis")
 }

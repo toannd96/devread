@@ -1,7 +1,7 @@
 ## DevRead - ứng dụng tổng hợp kiến thức cho developer
 - Tổng hợp bài viết hay nhất trên các blog IT như viblo, toidicodedao, yellowcodebooks, thefullsnack, quan-cam, codeaholicguy,...
 - Nội dung thu thập như trong [tệp](https://github.com/dactoankmapydev/devread/blob/master/huong_dan/posts.csv) không vi phạm bản quyền tác giả
-- Cấu trúc:
+- Tổ chức ứng dụng theo cấu trúc:
 ```
 .
 ├── 1_init.sql
@@ -38,9 +38,6 @@
 │   └── job_queue.go
 ├── log
 │   └── log.go
-├── log_files
-│   └── error
-│       └── devread_20201224_error.log
 ├── main.go
 ├── middleware
 │   ├── gzip.go
@@ -49,17 +46,15 @@
 ├── model
 │   ├── post.go
 │   ├── req
+│   │   ├── bookmark.go
 │   │   ├── pwd_submit.go
-│   │   ├── req_bookmark.go
-│   │   ├── req_email.go
-│   │   ├── req_signin.go
-│   │   ├── req_signup.go
-│   │   ├── req_tag.go
-│   │   └── req_user_update.go
+│   │   ├── signin.go
+│   │   ├── signup.go
+│   │   ├── tag.go
+│   │   └── user_update.go
 │   ├── resp.go
 │   ├── token.go
 │   └── user.go
-├── README.md
 ├── repository
 │   ├── authen_repo.go
 │   ├── bookmark_repo.go
