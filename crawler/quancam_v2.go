@@ -19,8 +19,6 @@ import (
 	"golang.org/x/sync/semaphore"
 )
 
-const urlBaseTest = "https://quan-cam.com"
-
 func GetListPage() []string {
 	log, _ := handle_log.WriteLog()
 
