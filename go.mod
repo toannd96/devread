@@ -1,6 +1,7 @@
 module devread
 
-go 1.17
+// +heroku goVersion go1.16
+go 1.16
 
 require (
 	github.com/PuerkitoBio/goquery v1.7.1
