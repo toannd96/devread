@@ -1,7 +1,6 @@
 package handle_log
 
 import (
-	"os"
 	"time"
 
 	"github.com/natefinch/lumberjack"
@@ -40,7 +39,7 @@ func logErrorWriter() (zapcore.WriteSyncer, error) {
 			MaxSize:  20, // megabytes
 			MaxAge:   3,  // days
 		}),
-		zapcore.AddSync(os.Stdout)), nil
+	), nil
 }
 
 func logInfoWriter() (zapcore.WriteSyncer, error) {
@@ -53,20 +52,7 @@ func logInfoWriter() (zapcore.WriteSyncer, error) {
 			MaxSize:  20,
 			MaxAge:   3,
 		}),
-		zapcore.AddSync(os.Stdout)), nil
-}
-
-func logDebugWriter() (zapcore.WriteSyncer, error) {
-	logDebugPath := "./debug.log"
-	_, _, _ = zap.Open(logDebugPath)
-
-	return zapcore.NewMultiWriteSyncer(
-		zapcore.AddSync(&lumberjack.Logger{
-			Filename: logDebugPath,
-			MaxSize:  20,
-			MaxAge:   3,
-		}),
-		zapcore.AddSync(os.Stdout)), nil
+	), nil
 }
 
 // Write log to file by level log and console
@@ -74,10 +60,6 @@ func WriteLog() (*zap.Logger, error) {
 	highWriteSyncer, errorWriter := logErrorWriter()
 	if errorWriter != nil {
 		return nil, errorWriter
-	}
-	averageWriteSyncer, errorDebugWriter := logDebugWriter()
-	if errorDebugWriter != nil {
-		return nil, errorDebugWriter
 	}
 	lowWriteSyncer, errorInfoWriter := logInfoWriter()
 	if errorInfoWriter != nil {
@@ -91,17 +73,12 @@ func WriteLog() (*zap.Logger, error) {
 	})
 
 	lowPriority := zap.LevelEnablerFunc(func(lev zapcore.Level) bool {
-		return lev < zap.ErrorLevel && lev > zap.DebugLevel
-	})
-
-	averagePriority := zap.LevelEnablerFunc(func(lev zapcore.Level) bool {
-		return lev < zap.ErrorLevel && lev < zap.InfoLevel
+		return lev < zap.ErrorLevel && lev >= zap.DebugLevel
 	})
 
 	lowCore := zapcore.NewCore(encoder, lowWriteSyncer, lowPriority)
-	averageCore := zapcore.NewCore(encoder, averageWriteSyncer, averagePriority)
 	highCore := zapcore.NewCore(encoder, highWriteSyncer, highPriority)
 
-	logger := zap.New(zapcore.NewTee(lowCore, averageCore, highCore), zap.AddCaller())
+	logger := zap.New(zapcore.NewTee(lowCore, highCore), zap.AddCaller())
 	return logger, nil
 }

@@ -67,24 +67,24 @@ func (process *ThefullsnackProcess) Process() {
 		process.logger = l
 	}
 
-	// select post by id
-	cacheRepo, err := process.postRepo.SelectById(context.Background(), process.post.PostID)
+	// select post by link
+	cacheRepo, err := process.postRepo.SelectByLink(context.Background(), process.post.Link)
 	if err == custom_error.PostNotFound {
 		// insert post to database
 		process.logger.Sugar().Info("Thêm bài viết: ", process.post.Name)
 		_, err = process.postRepo.Save(context.Background(), process.post)
 		if err != nil {
-			process.logger.Error("Thêm bài viết thất bại ", zap.Error(err))
+			process.logger.Error("Thêm bài viết thất bại ", zap.String("bài viết: ", process.post.Name), zap.Error(err))
 		}
 		return
 	}
 
 	// update post
-	if process.post.PostID != cacheRepo.PostID {
-		process.logger.Sugar().Info("Thêm bài viết: ", process.post.Name)
+	if process.post.Name != cacheRepo.Name {
+		process.logger.Sugar().Info("Cập nhật bài viết: ", process.post.Name)
 		_, err = process.postRepo.Update(context.Background(), process.post)
 		if err != nil {
-			process.logger.Error("Thêm bài viết thất bại ", zap.Error(err))
+			process.logger.Error("Cập nhật bài viết thất bại ", zap.String("bài viết: ", process.post.Name), zap.Error(err))
 		}
 	}
 }

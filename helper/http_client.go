@@ -16,7 +16,6 @@ func getRequest(pathURL string) (*http.Response, error) {
 	client := &http.Client{}
 	resp, err := client.Do(req)
 
-	log.Sugar().Info(zap.String("Get ", pathURL), zap.Int("Status Code ", resp.StatusCode))
 	if err != nil {
 		log.Error("Phản hồi Không mong đợi ", zap.Int("Status Code", resp.StatusCode), zap.Error(err))
 		return nil, err

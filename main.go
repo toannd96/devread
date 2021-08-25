@@ -104,9 +104,7 @@ func main() {
 		UserHandler: userHandler,
 		PostHandler: postHandler,
 	}
-
 	api.SetupRouter()
-	e.Logger.Fatal(e.Start(":3000"))
 
 	// time start crawler
 	go crawler.VibloPost(postHandler.PostRepo)
@@ -114,15 +112,17 @@ func main() {
 	go crawler.ThefullsnackPost(postHandler.PostRepo)
 	go crawler.QuancamPostV1(postHandler.PostRepo)
 	go crawler.CodeaholicguyPost(postHandler.PostRepo)
-	crawler.YellowcodePost(postHandler.PostRepo)
+	go crawler.YellowcodePost(postHandler.PostRepo)
 
 	// schedule crawler
-	go schedule(3*time.Second, postHandler, 1)
-	go schedule(2*time.Second, postHandler, 2)
-	go schedule(24*time.Second, postHandler, 3)
-	go schedule(24*time.Second, postHandler, 4)
-	go schedule(24*time.Second, postHandler, 5)
-	schedule(24*time.Second, postHandler, 6)
+	go schedule(60*time.Minute, postHandler, 1)
+	go schedule(24*time.Hour, postHandler, 2)
+	go schedule(96*time.Hour, postHandler, 3)
+	go schedule(96*time.Hour, postHandler, 4)
+	go schedule(96*time.Hour, postHandler, 5)
+	go schedule(96*time.Hour, postHandler, 6)
+
+	e.Logger.Fatal(e.Start(":3000"))
 }
 
 func schedule(timeSchedule time.Duration, handler handler.PostHandler, crowIlnndex int) {

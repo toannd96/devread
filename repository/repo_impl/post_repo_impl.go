@@ -23,8 +23,8 @@ func NewPostRepo(sql *db.Sql) repository.PostRepo {
 }
 
 func (p PostRepoImpl) Save(context context.Context, post model.Post) (model.Post, error) {
-	statement := `INSERT INTO posts(post_id, name, link, tag) 
-          		  VALUES(:post_id, :name, :link, :tag)`
+	statement := `INSERT INTO posts(name, link, tag) 
+          		  VALUES(:name, :link, :tag)`
 	_, err := p.sql.Db.NamedExecContext(context, statement, post)
 	if err != nil {
 		if err, ok := err.(*pq.Error); ok {
@@ -37,10 +37,10 @@ func (p PostRepoImpl) Save(context context.Context, post model.Post) (model.Post
 	return post, nil
 }
 
-func (p PostRepoImpl) SelectById(context context.Context, id string) (model.Post, error) {
+func (p PostRepoImpl) SelectByLink(context context.Context, link string) (model.Post, error) {
 	var post = model.Post{}
 	err := p.sql.Db.GetContext(context, &post,
-		`SELECT * FROM posts WHERE post_id=$1`, id)
+		`SELECT * FROM posts WHERE link=$1`, link)
 	if err != nil {
 		if err == sql.ErrNoRows {
 			return post, custom_error.PostNotFound
@@ -69,9 +69,7 @@ func (p PostRepoImpl) Update(context context.Context, post model.Post) (model.Po
 		UPDATE posts
 		SET
 		    name = :name,
-			link = :link,
-			tag = :tag
-		WHERE post_id = :post_id
+		WHERE link = :link
 	`
 	result, err := p.sql.Db.NamedExecContext(context, sqlStatement, post)
 	if err != nil {
