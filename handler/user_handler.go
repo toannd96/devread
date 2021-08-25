@@ -140,7 +140,7 @@ func (u *UserHandler) SignUp(c echo.Context) error {
 // @Tags user-service
 // @Accept  json
 // @Produce  json
-// @Param data body req.ReqEmail true "user"
+// @Param data body req.ReqSignUp true "user"
 // @Success 200 {object} model.Response
 // @Failure 400 {object} model.Response
 // @Failure 401 {object} model.Response

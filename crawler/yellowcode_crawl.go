@@ -10,15 +10,15 @@ import (
 	"go.uber.org/zap"
 
 	"devread/custom_error"
+	"devread/handle_log"
 	"devread/helper"
-	"devread/log"
 	"devread/model"
 	"devread/repository"
 )
 
 func YellowcodePost(postRepo repository.PostRepo) {
 	c := colly.NewCollector()
-	log := log.WriteLog()
+	log, _ := handle_log.WriteLog()
 
 	posts := []model.Post{}
 	var yellowcodePost model.Post
@@ -69,28 +69,33 @@ func YellowcodePost(postRepo repository.PostRepo) {
 type YellowcodeProcess struct {
 	post     model.Post
 	postRepo repository.PostRepo
+	logger   *zap.Logger
 }
 
 func (process *YellowcodeProcess) Process() {
-	log := log.WriteLog()
+	if process.logger == nil {
+		l, _ := handle_log.WriteLog()
+		process.logger = l
+	}
+
 	// select post by id
 	cacheRepo, err := process.postRepo.SelectById(context.Background(), process.post.PostID)
 	if err == custom_error.PostNotFound {
 		// insert post to database
-		log.Sugar().Info("Thêm bài viết: ", process.post.Name)
+		process.logger.Sugar().Info("Thêm bài viết: ", process.post.Name)
 		_, err = process.postRepo.Save(context.Background(), process.post)
 		if err != nil {
-			log.Error("Thêm bài viết thất bại ", zap.Error(err))
+			process.logger.Error("Thêm bài viết thất bại ", zap.Error(err))
 		}
 		return
 	}
 
 	// update post
 	if process.post.PostID != cacheRepo.PostID {
-		log.Sugar().Info("Thêm bài viết: ", process.post.Name)
+		process.logger.Sugar().Info("Thêm bài viết: ", process.post.Name)
 		_, err = process.postRepo.Update(context.Background(), process.post)
 		if err != nil {
-			log.Error("Thêm bài viết thất bại ", zap.Error(err))
+			process.logger.Error("Thêm bài viết thất bại ", zap.Error(err))
 		}
 	}
 }

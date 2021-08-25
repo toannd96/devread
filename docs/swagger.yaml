@@ -26,13 +26,6 @@ definitions:
     required:
     - post
     type: object
-  req.ReqEmail:
-    properties:
-      email:
-        type: string
-    required:
-    - email
-    type: object
   req.ReqSignIn:
     properties:
       email:
@@ -71,7 +64,7 @@ info:
     email: support@swagger.io
     name: API Support
     url: http://www.swagger.io/support
-  description: Nền tảng tổng hợp kiến thức cho developer
+  description: Ứng dụng tổng hợp kiến thức cho developer
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
@@ -225,7 +218,7 @@ paths:
         name: data
         required: true
         schema:
-          $ref: '#/definitions/req.ReqEmail'
+          $ref: '#/definitions/req.ReqSignUp'
       produces:
       - application/json
       responses:

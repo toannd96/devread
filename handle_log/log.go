@@ -1,4 +1,4 @@
-package log
+package handle_log
 
 import (
 	"os"
@@ -31,37 +31,59 @@ func CustomLevelEncoder(level zapcore.Level, enc zapcore.PrimitiveArrayEncoder) 
 }
 
 func logErrorWriter() (zapcore.WriteSyncer, error) {
-	writerError, err := os.OpenFile("./log_files/"+os.Getenv("APP_NAME")+"_error.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
-	if err != nil {
-		return nil, err
-	}
+	logErrorPath := "./error.log"
+	_, _, _ = zap.Open(logErrorPath)
+
 	return zapcore.NewMultiWriteSyncer(
 		zapcore.AddSync(&lumberjack.Logger{
-			Filename: writerError.Name(),
-			MaxSize:  10, // megabytes
-			MaxAge:   10, // days
+			Filename: logErrorPath,
+			MaxSize:  20, // megabytes
+			MaxAge:   3,  // days
 		}),
 		zapcore.AddSync(os.Stdout)), nil
 }
 
 func logInfoWriter() (zapcore.WriteSyncer, error) {
-	writerInfo, err := os.OpenFile("./log_files/"+os.Getenv("APP_NAME")+"_info.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
-	if err != nil {
-		return nil, err
-	}
+	logInfoPath := "./info.log"
+	_, _, _ = zap.Open(logInfoPath)
+
 	return zapcore.NewMultiWriteSyncer(
 		zapcore.AddSync(&lumberjack.Logger{
-			Filename: writerInfo.Name(),
-			MaxSize:  10,
-			MaxAge:   10,
+			Filename: logInfoPath,
+			MaxSize:  20,
+			MaxAge:   3,
+		}),
+		zapcore.AddSync(os.Stdout)), nil
+}
+
+func logDebugWriter() (zapcore.WriteSyncer, error) {
+	logDebugPath := "./debug.log"
+	_, _, _ = zap.Open(logDebugPath)
+
+	return zapcore.NewMultiWriteSyncer(
+		zapcore.AddSync(&lumberjack.Logger{
+			Filename: logDebugPath,
+			MaxSize:  20,
+			MaxAge:   3,
 		}),
 		zapcore.AddSync(os.Stdout)), nil
 }
 
 // Write log to file by level log and console
-func WriteLog() *zap.Logger {
-	highWriteSyncer, _ := logErrorWriter()
-	lowWriteSyncer, _ := logInfoWriter()
+func WriteLog() (*zap.Logger, error) {
+	highWriteSyncer, errorWriter := logErrorWriter()
+	if errorWriter != nil {
+		return nil, errorWriter
+	}
+	averageWriteSyncer, errorDebugWriter := logDebugWriter()
+	if errorDebugWriter != nil {
+		return nil, errorDebugWriter
+	}
+	lowWriteSyncer, errorInfoWriter := logInfoWriter()
+	if errorInfoWriter != nil {
+		return nil, errorInfoWriter
+	}
+
 	encoder := getEncoder()
 
 	highPriority := zap.LevelEnablerFunc(func(lev zapcore.Level) bool {
@@ -69,12 +91,17 @@ func WriteLog() *zap.Logger {
 	})
 
 	lowPriority := zap.LevelEnablerFunc(func(lev zapcore.Level) bool {
-		return lev < zap.ErrorLevel && lev >= zap.DebugLevel
+		return lev < zap.ErrorLevel && lev > zap.DebugLevel
+	})
+
+	averagePriority := zap.LevelEnablerFunc(func(lev zapcore.Level) bool {
+		return lev < zap.ErrorLevel && lev < zap.InfoLevel
 	})
 
 	lowCore := zapcore.NewCore(encoder, lowWriteSyncer, lowPriority)
+	averageCore := zapcore.NewCore(encoder, averageWriteSyncer, averagePriority)
 	highCore := zapcore.NewCore(encoder, highWriteSyncer, highPriority)
 
-	logger := zap.New(zapcore.NewTee(lowCore, highCore), zap.AddCaller())
-	return logger
+	logger := zap.New(zapcore.NewTee(lowCore, averageCore, highCore), zap.AddCaller())
+	return logger, nil
 }

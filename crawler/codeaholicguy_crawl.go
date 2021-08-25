@@ -2,8 +2,8 @@ package crawler
 
 import (
 	"devread/custom_error"
+	"devread/handle_log"
 	"devread/helper"
-	"devread/log"
 	"devread/model"
 	"devread/repository"
 
@@ -18,7 +18,7 @@ import (
 )
 
 func CodeaholicguyPost(postRepo repository.PostRepo) {
-	log := log.WriteLog()
+	log, _ := handle_log.WriteLog()
 
 	c := colly.NewCollector()
 	c.SetRequestTimeout(30 * time.Second)
@@ -71,28 +71,33 @@ func CodeaholicguyPost(postRepo repository.PostRepo) {
 type CodeaholicguyProcess struct {
 	post     model.Post
 	postRepo repository.PostRepo
+	logger   *zap.Logger
 }
 
 func (process *CodeaholicguyProcess) Process() {
-	log := log.WriteLog()
+	if process.logger == nil {
+		l, _ := handle_log.WriteLog()
+		process.logger = l
+	}
+
 	// select post by id
 	cacheRepo, err := process.postRepo.SelectById(context.Background(), process.post.PostID)
 	if err == custom_error.PostNotFound {
 		// insert post to database
-		log.Sugar().Info("Thêm bài viết: ", process.post.Name)
+		process.logger.Sugar().Info("Thêm bài viết: ", process.post.Name)
 		_, err = process.postRepo.Save(context.Background(), process.post)
 		if err != nil {
-			log.Error("Thêm bài viết thất bại ", zap.Error(err))
+			process.logger.Error("Thêm bài viết thất bại ", zap.Error(err))
 		}
 		return
 	}
 
 	// update post
 	if process.post.PostID != cacheRepo.PostID {
-		log.Sugar().Info("Thêm bài viết: ", process.post.Name)
+		process.logger.Sugar().Info("Thêm bài viết: ", process.post.Name)
 		_, err = process.postRepo.Update(context.Background(), process.post)
 		if err != nil {
-			log.Error("Thêm bài viết thất bại ", zap.Error(err))
+			process.logger.Error("Thêm bài viết thất bại ", zap.Error(err))
 		}
 	}
 }

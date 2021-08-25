@@ -1,7 +1,7 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "Nền tảng tổng hợp kiến thức cho developer",
+        "description": "Ứng dụng tổng hợp kiến thức cho developer",
         "title": "DevRead API",
         "termsOfService": "http://swagger.io/terms/",
         "contact": {
@@ -253,7 +253,7 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/req.ReqEmail"
+                            "$ref": "#/definitions/req.ReqSignUp"
                         }
                     }
                 ],
@@ -670,17 +670,6 @@
             ],
             "properties": {
                 "post": {
-                    "type": "string"
-                }
-            }
-        },
-        "req.ReqEmail": {
-            "type": "object",
-            "required": [
-                "email"
-            ],
-            "properties": {
-                "email": {
                     "type": "string"
                 }
             }

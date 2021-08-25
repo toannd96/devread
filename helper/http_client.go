@@ -1,7 +1,7 @@
 package helper
 
 import (
-	"devread/log"
+	"devread/handle_log"
 	"net/http"
 	"time"
 
@@ -9,12 +9,8 @@ import (
 	"go.uber.org/zap"
 )
 
-const (
-	errUnexpectedResponse = "unexpected response: %s"
-)
-
 func getRequest(pathURL string) (*http.Response, error) {
-	log := log.WriteLog()
+	log, _ := handle_log.WriteLog()
 
 	req, _ := http.NewRequest("GET", pathURL, nil)
 	client := &http.Client{}
@@ -32,7 +28,7 @@ func GetRequestWithRetries(api string) (*http.Response, error) {
 	var err error
 	var resp *http.Response
 
-	log := log.WriteLog()
+	log, _ := handle_log.WriteLog()
 
 	bo := backoff.NewExponentialBackOff()
 	bo.MaxInterval = 5 * time.Minute

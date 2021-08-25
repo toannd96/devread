@@ -4,9 +4,9 @@ import (
 	"devread/crawler"
 	"devread/db"
 	_ "devread/docs"
+	"devread/handle_log"
 	"devread/handler"
 	"devread/helper"
-	"devread/log"
 	"devread/repository/repo_impl"
 	"devread/router"
 
@@ -16,20 +16,17 @@ import (
 	"github.com/joho/godotenv"
 	"github.com/labstack/echo/v4"
 	echoSwagger "github.com/swaggo/echo-swagger"
-
-	"go.uber.org/zap"
 )
 
 func init() {
-	logger := log.WriteLog()
 	if err := godotenv.Load(".env"); err != nil {
-		logger.Error("không nhận được biến môi trường", zap.Error(err))
+		return
 	}
 }
 
 // @title DevRead API
 // @version 1.0
-// @description Nền tảng tổng hợp kiến thức cho developer
+// @description Ứng dụng tổng hợp kiến thức cho developer
 // @termsOfService http://swagger.io/terms/
 
 // @contact.name API Support
@@ -47,6 +44,8 @@ func init() {
 // @BasePath /
 
 func main() {
+	// write log
+	log, _ := handle_log.WriteLog()
 
 	// redis details
 	redisHost := os.Getenv("REDIS_HOST")
@@ -61,8 +60,9 @@ func main() {
 
 	// connect redis
 	client := &db.RedisDB{
-		Host: redisHost,
-		Port: redisPort,
+		Host:   redisHost,
+		Port:   redisPort,
+		Logger: log,
 	}
 	client.NewRedisDB()
 
@@ -73,6 +73,7 @@ func main() {
 		UserName: username,
 		Password: password,
 		DbName:   dbname,
+		Logger:   log,
 	}
 	sql.Connect()
 	defer sql.Close()
@@ -88,14 +89,14 @@ func main() {
 	userHandler := handler.UserHandler{
 		UserRepo: repo_impl.NewUserRepo(sql),
 		AuthRepo: repo_impl.NewAuthenRepo(client),
-		Logger:   log.WriteLog(),
+		Logger:   log,
 	}
 
 	postHandler := handler.PostHandler{
 		PostRepo:     repo_impl.NewPostRepo(sql),
 		AuthRepo:     repo_impl.NewAuthenRepo(client),
 		BookmarkRepo: repo_impl.NewBookmarkRepo(sql),
-		Logger:       log.WriteLog(),
+		Logger:       log,
 	}
 
 	api := router.API{
@@ -116,12 +117,12 @@ func main() {
 	crawler.YellowcodePost(postHandler.PostRepo)
 
 	// schedule crawler
-	go schedule(10*time.Minute, postHandler, 1)
-	go schedule(24*time.Hour, postHandler, 2)
-	go schedule(24*time.Hour, postHandler, 3)
-	go schedule(24*time.Hour, postHandler, 4)
-	go schedule(24*time.Hour, postHandler, 5)
-	schedule(24*time.Hour, postHandler, 6)
+	go schedule(3*time.Second, postHandler, 1)
+	go schedule(2*time.Second, postHandler, 2)
+	go schedule(24*time.Second, postHandler, 3)
+	go schedule(24*time.Second, postHandler, 4)
+	go schedule(24*time.Second, postHandler, 5)
+	schedule(24*time.Second, postHandler, 6)
 }
 
 func schedule(timeSchedule time.Duration, handler handler.PostHandler, crowIlnndex int) {

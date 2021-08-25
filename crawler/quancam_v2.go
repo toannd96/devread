@@ -2,8 +2,8 @@ package crawler
 
 import (
 	"devread/custom_error"
+	"devread/handle_log"
 	"devread/helper"
-	"devread/log"
 	"devread/model"
 	"devread/repository"
 
@@ -22,7 +22,7 @@ import (
 const urlBaseTest = "https://quan-cam.com"
 
 func GetListPage() []string {
-	log := log.WriteLog()
+	log, _ := handle_log.WriteLog()
 
 	pageList := make([]string, 0)
 	page := []int{1}
@@ -55,7 +55,7 @@ func GetListPage() []string {
 }
 
 func getOnePageTest(pathURL string) ([]model.Post, error) {
-	log := log.WriteLog()
+	log, _ := handle_log.WriteLog()
 
 	response, err := helper.GetRequestWithRetries(pathURL)
 	if err != nil {
@@ -88,7 +88,7 @@ func getOnePageTest(pathURL string) ([]model.Post, error) {
 }
 
 func QuancamPostV2(postRepo repository.PostRepo) {
-	log := log.WriteLog()
+	log, _ := handle_log.WriteLog()
 
 	sem := semaphore.NewWeighted(int64(runtime.NumCPU()))
 	group, ctx := errgroup.WithContext(context.Background())
@@ -128,28 +128,33 @@ func QuancamPostV2(postRepo repository.PostRepo) {
 type QuancamProcessV2 struct {
 	post     model.Post
 	postRepo repository.PostRepo
+	logger   *zap.Logger
 }
 
 func (process *QuancamProcessV2) Process() {
-	log := log.WriteLog()
+	if process.logger == nil {
+		l, _ := handle_log.WriteLog()
+		process.logger = l
+	}
+
 	// select post by name
 	cacheRepo, err := process.postRepo.SelectById(context.Background(), process.post.PostID)
 	if err == custom_error.PostNotFound {
 		// insert post to database
-		log.Sugar().Info("Thêm bài viết: ", process.post.Name)
+		process.logger.Sugar().Info("Thêm bài viết: ", process.post.Name)
 		_, err = process.postRepo.Save(context.Background(), process.post)
 		if err != nil {
-			log.Error("Thêm bài viết thất bại ", zap.Error(err))
+			process.logger.Error("Thêm bài viết thất bại ", zap.Error(err))
 		}
 		return
 	}
 
 	// update post
 	if process.post.PostID != cacheRepo.PostID {
-		log.Sugar().Info("Thêm bài viết: ", process.post.Name)
+		process.logger.Sugar().Info("Thêm bài viết: ", process.post.Name)
 		_, err = process.postRepo.Update(context.Background(), process.post)
 		if err != nil {
-			log.Error("Thêm bài viết thất bại ", zap.Error(err))
+			process.logger.Error("Thêm bài viết thất bại ", zap.Error(err))
 		}
 	}
 }
