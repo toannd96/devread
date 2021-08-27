@@ -1,9 +1,5 @@
 # Start from golang base image
-FROM golang:latest as builder
-
-# Install git.
-# Git is required for fetching the dependencies.
-RUN apt-get update && apt install git
+FROM golang:latest
 
 ENV GO111MODULE=on
 ENV GOPATH /go
@@ -21,7 +17,7 @@ COPY go.mod go.sum ./
 COPY . .
 
 # Build the Go app
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags "-w" -a -o /main .
+RUN GOOS=linux go build -o app
 
 # Download all dependencies. Dependencies will be cached if the go.mod and the go.sum files are not changed 
 RUN go mod download
@@ -30,4 +26,4 @@ RUN go mod download
 EXPOSE 3000
 
 #Command to run the executable
-CMD ./main
+CMD ./app
