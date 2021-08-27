@@ -42,7 +42,6 @@ func getOnePage(pathURL string) ([]model.Post, error) {
 		quancamPost.Tag = strings.ToLower(strings.Replace(
 			strings.Replace(
 				s.Find("span.tagging > a").Text(), "\n", "", -1), "#", " ", -1))
-		quancamPost.PostID = helper.Hash(quancamPost.Name, quancamPost.Link)
 		posts = append(posts, quancamPost)
 	})
 	return posts, nil

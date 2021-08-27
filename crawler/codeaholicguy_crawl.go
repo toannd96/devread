@@ -37,7 +37,6 @@ func CodeaholicguyPost(postRepo repository.PostRepo) {
 	c.OnHTML("header[class=entry-header]", func(e *colly.HTMLElement) {
 		codeaholicguyPost.Name = e.ChildText("h1.entry-title > a")
 		codeaholicguyPost.Link = e.ChildAttr("h1.entry-title > a", "href")
-		codeaholicguyPost.PostID = helper.Hash(codeaholicguyPost.Name, codeaholicguyPost.Link)
 		c.Visit(e.Request.AbsoluteURL(codeaholicguyPost.Link))
 		if codeaholicguyPost.Name == "" || codeaholicguyPost.Link == "" {
 			return

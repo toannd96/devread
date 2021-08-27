@@ -40,7 +40,6 @@ func ToidicodedaoPost(postRepo repository.PostRepo) {
 		if toidicodedaoPost.Name == "" || toidicodedaoPost.Link == "" {
 			return
 		}
-		toidicodedaoPost.PostID = helper.Hash(toidicodedaoPost.Name, toidicodedaoPost.Link)
 		posts = append(posts, toidicodedaoPost)
 	})
 

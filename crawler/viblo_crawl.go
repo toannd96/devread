@@ -45,7 +45,6 @@ func VibloPost(postRepo repository.PostRepo) {
 		}
 		vibloPost.Link = "https://viblo.asia" + e.ChildAttr("h1.series-title-header  > a", "href")
 		vibloPost.Tag = strings.ToLower(e.ChildText("div.tags > a:last-child"))
-		vibloPost.PostID = helper.Hash(vibloPost.Name, vibloPost.Link)
 		posts = append(posts, vibloPost)
 	})
 

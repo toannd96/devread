@@ -31,7 +31,6 @@ func ThefullsnackPost(postRepo repository.PostRepo) {
 		splitName := strings.Join(regexSplitName.FindAllString(tags, -1), " ")
 		splitTime := strings.Join(regexSplitTime.FindAllString(splitName, -1), " ")
 		thefullsnackPost.Tag = strings.Replace(splitName, splitTime, "", -1)
-		thefullsnackPost.PostID = helper.Hash(thefullsnackPost.Name, thefullsnackPost.Link)
 		posts = append(posts, thefullsnackPost)
 	})
 

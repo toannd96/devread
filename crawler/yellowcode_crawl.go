@@ -29,7 +29,6 @@ func YellowcodePost(postRepo repository.PostRepo) {
 			strings.Replace(
 				strings.Replace(
 					e.ChildText("span.meta-category > a"), "\n", "", -1), "/", "", -1), "-", "", -1))
-		yellowcodePost.PostID = helper.Hash(yellowcodePost.Name, yellowcodePost.Link)
 		posts = append(posts, yellowcodePost)
 	})
 
