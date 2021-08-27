@@ -2,9 +2,7 @@
 - Tổng hợp bài viết hay nhất trên các blog IT như viblo, toidicodedao, yellowcodebooks, thefullsnack, quan-cam, codeaholicguy,...
 - Nội dung thu thập như trong [tệp csv](https://github.com/dactoankmapydev/devread/blob/master/huong_dan/posts.csv)
 
-- Danh sách API hiện có:
-
-![](https://github.com/dactoankmapydev/devread/blob/master/huong_dan/api.png)
+- Danh sách API hiện có tại [API docs](https://devread.herokuapp.com/swagger/index.html)
 
 - Danh sách bài viết:
 
