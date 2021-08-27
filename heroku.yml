@@ -1,5 +1,5 @@
 build:
   docker:
     web: Dockerfile
-    worker:
-      dockerfile: Dockerfile
+run:
+  web: ./app

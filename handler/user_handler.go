@@ -37,14 +37,13 @@ type UserHandler struct {
 
 // SignUp godoc
 // @Summary Create new account
-// @Tags user-service
-// @Accept  json
-// @Produce  json
+// @Tags user
+// @Accept json
+// @Produce json
 // @Param data body req.ReqSignUp true "user"
 // @Success 200 {object} model.Response
 // @Failure 400 {object} model.Response
 // @Failure 403 {object} model.Response
-// @Failure 404 {object} model.Response
 // @Failure 409 {object} model.Response
 // @Router /user/sign-up [post]
 func (u *UserHandler) SignUp(c echo.Context) error {
@@ -137,7 +136,7 @@ func (u *UserHandler) SignUp(c echo.Context) error {
 
 // ForgotPassword godoc
 // @Summary Forgot password
-// @Tags user-service
+// @Tags user
 // @Accept  json
 // @Produce  json
 // @Param data body req.ReqSignUp true "user"
@@ -226,7 +225,7 @@ func (u *UserHandler) ForgotPassword(c echo.Context) error {
 
 // VerifyAccount ... godoc
 // @Summary Verify email
-// @Tags user-service
+// @Tags user
 // @Accept  json
 // @Produce  json
 // @Param data body req.PasswordSubmit true "user"
@@ -236,6 +235,7 @@ func (u *UserHandler) ForgotPassword(c echo.Context) error {
 // @Failure 400 {object} model.Response
 // @Failure 401 {object} model.Response
 // @Failure 403 {object} model.Response
+// @Failure 404 {object} model.Response
 // @Router /user/verify [post]
 func (u *UserHandler) VerifyAccount(c echo.Context) error {
 	request := req.PasswordSubmit{}
@@ -323,7 +323,7 @@ func (u *UserHandler) VerifyAccount(c echo.Context) error {
 
 // ResetPassword godoc
 // @Summary Reset password
-// @Tags user-service
+// @Tags user
 // @Accept  json
 // @Produce  json
 // @Param data body req.PasswordSubmit true "user"
@@ -402,7 +402,7 @@ func (u *UserHandler) ResetPassword(c echo.Context) error {
 
 // SignIn godoc
 // @Summary Sign in to access your account
-// @Tags user-service
+// @Tags user
 // @Accept  json
 // @Produce  json
 // @Param data body req.ReqSignIn true "user"
@@ -410,7 +410,7 @@ func (u *UserHandler) ResetPassword(c echo.Context) error {
 // @Failure 400 {object} model.Response
 // @Failure 401 {object} model.Response
 // @Failure 403 {object} model.Response
-// @Failure 500 {object} model.Response
+// @Failure 404 {object} model.Response
 // @Router /user/sign-in [post]
 func (u *UserHandler) SignIn(c echo.Context) error {
 	request := req.ReqSignIn{}
@@ -476,15 +476,13 @@ func (u *UserHandler) SignIn(c echo.Context) error {
 
 // Profile godoc
 // @Summary Get user profile
-// @Tags profile-service
+// @Tags profile
 // @Accept  json
 // @Produce  json
 // @Security jwt
 // @Success 200 {object} model.Response
-// @Failure 401 {object} model.Response
 // @Failure 403 {object} model.Response
 // @Failure 404 {object} model.Response
-// @Failure 500 {object} model.Response
 // @Router /user/profile [get]
 func (u *UserHandler) Profile(c echo.Context) error {
 	tokenData := c.Get("user").(*jwt.Token)
@@ -515,7 +513,7 @@ func (u *UserHandler) Profile(c echo.Context) error {
 
 // UpdateProfile godoc
 // @Summary Update user profile
-// @Tags profile-service
+// @Tags profile
 // @Accept  json
 // @Produce  json
 // @Security jwt

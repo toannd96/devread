@@ -58,17 +58,12 @@ definitions:
       password:
         type: string
     type: object
-host: localhost:3000
+host: devread.herokuapp.com
 info:
-  contact:
-    email: support@swagger.io
-    name: API Support
-    url: http://www.swagger.io/support
-  description: Ứng dụng tổng hợp kiến thức cho developer
-  license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
-  termsOfService: http://swagger.io/terms/
+  contact: {}
+  description: |-
+    Ứng dụng tổng hợp kiến thức cho developer
+    Tổng hợp bài viết hay nhất trên các blog IT như viblo, toidicodedao, yellowcodebooks, thefullsnack, quan-cam, codeaholicguy,...
   title: DevRead API
   version: "1.0"
 paths:
@@ -95,7 +90,7 @@ paths:
             $ref: '#/definitions/model.Response'
       summary: Search post by tag
       tags:
-      - post-service
+      - post
   /trend:
     get:
       consumes:
@@ -107,13 +102,13 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/model.Response'
-        "401":
-          description: Unauthorized
+        "404":
+          description: Not Found
           schema:
             $ref: '#/definitions/model.Response'
       summary: Get all posts trending
       tags:
-      - post-service
+      - post
   /user/bookmark/add:
     post:
       consumes:
@@ -136,10 +131,6 @@ paths:
           description: Bad Request
           schema:
             $ref: '#/definitions/model.Response'
-        "401":
-          description: Unauthorized
-          schema:
-            $ref: '#/definitions/model.Response'
         "403":
           description: Forbidden
           schema:
@@ -152,7 +143,7 @@ paths:
       - jwt: []
       summary: Add bookmark
       tags:
-      - bookmark-service
+      - bookmark
   /user/bookmark/delete:
     delete:
       consumes:
@@ -175,10 +166,6 @@ paths:
           description: Bad Request
           schema:
             $ref: '#/definitions/model.Response'
-        "401":
-          description: Unauthorized
-          schema:
-            $ref: '#/definitions/model.Response'
         "409":
           description: Conflict
           schema:
@@ -187,7 +174,7 @@ paths:
       - jwt: []
       summary: Delete bookmark
       tags:
-      - bookmark-service
+      - bookmark
   /user/bookmark/list:
     get:
       consumes:
@@ -199,15 +186,15 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/model.Response'
-        "401":
-          description: Unauthorized
+        "404":
+          description: Not Found
           schema:
             $ref: '#/definitions/model.Response'
       security:
       - jwt: []
       summary: Get list bookmark
       tags:
-      - bookmark-service
+      - bookmark
   /user/password/forgot:
     post:
       consumes:
@@ -240,7 +227,7 @@ paths:
             $ref: '#/definitions/model.Response'
       summary: Forgot password
       tags:
-      - user-service
+      - user
   /user/password/reset:
     put:
       consumes:
@@ -280,7 +267,7 @@ paths:
       - token-reset-password: []
       summary: Reset password
       tags:
-      - user-service
+      - user
   /user/profile:
     get:
       consumes:
@@ -292,10 +279,6 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/model.Response'
-        "401":
-          description: Unauthorized
-          schema:
-            $ref: '#/definitions/model.Response'
         "403":
           description: Forbidden
           schema:
@@ -304,15 +287,11 @@ paths:
           description: Not Found
           schema:
             $ref: '#/definitions/model.Response'
-        "500":
-          description: Internal Server Error
-          schema:
-            $ref: '#/definitions/model.Response'
       security:
       - jwt: []
       summary: Get user profile
       tags:
-      - profile-service
+      - profile
   /user/profile/update:
     put:
       consumes:
@@ -347,7 +326,7 @@ paths:
       - jwt: []
       summary: Update user profile
       tags:
-      - profile-service
+      - profile
   /user/sign-in:
     post:
       consumes:
@@ -378,13 +357,13 @@ paths:
           description: Forbidden
           schema:
             $ref: '#/definitions/model.Response'
-        "500":
-          description: Internal Server Error
+        "404":
+          description: Not Found
           schema:
             $ref: '#/definitions/model.Response'
       summary: Sign in to access your account
       tags:
-      - user-service
+      - user
   /user/sign-up:
     post:
       consumes:
@@ -411,17 +390,13 @@ paths:
           description: Forbidden
           schema:
             $ref: '#/definitions/model.Response'
-        "404":
-          description: Not Found
-          schema:
-            $ref: '#/definitions/model.Response'
         "409":
           description: Conflict
           schema:
             $ref: '#/definitions/model.Response'
       summary: Create new account
       tags:
-      - user-service
+      - user
   /user/verify:
     post:
       consumes:
@@ -457,11 +432,15 @@ paths:
           description: Forbidden
           schema:
             $ref: '#/definitions/model.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/model.Response'
       security:
       - token-verify-account: []
       summary: Verify email
       tags:
-      - user-service
+      - user
 securityDefinitions:
   jwt:
     in: header

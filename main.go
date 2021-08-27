@@ -19,7 +19,7 @@ import (
 )
 
 func init() {
-	if err := godotenv.Load(".env"); err != nil {
+	if err := godotenv.Load("pro.env"); err != nil {
 		return
 	}
 }
@@ -27,20 +27,13 @@ func init() {
 // @title DevRead API
 // @version 1.0
 // @description Ứng dụng tổng hợp kiến thức cho developer
-// @termsOfService http://swagger.io/terms/
-
-// @contact.name API Support
-// @contact.url http://www.swagger.io/support
-// @contact.email support@swagger.io
-
-// @license.name Apache 2.0
-// @license.url http://www.apache.org/licenses/LICENSE-2.0.html
+// @description Tổng hợp bài viết hay nhất trên các blog IT như viblo, toidicodedao, yellowcodebooks, thefullsnack, quan-cam, codeaholicguy,...
 
 // @securityDefinitions.apikey jwt
 // @in header
 // @name Authorization
 
-// @host localhost:3000
+// @host devread.herokuapp.com
 // @BasePath /
 
 func main() {
@@ -122,7 +115,7 @@ func main() {
 	go schedule(96*time.Hour, postHandler, 5)
 	go schedule(96*time.Hour, postHandler, 6)
 
-	e.Logger.Fatal(e.Start(":3000"))
+	e.Logger.Fatal(e.Start(":" + os.Getenv("PORT")))
 }
 
 func schedule(timeSchedule time.Duration, handler handler.PostHandler, crowIlnndex int) {

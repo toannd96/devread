@@ -28,11 +28,11 @@ type PostHandler struct {
 
 // PostTrending godoc
 // @Summary Get all posts trending
-// @Tags post-service
+// @Tags post
 // @Accept  json
 // @Produce  json
 // @Success 200 {object} model.Response
-// @Failure 401 {object} model.Response
+// @Failure 404 {object} model.Response
 // @Router /trend [get]
 func (post *PostHandler) PostTrending(c echo.Context) error {
 	repos, err := post.PostRepo.SelectAll(c.Request().Context())
@@ -52,7 +52,7 @@ func (post *PostHandler) PostTrending(c echo.Context) error {
 
 // SearchPost godoc
 // @Summary Search post by tag
-// @Tags post-service
+// @Tags post
 // @Accept  json
 // @Produce  json
 // @Param tag query string true "tag of posts"
@@ -77,12 +77,12 @@ func (post *PostHandler) SearchPost(c echo.Context) error {
 
 // SelectBookmarks godoc
 // @Summary Get list bookmark
-// @Tags bookmark-service
+// @Tags bookmark
 // @Accept  json
 // @Produce  json
 // @Security jwt
 // @Success 200 {object} model.Response
-// @Failure 401 {object} model.Response
+// @Failure 404 {object} model.Response
 // @Router /user/bookmark/list [get]
 func (post *PostHandler) SelectBookmarks(c echo.Context) error {
 	token := c.Get("user").(*jwt.Token)
@@ -105,14 +105,13 @@ func (post *PostHandler) SelectBookmarks(c echo.Context) error {
 
 // Bookmark godoc
 // @Summary Add bookmark
-// @Tags bookmark-service
+// @Tags bookmark
 // @Accept  json
 // @Produce  json
 // @Security jwt
 // @Param data body req.ReqBookmark true "user"
 // @Success 200 {object} model.Response
 // @Failure 400 {object} model.Response
-// @Failure 401 {object} model.Response
 // @Failure 403 {object} model.Response
 // @Failure 409 {object} model.Response
 // @Router /user/bookmark/add [post]
@@ -168,14 +167,13 @@ func (post *PostHandler) Bookmark(c echo.Context) error {
 
 // DelBookmark godoc
 // @Summary Delete bookmark
-// @Tags bookmark-service
+// @Tags bookmark
 // @Accept  json
 // @Produce  json
 // @Security jwt
 // @Param data body req.ReqBookmark true "user"
 // @Success 200 {object} model.Response
 // @Failure 400 {object} model.Response
-// @Failure 401 {object} model.Response
 // @Failure 409 {object} model.Response
 // @Router /user/bookmark/delete [delete]
 func (post *PostHandler) DelBookmark(c echo.Context) error {

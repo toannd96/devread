@@ -1,9 +1,8 @@
 package handle_log
 
 import (
+	"os"
 	"time"
-
-	"github.com/natefinch/lumberjack"
 
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
@@ -30,28 +29,14 @@ func CustomLevelEncoder(level zapcore.Level, enc zapcore.PrimitiveArrayEncoder) 
 }
 
 func logErrorWriter() (zapcore.WriteSyncer, error) {
-	logErrorPath := "./error.log"
-	_, _, _ = zap.Open(logErrorPath)
-
 	return zapcore.NewMultiWriteSyncer(
-		zapcore.AddSync(&lumberjack.Logger{
-			Filename: logErrorPath,
-			MaxSize:  20, // megabytes
-			MaxAge:   3,  // days
-		}),
+		zapcore.AddSync(os.Stdout),
 	), nil
 }
 
 func logInfoWriter() (zapcore.WriteSyncer, error) {
-	logInfoPath := "./info.log"
-	_, _, _ = zap.Open(logInfoPath)
-
 	return zapcore.NewMultiWriteSyncer(
-		zapcore.AddSync(&lumberjack.Logger{
-			Filename: logInfoPath,
-			MaxSize:  20,
-			MaxAge:   3,
-		}),
+		zapcore.AddSync(os.Stdout),
 	), nil
 }
 

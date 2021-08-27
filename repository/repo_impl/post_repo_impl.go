@@ -68,7 +68,7 @@ func (p PostRepoImpl) Update(context context.Context, post model.Post) (model.Po
 	sqlStatement := `
 		UPDATE posts
 		SET
-		    name = :name,
+		    name = :name
 		WHERE link = :link
 	`
 	result, err := p.sql.Db.NamedExecContext(context, sqlStatement, post)

@@ -19,7 +19,7 @@ type Sql struct {
 }
 
 func (s *Sql) Connect() {
-	dataSource := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
+	dataSource := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s",
 		s.Host, s.Port, s.UserName, s.Password, s.DbName)
 
 	s.Db = sqlx.MustConnect(os.Getenv("DB_DRIVER"), dataSource)

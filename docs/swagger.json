@@ -1,21 +1,12 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "Ứng dụng tổng hợp kiến thức cho developer",
+        "description": "Ứng dụng tổng hợp kiến thức cho developer\nTổng hợp bài viết hay nhất trên các blog IT như viblo, toidicodedao, yellowcodebooks, thefullsnack, quan-cam, codeaholicguy,...",
         "title": "DevRead API",
-        "termsOfService": "http://swagger.io/terms/",
-        "contact": {
-            "name": "API Support",
-            "url": "http://www.swagger.io/support",
-            "email": "support@swagger.io"
-        },
-        "license": {
-            "name": "Apache 2.0",
-            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-        },
+        "contact": {},
         "version": "1.0"
     },
-    "host": "localhost:3000",
+    "host": "devread.herokuapp.com",
     "basePath": "/",
     "paths": {
         "/posts": {
@@ -27,7 +18,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "post-service"
+                    "post"
                 ],
                 "summary": "Search post by tag",
                 "parameters": [
@@ -64,7 +55,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "post-service"
+                    "post"
                 ],
                 "summary": "Get all posts trending",
                 "responses": {
@@ -74,8 +65,8 @@
                             "$ref": "#/definitions/model.Response"
                         }
                     },
-                    "401": {
-                        "description": "Unauthorized",
+                    "404": {
+                        "description": "Not Found",
                         "schema": {
                             "$ref": "#/definitions/model.Response"
                         }
@@ -97,7 +88,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "bookmark-service"
+                    "bookmark"
                 ],
                 "summary": "Add bookmark",
                 "parameters": [
@@ -120,12 +111,6 @@
                     },
                     "400": {
                         "description": "Bad Request",
-                        "schema": {
-                            "$ref": "#/definitions/model.Response"
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthorized",
                         "schema": {
                             "$ref": "#/definitions/model.Response"
                         }
@@ -159,7 +144,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "bookmark-service"
+                    "bookmark"
                 ],
                 "summary": "Delete bookmark",
                 "parameters": [
@@ -182,12 +167,6 @@
                     },
                     "400": {
                         "description": "Bad Request",
-                        "schema": {
-                            "$ref": "#/definitions/model.Response"
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthorized",
                         "schema": {
                             "$ref": "#/definitions/model.Response"
                         }
@@ -215,7 +194,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "bookmark-service"
+                    "bookmark"
                 ],
                 "summary": "Get list bookmark",
                 "responses": {
@@ -225,8 +204,8 @@
                             "$ref": "#/definitions/model.Response"
                         }
                     },
-                    "401": {
-                        "description": "Unauthorized",
+                    "404": {
+                        "description": "Not Found",
                         "schema": {
                             "$ref": "#/definitions/model.Response"
                         }
@@ -243,7 +222,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "user-service"
+                    "user"
                 ],
                 "summary": "Forgot password",
                 "parameters": [
@@ -299,7 +278,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "user-service"
+                    "user"
                 ],
                 "summary": "Reset password",
                 "parameters": [
@@ -362,18 +341,12 @@
                     "application/json"
                 ],
                 "tags": [
-                    "profile-service"
+                    "profile"
                 ],
                 "summary": "Get user profile",
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/model.Response"
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthorized",
                         "schema": {
                             "$ref": "#/definitions/model.Response"
                         }
@@ -386,12 +359,6 @@
                     },
                     "404": {
                         "description": "Not Found",
-                        "schema": {
-                            "$ref": "#/definitions/model.Response"
-                        }
-                    },
-                    "500": {
-                        "description": "Internal Server Error",
                         "schema": {
                             "$ref": "#/definitions/model.Response"
                         }
@@ -413,7 +380,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "profile-service"
+                    "profile"
                 ],
                 "summary": "Update user profile",
                 "parameters": [
@@ -464,7 +431,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "user-service"
+                    "user"
                 ],
                 "summary": "Sign in to access your account",
                 "parameters": [
@@ -503,8 +470,8 @@
                             "$ref": "#/definitions/model.Response"
                         }
                     },
-                    "500": {
-                        "description": "Internal Server Error",
+                    "404": {
+                        "description": "Not Found",
                         "schema": {
                             "$ref": "#/definitions/model.Response"
                         }
@@ -521,7 +488,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "user-service"
+                    "user"
                 ],
                 "summary": "Create new account",
                 "parameters": [
@@ -554,12 +521,6 @@
                             "$ref": "#/definitions/model.Response"
                         }
                     },
-                    "404": {
-                        "description": "Not Found",
-                        "schema": {
-                            "$ref": "#/definitions/model.Response"
-                        }
-                    },
                     "409": {
                         "description": "Conflict",
                         "schema": {
@@ -583,7 +544,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "user-service"
+                    "user"
                 ],
                 "summary": "Verify email",
                 "parameters": [
@@ -625,6 +586,12 @@
                     },
                     "403": {
                         "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/model.Response"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
                         "schema": {
                             "$ref": "#/definitions/model.Response"
                         }

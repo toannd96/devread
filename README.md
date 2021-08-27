@@ -1,6 +1,6 @@
 ## DevRead - ứng dụng tổng hợp kiến thức cho developer
 - Tổng hợp bài viết hay nhất trên các blog IT như viblo, toidicodedao, yellowcodebooks, thefullsnack, quan-cam, codeaholicguy,...
-- Nội dung thu thập như trong [tệp](https://github.com/dactoankmapydev/devread/blob/master/huong_dan/posts.csv) không vi phạm bản quyền tác giả
+- Nội dung thu thập như trong [tệp csv](https://github.com/dactoankmapydev/devread/blob/master/huong_dan/posts.csv)
 
 - Danh sách API hiện có:
 

@@ -17,16 +17,7 @@ var doc = `{
     "info": {
         "description": "{{escape .Description}}",
         "title": "{{.Title}}",
-        "termsOfService": "http://swagger.io/terms/",
-        "contact": {
-            "name": "API Support",
-            "url": "http://www.swagger.io/support",
-            "email": "support@swagger.io"
-        },
-        "license": {
-            "name": "Apache 2.0",
-            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-        },
+        "contact": {},
         "version": "{{.Version}}"
     },
     "host": "{{.Host}}",
@@ -41,7 +32,7 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-                    "post-service"
+                    "post"
                 ],
                 "summary": "Search post by tag",
                 "parameters": [
@@ -78,7 +69,7 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-                    "post-service"
+                    "post"
                 ],
                 "summary": "Get all posts trending",
                 "responses": {
@@ -88,8 +79,8 @@ var doc = `{
                             "$ref": "#/definitions/model.Response"
                         }
                     },
-                    "401": {
-                        "description": "Unauthorized",
+                    "404": {
+                        "description": "Not Found",
                         "schema": {
                             "$ref": "#/definitions/model.Response"
                         }
@@ -111,7 +102,7 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-                    "bookmark-service"
+                    "bookmark"
                 ],
                 "summary": "Add bookmark",
                 "parameters": [
@@ -134,12 +125,6 @@ var doc = `{
                     },
                     "400": {
                         "description": "Bad Request",
-                        "schema": {
-                            "$ref": "#/definitions/model.Response"
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthorized",
                         "schema": {
                             "$ref": "#/definitions/model.Response"
                         }
@@ -173,7 +158,7 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-                    "bookmark-service"
+                    "bookmark"
                 ],
                 "summary": "Delete bookmark",
                 "parameters": [
@@ -196,12 +181,6 @@ var doc = `{
                     },
                     "400": {
                         "description": "Bad Request",
-                        "schema": {
-                            "$ref": "#/definitions/model.Response"
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthorized",
                         "schema": {
                             "$ref": "#/definitions/model.Response"
                         }
@@ -229,7 +208,7 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-                    "bookmark-service"
+                    "bookmark"
                 ],
                 "summary": "Get list bookmark",
                 "responses": {
@@ -239,8 +218,8 @@ var doc = `{
                             "$ref": "#/definitions/model.Response"
                         }
                     },
-                    "401": {
-                        "description": "Unauthorized",
+                    "404": {
+                        "description": "Not Found",
                         "schema": {
                             "$ref": "#/definitions/model.Response"
                         }
@@ -257,7 +236,7 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-                    "user-service"
+                    "user"
                 ],
                 "summary": "Forgot password",
                 "parameters": [
@@ -313,7 +292,7 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-                    "user-service"
+                    "user"
                 ],
                 "summary": "Reset password",
                 "parameters": [
@@ -376,18 +355,12 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-                    "profile-service"
+                    "profile"
                 ],
                 "summary": "Get user profile",
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/model.Response"
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthorized",
                         "schema": {
                             "$ref": "#/definitions/model.Response"
                         }
@@ -400,12 +373,6 @@ var doc = `{
                     },
                     "404": {
                         "description": "Not Found",
-                        "schema": {
-                            "$ref": "#/definitions/model.Response"
-                        }
-                    },
-                    "500": {
-                        "description": "Internal Server Error",
                         "schema": {
                             "$ref": "#/definitions/model.Response"
                         }
@@ -427,7 +394,7 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-                    "profile-service"
+                    "profile"
                 ],
                 "summary": "Update user profile",
                 "parameters": [
@@ -478,7 +445,7 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-                    "user-service"
+                    "user"
                 ],
                 "summary": "Sign in to access your account",
                 "parameters": [
@@ -517,8 +484,8 @@ var doc = `{
                             "$ref": "#/definitions/model.Response"
                         }
                     },
-                    "500": {
-                        "description": "Internal Server Error",
+                    "404": {
+                        "description": "Not Found",
                         "schema": {
                             "$ref": "#/definitions/model.Response"
                         }
@@ -535,7 +502,7 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-                    "user-service"
+                    "user"
                 ],
                 "summary": "Create new account",
                 "parameters": [
@@ -568,12 +535,6 @@ var doc = `{
                             "$ref": "#/definitions/model.Response"
                         }
                     },
-                    "404": {
-                        "description": "Not Found",
-                        "schema": {
-                            "$ref": "#/definitions/model.Response"
-                        }
-                    },
                     "409": {
                         "description": "Conflict",
                         "schema": {
@@ -597,7 +558,7 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-                    "user-service"
+                    "user"
                 ],
                 "summary": "Verify email",
                 "parameters": [
@@ -639,6 +600,12 @@ var doc = `{
                     },
                     "403": {
                         "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/model.Response"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
                         "schema": {
                             "$ref": "#/definitions/model.Response"
                         }
@@ -758,11 +725,11 @@ type swaggerInfo struct {
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = swaggerInfo{
 	Version:     "1.0",
-	Host:        "localhost:3000",
+	Host:        "devread.herokuapp.com",
 	BasePath:    "/",
 	Schemes:     []string{},
 	Title:       "DevRead API",
-	Description: "Ứng dụng tổng hợp kiến thức cho developer",
+	Description: "Ứng dụng tổng hợp kiến thức cho developer\nTổng hợp bài viết hay nhất trên các blog IT như viblo, toidicodedao, yellowcodebooks, thefullsnack, quan-cam, codeaholicguy,...",
 }
 
 type s struct{}

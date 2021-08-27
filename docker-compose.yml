@@ -11,13 +11,13 @@ services:
     links:
       - db
       - redis
+
   db:
     image: postgres
     restart: always
-    volumes:
-      - ./1_init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - '5432:5432'
+      
   redis:
     image: redis
     ports:
