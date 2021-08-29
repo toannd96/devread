@@ -19,7 +19,7 @@ import (
 )
 
 func init() {
-	if err := godotenv.Load("pro.env"); err != nil {
+	if err := godotenv.Load(".env-pro"); err != nil {
 		return
 	}
 }
@@ -40,9 +40,12 @@ func main() {
 	// write log
 	log, _ := handle_log.WriteLog()
 
-	// redis details
-	redisHost := os.Getenv("REDIS_HOST")
-	redisPort := os.Getenv("REDIS_PORT")
+	// // Dùng dưới local
+	// redisHost := os.Getenv("REDIS_HOST")
+	// redisPort := os.Getenv("REDIS_PORT")
+
+	// Dùng trên server heroku
+	redisUrl := os.Getenv("REDIS_URL")
 
 	// postgres details
 	host := os.Getenv("DB_HOST")
@@ -53,8 +56,13 @@ func main() {
 
 	// connect redis
 	client := &db.RedisDB{
-		Host:   redisHost,
-		Port:   redisPort,
+		// Dùng dưới local
+		// Host:     redisHost,
+		// Port:     redisPort,
+
+		// Dùng trên server heroku
+		Url: redisUrl,
+
 		Logger: log,
 	}
 	client.NewRedisDB()

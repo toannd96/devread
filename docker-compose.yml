@@ -14,13 +14,10 @@ services:
 
   db:
     image: postgres
-    restart: always
     ports:
       - '5432:5432'
       
   redis:
     image: redis
     ports:
-      - '6379:6379'
-    environment:
-      SERVICE_TAGS: redis-cluster:test
+      - '29759:29759'

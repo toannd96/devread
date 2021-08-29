@@ -50,7 +50,7 @@ func getOnePage(pathURL string) ([]model.Post, error) {
 func QuancamPostV1(postRepo repository.PostRepo) {
 	log, _ := handle_log.WriteLog()
 
-	sem := semaphore.NewWeighted(int64(runtime.NumCPU()))
+	sem := semaphore.NewWeighted(int64(2))
 	group, ctx := errgroup.WithContext(context.Background())
 
 	for page := 1; page <= 4; page++ {

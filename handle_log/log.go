@@ -40,7 +40,7 @@ func logInfoWriter() (zapcore.WriteSyncer, error) {
 	), nil
 }
 
-// Write log to file by level log and console
+// Write log to console by level log
 func WriteLog() (*zap.Logger, error) {
 	highWriteSyncer, errorWriter := logErrorWriter()
 	if errorWriter != nil {

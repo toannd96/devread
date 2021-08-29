@@ -3,7 +3,6 @@ package crawler
 import (
 	"context"
 	"fmt"
-	"runtime"
 	"strings"
 
 	"github.com/gocolly/colly/v2"
@@ -33,7 +32,7 @@ func YellowcodePost(postRepo repository.PostRepo) {
 	})
 
 	c.OnScraped(func(r *colly.Response) {
-		queue := helper.NewJobQueue(runtime.NumCPU())
+		queue := helper.NewJobQueue(2)
 		queue.Start()
 		defer queue.Stop()
 
