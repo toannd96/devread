@@ -19,7 +19,7 @@ require (
 	github.com/google/uuid v1.3.0
 	github.com/jmoiron/sqlx v1.3.4
 	github.com/joho/godotenv v1.3.0
-	github.com/labstack/echo/v4 v4.5.0
+	github.com/labstack/echo/v4 v4.9.0
 	github.com/lib/pq v1.10.2
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/nxadm/tail v1.4.8 // indirect
@@ -41,7 +41,6 @@ require (
 	github.com/go-openapi/swag v0.19.15 // indirect
 	github.com/go-sql-driver/mysql v1.6.0 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
-	github.com/mattn/go-isatty v0.0.13 // indirect
 	github.com/mattn/go-sqlite3 v1.14.8 // indirect
 	github.com/swaggo/files v0.0.0-20210815190702-a29dd2bc99b2 // indirect
 	github.com/temoto/robotstxt v1.1.2 // indirect
