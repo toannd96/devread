@@ -29,9 +29,8 @@ require (
 	github.com/swaggo/echo-swagger v1.1.2
 	github.com/swaggo/swag v1.7.1
 	go.uber.org/zap v1.19.0
-	golang.org/x/crypto v0.0.0-20210817164053-32db794688a5
-	golang.org/x/mod v0.4.1 // indirect
-	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
+	golang.org/x/crypto v0.1.0
+	golang.org/x/sync v0.0.0-20220722155255-886fb9371eb4
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/protobuf v1.27.1 // indirect
 )
