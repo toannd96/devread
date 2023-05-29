@@ -3,7 +3,7 @@
 - Nội dung thu thập như trong [tệp csv](https://github.com/dactoankmapydev/devread/blob/master/huong_dan/posts.csv)
 
 - Danh sách API hiện có tại [API docs](https://devread.herokuapp.com/swagger/index.html)
-
+- Frontend mobile với flutter có tại [repo github](https://github.com/toannd96/flutter_tech_posts_trending)
 - Danh sách bài viết:
 
 ![](https://github.com/dactoankmapydev/devread/blob/master/huong_dan/posts.jpg)
